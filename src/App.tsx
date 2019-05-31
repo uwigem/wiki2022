@@ -3,17 +3,21 @@ import Data, { ContentData, ContentPageData } from './components/data/Data';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 // comment out for production build
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
-let firebasePassIn = firebase;
+// import firebase from 'firebase/app';
+// import 'firebase/auth';
+// import 'firebase/database';
+// let firebasePassIn = firebase;
 
 // uncomment this for the production build
-// let firebasePassIn: any = null;
+let firebasePassIn: any = null;
 
 window.addEventListener("unload", function () { });
 
-const App: React.FC = () => {
+type AppProps = {
+    IEOREDGE: boolean
+}
+
+const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
     const [loading, setLoading] = useState<boolean>(true);
     const [contentData, setContentData] = useState<ContentPageData>(Data.getContentData("BLANK"));
 
@@ -80,9 +84,11 @@ const App: React.FC = () => {
         let dataRef: firebase.database.Reference | null = null;
         if (firebasePassIn) {
             dataRef = firebasePassIn.database().ref("/");
-            dataRef.on("value", (snap) => {
-                setContentData(snap.val() as ContentPageData);
-            });
+            if (dataRef) {
+                dataRef.on("value", (snap) => {
+                    setContentData(snap.val() as ContentPageData);
+                });
+            }
 
             return () => {
                 if (dataRef) {
@@ -126,7 +132,17 @@ const App: React.FC = () => {
 
             TODO: insert custom app bar here
 
+            {!loading && <>
+                <div style={{
+                    minHeight: "100vh"
+                }}>
 
+                </div>
+                TODO: insert footbar
+            </>}
+
+            {loading &&
+                <>TODO: LOADING</>}
         </MuiThemeProvider>
     </div>
 }
