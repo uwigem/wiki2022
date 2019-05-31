@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import Data, { ContentData, ContentPageData } from './components/data/Data';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 // comment out for production build
 import firebase from 'firebase/app';
