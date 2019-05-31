@@ -1,14 +1,9 @@
 export default class NavbarData {
-    private data: NavbarType[];
-    constructor() {
-        this.data = navbarData;
-    }
-
     /**
      * getData returns the navbar data
      */
-    getData() {
-        return this.data;
+    static getData() {
+        return navbarData;
     }
 }
 
