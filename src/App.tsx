@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Data, { ContentData, ContentPageData } from './components/data/Data';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 
 // comment out for production build
 import firebase from 'firebase/app';
@@ -23,6 +24,21 @@ const App: React.FC = () => {
     let imgsLoaded = 0;
     let pageTitle = debugURL;
     let debugMode = true;
+
+    const displayConstants = Data.getDisplayConstants(pageTitle);
+    const theme = createMuiTheme({
+        palette: {
+            primary: {
+                main: displayConstants.primaryColor as string
+            },
+            secondary: {
+                main: displayConstants.secondaryColor as string
+            }
+        },
+        typography: {
+            fontFamily: "Raleway"
+        }
+    });
 
     /**
      * Prefetch images will grab images to load in the background after the page has loaded
@@ -96,13 +112,24 @@ const App: React.FC = () => {
      *       )
      *   }
      */
-    const displayLoadingMessage = () => {
+    const a = () => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
         }, 3000);
     }
 
+    return <div className="App">
+        <MuiThemeProvider theme={theme}>
+            {debugMode && <>
+                TODO: insert debug header here
+            </>}
+
+            TODO: insert custom app bar here
+
+
+        </MuiThemeProvider>
+    </div>
 }
 
 
