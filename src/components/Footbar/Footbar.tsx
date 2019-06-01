@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
 import { faGithub, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { Grid, Row } from 'react-flexbox-grid';
@@ -8,7 +7,6 @@ import "./Footbar.css";
 // @ts-ignore
 import Zoom from 'react-reveal/Zoom';
 import { FootbarIcon } from './FootbarIcon/FootbarIcon';
-import { WindowWidthContext } from '../../contexts/WindowWidthContext';
 
 type FootbarProps = {
     a: () => void
@@ -20,7 +18,6 @@ type FootbarProps = {
  * The page should be more than 100vh long which is mandated by a style within App.tsx
  */
 export const Footbar: React.FC<FootbarProps> = ({ a }) => {
-    const { windowWidth } = useContext(WindowWidthContext);
 
     let items = [
         {
