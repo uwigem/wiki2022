@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Data, { ContentData, ContentPageData } from './components/data/Data';
+import Data, { ContentPageData } from './components/data/Data';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { DebugHeader } from './components/debug/DebugHeader/DebugHeader';
+import { Footbar } from './components/Footbar/Footbar';
+import { useWindowWidth } from './hooks/useWindowWidth';
+import { WindowWidthContext } from './contexts/WindowWidthContext';
 
 // comment out for production build
 // import firebase from 'firebase/app';
@@ -16,17 +20,19 @@ window.addEventListener("unload", function () { });
 type AppProps = {
     IEOREDGE: boolean
 }
+const debugURL = "/Attributions";
 
 const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
     const [loading, setLoading] = useState<boolean>(true);
     const [contentData, setContentData] = useState<ContentPageData>(Data.getContentData("BLANK"));
+    const [pageTitle, setPageTitle] = useState<string>(debugURL)
+    const [debugMode, setDebugMode] = useState<boolean>(true);
+    const [imagesLoaded, setImagesLoaded] = useState<Number>(0);
+    const windowWidth = useWindowWidth();
 
-    let debugURL = "/Attributions";
     let name = "https://2019.igem.org/Team:Washington";
     let imgsToPrefetch: string[] = Data.getImgsToPrefetch();
     let imgsLoaded = 0;
-    let pageTitle = debugURL;
-    let debugMode = true;
 
     const displayConstants = Data.getDisplayConstants(pageTitle);
     const theme = createMuiTheme({
@@ -44,29 +50,6 @@ const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
     });
 
     /**
-     * Prefetch images will grab images to load in the background after the page has loaded
-     */
-    const prefetchImagesWaveTwo = () => {
-
-    }
-
-    /**
-     * Prefetch images will grab images to load in the background after the page has loaded
-     */
-    const prefetchImages = () => {
-        imgsToPrefetch.forEach((imgURL: string) => {
-            const img = new Image();
-            img.src = imgURL;
-            img.onload = () => {
-                imgsLoaded++;
-                if (imgsLoaded === imgsToPrefetch.length) {
-                    prefetchImagesWaveTwo();
-                }
-            }
-        })
-    }
-
-    /**
      * Upon component mount, this effect determines if it is currently on the live website or not.
      * It sets the `pageTitle` to be `debugURL` if not live, or the text after `"Team:Washington"`
      * in the URL.
@@ -74,11 +57,34 @@ const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
      * eg "2019.igem.org/Team:Washington/Design" -> "/Design"
      */
     useEffect(() => {
+        /**
+         * Prefetch images will grab images to load in the background after the page has loaded
+         */
+        const prefetchImagesWaveTwo = () => {
+
+        }
+
+        /**
+         * Prefetch images will grab images to load in the background after the page has loaded
+         */
+        const prefetchImages = () => {
+            imgsToPrefetch.forEach((imgURL: string) => {
+                const img = new Image();
+                img.src = imgURL;
+                img.onload = () => {
+                    imgsLoaded++;
+                    if (imgsLoaded === imgsToPrefetch.length) {
+                        prefetchImagesWaveTwo();
+                    }
+                }
+            })
+        }
+
         prefetchImages();
         let splitTitle = window.location.href.split("igem");
         if (splitTitle.length === 2) {
-            pageTitle = splitTitle[1].split("Team:Washington")[1];
-            debugMode = false;
+            setPageTitle(splitTitle[1].split("Team:Washington")[1]);
+            setDebugMode(false);
         }
         setLoading(false);
         let dataRef: firebase.database.Reference | null = null;
@@ -98,7 +104,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
         } else {
             setContentData(Data.getContentData(pageTitle))
         }
-    }, []);
+    }, [pageTitle, imgsLoaded, imgsToPrefetch]);
 
     /**
      * Sets the loading state to true. This is used for in between pages. This function MUST be sent
@@ -125,25 +131,27 @@ const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
     }
 
     return <div className="App">
-        <MuiThemeProvider theme={theme}>
-            {debugMode && <>
-                TODO: insert debug header here
-            </>}
+        <WindowWidthContext.Provider value={{ windowWidth }}>
+            <MuiThemeProvider theme={theme}>
+                {debugMode && <>
+                    <DebugHeader />
+                </>}
 
-            TODO: insert custom app bar here
+                TODO: insert custom app bar here
 
             {!loading && <>
-                <div style={{
-                    minHeight: "100vh"
-                }}>
+                    <div style={{
+                        minHeight: "100vh"
+                    }}>
 
-                </div>
-                TODO: insert footbar
-            </>}
+                    </div>
+                    <Footbar a={a} />
+                </>}
 
-            {loading &&
-                <>TODO: LOADING</>}
-        </MuiThemeProvider>
+                {loading &&
+                    <>TODO: LOADING</>}
+            </MuiThemeProvider>
+        </WindowWidthContext.Provider>
     </div>
 }
 

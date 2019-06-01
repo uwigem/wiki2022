@@ -44,6 +44,7 @@ const imgs: string[] = [];
 // TODO: TO BE DETERMINED
 export type ContentSingularData = {
     [idx: string]: string
+    // name: string
 }
 
 export type ContentPageData = {

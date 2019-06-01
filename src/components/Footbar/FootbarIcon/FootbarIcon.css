@@ -1,0 +1,18 @@
+.footbar-icon {
+    -o-transition: .2s;
+    -ms-transition: .2s;
+    -moz-transition: .2s;
+    -webkit-transition: .2s;
+    transition: .2s;
+    cursor: pointer;
+    margin: 10px;
+    width: 50px;
+}
+
+.footbar-icon-nonhover {
+    color: white;
+}
+
+.footbar-icon-hover {
+    color: #420dab;
+}

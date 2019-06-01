@@ -9,7 +9,9 @@ a {
     outline: 0;
 }
 
-.debugheader {
+
+
+.debug-header {
     height: 18px;
     background-color: var(--debugHeaderColor);
     margin-top: 28px;
