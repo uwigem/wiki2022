@@ -48,7 +48,7 @@ export type ContentSingularData = {
 }
 
 export type ContentPageData = {
-    title: String,
+    title: string,
     data: ContentSingularData[]
 }
 
@@ -66,7 +66,7 @@ export type PageSpecificColors = {
 
 export type DisplayConstants = {
     primaryColor: string,
-    secondaryColor: String,
+    secondaryColor: string,
     globalColor: boolean,
     pageSpecificColors: PageSpecificColors,
     logo: string,

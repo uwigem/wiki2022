@@ -27,7 +27,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
     const [contentData, setContentData] = useState<ContentPageData>(Data.getContentData("BLANK"));
     const [pageTitle, setPageTitle] = useState<string>(debugURL)
     const [debugMode, setDebugMode] = useState<boolean>(true);
-    const [imagesLoaded, setImagesLoaded] = useState<Number>(0);
+    const [imagesLoaded, setImagesLoaded] = useState<number>(0);
     const windowWidth = useWindowWidth();
 
     let name = "https://2019.igem.org/Team:Washington";
