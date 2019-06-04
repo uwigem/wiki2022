@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Data, { ContentPageData } from './components/data/Data';
+import Data, { ContentPageData } from './components/_data/Data';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { DebugHeader } from './components/debug/DebugHeader/DebugHeader';
+import { DebugHeader } from './components/_debug/DebugHeader/DebugHeader';
 import { Footbar } from './components/Footbar/Footbar';
 import { useWindowWidth } from './hooks/useWindowWidth';
 import { WindowWidthContext } from './contexts/WindowWidthContext';
@@ -79,12 +79,13 @@ const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
                 }
             })
         }
-
         prefetchImages();
         let splitTitle = window.location.href.split("igem");
         if (splitTitle.length === 2) {
             setPageTitle(splitTitle[1].split("Team:Washington")[1]);
             setDebugMode(false);
+        } else {
+            import("./components/_debug/DebugFonts");
         }
         setLoading(false);
         let dataRef: firebase.database.Reference | null = null;

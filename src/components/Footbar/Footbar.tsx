@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
 import "./Footbar.css";
 import { FootbarIcon } from './FootbarIcon/FootbarIcon';
-import { FootbarItems, FootbarItem } from '../data/FootbarData/FootbarData';
+import { FootbarItems, FootbarItem } from '../_data/FootbarData/FootbarData';
 import { WindowWidthContext } from '../../contexts/WindowWidthContext';
 
 type FootbarProps = {
@@ -24,8 +24,8 @@ export const Footbar: React.FC<FootbarProps> = ({ a }) => {
         <Grid fluid>
             <Row center="xs" middle="xs" style={{ height: "30vh" }}>
                 {items.map((item: FootbarItem) => {
-                    return item.logo ? <FootbarIcon minimized={minimized} logo link={item.link} a={a} /> :
-                        <FootbarIcon minimized={minimized} icon={item.icon} link={item.link} a={a} />
+                    return item.logo ? <FootbarIcon key={item.key} minimized={minimized} logo link={item.link} a={a} /> :
+                        <FootbarIcon key={item.key} minimized={minimized} icon={item.icon} link={item.link} a={a} />
                 })}
             </Row>
         </Grid>

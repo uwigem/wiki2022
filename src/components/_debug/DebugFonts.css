@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "Abel";
+    /** TODO: UPLOAD THESE TO THE 2019 PAGE */
+    src: url(http://2018.igem.org/wiki/images/7/7d/T--Washington--AbelFont.TTF) format("truetype") !important;
+}
+
+@font-face {
+    font-family: "Seg";
+    src: url(http://2018.igem.org/wiki/images/c/ce/T--Washington--SegoeUIL.ttf) format("truetype") !important;
+}
+
+@font-face {
+    font-family: "Leixo";
+    src: url(http://2018.igem.org/wiki/images/4/4a/T--Washington--LeixoFont.ttf) format("truetype") !important;
+}
+
+@font-face {
+    font-family: "Raleway";
+    src: url(http://2018.igem.org/wiki/images/1/11/T--Washington--RalewayRegular.ttf) format("truetype") !important;
+}
+
+@font-face {
+    font-family: "RalewayBold";
+    src: url(http://2018.igem.org/wiki/images/c/cb/T--Washington--RalewayBold.ttf) format("truetype") !important;
+}
