@@ -1,9 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Col } from 'react-flexbox-grid';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './FootbarIcon.css';
-import { WindowWidthContext } from '../../../contexts/WindowWidthContext';
 import { Logo } from './Logo/Logo';
 
 // The following is TS Ignored because it does not have any typescript types
@@ -14,6 +13,7 @@ type FootbarIconProps = {
     icon?: IconDefinition,
     logo?: boolean,
     link: string,
+    minimized: boolean,
     a: () => void
 }
 
@@ -22,11 +22,8 @@ type FootbarIconProps = {
  * 
  * The tema logo is an icon
  */
-export const FootbarIcon: React.FC<FootbarIconProps> = ({ icon, logo, link, a }) => {
+export const FootbarIcon: React.FC<FootbarIconProps> = ({ minimized, icon, logo, link, a }) => {
     const [hover, setHover] = useState<boolean>(false);
-    const { windowWidth } = useContext(WindowWidthContext);
-
-    const minimized: boolean = windowWidth < 420;
 
     return <Zoom clear cascade duration={1000}><Col>
         <a onClick={a} href={link}
