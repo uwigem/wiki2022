@@ -9,7 +9,13 @@ type AppBarDropdownProps = {
 export const AppBarDropdowns: React.FC<AppBarDropdownProps> = ({ name, pageTitle, a }) => {
     return <>
         {NavbarData.getData().map((navbarItem: NavbarType) => {
-            return <AppBarDropdown a={a} name={name} pageTitle={pageTitle} navbarItem={navbarItem} />
+            return <AppBarDropdown
+                key={navbarItem.key}
+                a={a}
+                name={name}
+                pageTitle={pageTitle}
+                navbarItem={navbarItem}
+            />
         })}
     </>
 }
