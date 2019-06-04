@@ -34,11 +34,10 @@ export const AppBarDropdownItemsForwardRefs = forwardRef((props: AppBarDropdownI
 export const AppBarDropdownItems: React.FC<AppBarDropdownItemsPropsWithRef> = ({
     pageTitle, navbarItem, setAnchorEl, dropdownItemNames, a, name, innerRef
 }) => {
-
     /**
-         * Gets the link of the matching name for the menu item. Special case for "home"
-         * @param index index of the matching link from name 
-         */
+     * Gets the link of the matching name for the menu item. Special case for "home"
+     * @param index index of the matching link from name 
+     */
     const getLink: (index: number) => string = (index: number) => {
         let link = `${name}${navbarItem.links[index]}`;
         if (navbarItem.key === "home") {
@@ -57,7 +56,6 @@ export const AppBarDropdownItems: React.FC<AppBarDropdownItemsPropsWithRef> = ({
                 disabled={pageTitle === navbarItem.links[index]}
                 key={name}
                 onClick={() => { a(); setAnchorEl(null); }}
-            // value={index}
             >
                 {name}
             </MenuItem>
