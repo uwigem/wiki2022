@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import { NavbarType } from '../../../_data/NavbarData/NavbarData';
 import Menu from '@material-ui/core/Menu';
 import './AppBarDropdown.css';
-import { AppBarDropdownItems } from './AppBarDropdownItems/AppBarDropdownItems';
+import { AppBarDropdownItemsForwardRefs } from './AppBarDropdownItems/AppBarDropdownItems';
 
 type AppBarDropdownProps = {
     a: () => void,
@@ -31,6 +31,7 @@ export const AppBarDropdown: React.FC<AppBarDropdownProps> = ({ name, pageTitle,
             id="appbar-menu"
             anchorEl={anchorEl}
             open={Boolean(anchorEl)}
+            keepMounted
             onClose={() => { setAnchorEl(null) }}
             anchorOrigin={{
                 vertical: 45,
@@ -42,7 +43,7 @@ export const AppBarDropdown: React.FC<AppBarDropdownProps> = ({ name, pageTitle,
             }}
             getContentAnchorEl={null}
         >
-            <AppBarDropdownItems
+            <AppBarDropdownItemsForwardRefs
                 pageTitle={pageTitle}
                 navbarItem={navbarItem}
                 setAnchorEl={setAnchorEl}
