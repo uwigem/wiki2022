@@ -20,7 +20,7 @@ type FootbarIconProps = {
 /**
  * FootbarIcon is a single icon that appears in the footbar
  * 
- * The tema logo is an icon
+ * The team logo is an icon
  */
 export const FootbarIcon: React.FC<FootbarIconProps> = ({ minimized, icon, logo, link, a }) => {
     const [hover, setHover] = useState<boolean>(false);

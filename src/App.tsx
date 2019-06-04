@@ -5,6 +5,7 @@ import { DebugHeader } from './components/debug/DebugHeader/DebugHeader';
 import { Footbar } from './components/Footbar/Footbar';
 import { useWindowWidth } from './hooks/useWindowWidth';
 import { WindowWidthContext } from './contexts/WindowWidthContext';
+import { LoadingScreen } from './components/LoadingScreen/LoadingScreen';
 
 // comment out for production build
 // import firebase from 'firebase/app';
@@ -27,7 +28,6 @@ const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
     const [contentData, setContentData] = useState<ContentPageData>(Data.getContentData("BLANK"));
     const [pageTitle, setPageTitle] = useState<string>(debugURL)
     const [debugMode, setDebugMode] = useState<boolean>(true);
-    const [imagesLoaded, setImagesLoaded] = useState<number>(0);
     const windowWidth = useWindowWidth();
 
     let name = "https://2019.igem.org/Team:Washington";
@@ -139,7 +139,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
 
                 TODO: insert custom app bar here
 
-            {!loading && <>
+                {!loading && <>
                     <div style={{
                         minHeight: "100vh"
                     }}>
@@ -149,7 +149,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
                 </>}
 
                 {loading &&
-                    <>TODO: LOADING</>}
+                    <LoadingScreen />}
             </MuiThemeProvider>
         </WindowWidthContext.Provider>
     </div>
