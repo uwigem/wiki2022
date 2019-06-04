@@ -6,9 +6,9 @@ import './FootbarIcon.css';
 import { WindowWidthContext } from '../../../contexts/WindowWidthContext';
 import { Logo } from './Logo/Logo';
 
+// The following is TS Ignored because it does not have any typescript types
 //@ts-ignore
 import Zoom from 'react-reveal/Zoom';
-
 
 type FootbarIconProps = {
     icon?: IconDefinition,
@@ -17,6 +17,11 @@ type FootbarIconProps = {
     a: () => void
 }
 
+/**
+ * FootbarIcon is a single icon that appears in the footbar
+ * 
+ * The tema logo is an icon
+ */
 export const FootbarIcon: React.FC<FootbarIconProps> = ({ icon, logo, link, a }) => {
     const [hover, setHover] = useState<boolean>(false);
     const { windowWidth } = useContext(WindowWidthContext);

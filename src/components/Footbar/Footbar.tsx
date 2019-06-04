@@ -1,9 +1,6 @@
 import React from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
 import "./Footbar.css";
-
-// @ts-ignore
-import Zoom from 'react-reveal/Zoom';
 import { FootbarIcon } from './FootbarIcon/FootbarIcon';
 import { FootbarItems, FootbarItem } from '../data/FootbarData/FootbarData';
 

@@ -6,6 +6,9 @@ type LogoProps = {
     minimized: boolean
 }
 
+/**
+ * Logo is the main team logo. We will have to modify this as the team logo changes.
+ */
 export const Logo: React.FC<LogoProps> = ({ hover, minimized }) => {
     return <div className={`logo-outside ${minimized ? "logo-outside-minimized" : "logo-outside-regular"}`}>
         <svg

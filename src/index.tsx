@@ -44,13 +44,11 @@ const notSupportedMessage = (browser: string) => {
 
 const currAccessDate = Date.now();
 
-// Ensure that people are at the correct year. Unix epoch time here is for June 14, 2020
-// 1592092800000
+// Ensure that people are at the correct year. 
 if (currAccessDate > correctYearUnixEpochMS) {
     let yearAsDate = new Date(currAccessDate);
     let year = yearAsDate.getFullYear();
 
-    // Triple check.
     if (Number(year) <= currYear) {
         year = currYear + 1;
     }

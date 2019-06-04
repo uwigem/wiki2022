@@ -8,6 +8,9 @@ export type FootbarItem = {
     logo?: boolean
 }
 
+/**
+ * FootbarItems is the data structure for the items in the footbar
+ */
 export const FootbarItems: FootbarItem[] = [
     {
         icon: faFacebook,
