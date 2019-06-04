@@ -13,11 +13,14 @@ export type NavbarType = {
     links: string[]
 }
 
+export const HomeLink = "https://2019.igem.org/Team:Washington";
+
 let navbarData: NavbarType[] = [
     {
         title: "Home",
-        names: ["Home", "UW 2017", "UW 2016", "UW 2015", "UW 2014", "UW 2013", "UW 2012", "UW 2011", "UW 2010", "UW 2009", "UW 2008"],
+        names: ["Home", "UW 2018", "UW 2017", "UW 2016", "UW 2015", "UW 2014", "UW 2013", "UW 2012", "UW 2011", "UW 2010", "UW 2009", "UW 2008"],
         links: [
+            "https://2019.igem.org/Team:Washington",
             "http://2018.igem.org/Team:Washington",
             "http://2017.igem.org/Team:Washington",
             "http://2016.igem.org/Team:Washington",
@@ -33,8 +36,8 @@ let navbarData: NavbarType[] = [
     },
     {
         title: "Project",
-        names: ["Project Description", "Design", "Experiments", "Notebook", "InterLab", "Model", "Results", "Parts", "Hardware"],
-        links: ["/Description", "/Design", "/Experiments", "/Notebook", "/InterLab", "/Model", "/Results", "/Parts", "/Hardware"]
+        names: ["Project Description", "Design", "Experiments", "Notebook", "InterLab", "Model", "Results", "Parts"],
+        links: ["/Description", "/Design", "/Experiments", "/Notebook", "/InterLab", "/Model", "/Results", "/Parts"]
     },
     {
         title: "Human Practices",

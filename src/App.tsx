@@ -6,6 +6,7 @@ import { Footbar } from './components/Footbar/Footbar';
 import { useWindowWidth } from './hooks/useWindowWidth';
 import { WindowWidthContext } from './contexts/WindowWidthContext';
 import { LoadingScreen } from './components/LoadingScreen/LoadingScreen';
+import { CustomAppBar } from './components/CustomAppBar/CustomAppBar';
 
 // comment out for production build
 // import firebase from 'firebase/app';
@@ -138,6 +139,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
                     <DebugHeader />
                 </>}
 
+                <CustomAppBar name={name} pageTitle={pageTitle} a={a} />
                 TODO: insert custom app bar here
 
                 {!loading && <>
