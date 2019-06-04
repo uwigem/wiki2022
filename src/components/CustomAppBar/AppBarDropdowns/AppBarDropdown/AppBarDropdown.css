@@ -1,0 +1,10 @@
+.appbar-dropdown {
+    padding-top: 16px;
+}
+
+.appbar-dropdown-button {
+    margin: 2px;
+    text-transform: none;
+    font-family: RalewayBold;
+    margin-left: 15px;
+}
