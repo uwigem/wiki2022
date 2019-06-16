@@ -5,6 +5,8 @@
 .appbar-dropdown-button {
     margin: 2px;
     text-transform: none;
-    font-family: RalewayBold;
+    font-family: Raleway;
+    font-weight: bold !important;
+    color: white !important;
     margin-left: 15px;
 }

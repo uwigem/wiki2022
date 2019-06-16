@@ -9,8 +9,6 @@ a {
     outline: 0;
 }
 
-
-
 .debug-header {
     height: 18px;
     background-color: var(--debugHeaderColor);
@@ -31,7 +29,8 @@ header {
 }
 
 @font-face {
-    font-family: "Abel"; /** TODO: UPLOAD THESE TO THE 2019 PAGE */
+    font-family: "Abel";
+    /** TODO: UPLOAD THESE TO THE 2019 PAGE */
     src: url(http://2018.igem.org/wiki/images/7/7d/T--Washington--AbelFont.TTF) format("truetype");
 }
 
@@ -47,16 +46,17 @@ header {
 
 @font-face {
     font-family: "Raleway";
+    font-weight: 400;
     src: url(http://2018.igem.org/wiki/images/1/11/T--Washington--RalewayRegular.ttf) format("truetype");
 }
 
 @font-face {
-    font-family: "RalewayBold";
-    src: url(http://2018.igem.org/wiki/images/c/cb/T--Washington--RalewayBold.ttf) format("truetype");
+    font-family: "Raleway";
+    font-weight: 700;
+    src: url(http://2018.igem.org/wiki/images/1/11/T--Washington--RalewayRegular.ttf) format("truetype");
 }
 
-.App,
-#root {
+.App, #root {
     margin: 0px;
     margin-top: -18px;
     padding: 0;
@@ -85,31 +85,25 @@ header {
     padding: 0;
 }
 
-#top_menu_under,
-#top_menu_14,
-#top_menu_inside {
+#top_menu_under, #top_menu_14, #top_menu_inside {
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
     height: 16px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
+h1, h2, h3, h4, h5 {
     margin: 0;
     padding: 0;
     padding-top: 15px;
     border: none;
     font-size: default;
     font-weight: bold;
-    font-family: 'RalewayBold';
+    font-family: Raleway;
     color: var(--headerTagColor);
 }
 
 a[href ^="https://"] {
-    padding: 0;
+    padding: 0px;
 }
 
 .submenu div {
@@ -129,17 +123,7 @@ a[href ^="https://"] {
     background: #C6c6c6;
 }
 
-/* li,
-ul {
-    margin: 0;
-    line-height: normal;
-    list-style-type: none;
-    list-style-image: none;
-    display: block;
-} */
-
-.mw-content-ltr ul,
-.mw-content-rtl .mw-content-ltr ul {
+.mw-content-ltr ul, .mw-content-rtl .mw-content-ltr ul {
     margin: 0;
     padding: 0;
 }
@@ -169,8 +153,7 @@ table {
     margin-bottom: 20px;
 }
 
-th,
-td {
+th, td {
     padding: 2px;
     border-bottom: 2px solid #ddd;
 }
@@ -179,8 +162,7 @@ tr:hover {
     background-color: #ddd;
 }
 
-pre,
-code {
+pre, code {
     padding: 0px;
     border: none;
     background: none;
@@ -194,7 +176,7 @@ code {
 
 code {
     max-width: 100%;
-    text-overflow: ellipsis;   
+    text-overflow: ellipsis;
 }
 
 .md pre {

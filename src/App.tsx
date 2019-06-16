@@ -7,6 +7,8 @@ import { useWindowWidth } from './hooks/useWindowWidth';
 import { WindowWidthContext } from './contexts/WindowWidthContext';
 import { LoadingScreen } from './components/LoadingScreen/LoadingScreen';
 import { CustomAppBar } from './components/CustomAppBar/CustomAppBar';
+import { DebugFonts } from './components/_debug/DebugFonts';
+import "./App.css";
 
 // comment out for production build
 // import firebase from 'firebase/app';
@@ -86,7 +88,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
             setPageTitle(splitTitle[1].split("Team:Washington")[1]);
             setDebugMode(false);
         } else {
-            import("./components/_debug/DebugFonts");
+            DebugFonts(); // Set fonts in body
         }
         setLoading(false);
         let dataRef: firebase.database.Reference | null = null;
@@ -140,13 +142,10 @@ const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
                 </>}
 
                 <CustomAppBar name={name} pageTitle={pageTitle} a={a} />
-                TODO: insert custom app bar here
 
                 {!loading && <>
-                    <div style={{
-                        minHeight: "100vh"
-                    }}>
-
+                    <div className="app-content">
+                        This page is under construction
                     </div>
                     <Footbar a={a} />
                 </>}
