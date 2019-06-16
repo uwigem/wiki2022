@@ -144,7 +144,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
                 <CustomAppBar name={name} pageTitle={pageTitle} a={a} />
 
                 {!loading && <>
-                    <div className="app-content">
+                    <div className={debugMode ? "app-content-dev" : "app-content-real"}>
                         This page is under construction
                     </div>
                     <Footbar a={a} />

@@ -1,7 +1,7 @@
 .appbar-dropdown-items {
-    color: #000000;
-    text-decoration: none;
-    font-family: Raleway;
+    color: #000000 !important;
+    text-decoration: none !important;
+    font-family: Raleway !important;
     font-weight: bold !important;
     padding-left: 16px !important;
     padding-right: 16px !important;
