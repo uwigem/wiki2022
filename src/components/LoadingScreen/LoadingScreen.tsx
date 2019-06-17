@@ -3,6 +3,10 @@ import './LoadingScreen.css';
 
 /**
  * LoadingScreen is the page that appears when the page is loading
+ * 
+ * Last Modified
+ * William Kwok
+ * June 16, 2019
  */
 export const LoadingScreen: React.FC = () => {
     return <div className={"loading-screen-outer"}>

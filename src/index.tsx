@@ -4,12 +4,21 @@ import './index.css';
 import App from './App';
 import { detect } from 'detect-browser';
 
+/**
+ * Index handles configuration as well as being the main injection point for the application
+ * 
+ * Last Modified
+ * William Kwok
+ * June 16, 2019
+ */
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////// CONFIG ////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // COMMENT/UNCOMMENT BELOW TO ENABLE OR DISABLE FIREBASE TO THE PROJECT
 import firebase from 'firebase';
+import 'firebase/messaging';
 const firebaseConfig = {
     apiKey: "AIzaSyBkr6jirFdzkMofucO2z_KzN13hMDeWkVI",
     authDomain: "uwigem-wikis.firebaseapp.com",
@@ -19,8 +28,9 @@ const firebaseConfig = {
     messagingSenderId: "131891776719",
     appId: "1:131891776719:web:0bf2382aec94dcdf"
 };
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+// let provider = new firebase.auth.GoogleAuthProvider();
+// firebase.auth().signInWithPopup(provider);
 
 // ENTER THE CURRENT iGEM SEASON YEAR AS IN THE iGEM WIKI LINK (eg 2019.igem.org)
 let currYear = 2019;
@@ -34,33 +44,16 @@ document.title = "Washington iGEM";
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * The code below will detect the browser and notify the user if they are on an unsupported browser
+ */
 const browser = detect();
-
 const notSupportedMessage = (browser: string) => {
     alert(`${browser.toUpperCase()} is not entirely supported by Team Washington's Team Wiki. For best performance please use Firefox or Google Chrome! 
     
     You may continue to use the site, but please note that there will be bugs and poor performance. Sorry for any inconvenience, and thank you!`)
 }
-
-const currAccessDate = Date.now();
-
-// Ensure that people are at the correct year. 
-if (currAccessDate > correctYearUnixEpochMS) {
-    let yearAsDate = new Date(currAccessDate);
-    let year = yearAsDate.getFullYear();
-
-    if (Number(year) <= currYear) {
-        year = currYear + 1;
-    }
-    alert(`You are currently viewing our ${year - 1} project.
-    
-Check out our ${year} project over at the link below!
-
-http://${year}.igem.org/Team:Washington.`)
-}
-
 let IEOREDGE = false;
-
 switch (browser && browser.name) {
     case 'edge':
         IEOREDGE = true;
@@ -79,5 +72,29 @@ switch (browser && browser.name) {
         break;
 }
 
+/**
+ * The code below will ensure the user is at the correct year.
+ */
+const currAccessDate = Date.now();
 
-ReactDOM.render(<App IEOREDGE={IEOREDGE} />, document.getElementById('root'));
+// Ensure that people are at the correct year. 
+if (currAccessDate > correctYearUnixEpochMS) {
+    let yearAsDate = new Date(currAccessDate);
+    let year = yearAsDate.getFullYear();
+
+    if (Number(year) <= currYear) {
+        year = currYear + 1;
+    }
+    alert(`You are currently viewing our ${year - 1} project.
+    
+Check out our ${year} project over at the link below!
+
+http://${year}.igem.org/Team:Washington.`)
+}
+
+/**
+ * Render the app into the root element, and provide if the browser is IE or Edge into the props
+ * In the future, you may want to change this prop to the browser name instead, or extend it to
+ * work with browsers that are behind, such as Safari.
+ */
+ReactDOM.render(<App IEOREDGE={IEOREDGE} currYear={currYear} />, document.getElementById('root'));

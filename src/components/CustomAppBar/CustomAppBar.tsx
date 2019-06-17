@@ -17,6 +17,10 @@ type CustomAppBarProps = {
 
 /**
  * CustomAppBar is the application bar that (currently) uses MaterialUI
+ * 
+ * Last Modified
+ * William Kwok
+ * June 16, 2019
  */
 export const CustomAppBar: React.FC<CustomAppBarProps> = ({ name, pageTitle, a }) => {
     const { windowWidth } = useContext(WindowWidthContext);

@@ -19,21 +19,31 @@ import "./App.css";
 // uncomment this for the production build
 let firebasePassIn: any = null;
 
+// This line is to remove a bug that Firefox has
+// TODO: insert link explaining why
 window.addEventListener("unload", function () { });
 
 type AppProps = {
-    IEOREDGE: boolean
+    IEOREDGE: boolean,
+    currYear: number
 }
 const debugURL = "/Attributions";
 
-const App: React.FC<AppProps> = ({ IEOREDGE: boolean }) => {
+/**
+ * App is the main application that handles all the route logic and rendering.
+ * 
+ * Last Modified
+ * William Kwok
+ * June 16, 2019
+ */
+const App: React.FC<AppProps> = ({ IEOREDGE, currYear }) => {
     const [loading, setLoading] = useState<boolean>(true);
     const [contentData, setContentData] = useState<ContentPageData>(Data.getContentData("BLANK"));
     const [pageTitle, setPageTitle] = useState<string>(debugURL)
     const [debugMode, setDebugMode] = useState<boolean>(true);
     const windowWidth = useWindowWidth();
 
-    let name = "https://2019.igem.org/Team:Washington";
+    let name = `https://${currYear}.igem.org/Team:Washington`;
     let imgsToPrefetch: string[] = Data.getImgsToPrefetch();
     let imgsLoaded = 0;
 

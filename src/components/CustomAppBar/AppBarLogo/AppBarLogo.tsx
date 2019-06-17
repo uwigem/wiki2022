@@ -7,6 +7,10 @@ const logoHeight = 30;
 
 /**
  * AppBarLogo is (currently) the W logo on the top left for the App Bar
+ * 
+ * Last Modified
+ * William Kwok
+ * June 16, 2019
  */
 export const AppBarLogo: React.FC = () => {
     return <Typography className={"appbar-logo"} color="primary">

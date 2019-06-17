@@ -12,10 +12,19 @@ type AppBarDropdownProps = {
     navbarItem: NavbarType,
 }
 
-export const AppBarDropdown: React.FC<AppBarDropdownProps> = ({ name, pageTitle, navbarItem, a }) => {
+/**
+ * AppBarDropdown is the dropdown for a single dropdown component in the navigation bar
+ * 
+ * Last Modified
+ * William Kwok
+ * June 16, 2019
+ */
+export const AppBarDropdown: React.FC<AppBarDropdownProps> = ({
+    name,
+    pageTitle,
+    navbarItem,
+    a }) => {
     const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-
-
 
     return <div className={"appbar-dropdown"}>
         <Button

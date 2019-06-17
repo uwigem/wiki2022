@@ -31,6 +31,13 @@ export const AppBarDropdownItemsForwardRefs = forwardRef((props: AppBarDropdownI
     return <AppBarDropdownItems {...props} innerRef={ref} />
 })
 
+/**
+ * AppBarDropdownItems is the individual menu item when the dropdown is clicked on
+ * 
+ * Last Modified
+ * William Kwok
+ * June 16, 2019
+ */
 export const AppBarDropdownItems: React.FC<AppBarDropdownItemsPropsWithRef> = ({
     pageTitle, navbarItem, setAnchorEl, dropdownItemNames, a, name, innerRef
 }) => {

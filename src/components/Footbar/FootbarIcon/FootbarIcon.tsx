@@ -21,6 +21,10 @@ type FootbarIconProps = {
  * FootbarIcon is a single icon that appears in the footbar
  * 
  * The team logo is an icon
+ * 
+ * Last Modified
+ * William Kwok
+ * June 16, 2019
  */
 export const FootbarIcon: React.FC<FootbarIconProps> = ({ minimized, icon, logo, link, a }) => {
     const [hover, setHover] = useState<boolean>(false);

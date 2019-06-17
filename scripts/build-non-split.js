@@ -1,4 +1,14 @@
-// https://github.com/facebook/create-react-app/issues/5306
+/**
+ * This script is sourced from the following resource: 
+ *  https://github.com/facebook/create-react-app/issues/5306
+ * 
+ * The purpose of this script is to force the bundle into a single main.js file so it will work
+ * with the iGEM Website's way of doing things.
+ * 
+ * Last Modified
+ * William Kwok
+ * June 16, 2019
+ */
 
 const rewire = require('rewire');
 const defaults = rewire('react-scripts/scripts/build.js');

@@ -6,6 +6,15 @@ type AppBarDropdownProps = {
     pageTitle: string,
     a: () => void
 }
+
+/**
+ * AppBarDropdowns are the dropdown items in the navigation bar. It grabs the list of categories
+ * from the NavbarData class and renders them
+ * 
+ * Last Modified
+ * William Kwok
+ * June 16, 2019
+ */
 export const AppBarDropdowns: React.FC<AppBarDropdownProps> = ({ name, pageTitle, a }) => {
     return <>
         {NavbarData.getData().map((navbarItem: NavbarType) => {

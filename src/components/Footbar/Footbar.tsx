@@ -13,6 +13,10 @@ type FootbarProps = {
  * Footbar is the component that sits at the bottom of every web page.
  * 
  * The page should be more than 100vh long which is mandated by a style within App.tsx
+ * 
+ * Last Modified
+ * William Kwok
+ * June 16, 2019
  */
 export const Footbar: React.FC<FootbarProps> = ({ a }) => {
     let items: FootbarItem[] = FootbarItems;
@@ -24,8 +28,17 @@ export const Footbar: React.FC<FootbarProps> = ({ a }) => {
         <Grid fluid>
             <Row center="xs" middle="xs" style={{ height: "30vh" }}>
                 {items.map((item: FootbarItem) => {
-                    return item.logo ? <FootbarIcon key={item.key} minimized={minimized} logo link={item.link} a={a} /> :
-                        <FootbarIcon key={item.key} minimized={minimized} icon={item.icon} link={item.link} a={a} />
+                    return item.logo ? <FootbarIcon key={item.key}
+                        minimized={minimized}
+                        logo
+                        link={item.link}
+                        a={a} /> :
+                        <FootbarIcon
+                            key={item.key}
+                            minimized={minimized}
+                            icon={item.icon}
+                            link={item.link}
+                            a={a} />
                 })}
             </Row>
         </Grid>
