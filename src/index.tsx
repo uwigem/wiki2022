@@ -29,7 +29,6 @@ const firebaseConfig = {
     appId: "1:131891776719:web:0bf2382aec94dcdf"
 };
 firebase.initializeApp(firebaseConfig);
-// let provider = new firebase.auth.GoogleAuthProvider();
 // firebase.auth().signInWithPopup(provider);
 
 // ENTER THE CURRENT iGEM SEASON YEAR AS IN THE iGEM WIKI LINK (eg 2019.igem.org)

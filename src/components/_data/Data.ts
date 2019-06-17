@@ -5,8 +5,8 @@ export default class Data {
         return imgs;
     }
 
-    static getContentData(page: string): ContentPageData {
-        return contentData[page];
+    static getContentData(): ContentData {
+        return contentData;
     }
 
     static getDisplayConstants(pageTitle: string) {

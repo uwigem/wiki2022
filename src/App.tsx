@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Data, { ContentPageData } from './components/_data/Data';
+import Data, { ContentData } from './components/_data/Data';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { DebugHeader } from './components/_debug/DebugHeader/DebugHeader';
 import { Footbar } from './components/Footbar/Footbar';
@@ -11,13 +11,10 @@ import { DebugFonts } from './components/_debug/DebugFonts';
 import "./App.css";
 
 // comment out for production build
-// import firebase from 'firebase/app';
-// import 'firebase/auth';
-// import 'firebase/database';
-// let firebasePassIn = firebase;
-
-// uncomment this for the production build
-let firebasePassIn: any = null;
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
+import { ContentEditor } from './components/ContentEditor/ContentEditor';
 
 // This line is to remove a bug that Firefox has
 // TODO: insert link explaining why
@@ -27,7 +24,7 @@ type AppProps = {
     IEOREDGE: boolean,
     currYear: number
 }
-const debugURL = "/Attributions";
+const debugURL = "/Editor";
 
 /**
  * App is the main application that handles all the route logic and rendering.
@@ -38,7 +35,7 @@ const debugURL = "/Attributions";
  */
 const App: React.FC<AppProps> = ({ IEOREDGE, currYear }) => {
     const [loading, setLoading] = useState<boolean>(true);
-    const [contentData, setContentData] = useState<ContentPageData>(Data.getContentData("BLANK"));
+    const [contentData, setContentData] = useState<ContentData>(Data.getContentData());
     const [pageTitle, setPageTitle] = useState<string>(debugURL)
     const [debugMode, setDebugMode] = useState<boolean>(true);
     const windowWidth = useWindowWidth();
@@ -102,11 +99,11 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear }) => {
         }
         setLoading(false);
         let dataRef: firebase.database.Reference | null = null;
-        if (firebasePassIn) {
-            dataRef = firebasePassIn.database().ref("/");
+        if (firebase) {
+            dataRef = firebase.database().ref(`/${currYear}/ContentData`);
             if (dataRef) {
                 dataRef.on("value", (snap) => {
-                    setContentData(snap.val() as ContentPageData);
+                    setContentData(snap.val() as ContentData);
                 });
             }
 
@@ -116,9 +113,9 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear }) => {
                 }
             }
         } else {
-            setContentData(Data.getContentData(pageTitle))
+            setContentData(Data.getContentData())
         }
-    }, [pageTitle, imgsLoaded, imgsToPrefetch]);
+    }, [pageTitle, imgsLoaded, imgsToPrefetch, currYear]);
 
     /**
      * Sets the loading state to true. This is used for in between pages. This function MUST be sent
@@ -155,7 +152,14 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear }) => {
 
                 {!loading && <>
                     <div className={debugMode ? "app-content-dev" : "app-content-real"}>
-                        This page is under construction
+                        {/** Comment out this in final build */}
+                        {pageTitle === "/Editor" &&
+                            <ContentEditor
+                                contentData={contentData}
+                            />}
+                        {/*****************************************/}
+                        {pageTitle !== "/Editor" &&
+                            <div>This page is under construction</div>}
                     </div>
                     <Footbar a={a} />
                 </>}
