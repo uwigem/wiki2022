@@ -1,4 +1,6 @@
 import NavbarData, { NavbarType } from './NavbarData/NavbarData';
+import { MAIN_PAGE } from './Constants';
+import { ContentSingularData } from './ContentSingularData';
 
 export default class Data {
     static getImgsToPrefetch(): string[] {
@@ -41,16 +43,14 @@ export default class Data {
 
 const imgs: string[] = [];
 
-// TODO: TO BE DETERMINED
-export type ContentSingularData = {
-    [idx: string]: string
-    // name: string
+export type ContentHashMapping = {
+    [idx: string]: ContentSingularData
 }
 
 export type ContentPageData = {
-    title: string,
     hasSidebar: boolean
-    data: ContentSingularData[]
+    contentOrder?: string[]
+    content?: ContentHashMapping
 }
 
 export type ContentData = {
@@ -92,13 +92,11 @@ const displayConstants: DisplayConstants = {
 }
 
 const contentData: ContentData = {
-    "MAIN_PAGE": {
-        title: "Main Page",
+    [MAIN_PAGE]: {
         hasSidebar: false,
-        data: [
-            {
-                // TBD
-            }
-        ]
+        contentOrder: [],
+        content: {
+
+        }
     }
 }

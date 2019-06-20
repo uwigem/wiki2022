@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ContentData } from '../_data/Data';
+import { ContentData, ContentHashMapping } from '../_data/Data';
 import 'firebase/database';
 import 'firebase/auth';
 import { useAuth } from '../../hooks/useAuth';
@@ -22,6 +22,21 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
                 pageToEdit={pageToEdit}
                 setPageToEdit={setPageToEdit}
                 currYear={currYear} />
+            {contentData &&
+                pageToEdit &&
+                contentData[pageToEdit] &&
+                contentData[pageToEdit].contentOrder &&
+                contentData[pageToEdit].content &&
+                <>
+                    {/** Force TS to not throw errors, because we check if it is defined */}
+                    {(contentData[pageToEdit].contentOrder as string[]).map(contentHash => {
+                        let content = (contentData[pageToEdit].content as ContentHashMapping)[contentHash];
+                        return <>
+
+                        </>
+                    })}
+
+                </>}
         </>
     } else {
         return <>Loading</>

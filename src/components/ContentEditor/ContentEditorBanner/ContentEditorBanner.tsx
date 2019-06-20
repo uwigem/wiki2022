@@ -12,6 +12,7 @@ import firebase from 'firebase/app';
 import 'firebase/database';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { MAIN_PAGE } from '../../_data/Constants';
 
 type ContentEditorBannerProps = {
     pageToEdit: string | null,
@@ -45,7 +46,7 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
                 </Col>
                 <Col md={4}>
                     {pageToEdit && <p>You are editing the <span
-                        className="content-editor-page-editing">/{pageToEdit === "MAIN_PAGE" ?
+                        className="content-editor-page-editing">/{pageToEdit === MAIN_PAGE ?
                             "" : pageToEdit}</span> page.</p>}
                     {!pageToEdit && <p>Please select a page to edit</p>}
                     <FormControl className="content-editor-formcontrol">
@@ -57,7 +58,7 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
                             }}>
                             {Object.keys(contentData).map(contentDataKey => {
                                 return <MenuItem key={contentDataKey} value={contentDataKey}>
-                                    {contentDataKey === "MAIN_PAGE" ? "Main page" : contentDataKey}
+                                    {contentDataKey === MAIN_PAGE ? "Main page" : contentDataKey}
                                 </MenuItem>
                             })}
                         </Select>
