@@ -49,12 +49,12 @@ export type ContentSingularData = {
 
 export type ContentPageData = {
     title: string,
+    hasSidebar: boolean
     data: ContentSingularData[]
 }
 
 export type ContentData = {
     [idx: string]: ContentPageData,
-    BLANK: ContentPageData
 }
 
 export type PageSpecificColors = {
@@ -92,14 +92,9 @@ const displayConstants: DisplayConstants = {
 }
 
 const contentData: ContentData = {
-    BLANK: {
-        title: "",
-        data: [
-            {}
-        ]
-    },
-    "/": {
+    "MAIN_PAGE": {
         title: "Main Page",
+        hasSidebar: false,
         data: [
             {
                 // TBD

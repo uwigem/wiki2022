@@ -151,11 +151,13 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear }) => {
                 <CustomAppBar name={name} pageTitle={pageTitle} a={a} />
 
                 {!loading && <>
-                    <div className={debugMode ? "app-content-dev" : "app-content-real"}>
+                    <div className={`${debugMode ? "app-content-dev" : "app-content-real"}
+                        ${windowWidth < 600 ? "mobile" : ""}`}>
                         {/** Comment out this in final build */}
                         {pageTitle === "/Editor" &&
                             <ContentEditor
                                 contentData={contentData}
+                                currYear={currYear}
                             />}
                         {/*****************************************/}
                         {pageTitle !== "/Editor" &&
