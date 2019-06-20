@@ -16,13 +16,14 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
     const [pageToEdit, setPageToEdit] = useState<string | null>(null);
     const user = useAuth(setUserLoading);
 
-    // console.log(user, userLoading);
-    return <>
-        {contentData &&
+    if (!userLoading && contentData) {
+        return <>
             <ContentEditorBanner contentData={contentData}
                 pageToEdit={pageToEdit}
                 setPageToEdit={setPageToEdit}
                 currYear={currYear} />
-        }
-    </>
+        </>
+    } else {
+        return <>Loading</>
+    }
 }

@@ -56,7 +56,7 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
                                 setPageToEdit(e.target.value as string);
                             }}>
                             {Object.keys(contentData).map(contentDataKey => {
-                                return <MenuItem value={contentDataKey}>
+                                return <MenuItem key={contentDataKey} value={contentDataKey}>
                                     {contentDataKey === "MAIN_PAGE" ? "Main page" : contentDataKey}
                                 </MenuItem>
                             })}
