@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const PlainTextEditor = {
-
+export const PlainTextEditor: React.FC = () => {
+    return <></>
 }
