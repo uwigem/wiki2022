@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ContentSingularData } from '../../_data/ContentSingularData';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -10,6 +10,7 @@ import { WidgetTypes, ContentMapping } from '../../ContentMapping/ContentMapping
 import firebase from 'firebase/app';
 import 'firebase/database';
 import { HistoryTypes } from '../../_debug/EditorHistory';
+import equal from 'deep-equal';
 
 type WidgetEditorProps = {
     content: ContentSingularData | undefined,
@@ -34,6 +35,12 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
     pageToEdit, user }) => {
     const [editing, setEditing] = useState<boolean>(false);
     const [editedContent, setEditedContent] = useState<ContentSingularData>({ ...content } as ContentSingularData);
+
+    useEffect(() => {
+        if (!equal(content, editedContent)) {
+            setEditedContent({ ...content } as ContentSingularData);
+        }
+    }, [content])
 
     /**
      * setEditedContentOnChange will modify the specific widget property specified. The limitation
@@ -60,10 +67,9 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 
     let ContentWidget = ContentMapping[editedContent.type].widget;
     let ContentEditingWidget = ContentMapping[editedContent.type].editor;
-
     return <div className="widget-editor">
         {!editing && <>
-            <ContentWidget content={editedContent} />
+            <ContentWidget {...editedContent} />
             <div>
                 <Button variant="contained" color="primary"
                     onClick={() => setEditing(true)}>Edit</Button>

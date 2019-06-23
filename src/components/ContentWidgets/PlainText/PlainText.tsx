@@ -8,6 +8,6 @@ import { ContentSingularData } from '../../_data/ContentSingularData';
  * William Kwok
  * June 16, 2019
  */
-export const PlainText: React.FC<ContentSingularData> = ({ content }) => {
-    return <>{content.plainText_content}</>
+export const PlainText: React.FC<ContentSingularData> = ({ plainText_content }) => {
+    return <>{plainText_content}</>
 }
