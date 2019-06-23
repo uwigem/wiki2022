@@ -10,6 +10,7 @@ import { WidgetEditor } from './WidgetEditor/WidgetEditor';
 import { AddNewWidgetButton } from './AddNewWidgetButton/AddNewWidgetButton';
 import { WidgetTypes } from '../ContentMapping/ContentMapping';
 import { ContentSingularData } from '../_data/ContentSingularData';
+import { HistoryTypes } from '../_debug/EditorHistory';
 
 type ContentEditorProps = {
     contentData: ContentData,
@@ -28,6 +29,7 @@ type ContentEditorProps = {
  * TODO: 
  *  - Make "select a page to modify" message more prominent
  *  - Make loading message a spinner instead
+ *  - Factor the onClicks inside AddNewWidgetButton to a static function that takes in parameters
  */
 export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currYear }) => {
     const [userLoading, setUserLoading] = useState<boolean>(true);
@@ -47,15 +49,36 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
                     {/** Force TS to not throw errors, because we check if it is defined */}
                     {contentData[pageToEdit].contentOrder &&
                         contentData[pageToEdit].content &&
-                        (contentData[pageToEdit].contentOrder as string[]).map(contentHash => {
+                        (contentData[pageToEdit].contentOrder as string[]).map((contentHash, index) => {
                             let content = (contentData[pageToEdit].content as ContentHashMapping)[contentHash];
-                            console.log(contentHash);
                             return <React.Fragment key={contentHash}>
+                                <AddNewWidgetButton onClick={async () => {
+                                    // spread operation to CLONE the array rather than directly modify.
+                                    let contentOrderToAdd: string[] = [...(contentData[pageToEdit].contentOrder as string[])];
+                                    let newKey = generateHash();
+                                    contentOrderToAdd.splice(index, 0, newKey);
+                                    let contentOnFirebase: ContentSingularData = {
+                                        type: WidgetTypes.STUB
+                                    }
+                                    try {
+                                        // Set the content first, then the order. If it fails to add the 
+                                        // content then it won't add it to the order.
+                                        await firebase.database().ref(`${currYear}/ContentData/${pageToEdit}/content/${newKey}`).set(contentOnFirebase);
+                                        await firebase.database().ref(`${currYear}/ContentData/${pageToEdit}/contentOrder`).set(contentOrderToAdd);
+                                        await firebase.database().ref(`${currYear}/EditHistory/${pageToEdit}/${newKey}`).push({
+                                            type: HistoryTypes.CREATION,
+                                            timestamp: firebase.database.ServerValue.TIMESTAMP,
+                                            creator: (user && user.email) || "Unknown user"
+                                        });
+                                    } catch (e) {
+                                        console.log(e);
+                                    }
+                                }} />
                                 <WidgetEditor content={content} />
                             </React.Fragment>
                         })}
                     <AddNewWidgetButton onClick={async () => {
-                        let contentOrderToAdd: string[] = contentData[pageToEdit].contentOrder || [];
+                        let contentOrderToAdd: string[] = (contentData[pageToEdit].contentOrder && [...contentData[pageToEdit].contentOrder as string[]]) || [];
                         let newKey = generateHash();
                         contentOrderToAdd.push(newKey);
                         let contentOnFirebase: ContentSingularData = {
@@ -66,6 +89,11 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
                             // content then it won't add it to the order.
                             await firebase.database().ref(`${currYear}/ContentData/${pageToEdit}/content/${newKey}`).set(contentOnFirebase);
                             await firebase.database().ref(`${currYear}/ContentData/${pageToEdit}/contentOrder`).set(contentOrderToAdd);
+                            await firebase.database().ref(`${currYear}/EditHistory/${pageToEdit}/${newKey}`).push({
+                                type: HistoryTypes.CREATION,
+                                timestamp: firebase.database.ServerValue.TIMESTAMP,
+                                creator: (user && user.email) || "Unknown user"
+                            });
                         } catch (e) {
                             console.log(e);
                         }
@@ -94,6 +122,8 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
  *      - Because we anticipate there to be < 100 items on the page, we don't have to generate huge
  *        values. We only need to generate things where the chance of collision is near impossible.
  *        Therefore, I have chosen _24_ to be the length of the string we generate. 
+ * 
+ *      - They only need to be unique to the page.
  * 
  * Last Modified
  * William Kwok
