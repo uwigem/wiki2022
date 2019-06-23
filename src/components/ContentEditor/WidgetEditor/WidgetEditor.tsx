@@ -63,7 +63,7 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 
     return <div className="widget-editor">
         {!editing && <>
-            <ContentWidget />
+            <ContentWidget content={editedContent} />
             <div>
                 <Button variant="contained" color="primary"
                     onClick={() => setEditing(true)}>Edit</Button>
@@ -87,7 +87,9 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
                     </Select>
                 </FormControl>
             </div>
-            <ContentEditingWidget />
+            <ContentEditingWidget editedContent={editedContent}
+                originalContent={content}
+                setEditedContentOnChange={setEditedContentOnChange} />
             <div>
                 <Button variant="contained" color="primary"
                     onClick={async () => {

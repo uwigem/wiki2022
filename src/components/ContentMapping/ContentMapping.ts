@@ -1,12 +1,19 @@
 import React from 'react';
 import { PlainText } from "../ContentWidgets/PlainText/PlainText";
 import { PlainTextEditor } from "../ContentWidgets/PlainText/PlainTextEditor";
-import { Stub } from '../ContentWidgets/_Stub/Stub';
+import { Stub, StubEditor } from '../ContentWidgets/_Stub/Stub';
+import { ContentSingularData } from '../_data/ContentSingularData';
+
+export type WidgetEditorProps = {
+    originalContent: ContentSingularData,
+    editedContent: ContentSingularData,
+    setEditedContentOnChange: (keyToChange: string, valueToChange: any) => void
+}
 
 type ContentMappingType = {
     [idx: string]: {
-        widget: React.FC,
-        editor: React.FC
+        widget: React.FC<ContentSingularData>,
+        editor: React.FC<WidgetEditorProps>
     }
 }
 
@@ -22,6 +29,6 @@ export const ContentMapping: ContentMappingType = {
     },
     STUB: {
         widget: Stub,
-        editor: Stub
+        editor: StubEditor
     }
 }

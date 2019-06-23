@@ -1,6 +1,4 @@
-import { PlainTextData } from '../ContentWidgets/PlainText/PlainText';
-import { StubData } from '../ContentWidgets/_Stub/Stub';
-
 export type ContentSingularData = {
-    type: string
-} & (StubData | PlainTextData) 
+    plainText_content?: string
+    [idx: string]: any
+}

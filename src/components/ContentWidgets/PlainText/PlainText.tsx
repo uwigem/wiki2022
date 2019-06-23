@@ -1,9 +1,5 @@
 import React from 'react';
-import { ContentWidgetProps } from '../ContentWidget';
-
-export type PlainTextData = {
-    content: string
-}
+import { ContentSingularData } from '../../_data/ContentSingularData';
 
 /**
  * PlainText is a plain text widget to act as an example widget
@@ -12,7 +8,6 @@ export type PlainTextData = {
  * William Kwok
  * June 16, 2019
  */
-export const PlainText: React.FC = () => {
-
-    return <></>
+export const PlainText: React.FC<ContentSingularData> = ({ content }) => {
+    return <>{content.plainText_content}</>
 }
