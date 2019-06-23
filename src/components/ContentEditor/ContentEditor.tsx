@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ContentData, ContentHashMapping } from '../_data/Data';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import 'firebase/database';
 import 'firebase/auth';
 import { useAuth } from '../../hooks/useAuth';
@@ -74,7 +74,7 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
                                         console.log(e);
                                     }
                                 }} />
-                                <WidgetEditor content={content} />
+                                <WidgetEditor user={user} content={content} contentHash={contentHash} currYear={currYear} pageToEdit={pageToEdit} />
                             </React.Fragment>
                         })}
                     <AddNewWidgetButton onClick={async () => {

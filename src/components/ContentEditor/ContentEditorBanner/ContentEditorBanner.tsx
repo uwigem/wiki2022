@@ -76,18 +76,19 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
                         </Col>
                         <Col md={6} className="content-editor-banner-separation">
                             <Row>
-                                <Button onClick={async () => {
-                                    let newPageInputRef = firebase.database()
-                                        .ref(`${currYear}/ContentData/${newPageInput}`);
-                                    let snap = await newPageInputRef.once('value');
-                                    if (!snap.val()) {
-                                        newPageInputRef.set({
-                                            hasSidebar: false
-                                        });
-                                        setPageToEdit(newPageInput);
-                                        setNewPageInput("");
-                                    }
-                                }}>Submit</Button>
+                                <Button variant="contained" color="primary"
+                                    onClick={async () => {
+                                        let newPageInputRef = firebase.database()
+                                            .ref(`${currYear}/ContentData/${newPageInput}`);
+                                        let snap = await newPageInputRef.once('value');
+                                        if (!snap.val()) {
+                                            newPageInputRef.set({
+                                                hasSidebar: false
+                                            });
+                                            setPageToEdit(newPageInput);
+                                            setNewPageInput("");
+                                        }
+                                    }}>Submit</Button>
                             </Row>
                             <Row>
                                 {pageToEdit &&
