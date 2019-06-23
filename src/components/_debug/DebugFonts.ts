@@ -15,6 +15,11 @@ export const DebugFonts = async () => {
 
     const raleway = new FontFaceObserver("Raleway");
     const abel = new FontFaceObserver("Abel");
-    await raleway.load();
-    await abel.load();
+
+    try {
+        await raleway.load();
+        await abel.load();
+    } catch (e) {
+        console.log("Debug fonts received " + e + ". Don't worry about it");
+    }
 }

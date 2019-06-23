@@ -97,7 +97,8 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
                         await firebase.database().ref(`${currYear}/EditHistory/${pageToEdit}/${contentHash}`).push({
                             type: HistoryTypes.UPDATE,
                             timestamp: firebase.database.ServerValue.TIMESTAMP,
-                            creator: (user && user.email) || "Unknown user"
+                            creator: (user && user.email) || "Unknown user",
+                            content: editedContent
                         });
                         setEditing(false);
                     }}>
