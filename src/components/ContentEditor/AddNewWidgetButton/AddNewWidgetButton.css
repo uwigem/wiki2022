@@ -1,0 +1,21 @@
+.content-add-new-widget-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.content-add-new-widget {
+    width: 70%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding-top: 7px;
+    padding-bottom: 10px;
+    font-size: 2em;
+    background: #eeeeee;
+    line-height: 2em;
+    cursor: pointer;
+    outline: none;
+}
+
+.content-add-new-widget:active {
+    background-color: #aaaaaa;
+}

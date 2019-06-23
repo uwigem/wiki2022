@@ -44,7 +44,8 @@ export default class Data {
 const imgs: string[] = [];
 
 export type ContentHashMapping = {
-    [idx: string]: ContentSingularData
+    // If the key doesn't exist, it is possible for it to be undefined.
+    [idx: string]: ContentSingularData | undefined
 }
 
 export type ContentPageData = {
