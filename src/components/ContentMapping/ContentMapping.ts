@@ -3,6 +3,8 @@ import { PlainText } from "../ContentWidgets/PlainText/PlainText";
 import { PlainTextEditor } from "../ContentWidgets/PlainText/PlainTextEditor";
 import { Stub, StubEditor } from '../ContentWidgets/_Stub/Stub';
 import { ContentSingularData } from '../_data/ContentSingularData';
+import { ExampleImage } from '../ContentWidgets/ExampleImage/ExampleImage';
+import { ExampleImageEditor } from '../ContentWidgets/ExampleImage/ExampleImageEditor';
 
 export type WidgetEditorProps = {
     originalContent: ContentSingularData,
@@ -19,7 +21,8 @@ type ContentMappingType = {
 
 export enum WidgetTypes {
     PLAIN_TEXT = "PLAIN_TEXT",
-    STUB = "STUB"
+    STUB = "STUB",
+    EXAMPLE_IMAGE = "EXAMPLE_IMAGE"
 }
 
 export const ContentMapping: ContentMappingType = {
@@ -30,5 +33,9 @@ export const ContentMapping: ContentMappingType = {
     STUB: {
         widget: Stub,
         editor: StubEditor
+    },
+    EXAMPLE_IMAGE: {
+        widget: ExampleImage,
+        editor: ExampleImageEditor
     }
 }
