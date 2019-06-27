@@ -24,7 +24,7 @@ type AppProps = {
     IEOREDGE: boolean,
     currYear: number
 }
-const debugURL = "";
+const debugURL = "/Editor";
 
 /**
  * App is the main application that handles all the route logic and rendering.
@@ -160,8 +160,9 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear }) => {
                                 currYear={currYear}
                             />}
                         {/*****************************************/}
-                        {pageTitle !== "/Editor" && pageTitle === "" &&
+                        {pageTitle !== "/Editor" && (pageTitle === "" || pageTitle === "/Description") &&
                             <div className="main-temporary">
+                                <h1 style={{ margin: "auto", textAlign: "center" }}>Project Inspiration and Description</h1>
                                 <p>
                                     Our project focuses on developing technologies that help researchers to detect small molecules, which traditionally have been much more difficult to detect using biological assays than larger molecules. Our technologies revolve around chemically induced dimerization (CID), in which two proteins dimerize in the presence of a small molecule. This method has been previously used to control cell signaling, regulatory and metabolic pathways, and logic gates for biological computation in living mammalian cells. However, few naturally-occuring CID systems and their derivatives are currently available for research and therapeutic purposes. Creating a CID system with desired affinity and specificity for any given small molecule remains an unsolved problem for computational design and other protein engineering approaches. Solving it would open a wide range of possibilities in the development of diagnostic biosensors, high-precision therapeutics, and beyond.
                                 </p>
