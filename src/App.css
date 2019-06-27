@@ -15,3 +15,12 @@
 .app-content-dev, .mobile {
     margin-top: 37px;
 }
+
+.main-temporary {
+    margin: 20px;
+    margin-top: 70px;
+}
+
+.main-temporary p {
+    margin: 10px;
+}

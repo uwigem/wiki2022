@@ -24,7 +24,7 @@ type AppProps = {
     IEOREDGE: boolean,
     currYear: number
 }
-const debugURL = "/Editor";
+const debugURL = "";
 
 /**
  * App is the main application that handles all the route logic and rendering.
@@ -160,8 +160,26 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear }) => {
                                 currYear={currYear}
                             />}
                         {/*****************************************/}
-                        {pageTitle !== "/Editor" &&
-                            <div>This page is under construction</div>}
+                        {pageTitle !== "/Editor" && pageTitle === "" &&
+                            <div className="main-temporary">
+                                <p>
+                                    Our project focuses on developing technologies that help researchers to detect small molecules, which traditionally have been much more difficult to detect using biological assays than larger molecules. Our technologies revolve around chemically induced dimerization (CID), in which two proteins dimerize in the presence of a small molecule. This method has been previously used to control cell signaling, regulatory and metabolic pathways, and logic gates for biological computation in living mammalian cells. However, few naturally-occuring CID systems and their derivatives are currently available for research and therapeutic purposes. Creating a CID system with desired affinity and specificity for any given small molecule remains an unsolved problem for computational design and other protein engineering approaches. Solving it would open a wide range of possibilities in the development of diagnostic biosensors, high-precision therapeutics, and beyond.
+                                </p>
+                                <p>
+                                    We are using a novel strategy to select CID binders from a vast and diverse combinatorial antibody library, and applying them towards the development of a biosensor. We will specifically be developing a biosensor using these antibodies to detect cannabidiol (CBD), a compound derived from the hemp plant which has been used to treat epilepsy, anxiety, and chronic pain, although more research is needed to verify its effectiveness. We are working to engineer this biosensor both as a proof of concept and as a way to help further research into CBD.
+                                </p>
+                                <p>
+                                    We hope that the result of our project will benefit the scientific community by creating a generalizable bioengineered tool that can detect the presence of small molecules with a high degree of accuracy and efficiency, at a lower cost than other tools that have been traditionally used.
+                                </p>
+                                <p>
+                                    This project was inspired by work in the Gu Lab at the University of Washington and their work dealing with the creation of a CID system. We wanted to take what we learned from last year, build upon it, and package everything in a consumer friendly device to detect CBD. Furthermore, since our team has had experience with CID devices from our 2018 project that dealt with detecting anchor binders for cholecalciferol and artemisinin.
+                                </p>
+                            </div>}
+
+                        {/*****************************************/}
+                        {pageTitle !== "/Editor" && pageTitle !== "" &&
+                            <div>This page is under construction</div>
+                        }
                     </div>
                     <Footbar a={a} />
                 </>}
