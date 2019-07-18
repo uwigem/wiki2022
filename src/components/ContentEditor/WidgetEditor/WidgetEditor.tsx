@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { ContentSingularData } from '../../_data/ContentSingularData';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -7,10 +7,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import './WidgetEditor.css';
 import { WidgetTypes, ContentMapping } from '../../ContentMapping/ContentMapping';
-import firebase from 'firebase/app';
-import 'firebase/database';
 import { HistoryTypes } from '../../_debug/EditorHistory';
 import equal from 'deep-equal';
+import { EnvironmentContext } from '../../../contexts/EnvironmentContext/EnvironmentContext';
 
 type WidgetEditorProps = {
     content: ContentSingularData | undefined,
@@ -24,6 +23,10 @@ type WidgetEditorProps = {
  * WidgetEditor is the widget editing component. It handles the logic for editing a single widget,
  * updating it, and rendering it. 
  * 
+ * Last Modified
+ * July 17, 2019
+ * William Kwok
+ * 
  * TODO:
  *  - Update the selector to be more user friendly (make a thing popup?)
  *  - Current it is not user friendly to benefit development
@@ -35,6 +38,7 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
     pageToEdit, user }) => {
     const [editing, setEditing] = useState<boolean>(false);
     const [editedContent, setEditedContent] = useState<ContentSingularData>({ ...content } as ContentSingularData);
+    const { firebase } = useContext(EnvironmentContext);
 
     useEffect(() => {
         if (!equal(content, editedContent)) {
@@ -42,26 +46,8 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
         }
     }, [content])
 
-    /**
-     * setEditedContentOnChange will modify the specific widget property specified. The limitation
-     * of this function is that you will only be allowed to modify one property of the widget at a
-     * time.
-     * 
-     * Note: The value can be _any_ type, so if you did want to modify two values at once, you
-     * would create an object to house those two values instead.
-     * 
-     * Another note: This only updates the component client side until the save button is pressed to
-     * submit the updates to firebase!
-     * 
-     * @param keyToChange string key of the key value pair to update
-     * @param valueToChange value of the key value pair to update. Any type.
-     */
-    const setEditedContentOnChange = (keyToChange: string, valueToChange: any) => {
-        const updatedContent = { ...editedContent, [keyToChange]: valueToChange } as ContentSingularData;
-        setEditedContent(updatedContent);
-    }
 
-    if (!content) {
+    if (!content || !firebase) {
         return <></>;
     }
 
@@ -83,7 +69,7 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
                     <Select
                         value={editedContent.type}
                         onChange={(e) => {
-                            setEditedContentOnChange("type", e.target.value as string);
+                            setEditedContentOnChange("type", e.target.value as string, editedContent, setEditedContent);
                         }}>
                         {Object.keys(WidgetTypes).map(widgetType => {
                             return <MenuItem key={widgetType} value={widgetType}>
@@ -95,7 +81,9 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
             </div>
             <ContentEditingWidget editedContent={editedContent}
                 originalContent={content}
-                setEditedContentOnChange={setEditedContentOnChange} />
+                setEditedContentOnChange={(keyToChange: string, valueToChange: string) => {
+                    setEditedContentOnChange(keyToChange, valueToChange, editedContent, setEditedContent);
+                }} />
             <div>
                 <Button variant="contained" color="primary"
                     onClick={async () => {
@@ -113,4 +101,26 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
             </div>
         </>}
     </div>
+}
+
+
+/**
+ * setEditedContentOnChange will modify the specific widget property specified. The limitation
+ * of this function is that you will only be allowed to modify one property of the widget at a
+ * time.
+ * 
+ * Note: The value can be _any_ type, so if you did want to modify two values at once, you
+ * would create an object to house those two values instead.
+ * 
+ * Another note: This only updates the component client side until the save button is pressed to
+ * submit the updates to firebase!
+ * 
+ * @param keyToChange string key of the key value pair to update
+ * @param valueToChange value of the key value pair to update. Any type.
+ */
+export const setEditedContentOnChange = (keyToChange: string, valueToChange: any,
+    editedContent: ContentSingularData,
+    setEditedContent: React.Dispatch<React.SetStateAction<ContentSingularData>>) => {
+    const updatedContent = { ...editedContent, [keyToChange]: valueToChange } as ContentSingularData;
+    setEditedContent(updatedContent);
 }

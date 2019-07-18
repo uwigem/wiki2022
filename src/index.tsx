@@ -9,7 +9,7 @@ import { detect } from 'detect-browser';
  * 
  * Last Modified
  * William Kwok
- * June 16, 2019
+ * July 17, 2019
  */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -18,7 +18,11 @@ import { detect } from 'detect-browser';
 
 // COMMENT/UNCOMMENT BELOW TO ENABLE OR DISABLE FIREBASE TO THE PROJECT
 import firebase from 'firebase';
+import 'firebase/app'
 import 'firebase/messaging';
+import 'firebase/database';
+import 'firebase/auth';
+import { ContentEditor } from './components/ContentEditor/ContentEditor';
 const firebaseConfig = {
     apiKey: "AIzaSyBkr6jirFdzkMofucO2z_KzN13hMDeWkVI",
     authDomain: "uwigem-wikis.firebaseapp.com",
@@ -96,4 +100,4 @@ http://${year}.igem.org/Team:Washington.`)
  * In the future, you may want to change this prop to the browser name instead, or extend it to
  * work with browsers that are behind, such as Safari.
  */
-ReactDOM.render(<App IEOREDGE={IEOREDGE} currYear={currYear} />, document.getElementById('root'));
+ReactDOM.render(<App IEOREDGE={IEOREDGE} currYear={currYear} firebase={firebase} ContentEditor={ContentEditor} />, document.getElementById('root'));

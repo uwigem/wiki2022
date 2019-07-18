@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import './CustomAppBar.css';
-import { WindowWidthContext } from '../../contexts/WindowWidthContext';
+import { EnvironmentContext } from '../../contexts/EnvironmentContext/EnvironmentContext';
 import { AppBarLogo } from './AppBarLogo/AppBarLogo';
 import { AppBarDropdowns } from './AppBarDropdowns/AppBarDropdowns';
 import { AppBarSideDrawer } from './AppBarSideDrawer/AppBarSideDrawer';
@@ -20,10 +20,10 @@ type CustomAppBarProps = {
  * 
  * Last Modified
  * William Kwok
- * June 16, 2019
+ * July 17, 2019
  */
 export const CustomAppBar: React.FC<CustomAppBarProps> = ({ name, pageTitle, a }) => {
-    const { windowWidth } = useContext(WindowWidthContext);
+    const { windowWidth } = useContext(EnvironmentContext);
     let minimized = windowWidth < minWidth;
 
     return <>

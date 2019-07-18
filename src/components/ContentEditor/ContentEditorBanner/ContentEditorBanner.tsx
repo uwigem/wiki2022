@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Grid, Col, Row } from 'react-flexbox-grid';
 import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
@@ -8,11 +8,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 import { ContentData } from '../../_data/Data';
 import './ContentEditorBanner.css';
 import Button from '@material-ui/core/Button';
-import firebase from 'firebase/app';
-import 'firebase/database';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { MAIN_PAGE } from '../../_data/Constants';
+import { EnvironmentContext } from '../../../contexts/EnvironmentContext/EnvironmentContext';
 
 type ContentEditorBannerProps = {
     pageToEdit: string | null,
@@ -29,14 +28,19 @@ type ContentEditorBannerProps = {
  * 
  * Last Modified
  * William Kwok
- * June 19, 2019
+ * July 17, 2019
  */
 export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
     pageToEdit,
     setPageToEdit,
     contentData,
     currYear }) => {
+    const { firebase } = useContext(EnvironmentContext);
     const [newPageInput, setNewPageInput] = useState<string>("")
+
+    if (!firebase) {
+        return <></>
+    }
 
     return <div className="content-editor-banner">
         <Grid>

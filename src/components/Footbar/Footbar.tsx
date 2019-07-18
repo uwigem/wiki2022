@@ -3,7 +3,7 @@ import { Grid, Row } from 'react-flexbox-grid';
 import "./Footbar.css";
 import { FootbarIcon } from './FootbarIcon/FootbarIcon';
 import { FootbarItems, FootbarItem } from '../_data/FootbarData/FootbarData';
-import { WindowWidthContext } from '../../contexts/WindowWidthContext';
+import { EnvironmentContext } from '../../contexts/EnvironmentContext/EnvironmentContext';
 
 type FootbarProps = {
     a: () => void
@@ -16,11 +16,11 @@ type FootbarProps = {
  * 
  * Last Modified
  * William Kwok
- * June 16, 2019
+ * July 17, 2019
  */
 export const Footbar: React.FC<FootbarProps> = ({ a }) => {
     let items: FootbarItem[] = FootbarItems;
-    const { windowWidth } = useContext(WindowWidthContext);
+    const { windowWidth } = useContext(EnvironmentContext);
 
     const minimized: boolean = windowWidth < 420;
 
