@@ -52,12 +52,12 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
                     {/** Force TS to not throw errors, because we check if it is defined */}
                     {contentData[pageToEdit].contentOrder &&
                         contentData[pageToEdit].content &&
-                        (contentData[pageToEdit].contentOrder as string[]).map((contentHash, index) => {
-                            let content = (contentData[pageToEdit].content as ContentHashMapping)[contentHash];
+                        contentData[pageToEdit].contentOrder!.map((contentHash, index) => {
+                            let content = contentData[pageToEdit].content![contentHash];
                             return <React.Fragment key={contentHash}>
                                 <AddNewWidgetButton onClick={async () => {
                                     // spread operation to CLONE the array rather than directly modify.
-                                    let contentOrderToAdd: string[] = [...(contentData[pageToEdit].contentOrder as string[])];
+                                    let contentOrderToAdd: string[] = [...contentData[pageToEdit].contentOrder!];
                                     let newKey = generateHash();
                                     contentOrderToAdd.splice(index, 0, newKey);
                                     let contentOnFirebase: ContentSingularData = {
@@ -81,7 +81,7 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
                             </React.Fragment>
                         })}
                     <AddNewWidgetButton onClick={async () => {
-                        let contentOrderToAdd: string[] = (contentData[pageToEdit].contentOrder && [...contentData[pageToEdit].contentOrder as string[]]) || [];
+                        let contentOrderToAdd: string[] = (contentData[pageToEdit].contentOrder && [...contentData[pageToEdit].contentOrder!]) || [];
                         let newKey = generateHash();
                         contentOrderToAdd.push(newKey);
                         let contentOnFirebase: ContentSingularData = {

@@ -1,3 +1,5 @@
+import { WidgetTypes } from '../ContentMapping/ContentMapping';
+
 export type ContentSingularData = {
     plainText_content?: string
     exampleImage_imageLink?: string

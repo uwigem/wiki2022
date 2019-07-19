@@ -9,6 +9,7 @@ import { useWindowWidth } from './hooks/useWindowWidth';
 import { LoadingScreen } from './components/LoadingScreen/LoadingScreen';
 import { CustomAppBar } from './components/CustomAppBar/CustomAppBar';
 import { DebugFonts } from './components/_debug/DebugFonts';
+import { ContentView } from './components/ContentView/ContentView';
 import "./App.css";
 
 // comment out for production build
@@ -26,7 +27,7 @@ type AppProps = {
     firebase?: any,
     ContentEditor: React.FC<ContentEditorProps>
 }
-const debugURL = "/Editor";
+const debugURL = "/MAIN_PAGE";
 
 /**
  * App is the main application that handles all the route logic and rendering.
@@ -181,7 +182,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase, ContentEditor }
 
                         {/*****************************************/}
                         {pageTitle !== "/Editor" && pageTitle !== "" &&
-                            <div>This page is under construction</div>
+                            <ContentView contentData={contentData} pageTitle={pageTitle} />
                         }
                     </div>
                     <Footbar a={a} />
