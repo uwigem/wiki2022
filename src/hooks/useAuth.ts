@@ -1,7 +1,4 @@
 import { useState, useEffect } from 'react';
-import firebase from 'firebase';
-import 'firebase/auth';
-const provider = new firebase.auth.GoogleAuthProvider();
 
 /**
  * useAuth checks the authentication of the user and provides a loading state for it.
@@ -12,10 +9,14 @@ const provider = new firebase.auth.GoogleAuthProvider();
  * William Kwok
  * June 17, 2019
  */
-export const useAuth = (setUserLoading: React.Dispatch<React.SetStateAction<boolean>>) => {
+export const useAuth = (firebase: typeof import('firebase') | null, setUserLoading: React.Dispatch<React.SetStateAction<boolean>>) => {
     const [user, setUser] = useState<firebase.User | null>(null);
 
     useEffect(() => {
+        if (!firebase) {
+            return;
+        }
+        const provider = new firebase.auth.GoogleAuthProvider();
         return firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 setUser(user);
@@ -31,7 +32,7 @@ export const useAuth = (setUserLoading: React.Dispatch<React.SetStateAction<bool
                 }
             }
         });
-    }, [setUserLoading]);
+    }, [setUserLoading, firebase]);
 
     return user;
 }

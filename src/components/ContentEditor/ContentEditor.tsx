@@ -32,8 +32,8 @@ export type ContentEditorProps = {
 export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currYear }) => {
     const [userLoading, setUserLoading] = useState<boolean>(true);
     const [pageToEdit, setPageToEdit] = useState<string | null>(null);
-    const user = useAuth(setUserLoading);
     const { firebase } = useContext(EnvironmentContext);
+    const user = useAuth(firebase, setUserLoading);
 
     if (!firebase) {
         return <></>
