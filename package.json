@@ -37,7 +37,8 @@
 		"build": "node ./scripts/build-non-split.js",
 		"testwatch": "react-scripts test",
 		"test": "CI=true react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"deploy": "npm run build && ./scripts/deploy.sh"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
