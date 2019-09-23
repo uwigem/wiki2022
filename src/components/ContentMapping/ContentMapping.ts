@@ -5,6 +5,8 @@ import { Stub, StubEditor } from '../ContentWidgets/_Stub/Stub';
 import { ContentSingularData } from '../_data/ContentSingularData';
 import { ExampleImage } from '../ContentWidgets/ExampleImage/ExampleImage';
 import { ExampleImageEditor } from '../ContentWidgets/ExampleImage/ExampleImageEditor';
+import { TabView } from '../ContentWidgets/TabView/TabView';
+import { TabViewEditor } from '../ContentWidgets/TabView/TabViewEditor';
 import { PdfViewer } from '../ContentWidgets/PdfViewer/PdfViewer';
 import { PdfViewerEditor } from '../ContentWidgets/PdfViewer/PdfViewerEditor';
 import { Video } from '../ContentWidgets/Video/Video';
@@ -32,6 +34,7 @@ export enum WidgetTypes {
 	PLAIN_TEXT = "PLAIN_TEXT",
 	STUB = "STUB",
 	EXAMPLE_IMAGE = "EXAMPLE_IMAGE",
+	TAB_VIEW = "TAB_VIEW",
 	SEPARATOR = "SEPARATOR",
 	IMAGES_IN_ROW = "IMAGES_IN_ROW",
 	PDF_VIEWER = "PDF_VIEWER",
@@ -50,6 +53,10 @@ export const ContentMapping: ContentMappingType = {
 	EXAMPLE_IMAGE: {
 		widget: ExampleImage,
 		editor: ExampleImageEditor
+	},
+	TAB_VIEW: {
+		widget: TabView,
+		editor: TabViewEditor
 	},
 	IMAGES_IN_ROW: {
 		widget: ImagesInRow,

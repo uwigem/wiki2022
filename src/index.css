@@ -4,6 +4,9 @@
 	--debug-header-color: gray;
 	--background-color: rgb(245, 245, 245);
 	--error-message-color: red;
+	--main-purple: #420DAB;
+	--main-gold: #DAB420;
+	--white: #FFF;
 }
 
 a {

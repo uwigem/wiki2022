@@ -1,3 +1,5 @@
+
+import { Tab } from '../ContentWidgets/TabView/TabView';
 import { ImgRowItem } from '../ContentWidgets/ImagesInRow/ImagesInRow';
 
 export type ContentSingularData = {
@@ -13,4 +15,5 @@ export type ContentSingularData = {
 	imagesInRow_items?: ImgRowItem[]
 	separator_width?: number
 	separator_color?: { r: number; g: number; b: number }
+	tabView_content?: Tab[]
 }
