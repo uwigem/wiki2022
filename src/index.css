@@ -2,8 +2,8 @@
 	--header-tag-color: black;
 	--main-color: black;
 	--debug-header-color: gray;
-    --background-color: rgb(245, 245, 245);
-    --error-message-color: red;
+	--background-color: rgb(245, 245, 245);
+	--error-message-color: red;
 }
 
 a {
@@ -182,4 +182,8 @@ code {
 
 .md pre {
 	max-width: 100vw;
+}
+
+.centered {
+	text-align: center;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ContentSingularData } from '../../_data/ContentSingularData';
 import './Separator.css';
+import { DEFAULT_COLOR, DEFAULT_WIDTH } from './SeparatorConstants';
 /**
  * A separator widget with the given width and color
  * separator_width  percentage width
@@ -14,16 +15,12 @@ export const Separator: React.FC<ContentSingularData> = ({
 	separator_width,
 	separator_color
 }) => {
-	if (!separator_width || !separator_color) {
-		return <></>;
-	}
-	const { r, g, b } = separator_color;
-
+	const { r, g, b } = separator_color || DEFAULT_COLOR;
 	return <div className="separator-container">
 		<div
 			className="separator"
 			style={{
-				width: separator_width + "%",
+				width: (separator_width || DEFAULT_WIDTH) + "%",
 				backgroundColor: `rgb(${r},${g},${b})`
 			}}
 		/>
