@@ -31,29 +31,29 @@ header {
 @font-face {
 	font-family: "Abel";
 	/** TODO: UPLOAD THESE TO THE 2019 PAGE */
-	src: url(http://2018.igem.org/wiki/images/7/7d/T--Washington--AbelFont.TTF) format("truetype");
+	src: url(https://2019.igem.org/wiki/images/7/7d/T--Washington--AbelFont.TTF) format("truetype");
 }
 
 @font-face {
 	font-family: "Seg";
-	src: url(http://2018.igem.org/wiki/images/c/ce/T--Washington--SegoeUIL.ttf) format("truetype");
+	src: url(https://2019.igem.org/wiki/images/c/ce/T--Washington--SegoeUIL.ttf) format("truetype");
 }
 
 @font-face {
 	font-family: "Leixo";
-	src: url(http://2018.igem.org/wiki/images/4/4a/T--Washington--LeixoFont.ttf) format("truetype");
+	src: url(https://2019.igem.org/wiki/images/4/4a/T--Washington--LeixoFont.ttf) format("truetype");
 }
 
 @font-face {
 	font-family: "Raleway";
 	font-weight: 400;
-	src: url(http://2018.igem.org/wiki/images/1/11/T--Washington--RalewayRegular.ttf) format("truetype");
+	src: url(https://2019.igem.org/wiki/images/1/11/T--Washington--RalewayRegular.ttf) format("truetype");
 }
 
 @font-face {
 	font-family: "Raleway";
 	font-weight: 700;
-	src: url(http://2018.igem.org/wiki/images/1/11/T--Washington--RalewayRegular.ttf) format("truetype");
+	src: url(https://2019.igem.org/wiki/images/1/11/T--Washington--RalewayRegular.ttf) format("truetype");
 }
 
 .App, #root {
