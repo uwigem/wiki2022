@@ -1,13 +1,31 @@
 :root {
+	/** These colors should be deprecated ASAP */
 	--header-tag-color: black;
 	--main-color: black;
 	--debug-header-color: gray;
 	--background-color: rgb(245, 245, 245);
 	--error-message-color: red;
-	--main-purple: #420DAB;
-	--main-gold: #DAB420;
+	/**********************************/
+	/** Design guideline colors */
+	--purple-primary: #4d2393;
+	--purple-secondary: #dcd5e7;
+	--gold-primary: #ffbd12;
+	--gold-secondary: #f8e6b9;
 	--white: #FFF;
+	--gray-90: #212121;
+	--gray-80: #474747;
+	--gray-70: #747373;
+	--gray-30: #c1c1c1;
+	--gray-20: #dedede;
+	--gray-10: #f2f2f2;
+	--success-primary: #04732a;
+	--success-secondary: #d0eeda;
+	--failure-primary: #af2323;
+	--failure-secondary: #f3dada;
+	--default-font: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto;
 }
+
+/** RESET CODE HERE. SCROLL DOWN FOR DESIGN GUIDELINE STUFF */
 
 a {
 	outline: 0;
@@ -32,40 +50,12 @@ header {
 	padding: 0 !important;
 }
 
-@font-face {
-	font-family: "Abel";
-	/** TODO: UPLOAD THESE TO THE 2019 PAGE */
-	src: url(https://2019.igem.org/wiki/images/7/7d/T--Washington--AbelFont.TTF) format("truetype");
-}
-
-@font-face {
-	font-family: "Seg";
-	src: url(https://2019.igem.org/wiki/images/c/ce/T--Washington--SegoeUIL.ttf) format("truetype");
-}
-
-@font-face {
-	font-family: "Leixo";
-	src: url(https://2019.igem.org/wiki/images/4/4a/T--Washington--LeixoFont.ttf) format("truetype");
-}
-
-@font-face {
-	font-family: "Raleway";
-	font-weight: 400;
-	src: url(https://2019.igem.org/wiki/images/1/11/T--Washington--RalewayRegular.ttf) format("truetype");
-}
-
-@font-face {
-	font-family: "Raleway";
-	font-weight: 700;
-	src: url(https://2019.igem.org/wiki/images/1/11/T--Washington--RalewayRegular.ttf) format("truetype");
-}
-
 .App, #root {
 	margin: 0px;
 	margin-top: -18px;
 	padding: 0;
 	height: 100vh;
-	font-family: Raleway, sans-serif;
+	font-family: var(--default-font);
 	width: 100%;
 	background-color: var(--background-color);
 	color: var(--main-color);
@@ -79,7 +69,7 @@ header {
 	background-color: var(--background-color);
 	color: var(--main-color);
 	font-size: 12pt;
-	font-family: sans-serif;
+	font-family: var(--default-font);
 }
 
 /* Wiki overrides */
@@ -102,7 +92,7 @@ h1, h2, h3, h4, h5 {
 	border: none;
 	font-size: default;
 	font-weight: bold;
-	font-family: Raleway;
+	font-family: var(--default-font);
 	color: var(--header-tag-color);
 }
 
@@ -141,7 +131,7 @@ a[href ^="https://"] {
 }
 
 body {
-	font-size: 16px;
+	font-size: 20px;
 }
 
 #top_menu_inside ul a {
@@ -189,4 +179,108 @@ code {
 
 .centered {
 	text-align: center;
+}
+
+/********************DESIGN GUIDELINE STUFF*******************************/
+
+/** reset-font should only be used if something is overriding the default fonts */
+
+.wi-reset-font {
+	font-family: var(--default-font);
+}
+
+/** regular typography (it is important for this to be before the media tag) */
+
+.wi-title {
+	font-weight: 600;
+	font-size: 48px;
+	letter-spacing: -0.3em;
+}
+
+h1 {
+	font-weight: 500;
+	font-size: 36px;
+}
+
+h2 {
+	font-weight: 500;
+	font-size: 24px;
+}
+
+h3 {
+	font-weight: 500;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+
+p {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+	margin-bottom: 8px;
+}
+
+.wi-large-body {
+	font-size: 20px;
+}
+
+.wi-caption-1 {
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.wi-caption-2 {
+	font-weight: 400;
+	font-size: 12px;
+}
+
+.wi-label {
+	font-weight: 500;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+/** mobile typography */
+
+@media (max-width: 480px) {
+	.wi-title {
+		font-weight: 600;
+		font-size: 28pt;
+		letter-spacing: -0.3em;
+	}
+	h1 {
+		font-weight: 500;
+		font-size: 24pt;
+	}
+	h2 {
+		font-weight: 500;
+		font-size: 18pt;
+	}
+	h3 {
+		font-weight: 500;
+		font-size: 14pt;
+		text-transform: uppercase;
+	}
+	p {
+		font-weight: 400;
+		font-size: 16pt;
+		line-height: 21px;
+		margin-bottom: 6px;
+	}
+	.wi-large-body {
+		font-size: 20pt;
+	}
+	.wi-caption-1 {
+		font-weight: 500;
+		font-size: 13pt;
+	}
+	.wi-caption-2 {
+		font-weight: 400;
+		font-size: 12pt;
+	}
+	.wi-label {
+		font-weight: 500;
+		font-size: 13pt;
+		text-transform: uppercase;
+	}
 }

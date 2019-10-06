@@ -1,9 +1,9 @@
 .appbar {
-    flex-grow: 1;
-    padding-top: 2px;
+	flex-grow: 1;
+	padding-top: 2px;
 }
 
 .mui-appbar {
-    background-color: #420dab;
-    box-shadow: none;
+	background-color: var(--purple-primary);
+	box-shadow: none;
 }

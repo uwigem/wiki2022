@@ -4,18 +4,18 @@
 	align-items: center;
 	list-style-type: none;
 	padding: 1rem;
-	background-color: var(--main-purple);
+	background-color: var(--purple-primary);
 	color: var(--white);
 }
 
 .tab-label:hover {
-	color: var(--main-gold);
+	color: var(--gold-primary);
 	cursor: pointer;
 }
 
 .current-tab {
-	color: var(--main-gold);
-	border-bottom: 1px var(--main-gold) solid;
+	color: var(--gold-primary);
+	border-bottom: 1px var(--gold-primary) solid;
 }
 
 .current-tab-content, .current-tab-content-editor {
@@ -45,13 +45,13 @@
 .add-tab-btn {
 	padding: 5px;
 	color: var(--white);
-	background-color: var(--main-purple);
+	background-color: var(--purple-primary);
 	align-self: flex-end;
 }
 
 .tab-label-input {
 	padding: 3px;
-	background-color: var(--main-purple);
+	background-color: var(--purple-primary);
 	color: var(--white);
 	border: 1px var(--white) solid;
 	border-left: none;
@@ -60,14 +60,14 @@
 
 .tab-control-btn {
 	padding: 3px;
-	background-color: var(--main-purple);
+	background-color: var(--purple-primary);
 	color: var(--white);
 	border-radius: 0px;
 }
 
 .tab-control-btn:hover {
 	background-color: var(--white);
-	color: var(--main-purple);
+	color: var(--purple-primary);
 	border-radius: 0px;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .tab-content-render-btn {
-	background-color: var(--main-purple);
+	background-color: var(--purple-primary);
 	color: var(--white);
 	padding: 5px;
 	margin-left: auto;

@@ -1,12 +1,12 @@
 .appbar-dropdown {
-    padding-top: 16px;
+	padding-top: 16px;
 }
 
 .appbar-dropdown-button {
-    margin: 2px;
-    text-transform: none;
-    font-family: Raleway;
-    font-weight: bold !important;
-    color: white !important;
-    margin-left: 15px;
+	margin: 2px;
+	text-transform: none;
+	font-family: var(--default-font);
+	font-weight: bold !important;
+	color: white !important;
+	margin-left: 15px;
 }
