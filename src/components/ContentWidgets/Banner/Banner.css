@@ -1,0 +1,52 @@
+/* header widget style */
+.banner {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.banner-background {
+    width: 110%;
+    height: 110%;
+    position: absolute;
+    background-repeat: no-repeat;
+    left: -5%;
+    top: -5%;
+}
+
+.banner-hidden {
+    visibility: hidden;
+}
+
+.banner-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* header editor style */
+.banner-editor, .banner-preview {
+    display: block;
+    overflow: auto;
+}
+
+.banner-editor input, .banner-editor p, .banner-preview p {
+    margin: 2px 5px;
+    padding: 2px;
+    display: inline;
+}
+
+.banner-radio-div {
+    margin-bottom: 10px;
+}
+
+.banner-slider-y, .banner-slider-x {
+    display: inline;
+}
+
+.banner-slider-y {
+    float: left;
+}
+
+.banner-slider-y input {
+    -webkit-appearance: slider-vertical;
+}

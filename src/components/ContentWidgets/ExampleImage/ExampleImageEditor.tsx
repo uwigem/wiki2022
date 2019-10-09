@@ -2,7 +2,6 @@ import React from 'react';
 import { WidgetEditorProps } from '../../ContentMapping/ContentMapping';
 
 export const ExampleImageEditor: React.FC<WidgetEditorProps> = ({
-    originalContent,
     editedContent,
     setEditedContentOnChange
 }) => {

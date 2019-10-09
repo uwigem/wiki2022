@@ -44,7 +44,7 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 		if (!equal(content, editedContent)) {
 			setEditedContent({ ...content } as ContentSingularData);
 		}
-	}, [content])
+	}, [content /** WHATEVER THE YELLOW ERROR SAYS, DO NOT ADD `editedContent` HERE. It makes the editor not work */])
 
 
 	if (!content || !firebase) {
@@ -59,6 +59,7 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 			<div>
 				<Button variant="contained" color="primary"
 					onClick={() => setEditing(true)}>Edit</Button>
+
 			</div>
 		</>}
 

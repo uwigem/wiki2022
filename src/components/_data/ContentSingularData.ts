@@ -1,10 +1,12 @@
+import { BannerContent } from '../ContentWidgets/Banner/Banner';
 import { Tab } from '../ContentWidgets/TabView/TabView';
 import { ImgRowItem } from '../ContentWidgets/ImagesInRow/ImagesInRow';
 import { AccordionPageProps } from '../ContentWidgets/Accordion/Accordion'
 
 export type ContentSingularData = {
-	accordion_content?: AccordionPageProps[]
 	[idx: string]: any
+	banner_content?: BannerContent
+	accordion_content?: AccordionPageProps[]
 	plainText_content?: string
 	exampleImage_imageLink?: string
 	exampleImage_percentageSize?: number
