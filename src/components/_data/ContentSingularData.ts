@@ -1,8 +1,9 @@
-
 import { Tab } from '../ContentWidgets/TabView/TabView';
 import { ImgRowItem } from '../ContentWidgets/ImagesInRow/ImagesInRow';
+import { AccordionPageProps } from '../ContentWidgets/Accordion/Accordion'
 
 export type ContentSingularData = {
+	accordion_content?: AccordionPageProps[]
 	[idx: string]: any
 	plainText_content?: string
 	exampleImage_imageLink?: string

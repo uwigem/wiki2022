@@ -5,8 +5,8 @@ import equal from 'deep-equal';
 
 
 export type ContentViewProps = {
-    contentData: ContentData,
-    pageTitle: string
+	contentData: ContentData,
+	pageTitle: string
 }
 
 /**
@@ -17,34 +17,34 @@ export type ContentViewProps = {
  * William Kwok 
  */
 export const ContentView: React.FC<ContentViewProps> = ({ contentData, pageTitle }) => {
-    const [content, setContent] = useState<ContentData>({ ...contentData } as ContentData);
+	const [content, setContent] = useState<ContentData>({ ...contentData } as ContentData);
 
-    useEffect(() => {
-        if (!equal(content, contentData)) {
-            setContent({ ...contentData } as ContentData)
-        }
-    }, [contentData]);
+	useEffect(() => {
+		if (!equal(content, contentData)) {
+			setContent({ ...contentData } as ContentData)
+		}
+	}, [content, contentData]);
 
-    let pageString = pageTitle === "" ? "MAIN_PAGE_DO_NOT_EDIT" :
-        pageTitle.substring(1, pageTitle.length);
+	let pageString = pageTitle === "" ? "MAIN_PAGE_DO_NOT_EDIT" :
+		pageTitle.substring(1, pageTitle.length);
 
-    if (!contentData || !contentData[pageString]) {
-        return <></>
-    }
+	if (!contentData || !contentData[pageString]) {
+		return <></>
+	}
 
-    return <>
-        {/** TODO: Add sidebar here if the page is a sidebar. */}
-        <div id="content-view-container">
-            {contentData[pageString].contentOrder &&
-                contentData[pageString].content &&
-                contentData[pageString].contentOrder!.map((contentHash) => {
-                    let content = contentData[pageString].content![contentHash];
-                    let ContentWidget = ContentMapping[content!.type].widget;
-                    return <div id={contentHash} key={contentHash}>
-                        <ContentWidget {...content} />
-                    </div>
-                })
-            }
-        </div>
-    </>
+	return <>
+		{/** TODO: Add sidebar here if the page is a sidebar. */}
+		<div id="content-view-container">
+			{contentData[pageString].contentOrder &&
+				contentData[pageString].content &&
+				contentData[pageString].contentOrder!.map((contentHash) => {
+					let content = contentData[pageString].content![contentHash];
+					let ContentWidget = ContentMapping[content!.type].widget;
+					return <div id={contentHash} key={contentHash}>
+						<ContentWidget {...content} />
+					</div>
+				})
+			}
+		</div>
+	</>
 }

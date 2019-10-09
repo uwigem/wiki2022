@@ -12,11 +12,11 @@ import equal from 'deep-equal';
 import { EnvironmentContext } from '../../../contexts/EnvironmentContext/EnvironmentContext';
 
 type WidgetEditorProps = {
-    content: ContentSingularData | undefined,
-    contentHash: string,
-    currYear: number,
-    pageToEdit: string,
-    user: firebase.User | null
+	content: ContentSingularData | undefined,
+	contentHash: string,
+	currYear: number,
+	pageToEdit: string,
+	user: firebase.User | null
 }
 
 /**
@@ -35,72 +35,72 @@ type WidgetEditorProps = {
  *  - Make edithistory be its own class
  */
 export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash, currYear,
-    pageToEdit, user }) => {
-    const [editing, setEditing] = useState<boolean>(false);
-    const [editedContent, setEditedContent] = useState<ContentSingularData>({ ...content } as ContentSingularData);
-    const { firebase } = useContext(EnvironmentContext);
+	pageToEdit, user }) => {
+	const [editing, setEditing] = useState<boolean>(false);
+	const [editedContent, setEditedContent] = useState<ContentSingularData>({ ...content } as ContentSingularData);
+	const { firebase } = useContext(EnvironmentContext);
 
-    useEffect(() => {
-        if (!equal(content, editedContent)) {
-            setEditedContent({ ...content } as ContentSingularData);
-        }
-    }, [content])
+	useEffect(() => {
+		if (!equal(content, editedContent)) {
+			setEditedContent({ ...content } as ContentSingularData);
+		}
+	}, [content, editedContent])
 
 
-    if (!content || !firebase) {
-        return <></>;
-    }
+	if (!content || !firebase) {
+		return <></>;
+	}
 
-    let ContentWidget = ContentMapping[editedContent.type].widget;
-    let ContentEditingWidget = ContentMapping[editedContent.type].editor;
-    return <div className="widget-editor">
-        {!editing && <>
-            <ContentWidget {...editedContent} />
-            <div>
-                <Button variant="contained" color="primary"
-                    onClick={() => setEditing(true)}>Edit</Button>
-            </div>
-        </>}
+	let ContentWidget = ContentMapping[editedContent.type].widget;
+	let ContentEditingWidget = ContentMapping[editedContent.type].editor;
+	return <div className="widget-editor">
+		{!editing && <>
+			<ContentWidget {...editedContent} />
+			<div>
+				<Button variant="contained" color="primary"
+					onClick={() => setEditing(true)}>Edit</Button>
+			</div>
+		</>}
 
-        {editing && <>
-            <div>
-                <FormControl className="content-editor-formcontrol">
-                    <InputLabel>Select a component type</InputLabel>
-                    <Select
-                        value={editedContent.type}
-                        onChange={(e) => {
-                            setEditedContentOnChange("type", e.target.value as string, editedContent, setEditedContent);
-                        }}>
-                        {Object.keys(WidgetTypes).map(widgetType => {
-                            return <MenuItem key={widgetType} value={widgetType}>
-                                {widgetType}
-                            </MenuItem>
-                        })}
-                    </Select>
-                </FormControl>
-            </div>
-            <ContentEditingWidget editedContent={editedContent}
-                originalContent={content}
-                setEditedContentOnChange={(keyToChange: string, valueToChange: string) => {
-                    setEditedContentOnChange(keyToChange, valueToChange, editedContent, setEditedContent);
-                }} />
-            <div>
-                <Button variant="contained" color="primary"
-                    onClick={async () => {
-                        await firebase.database().ref(`${currYear}/ContentData/${pageToEdit}/content/${contentHash}`).set(editedContent);
-                        await firebase.database().ref(`${currYear}/EditHistory/${pageToEdit}/${contentHash}`).push({
-                            type: HistoryTypes.UPDATE,
-                            timestamp: firebase.database.ServerValue.TIMESTAMP,
-                            creator: (user && user.email) || "Unknown user",
-                            content: editedContent
-                        });
-                        setEditing(false);
-                    }}>
-                    Save
+		{editing && <>
+			<div>
+				<FormControl className="content-editor-formcontrol">
+					<InputLabel>Select a component type</InputLabel>
+					<Select
+						value={editedContent.type}
+						onChange={(e) => {
+							setEditedContentOnChange("type", e.target.value as string, editedContent, setEditedContent);
+						}}>
+						{Object.keys(WidgetTypes).map(widgetType => {
+							return <MenuItem key={widgetType} value={widgetType}>
+								{widgetType}
+							</MenuItem>
+						})}
+					</Select>
+				</FormControl>
+			</div>
+			<ContentEditingWidget editedContent={editedContent}
+				originalContent={content}
+				setEditedContentOnChange={(keyToChange: string, valueToChange: string) => {
+					setEditedContentOnChange(keyToChange, valueToChange, editedContent, setEditedContent);
+				}} />
+			<div>
+				<Button variant="contained" color="primary"
+					onClick={async () => {
+						await firebase.database().ref(`${currYear}/ContentData/${pageToEdit}/content/${contentHash}`).set(editedContent);
+						await firebase.database().ref(`${currYear}/EditHistory/${pageToEdit}/${contentHash}`).push({
+							type: HistoryTypes.UPDATE,
+							timestamp: firebase.database.ServerValue.TIMESTAMP,
+							creator: (user && user.email) || "Unknown user",
+							content: editedContent
+						});
+						setEditing(false);
+					}}>
+					Save
                 </Button>
-            </div>
-        </>}
-    </div>
+			</div>
+		</>}
+	</div>
 }
 
 
@@ -119,8 +119,8 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
  * @param valueToChange value of the key value pair to update. Any type.
  */
 export const setEditedContentOnChange = (keyToChange: string, valueToChange: any,
-    editedContent: ContentSingularData,
-    setEditedContent: React.Dispatch<React.SetStateAction<ContentSingularData>>) => {
-    const updatedContent = { ...editedContent, [keyToChange]: valueToChange } as ContentSingularData;
-    setEditedContent(updatedContent);
+	editedContent: ContentSingularData,
+	setEditedContent: React.Dispatch<React.SetStateAction<ContentSingularData>>) => {
+	const updatedContent = { ...editedContent, [keyToChange]: valueToChange } as ContentSingularData;
+	setEditedContent(updatedContent);
 }
