@@ -44,7 +44,7 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 		if (!equal(content, editedContent)) {
 			setEditedContent({ ...content } as ContentSingularData);
 		}
-	}, [content, editedContent])
+	}, [content])
 
 
 	if (!content || !firebase) {
