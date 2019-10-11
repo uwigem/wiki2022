@@ -16,7 +16,8 @@ type WidgetEditorProps = {
 	contentHash: string,
 	currYear: number,
 	pageToEdit: string,
-	user: firebase.User | null
+	user: firebase.User | null,
+	deleteWidget: (contentHash: string) => void
 }
 
 /**
@@ -35,7 +36,7 @@ type WidgetEditorProps = {
  *  - Make edithistory be its own class
  */
 export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash, currYear,
-	pageToEdit, user }) => {
+	pageToEdit, user, deleteWidget }) => {
 	const [editing, setEditing] = useState<boolean>(false);
 	const [editedContent, setEditedContent] = useState<ContentSingularData>({ ...content } as ContentSingularData);
 	const { firebase } = useContext(EnvironmentContext);
@@ -59,7 +60,8 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 			<div>
 				<Button variant="contained" color="primary"
 					onClick={() => setEditing(true)}>Edit</Button>
-
+				<Button variant="contained" color="primary"
+					onClick={() => deleteWidget(contentHash)}>Delete</Button>
 			</div>
 		</>}
 

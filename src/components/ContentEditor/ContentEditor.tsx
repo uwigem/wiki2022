@@ -39,6 +39,29 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
 		return <></>
 	}
 
+	const deleteWidget = async (contentHash: string) => {
+		console.log(contentHash);
+		if (contentData && pageToEdit && contentData[pageToEdit]) {
+			let contentOrderNew: string[] = [...contentData[pageToEdit].contentOrder!];
+			let currHashIndex = contentOrderNew.indexOf(contentHash);
+			if (currHashIndex !== -1) {
+				contentOrderNew.splice(currHashIndex, 1);
+			}
+
+			try {
+				await firebase.database().ref(`${currYear}/ContentData/${pageToEdit}/contentOrder`).set(contentOrderNew);
+				await firebase.database().ref(`${currYear}/ContentData/${pageToEdit}/content/${contentHash}`).remove();
+				await firebase.database().ref(`${currYear}/EditHistory/${pageToEdit}/${contentHash}`).push({
+					type: HistoryTypes.DELETE,
+					timestamp: firebase.database.ServerValue.TIMESTAMP,
+					deletor: (user && user.email) || "Unknown user"
+				});
+			} catch (e) {
+				console.log(e);
+			}
+		}
+	}
+
 	if (!userLoading && contentData) {
 		return <>
 			<ContentEditorBanner contentData={contentData}
@@ -77,7 +100,13 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
 										console.log(e);
 									}
 								}} />
-								<WidgetEditor user={user} content={content} contentHash={contentHash} currYear={currYear} pageToEdit={pageToEdit} />
+								<WidgetEditor
+									user={user}
+									content={content}
+									contentHash={contentHash}
+									currYear={currYear}
+									pageToEdit={pageToEdit}
+									deleteWidget={deleteWidget} />
 							</React.Fragment>
 						})}
 					<AddNewWidgetButton onClick={async () => {
