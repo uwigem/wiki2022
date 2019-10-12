@@ -1,5 +1,8 @@
 export const MAIN_PAGE: string = "MAIN_PAGE";
-
+export const SAFE_MESSAGE: string = "safe to edit";
+export const CURRENTLY_EDITED_BY_YOU_MESSAGE: string = "currently edited by you";
+export const LIVE_EDIT_TIMETOUT: number = 60;
+export const LIVE_EDIT_REFRESH: number = 45;
 export const FONT_FAMILY = `-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto`;
 
 export const COLORS = {
