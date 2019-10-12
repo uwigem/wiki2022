@@ -46,7 +46,9 @@
 		"testwatch": "react-scripts test",
 		"test": "CI=true react-scripts test",
 		"eject": "react-scripts eject",
-		"deploy": "npm run build && ./scripts/deploy.sh"
+		"deploy": "npm run build && ./scripts/deploy.sh",
+		"deploytest": "npm run build && ./scripts/deploy_test.sh",
+		"deploybasetest": "./scripts/deploybase_test.sh"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
