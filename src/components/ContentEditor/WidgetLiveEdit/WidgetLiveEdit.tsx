@@ -75,7 +75,7 @@ export const WidgetLiveEdit: React.FC<WidgetLiveEditProps> = ({
 				if (!saved && diff < LIVE_EDIT_TIMETOUT) {
 					// not saved and not yet timed out
 					let editorName = record.editor;
-					if (user && editorName == user.email) {
+					if (user && editorName === user.email) {
 						setEditingState(EditingState.CURRENTUSER);
 						setMessage(CURRENTLY_EDITED_BY_YOU_MESSAGE);
 					} else {
