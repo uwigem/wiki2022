@@ -1,0 +1,11 @@
+.wysiwyg-wrapper {
+	padding: 10px;
+}
+
+.wysiwyg-editor {
+	background-color: var(--white);
+}
+
+.wysiwyg-display {
+	overflow: visible;
+}
