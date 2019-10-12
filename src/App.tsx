@@ -10,6 +10,7 @@ import { LoadingScreen } from './components/LoadingScreen/LoadingScreen';
 import { CustomAppBar } from './components/CustomAppBar/CustomAppBar';
 import { DebugFonts } from './components/_debug/DebugFonts';
 import { ContentView } from './components/ContentView/ContentView';
+import { NavigationBottom } from './components/NavigationBottom/NavigationBottom';
 import "./App.css";
 import { FONT_FAMILY } from './components/_data/Constants';
 
@@ -23,7 +24,7 @@ type AppProps = {
 	firebase?: any,
 	ContentEditor: React.FC<ContentEditorProps>
 }
-const debugURL = "/wkwokTestPage";
+const debugURL = "/Editor";
 
 /**
  * App is the main application that handles all the route logic and rendering.
@@ -192,6 +193,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase, ContentEditor }
 							<ContentView contentData={contentData} pageTitle={pageTitle} />
 						}
 					</div>
+					<NavigationBottom name={name} pageTitle={pageTitle} a={a} />
 					<Footbar a={a} />
 				</>}
 
