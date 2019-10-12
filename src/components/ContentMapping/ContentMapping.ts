@@ -17,6 +17,9 @@ import { ImagesInRow } from '../ContentWidgets/ImagesInRow/ImagesInRow';
 import { ImagesInRowEditor } from '../ContentWidgets/ImagesInRow/ImagesInRowEditor';
 import { Separator } from '../ContentWidgets/Separator/Separator';
 import { SeparatorEditor } from '../ContentWidgets/Separator/SeparatorEditor';
+import { Gallery } from '../ContentWidgets/Gallery/Gallery';
+import { GalleryEditor } from '../ContentWidgets/Gallery/GalleryEditor';
+
 import { WYSIWYGEditor } from '../ContentWidgets/WYSIWYG/WYSIWYGEditor';
 import { WYSIWYGWidget } from '../ContentWidgets/WYSIWYG/WYSIWYGWidget';
 import { Accordion } from '../ContentWidgets/Accordion/Accordion';
@@ -44,6 +47,7 @@ export enum WidgetTypes {
 	IMAGES_IN_ROW = "IMAGES_IN_ROW",
 	PDF_VIEWER = "PDF_VIEWER",
 	VIDEO = "VIDEO",
+	GALLERY = "GALLERY",
 	WYSIWYG_EDITOR = "WYSIWYG_EDITOR",
 	BANNER = "BANNER",
 	ACCORDION = "ACCORDION"
@@ -82,6 +86,10 @@ export const ContentMapping: ContentMappingType = {
 		widget: Video,
 		editor: VideoEditor
 	},
+	GALLERY: {
+		widget: Gallery,
+		editor: GalleryEditor
+	},
 	WYSIWYG_EDITOR: {
 		widget: WYSIWYGWidget,
 		editor: WYSIWYGEditor
@@ -95,4 +103,3 @@ export const ContentMapping: ContentMappingType = {
 		editor: AccordionEditor
 	}
 }
-

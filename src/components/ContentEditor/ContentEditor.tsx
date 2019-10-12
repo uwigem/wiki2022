@@ -40,7 +40,6 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
 	}
 
 	const deleteWidget = async (contentHash: string) => {
-		console.log(contentHash);
 		if (contentData && pageToEdit && contentData[pageToEdit]) {
 			let contentOrderNew: string[] = [...contentData[pageToEdit].contentOrder!];
 			let currHashIndex = contentOrderNew.indexOf(contentHash);

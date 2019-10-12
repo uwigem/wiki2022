@@ -28,3 +28,5 @@ export const COLORS = {
 		SECONDARY: "f3dada"
 	}
 };
+
+export const GALLERY_COL_COUNT = 3;

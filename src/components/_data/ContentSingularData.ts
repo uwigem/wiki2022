@@ -19,5 +19,6 @@ export type ContentSingularData = {
 	separator_width?: number | string
 	separator_color?: { r: number; g: number; b: number }
 	tabView_content?: Tab[]
+	gallery_content?: string[]
 	wysiwyg_content?: string
 }
