@@ -20,7 +20,7 @@ export const AccordionPage: React.FC<AccordionPageProps> = ({
 	panel
 }) => {
 	const [isActive, setCollapseState] = useState(false);
-	return <div className={isActive ? "active-accordion" : ""}>
+	return <div className={`${isActive ? "active-accordion" : ""} wi-content-wrapper`}>
 		<button
 			className="accordion-title"
 			onClick={() => setCollapseState(!isActive)}

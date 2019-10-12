@@ -23,7 +23,7 @@ export const TabView: React.FC<ContentSingularData> = ({
 			onClick={() => setCurrentTab(index)}>{tab.tabLabel}</li>
 	});
 
-	return <div>
+	return <div className="wi-content-wrapper">
 		<ul className="tabs-container">
 			{tabs}
 		</ul>

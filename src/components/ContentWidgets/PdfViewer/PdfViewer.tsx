@@ -10,22 +10,22 @@ import './PdfViewer.css';
  * July 15, 2019
  */
 export const PdfViewer: React.FC<ContentSingularData> = ({
-    pdfViewer_pdfLink, pdfViewer_pdfWidthPercentage, pdfViewer_pdfHeightPixel
+	pdfViewer_pdfLink, pdfViewer_pdfWidthPercentage, pdfViewer_pdfHeightPixel
 }) => {
-    if (!pdfViewer_pdfLink ||
-        !pdfViewer_pdfWidthPercentage ||
-        !pdfViewer_pdfHeightPixel) {
-        return <></>;
-    }
+	if (!pdfViewer_pdfLink ||
+		!pdfViewer_pdfWidthPercentage ||
+		!pdfViewer_pdfHeightPixel) {
+		return <></>;
+	}
 
-    let pdfStyle = {
-        width: pdfViewer_pdfWidthPercentage + "%",
-        height: pdfViewer_pdfHeightPixel + "px"
-    };
+	let pdfStyle = {
+		width: pdfViewer_pdfWidthPercentage + "%",
+		height: pdfViewer_pdfHeightPixel + "px"
+	};
 
-    return <embed
-        className="pdf-viewer-pdf"
-        src={pdfViewer_pdfLink}
-        type="application/pdf"
-        style={pdfStyle} />
+	return <embed
+		className="pdf-viewer-pdf wi-content-wrapper"
+		src={pdfViewer_pdfLink}
+		type="application/pdf"
+		style={pdfStyle} />
 }

@@ -13,11 +13,6 @@ import { ContentView } from './components/ContentView/ContentView';
 import "./App.css";
 import { FONT_FAMILY } from './components/_data/Constants';
 
-// comment out for production build
-// import 'firebase/auth';
-// import 'firebase/database';
-
-
 // This line is to remove a bug that Firefox has
 // TODO: insert link explaining why
 window.addEventListener("unload", function () { });
@@ -28,7 +23,7 @@ type AppProps = {
 	firebase?: any,
 	ContentEditor: React.FC<ContentEditorProps>
 }
-const debugURL = "/Editor";
+const debugURL = "/wkwokTestPage";
 
 /**
  * App is the main application that handles all the route logic and rendering.
@@ -48,7 +43,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase, ContentEditor }
 	let imgsToPrefetch: string[] = Data.getImgsToPrefetch();
 	let imgsLoaded = 0;
 
-	const displayConstants = Data.getDisplayConstants(pageTitle);
+	const displayConstants = Data.getDisplayConstants();
 	const theme = createMuiTheme({
 		palette: {
 			primary: {

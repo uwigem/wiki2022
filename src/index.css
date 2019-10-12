@@ -23,6 +23,10 @@
 	--failure-primary: #af2323;
 	--failure-secondary: #f3dada;
 	--default-font: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto;
+	--content-padding-left: 5%;
+	--content-padding-right: 5%;
+	--content-margin-top: 10px;
+	--content-margin-bottom: 10px;
 }
 
 /** RESET CODE HERE. SCROLL DOWN FOR DESIGN GUIDELINE STUFF */
@@ -182,6 +186,13 @@ code {
 }
 
 /********************DESIGN GUIDELINE STUFF*******************************/
+
+.wi-content-wrapper {
+	padding-left: var(--content-padding-left);
+	padding-right: var(--content-padding-right);
+	margin-top: var(--content-margin-top);
+	margin-bottom: var(--content-margin-bottom);
+}
 
 /** reset-font should only be used if something is overriding the default fonts */
 

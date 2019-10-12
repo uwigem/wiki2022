@@ -1,3 +1,7 @@
+.accordion-wrapper {
+	margin-top: 10px;
+}
+
 .accordion-title {
 	background-color: var(--gray-10);
 	cursor: pointer;

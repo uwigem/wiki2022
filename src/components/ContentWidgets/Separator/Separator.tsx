@@ -16,7 +16,7 @@ export const Separator: React.FC<ContentSingularData> = ({
 	separator_color
 }) => {
 	const { r, g, b } = separator_color || DEFAULT_COLOR;
-	return <div className="separator-container">
+	return <div className="separator-container wi-content-wrapper">
 		<div
 			className="separator"
 			style={{

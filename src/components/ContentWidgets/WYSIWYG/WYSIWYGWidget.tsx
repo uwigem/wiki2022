@@ -11,12 +11,15 @@ export const WYSIWYGWidget: React.FC<ContentSingularData> = ({ wysiwyg_content }
 	} else {
 		const contentState = convertToRaw(ContentState.createFromBlockArray(htmlToDraft(wysiwyg_content).contentBlocks));
 		// display editor content by setting editor as read only
-		return <Editor
-			initialContentState={contentState}
-			wrapperClassName="wysiwyg-wrapper"
-			editorClassName="wysiwyg-display"
-			toolbarHidden={true}
-			readOnly={true}
-		/>
+
+		return <div className="wi-content-wrapper">
+			<Editor
+				initialContentState={contentState}
+				wrapperClassName="wysiwyg-wrapper"
+				editorClassName="wysiwyg-display"
+				toolbarHidden={true}
+				readOnly={true}
+			/>
+		</div>
 	}
 }

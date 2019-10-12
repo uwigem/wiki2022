@@ -17,7 +17,7 @@ export const Video: React.FC<ContentSingularData> = ({
 		return <></>
 	}
 
-	return <div className="centered">
+	return <div className="centered wi-content-wrapper">
 		<video
 			className="video-player-auto-height"
 			width={video_videoWidthPercentage + "%"}
