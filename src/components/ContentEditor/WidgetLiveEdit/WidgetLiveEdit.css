@@ -1,0 +1,15 @@
+.widget-live-edit-bar-safe {
+	color: white;
+	background-color: green;
+	text-align: center;
+}
+
+.widget-live-edit-bar-unsafe {
+	color: white;
+	background-color: orange;
+	text-align: center;
+}
+
+.widget-editor-padding-left {
+	margin-left: 5px;
+}
