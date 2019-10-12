@@ -35,7 +35,15 @@ type ContentMappingType = {
 	[idx: string]: {
 		widget: React.FC<ContentSingularData>,
 		editor: React.FC<WidgetEditorProps>
+		displayName: string,
+		widgetCategory: WidgetCategories
 	}
+}
+
+export enum WidgetCategories {
+	Display = "Display",
+	Media = "Media",
+	Text = "Text"
 }
 
 export enum WidgetTypes {
@@ -54,52 +62,70 @@ export enum WidgetTypes {
 }
 
 export const ContentMapping: ContentMappingType = {
-	PLAIN_TEXT: {
-		widget: PlainText,
-		editor: PlainTextEditor
-	},
+	// PLAIN_TEXT: {
+	// 	widget: PlainText,
+	// 	editor: PlainTextEditor,
+	// 	displayName: "Plain Text",
+	// 	widgetCategory: WidgetCategories.Text
+	// },
 	STUB: {
 		widget: Stub,
-		editor: StubEditor
-	},
-	EXAMPLE_IMAGE: {
-		widget: ExampleImage,
-		editor: ExampleImageEditor
+		editor: StubEditor,
+		displayName: "Stub",
+		widgetCategory: WidgetCategories.Display
 	},
 	TAB_VIEW: {
 		widget: TabView,
-		editor: TabViewEditor
+		editor: TabViewEditor,
+		displayName: "Tab View",
+		widgetCategory: WidgetCategories.Display
 	},
 	IMAGES_IN_ROW: {
 		widget: ImagesInRow,
-		editor: ImagesInRowEditor
+		editor: ImagesInRowEditor,
+		displayName: "Images in Row",
+		widgetCategory: WidgetCategories.Media
 	},
 	SEPARATOR: {
 		widget: Separator,
-		editor: SeparatorEditor
+		editor: SeparatorEditor,
+		displayName: "Seperator",
+		widgetCategory: WidgetCategories.Display
 	},
 	PDF_VIEWER: {
 		widget: PdfViewer,
-		editor: PdfViewerEditor
+		editor: PdfViewerEditor,
+		displayName: "PDF Viewer",
+		widgetCategory: WidgetCategories.Media
 	},
 	VIDEO: {
 		widget: Video,
-		editor: VideoEditor
+		editor: VideoEditor,
+		displayName: "Video",
+		widgetCategory: WidgetCategories.Media
 	},
 	GALLERY: {
 		widget: Gallery,
-		editor: GalleryEditor
+		editor: GalleryEditor,
+		displayName: "Gallery",
+		widgetCategory: WidgetCategories.Media
 	},
 	WYSIWYG_EDITOR: {
 		widget: WYSIWYGWidget,
-		editor: WYSIWYGEditor
+		editor: WYSIWYGEditor,
+		displayName: "Rich Text Editor",
+		widgetCategory: WidgetCategories.Text
 	},
 	BANNER: {
 		widget: Banner,
-		editor: BannerEditor
+		editor: BannerEditor,
+		displayName: "Banner",
+		widgetCategory: WidgetCategories.Display
 	},
 	ACCORDION: {
 		widget: Accordion,
-		editor: AccordionEditor
+		editor: AccordionEditor,
+		displayName: "Accordion",
+		widgetCategory: WidgetCategories.Display
 	}
 }

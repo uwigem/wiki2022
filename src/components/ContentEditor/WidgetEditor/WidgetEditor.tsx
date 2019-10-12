@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { ContentSingularData } from '../../_data/ContentSingularData';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
 import './WidgetEditor.css';
-import { WidgetTypes, ContentMapping } from '../../ContentMapping/ContentMapping';
+import { WidgetCategories, ContentMapping } from '../../ContentMapping/ContentMapping';
+import './WidgetEditor.css';
 import equal from 'deep-equal';
 import { EnvironmentContext } from '../../../contexts/EnvironmentContext/EnvironmentContext';
 import { WidgetLiveEdit } from '../WidgetLiveEdit/WidgetLiveEdit';
@@ -24,8 +21,8 @@ type WidgetEditorProps = {
  * updating it, and rendering it.
  *
  * Last Modified
- * July 17, 2019
- * William Kwok
+ * September 27, 2019
+ * Nitesh Chetry
  *
  * TODO:
  *  - Update the selector to be more user friendly (make a thing popup?)
@@ -70,21 +67,36 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 		</>}
 
 		{editing && <>
-			<div>
-				<FormControl className="content-editor-formcontrol">
-					<InputLabel>Select a component type</InputLabel>
-					<Select
-						value={editedContent.type}
-						onChange={(e) => {
-							setEditedContentOnChange("type", e.target.value as string, editedContent, setEditedContent);
-						}}>
-						{Object.keys(WidgetTypes).map(widgetType => {
-							return <MenuItem key={widgetType} value={widgetType}>
-								{widgetType}
-							</MenuItem>
-						})}
-					</Select>
-				</FormControl>
+			<div className="widget-picker">
+				<form>
+					<fieldset>
+						<legend>Select a Widget</legend>
+						<select
+							value={editedContent.type}
+							onChange={(e) => {
+								setEditedContentOnChange("type", e.target.value as string, editedContent, setEditedContent);
+							}}>
+							<option value="" disabled selected>-- Select a Widget --</option>
+							{/* display Widget Categories and Widgets in dropdown, sorted alphabetically */}
+							{/* TODO: Optimize dropdown organizing for a better time complexity */}
+							{Object.keys(WidgetCategories).map((category) => {
+								const categoryWidgets = Object.keys(ContentMapping).filter(widgetKey => ContentMapping[widgetKey].widgetCategory === category)
+								categoryWidgets.sort();
+								if (categoryWidgets.length > 0) {
+									return <optgroup label={category}>
+										{categoryWidgets.map((widgetKey) => {
+											return <option key={widgetKey} value={widgetKey}>
+												{ContentMapping[widgetKey].displayName}
+											</option>
+										})}
+									</optgroup>
+								} else {
+									return <></>
+								}
+							})}
+						</select>
+					</fieldset>
+				</form>
 			</div>
 			<ContentEditingWidget editedContent={editedContent}
 				originalContent={content}
