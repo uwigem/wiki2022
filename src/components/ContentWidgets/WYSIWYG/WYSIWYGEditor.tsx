@@ -17,6 +17,7 @@ export const WYSIWYGEditor: React.FC<WidgetEditorProps> = ({
 		convertToRaw(EditorState.createEmpty().getCurrentContent());
 
 	return <>
+		<p>Please make sure do not paste formatted text (Shift command v, or shift control p)</p>
 		<Editor
 			initialContentState={contentState}
 			wrapperClassName="wysiwyg-wrapper"
