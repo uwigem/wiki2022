@@ -14,17 +14,17 @@ export const Header: React.FC<ContentSingularData> = ({ header_content, header_p
 	}
 
 	let header;
-	if (header_priority == 1) {
+	if (header_priority === 1) {
 		header = <h1>{header_content}</h1>;
-	} else if (header_priority == 2) {
+	} else if (header_priority === 2) {
 		header = <h2>{header_content}</h2>;
-	} else if (header_priority == 3) {
+	} else if (header_priority === 3) {
 		header = <h3>{header_content}</h3>;
-	} else if (header_priority == 4) {
+	} else if (header_priority === 4) {
 		header = <h4>{header_content}</h4>;
 	}
 
-    return <>
-        {header}
-    </>
+	return <div className="wi-content-wrapper">
+		{header}
+	</div>
 }
