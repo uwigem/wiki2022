@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Sidebar } from './LegacySidebar/Sidebar';
 import { IconButton } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
 
 type AppBarSideDrawerProps = {
 	name: string,
@@ -20,7 +21,7 @@ export const AppBarSideDrawer: React.FC<AppBarSideDrawerProps> = ({
 			color="inherit"
 			aria-label="open drawer"
 			onClick={() => setDrawerState(!drawerState)}
-		/>
+		><MenuIcon /></IconButton>
 		<Sidebar
 			toggleDrawer={() => setDrawerState(!drawerState)}
 			drawerOpen={drawerState}
