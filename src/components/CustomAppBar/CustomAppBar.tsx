@@ -10,9 +10,9 @@ import { AppBarSideDrawer } from './AppBarSideDrawer/AppBarSideDrawer';
 const minWidth = 768;
 
 type CustomAppBarProps = {
-    name: string,
-    pageTitle: string,
-    a: () => void
+	name: string,
+	pageTitle: string,
+	a: () => void
 }
 
 /**
@@ -23,18 +23,22 @@ type CustomAppBarProps = {
  * July 17, 2019
  */
 export const CustomAppBar: React.FC<CustomAppBarProps> = ({ name, pageTitle, a }) => {
-    const { windowWidth } = useContext(EnvironmentContext);
-    let minimized = windowWidth < minWidth;
+	const { windowWidth } = useContext(EnvironmentContext);
+	let minimized = windowWidth < minWidth;
 
-    return <>
-        <div className={"appbar"}>
-            <AppBar className={"mui-appbar"}>
-                <Toolbar>
-                    <AppBarLogo />
-                    {!minimized && <AppBarDropdowns name={name} pageTitle={pageTitle} a={a} />}
-                    {minimized && <AppBarSideDrawer />}
-                </Toolbar>
-            </AppBar>
-        </div>
-    </>
+	return <>
+		<div className={"appbar"}>
+			<AppBar className={"mui-appbar"}>
+				<Toolbar>
+					<AppBarLogo />
+					{!minimized && <AppBarDropdowns name={name} pageTitle={pageTitle} a={a} />}
+					{minimized && <AppBarSideDrawer
+						name={name}
+						pageTitle={pageTitle}
+						a={a}
+					/>}
+				</Toolbar>
+			</AppBar>
+		</div>
+	</>
 }
