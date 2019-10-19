@@ -19,7 +19,7 @@ export type ContentViewProps = {
  * William Kwok 
  */
 export const ContentView: React.FC<ContentViewProps> = ({ contentData, pageTitle }) => {
-  const [content, setContent] = useState<ContentData>({ ...contentData } as ContentData);
+	const [content, setContent] = useState<ContentData>({ ...contentData } as ContentData);
 
 	useEffect(() => {
 		if (!equal(content, contentData)) {
@@ -60,6 +60,7 @@ export const ContentView: React.FC<ContentViewProps> = ({ contentData, pageTitle
 					contentData[pageString].content &&
 					contentData[pageString].contentOrder!.map((contentHash, index) => {
 						let content = contentData[pageString].content![contentHash];
+						console.log(ContentMapping);
 						let ContentWidget = ContentMapping[content!.type].widget;
 
 						return content!.type === "BANNER" ? null : <div id={contentHash} key={contentHash}>

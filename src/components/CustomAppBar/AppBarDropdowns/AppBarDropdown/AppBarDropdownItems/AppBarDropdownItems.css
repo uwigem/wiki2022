@@ -1,8 +1,8 @@
 .appbar-dropdown-items {
-	color: #000000 !important;
+	color: var(--main-color) !important;
 	text-decoration: none !important;
 	font-family: var(--default-font) !important;
-	font-weight: bold !important;
 	padding-left: 16px !important;
 	padding-right: 16px !important;
+	text-align: center;
 }

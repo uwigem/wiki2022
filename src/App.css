@@ -1,26 +1,26 @@
 .app-content-dev {
-    min-height: 100vh;
-    margin-top: 44px;
+	min-height: 100vh;
+	margin-top: 44px;
 }
 
 .app-content-real {
-    min-height: 100vh;
-    margin-top: 80px;
+	min-height: 100vh;
+	margin-top: 80px;
 }
 
-.app-content-real, .mobile {
-    margin-top: 73px;
+.app-content-real.mobile {
+	margin-top: 73px;
 }
 
-.app-content-dev, .mobile {
-    margin-top: 37px;
+.app-content-dev.mobile {
+	margin-top: 37px;
 }
 
 .main-temporary {
-    margin: 20px;
-    margin-top: 100px;
+	margin: 20px;
+	margin-top: 100px;
 }
 
 .main-temporary p {
-    margin: 10px;
+	margin: 10px;
 }
