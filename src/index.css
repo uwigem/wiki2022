@@ -31,6 +31,11 @@
 
 /** RESET CODE HERE. SCROLL DOWN FOR DESIGN GUIDELINE STUFF */
 
+ul {
+	list-style-image: none !important;
+	margin: 0 !important;
+}
+
 a {
 	outline: 0;
 }
@@ -185,6 +190,15 @@ code {
 	text-align: center;
 }
 
+a {
+	text-decoration: none !important;
+	color: var(--main-color) !important;
+}
+
+a:hover {
+	color: var(--purple-primary) !important;
+}
+
 /********************DESIGN GUIDELINE STUFF*******************************/
 
 .wi-content-wrapper {
@@ -205,7 +219,7 @@ code {
 .wi-title {
 	font-weight: 600;
 	font-size: 48px;
-	letter-spacing: -0.3em;
+	/* letter-spacing: 0.3em; */
 }
 
 h1 {
@@ -257,7 +271,6 @@ p {
 	.wi-title {
 		font-weight: 600;
 		font-size: 28pt;
-		letter-spacing: -0.3em;
 	}
 	h1 {
 		font-weight: 500;

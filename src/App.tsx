@@ -13,6 +13,7 @@ import { ContentView } from './components/ContentView/ContentView';
 import { NavigationBottom } from './components/NavigationBottom/NavigationBottom';
 import "./App.css";
 import { FONT_FAMILY } from './components/_data/Constants';
+import { HardCodedMainPage } from './components/HardcodedMainPage/HardCodedMainPage';
 
 // This line is to remove a bug that Firefox has
 // TODO: insert link explaining why
@@ -24,7 +25,7 @@ type AppProps = {
 	firebase?: any,
 	ContentEditor: React.FC<ContentEditorProps>
 }
-const debugURL = "/etruongTestPage";
+const debugURL = "/Editor";
 
 /**
  * App is the main application that handles all the route logic and rendering.
@@ -160,7 +161,8 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase, ContentEditor }
 								currYear={currYear}
 							/>}
 						{/*****************************************/}
-						{pageTitle !== "/Editor" && (pageTitle === "" || pageTitle === "/Description") &&
+						{pageTitle !== "/Editor"
+							&& (pageTitle === "/Description") &&
 							<div className="main-temporary">
 								{pageTitle !== '/Description' &&
 									<div>
@@ -187,9 +189,11 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase, ContentEditor }
 									This project was inspired by work in the Gu Lab at the University of Washington and their work dealing with the creation of a CID system. We wanted to take what we learned from last year, build upon it, and package everything in a consumer friendly device to detect CBD. Furthermore, since our team has had experience with CID devices from our 2018 project that dealt with detecting anchor binders for cholecalciferol and artemisinin.
                                 </p>
 							</div>}
-
+						{pageTitle !== "/Editor"
+							&& pageTitle === "" &&
+							<HardCodedMainPage a={a} />}
 						{/*****************************************/}
-						{pageTitle !== "/Editor" && pageTitle !== "" &&
+						{pageTitle !== "/Editor" && pageTitle !== "" && pageTitle !== "/MAIN_PAGE" &&
 							<ContentView contentData={contentData} pageTitle={pageTitle} />
 						}
 					</div>

@@ -6,7 +6,6 @@
 	margin: 2px;
 	text-transform: none;
 	font-family: var(--default-font);
-	font-weight: bold !important;
-	color: white !important;
+	color: var(--main-color) !important;
 	margin-left: 15px;
 }

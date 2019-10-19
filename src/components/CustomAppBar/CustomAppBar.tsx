@@ -6,8 +6,7 @@ import { EnvironmentContext } from '../../contexts/EnvironmentContext/Environmen
 import { AppBarLogo } from './AppBarLogo/AppBarLogo';
 import { AppBarDropdowns } from './AppBarDropdowns/AppBarDropdowns';
 import { AppBarSideDrawer } from './AppBarSideDrawer/AppBarSideDrawer';
-
-const minWidth = 768;
+import { NAVBAR_MIN_WIDTH } from '../_data/Constants';
 
 type CustomAppBarProps = {
 	name: string,
@@ -24,11 +23,11 @@ type CustomAppBarProps = {
  */
 export const CustomAppBar: React.FC<CustomAppBarProps> = ({ name, pageTitle, a }) => {
 	const { windowWidth } = useContext(EnvironmentContext);
-	let minimized = windowWidth < minWidth;
+	let minimized = windowWidth < NAVBAR_MIN_WIDTH;
 
 	return <>
 		<div className={"appbar"}>
-			<AppBar className={"mui-appbar"}>
+			<AppBar className={"mui-appbar"} color="secondary">
 				<Toolbar>
 					<AppBarLogo />
 					{!minimized && <AppBarDropdowns name={name} pageTitle={pageTitle} a={a} />}

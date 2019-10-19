@@ -79,14 +79,4 @@ const displayConstants: DisplayConstants = {
 }
 
 const contentData: ContentData = {
-	"MAIN_PAGE": {
-		hasSidebar: false,
-		contentOrder: ["123"],
-		content: {
-			"123": {
-				type: "PLAIN_TEXT",
-				plainText_content: "test"
-			}
-		}
-	}
 }

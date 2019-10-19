@@ -1,0 +1,63 @@
+.hcmp-innerbgdiv {
+	height: 100%;
+	width: 100%;
+	background: url(https://2019.igem.org/wiki/images/f/f8/T--Washington--PhotoCollage.jpg) center center / cover no-repeat;
+	top: 0px;
+	left: 0px;
+	position: relative;
+	filter: blur(2px);
+	z-index: 1;
+}
+
+.hcmp-bgdiv {
+	height: 50vh;
+	width: 100%;
+	background-color: rgb(30, 8, 66);
+	opacity: 0.5;
+	z-index: 2;
+}
+
+.hcmp-titlewrapper {
+	padding: 5%;
+	background-color: var(--gray-10);
+}
+
+.hcmp-titlewrapper .container {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.hcmp-titlename {
+	color: var(--purple-primary);
+}
+
+.hcmp-desclink {
+	margin-top: 10px;
+}
+
+.hcmp-desclink>a {
+	border-bottom: 3px solid var(--gold-secondary);
+}
+
+.hcmp-abstractwrapper {
+	padding: 5%;
+	background-color: var(--gold-secondary);
+}
+
+.hcmp-abstractwrapper p {
+	column-count: 3;
+}
+
+.hcmp-sep {
+	background-color: var(--purple-primary);
+	height: 4px;
+	width: 70px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+@media (max-width: 480px) {
+	.hcmp-abstractwrapper p {
+		column-count: 1;
+	}
+}
