@@ -1,10 +1,6 @@
 import React, { memo } from 'react';
-import { PlainText } from '../ContentWidgets/PlainText/PlainText';
-import { PlainTextEditor } from '../ContentWidgets/PlainText/PlainTextEditor';
 import { Stub, StubEditor } from '../ContentWidgets/_Stub/Stub';
 import { ContentSingularData } from '../_data/ContentSingularData';
-import { ExampleImage } from '../ContentWidgets/ExampleImage/ExampleImage';
-import { ExampleImageEditor } from '../ContentWidgets/ExampleImage/ExampleImageEditor';
 import { Banner } from '../ContentWidgets/Banner/Banner';
 import { BannerEditor } from '../ContentWidgets/Banner/BannerEditor';
 import { TabView } from '../ContentWidgets/TabView/TabView';

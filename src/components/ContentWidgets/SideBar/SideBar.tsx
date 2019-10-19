@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ContentViewProps } from '../../ContentView/ContentView';
 import { ContentData } from '../../_data/Data';
-import { CssBaseline } from '@material-ui/core';
 
 export type SideBarProps = {
 	contentData: ContentData,
@@ -87,7 +85,7 @@ export const SideBar: React.FC<SideBarProps> = ({
 		for (let i = 0; i < sections.length; i++) {
 			let section = sections[i];
 			if (window.scrollY >= section.top && window.scrollY <= section.bottom) {
-				if (section.sectionID != currentActiveSection.sectionID) {
+				if (section.sectionID !== currentActiveSection.sectionID) {
 					setCurrentActiveSection(section);
 					break;
 				}
