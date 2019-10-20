@@ -11,8 +11,8 @@ export const COLORS = {
 		SECONDARY: "#dcd5e7"
 	},
 	GOLD: {
-		PRIMARY: "$ffbd12",
-		SECONDARY: "f8e6b9"
+		PRIMARY: "#ffbd12",
+		SECONDARY: "#f8e6b9"
 	},
 	GRAY: {
 		90: "#212121",
