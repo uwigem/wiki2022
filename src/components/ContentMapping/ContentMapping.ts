@@ -22,6 +22,8 @@ import { WYSIWYGEditor } from '../ContentWidgets/WYSIWYG/WYSIWYGEditor';
 import { WYSIWYGWidget } from '../ContentWidgets/WYSIWYG/WYSIWYGWidget';
 import { Accordion } from '../ContentWidgets/Accordion/Accordion';
 import { AccordionEditor } from '../ContentWidgets/Accordion/AccordionEditor';
+import { TeamPage } from '../ContentWidgets/TeamPage/TeamPage';
+import { TeamPageEditor } from '../ContentWidgets/TeamPage/TeamPageEditor';
 
 export type WidgetEditorProps = {
 	originalContent: ContentSingularData,
@@ -57,6 +59,7 @@ export enum WidgetTypes {
 	WYSIWYG_EDITOR = "WYSIWYG_EDITOR",
 	BANNER = "BANNER",
 	ACCORDION = "ACCORDION",
+	TEAMPAGE = "TEAMPAGE",
 	HEADER = "HEADER"
 }
 
