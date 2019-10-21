@@ -2,6 +2,8 @@ import NavbarData, { NavbarType } from './NavbarData/NavbarData';
 import { COLORS } from './Constants';
 import { ContentSingularData } from './ContentSingularData';
 
+export const VERSION = "1.1.0";
+
 export default class Data {
 	static getImgsToPrefetch(): string[] {
 		return imgs;
@@ -19,6 +21,10 @@ export default class Data {
 		return teamData;
 	}
 
+	static getSponsorsData() {
+		return sponsorsData;
+	}
+
 	static getNavbarDataTitleFromLink(pageTitle: string): string {
 		let returnString = "";
 		NavbarData.getData().forEach((navItem: NavbarType) => {
@@ -31,7 +37,43 @@ export default class Data {
 	}
 }
 
-const imgs: string[] = [];
+const imgs: string[] = [
+	"https://2019.igem.org/wiki/images/5/51/T--Washington--WilliamKwok.jpg",
+	"https://2019.igem.org/wiki/images/c/c5/T--Washington--AnastasiaNicolov.jpg",
+	"https://2019.igem.org/wiki/images/8/8e/T--Washington--AngieDang.jpg",
+	"https://2019.igem.org/wiki/images/3/35/T--Washington--ChiTruong.jpg",
+	"https://2019.igem.org/wiki/images/2/2f/T--Washington--ClaraToo.jpg",
+	"https://2019.igem.org/wiki/images/6/61/T--Washington--DelaneyWilde.jpg",
+	"https://2019.igem.org/wiki/images/8/8d/T--Washington--ElgeneQuitevis.jpg",
+	"https://2019.igem.org/wiki/images/4/41/T--Washington--ElisaTruong.jpg",
+	"https://2019.igem.org/wiki/images/f/f2/T--Washington--EllenXu.jpg",
+	"https://2019.igem.org/wiki/images/9/9e/T--Washington--EricYeh.jpg",
+	"https://2019.igem.org/wiki/images/5/52/T--Washington--IshiraParikh.jpg",
+	"https://2019.igem.org/wiki/images/8/81/T--Washington--JayYung.jpg",
+	"https://2019.igem.org/wiki/images/5/53/T--Washington--JenniferTao.jpg",
+	"https://2019.igem.org/wiki/images/7/72/T--Washington--JerryCao.jpg",
+	"https://2019.igem.org/wiki/images/0/08/T--Washington--JoanneWong.jpg",
+	"https://2019.igem.org/wiki/images/d/d9/T--Washington--HLogo1.png",
+	"https://2019.igem.org/wiki/images/6/65/T--Washington--MonetToschBerneburg.jpg",
+	"https://2019.igem.org/wiki/images/d/d9/T--Washington--HLogo1.png",
+	"https://2019.igem.org/wiki/images/8/8b/T--Washington--AllisonLee.jpg",
+	"https://2019.igem.org/wiki/images/6/67/T--Washington--AngelWong.jpg",
+	"https://2019.igem.org/wiki/images/e/ef/T--Washington--KarenImmendorf.jpg",
+	"https://2019.igem.org/wiki/images/b/b6/T--Washington--SidneyChan.jpg",
+	"https://2019.igem.org/wiki/images/2/22/T--Washington--SijiaZhang.jpg",
+	"https://2019.igem.org/wiki/images/5/5e/T--Washington--MaliaClark.jpg",
+	"https://2019.igem.org/wiki/images/a/ac/T--Washington--NatalieMurren.jpg",
+	"https://2019.igem.org/wiki/images/d/d2/T--Washington--GraceKim.jpg",
+	"https://2019.igem.org/wiki/images/2/24/T--Washington--NiteshChetry.jpg",
+	"https://2019.igem.org/wiki/images/9/9d/T--Washington--QuocTran.jpg",
+	"https://2019.igem.org/wiki/images/e/ed/T--Washington--VarunSridhar.jpg",
+	"https://2019.igem.org/wiki/images/3/31/T--Washington--VeraOkolo.jpg",
+	"https://2019.igem.org/wiki/images/d/d3/T--Washington--VivianHuynh.jpg",
+	"https://2019.igem.org/wiki/images/e/e2/T--Washington--HannahCheung.jpg",
+	"https://2019.igem.org/wiki/images/4/43/T--Washington--MaxZhou.jpg",
+	"https://2019.igem.org/wiki/images/d/d8/T--Washington--BrianHong.jpg",
+	"https://2019.igem.org/wiki/images/5/51/T--Washington--LauraFreeman.jpg"
+];
 
 export type ContentHashMapping = {
 	// If the key doesn't exist, it is possible for it to be undefined.
@@ -42,10 +84,11 @@ export type ContentPageData = {
 	hasSidebar: boolean
 	contentOrder?: string[]
 	content?: ContentHashMapping
+	MISC?: string
 }
 
 export type ContentData = {
-	[idx: string]: ContentPageData,
+	[idx: string]: ContentPageData
 }
 
 export type PageSpecificColors = {
@@ -78,6 +121,109 @@ export type TeamData = {
 	YPOS?: number
 }[]
 
+export type SponsorsData = {
+	NAME: string,
+	PICTURE: string,
+	FILTER: string,
+	XPOS?: number,
+	YPOS?: number,
+	CUSTSIZE?: number,
+	LINK: string,
+	BIO: string,
+	SUBTEXT: string
+}[];
+
+const sponsorsData: SponsorsData = [
+	{
+		NAME: "UW Paul G. Allen School of Computer Science and Engineering",
+		PICTURE: "https://2019.igem.org/wiki/images/1/1c/T--Washington--CSELogo.png",
+		FILTER: "Diamond",
+		LINK: "https://www.cs.washington.edu/",
+		BIO: "",
+		SUBTEXT: ""
+	},
+	{
+		NAME: "UW Department of Biochemistry",
+		PICTURE: "https://2019.igem.org/wiki/images/8/88/T--Washington--BioChemLogo.png",
+		FILTER: "Diamond",
+		LINK: "https://depts.washington.edu/biowww/",
+		BIO: "",
+		SUBTEXT: ""
+	},
+	{
+		NAME: "Institute for Protein Design",
+		PICTURE: "https://2019.igem.org/wiki/images/c/c7/T--Washington--IPDLogo.png",
+		FILTER: "Gold",
+		LINK: "https://www.ipd.uw.edu/",
+		BIO: "",
+		SUBTEXT: ""
+	},
+	{
+		NAME: "UW College of Engineering",
+		PICTURE: "https://2019.igem.org/wiki/images/c/c7/T--Washington--COELogo.png",
+		FILTER: "Gold",
+		LINK: "https://www.engr.washington.edu/",
+		BIO: "",
+		SUBTEXT: ""
+	},
+	{
+		NAME: "PVP Biologics",
+		PICTURE: "https://2019.igem.org/wiki/images/5/50/T--Washington--MSELogo.png",
+		FILTER: "Gold",
+		LINK: "https://www.pvpbio.com/",
+		BIO: "",
+		SUBTEXT: ""
+	},
+	{
+		NAME: "UW Department of Biology",
+		PICTURE: "https://2019.igem.org/wiki/images/5/54/T--Washington--BioLogo.png",
+		FILTER: "Silver",
+		LINK: "https://www.biology.washington.edu/",
+		BIO: "",
+		SUBTEXT: ""
+	},
+	{
+		NAME: "UW Department of Chemistry",
+		PICTURE: "https://2019.igem.org/wiki/images/5/58/T--Washington--ChemLogo.png",
+		FILTER: "Silver",
+		LINK: "http://depts.washington.edu/chem/",
+		BIO: "",
+		SUBTEXT: ""
+	},
+	{
+		NAME: "UW Department of Bioengineering",
+		PICTURE: "https://2019.igem.org/wiki/images/f/f4/T--Washington--BioELogo.png",
+		FILTER: "Silver",
+		LINK: "https://bioe.uw.edu/",
+		BIO: "",
+		SUBTEXT: ""
+	},
+	{
+		NAME: "UW Department of Microbiology",
+		PICTURE: "https://2019.igem.org/wiki/images/0/02/T--Washington--MicroBioLogo.png",
+		FILTER: "Bronze",
+		LINK: "https://microbiology.washington.edu/",
+		BIO: "",
+		SUBTEXT: ""
+	},
+	{
+		NAME: "UW Department of Applied Math",
+		PICTURE: "https://2019.igem.org/wiki/images/4/41/T--Washington--AppliedMathLogo.png",
+		FILTER: "Bronze",
+		LINK: "https://amath.washington.edu/",
+		BIO: "",
+		SUBTEXT: ""
+	},
+	{
+		NAME: "Promega",
+		PICTURE: "https://2019.igem.org/wiki/images/8/84/T--Washington--Promega.png",
+		FILTER: "Bronze",
+		LINK: "https://www.promega.com",
+		BIO: "",
+		SUBTEXT: ""
+	}
+];
+
 const teamData: TeamData = [
 	{
 		NAME: "William Kwok",
@@ -105,9 +251,9 @@ const teamData: TeamData = [
 	},
 	{
 		NAME: "Chi Truong",
-		ROLE: "Fundraising Lead, Simulations",
+		ROLE: "Fundraising Lead, Simulations, Design",
 		PICTURE: "https://2019.igem.org/wiki/images/3/35/T--Washington--ChiTruong.jpg",
-		FILTER: "Leadership, Simulations",
+		FILTER: "Leadership, Simulations, Design",
 		LINKEDIN: "https://www.linkedin.com/in/chi-truong-241461133/",
 		BIO: "Born and raised in Vietnam, Chi Truong is currently a Junior in Biochemistry at the University of Washington. She came to UW iGEM to explore research and meet new people. She focuses on funding for the team. She also works with Simulations team to generate models using Rosetta and PyMOL. In her free time, she enjoys cooking, listening to music and reading history books.",
 		CUSTSIZE: 110
@@ -197,11 +343,10 @@ const teamData: TeamData = [
 	},
 	{
 		NAME: "Shean Fu Phen",
-		PICTURE: "https://2019.igem.org/wiki/images/d/d9/T--Washington--HLogo1.png", //TODO:
+		PICTURE: "https://2019.igem.org/wiki/images/e/e0/T--Washington--SheanPham.jpg",
 		BIO: "Shean Fu is a sophomore studying Physiology at the University of Washington. He is part of both wetlab and outreach in a bid to help translate the complicated science into something much easier to understand. Outside of lab he does a lot of archery and Wushu, as well as filming dance covers for a dance team.",
-		ROLE: "Outreach, Lab Scientist", // TODO:
-		FILTER: "Outreach, Wetlab",
-		CUSTSIZE: 75
+		ROLE: "Outreach, Lab Scientist",
+		FILTER: "Outreach, Wetlab"
 	},
 	{
 		NAME: "Monet Tosch-Berneburg",
@@ -212,15 +357,14 @@ const teamData: TeamData = [
 	},
 	{
 		NAME: "Pacy Wu",
-		PICTURE: "https://2019.igem.org/wiki/images/d/d9/T--Washington--HLogo1.png", //TODO:
+		PICTURE: "https://2019.igem.org/wiki/images/6/67/T--Washington--PacyWu.jpg",
 		BIO: "Pacy was born and raised in Taiwan. She is currently a sophomore intending to major in computer science. In iGEM, she was involved with the simulations and fundraising team. During her free time, she enjoys watching TV shows, listening to music, and hanging out with friends.",
 		ROLE: "Fundraising, Simulations",
-		FILTER: "Fundraising, Simulations",
-		CUSTSIZE: 75
+		FILTER: "Fundraising, Simulations"
 	},
 	{
 		NAME: "Allison Lee",
-		PICTURE: "https://2019.igem.org/wiki/images/8/8b/T--Washington--AllisonLee.jpg", //TODO: 
+		PICTURE: "https://2019.igem.org/wiki/images/8/8b/T--Washington--AllisonLee.jpg",
 		BIO: "Allison is a fourth-year undergraduate student studying Informatics. She was on the web development subteam and helped create the wiki. Outside of iGEM, she enjoys baking, hiking, and bouldering.",
 		ROLE: "Web Developer",
 		FILTER: "Web Dev"
@@ -237,23 +381,23 @@ const teamData: TeamData = [
 		NAME: "Karen Immendorf",
 		PICTURE: "https://2019.igem.org/wiki/images/e/ef/T--Washington--KarenImmendorf.jpg",
 		BIO: "Karen is a 4th year student at UW majoring in Molecular, Cellular, and Developmental Biology. She is currently work in the Center for Integrative Brain Research of Seattle Children's Research Institute in a lab that focuses on uncovering how gene mutations affect protein machinery in the glutamate synapse which may ultimately lead to autism spectrum disorders. She is interested the potential applications of Washington iGEM's project across fields of Research, Medicine, and Biotechnology and learning more about product development through speaking with stakeholders in these fields.",
-		ROLE: "Human Practices Lead, Fundraising, Presenter",
-		FILTER: "Human Practices, Fundraising, Presenters",
+		ROLE: "Integrated Human Practices Lead, Fundraising, Presenter",
+		FILTER: "Integrated Human Practices, Fundraising, Presenters, Leadership",
 		LINKEDIN: "https://www.linkedin.com/in/karenimmendorf/"
 	},
 	{
 		NAME: "Sidney Chan",
 		BIO: "Sidney is a 3rd year student at UW who is majoring in Biochemistry and has a strong interest in pursuing research in drug delivery systems and novel therapeutics. She became interested in the UW iGEM team’s project after learning more about the field of synthetic biology and its intersection with medicine and biotechnology, and joined the Business team to learn more about the considerations that go into marketing and managing a product with biotechnological applications.",
 		PICTURE: "https://2019.igem.org/wiki/images/b/b6/T--Washington--SidneyChan.jpg",
-		ROLE: "Human Practices",
-		FILTER: "Human Practices"
+		ROLE: "Integrated Human Practices",
+		FILTER: "Integrated Human Practices"
 	},
 	{
 		NAME: "Sijia Zhang",
 		BIO: "Sijia is a Junior at the University of Washington that is majoring in Bioengineering. He is interested in the development of stem cell engineering and synthetic biology. Currently, He is working in the Kwon lab at the University of Washington. He has joined the business team to explore the market of current biotechnology that is related to what he is studying and researching on.",
 		PICTURE: "https://2019.igem.org/wiki/images/2/22/T--Washington--SijiaZhang.jpg",
-		ROLE: "Human Practices",
-		FILTER: "Human Practices"
+		ROLE: "Integrated Human Practices",
+		FILTER: "Integrated Human Practices"
 	},
 	{
 		NAME: "Malia Clark",
@@ -320,6 +464,84 @@ const teamData: TeamData = [
 		PICTURE: "https://2019.igem.org/wiki/images/e/e2/T--Washington--HannahCheung.jpg",
 		ROLE: "Collaborations Lead, Outreach, Simulations, Presenter",
 		FILTER: "Collaborations, Outreach, Simulations, Presenters, Leadership"
+	},
+	{
+		NAME: "Max Zhou",
+		BIO: "Max is from Hangzhou, China and is currently a junior in computer science and informatics. He worked on the wiki editing tools in the web development team. Outside of iGEM he enjoys cooking and Ping Pong.",
+		PICTURE: "https://2019.igem.org/wiki/images/4/43/T--Washington--MaxZhou.jpg",
+		ROLE: "Web Developer",
+		FILTER: "Web Dev",
+		GITHUB: "https://github.com/zhouyifan0904",
+		LINKEDIN: "https://www.linkedin.com/in/max-zhou-99913217a/"
+	},
+	{
+		NAME: "Brian Hong",
+		PICTURE: "https://2019.igem.org/wiki/images/d/d8/T--Washington--BrianHong.jpg",
+		BIO: "Brian is a second year University of Washington student planning to major in electrical engineering and neuroscience. He joined iGEM to learn more about synthetic biology and its potential applications. Along the way, he has acquired many valuable lab research skills. Outside of iGEM, he enjoys writing, reading, film, and practicing kendo.",
+		ROLE: "Lab Scientist, Fundraising",
+		FILTER: "Wetlab, Fundraising"
+	},
+	{
+		NAME: "Laura Freeman",
+		PICTURE: "https://2019.igem.org/wiki/images/5/51/T--Washington--LauraFreeman.jpg",
+		BIO: "Laura is a senior studying informatics and human-computer interaction. Her focus was consulting with the web development team on UI and UX, and she created the design guidelines for this year's wiki. Right now, she also works part time as a product designer for a growing commute benefits provider called Luum. She's excited to be graduating in the end of 2019!",
+		ROLE: "Web Developer",
+		FILTER: "Web Dev",
+		LINKEDIN: "http://www.linkedin.com/in/lxfreeman"
+	},
+	{
+		NAME: "Simran Sidhu",
+		PICTURE: "https://2019.igem.org/wiki/images/4/4d/T--Washington--SimranSidhu.jpg",
+		BIO: "Simran is a sophomore intending to major in bioengineering. This year, Simran was primarily responsible for organizing outreach events with schools and the community and hosting Sit Down with Synbio. Outside of iGEM and her other academic responsibilities, Simran is an avid runner and enjoys exploring the trails of the Pacific Northwest.",
+		ROLE: "Public Engagement Lead, Lab Scientist, Outreach",
+		FILTER: "Leadership, Integrated Human Practices, Outreach, Wetlab"
+	},
+	{
+		NAME: "Joshua Ip",
+		PICTURE: "https://2019.igem.org/wiki/images/b/bb/T--Washington--JoshuaIp.jpg",
+		BIO: "Joshua Ip is a computer science major with a background in bioengineering. After iGEM, he plans to pursue software engineering.",
+		ROLE: "Simulations Lead",
+		FILTER: "Leadership, Simulations"
+	},
+	{
+		NAME: "Ed van Bruggen",
+		BIO: "Originally from the bay area, Ed is now a junior at UW pursuing a major in physics. He was a lead for the Simulations team, where he taught computation methods for understanding biological systems with tools such as Rosetta and Tellurium. When he's not staying up all night programming you can find him playing music or cooking.",
+		PICTURE: "https://2019.igem.org/wiki/images/e/e1/T--Washington--EdvanBruggen.jpg",
+		ROLE: "Simulations Lead",
+		FILTER: "Simulations, Leadership"
+	},
+	{
+		NAME: "Yoshi Goto",
+		BIO: "Yoshi graduated in 2018 from the University of Washington with a B.S. in Bioengineering and a minor in Applied Mathematics, specializing in Synthetic and Systems Biology. He has been involved in iGEM for four years through team Washington, starting as a team member and moving through different positions. He now works as a Director of Operations at SoundBio Lab, Seattle's Community Lab. He is also an adviser for the SoundBio high school team. He credits iGEM as a career changer that led him to focus on synthetic and system biology, and to be involved in the DIYBio world. He is also actively involved in After iGEM Committees, and represented the iGEM Foundation as a Representative at SynBioBeta 2019. He believes that iGEM can change students' lives and foster innovation in an exciting field of biotechnology.",
+		PICTURE: "https://2019.igem.org/wiki/images/c/c1/T--Washington--YoshiGoto.jpg",
+		ROLE: "Adviser",
+		FILTER: "Adviser",
+		LINKEDIN: "https://www.linkedin.com/in/yoshigoto/"
+	},
+	{
+		NAME: "Karl Anderson",
+		PICTURE: "https://2019.igem.org/wiki/images/e/e1/T--Washington--KarlAnderson.jpg",
+		BIO: "Karl is a senior studying Biochemistry and Molecular Biology. This year he assisted the wetlab and project development teams to help design the project and review lab work. He has previously been a wetlab member and project manager. Outside of iGEM, he is a researcher in the Lidstrom Lab at UW, where he is engineering enzymes to develop novel carbon assimilation pathways in bacteria.",
+		LINKEDIN: "https://www.linkedin.com/in/karlbanderson/",
+		ROLE: "Adviser",
+		FILTER: "Adviser"
+	},
+	{
+		NAME: "Dr. Herbert Sauro",
+		BIO: "Dr. Sauro’s lab has been involved in a number of areas in systems as well as synthetic biology. He imitated the development of SBOL, the synthetic biology open language which is becoming the de facto language for describing synthetic designs. In systems biology he has developed a number of software tools, and standards most recently a Python based kit called Tellurium. He was cofounder of the SBML development teach. His modeling research involves developing new robust methods to develop more reliable predictive models that can simulate diseases such as cancer. Recently, he was appointed to lead a large Center for Reproducible Biomedical Modeling which was also recently awarded by the NIH.",
+		PICTURE: "https://2019.igem.org/wiki/images/8/8f/T--Washington--HerbertSauro.jpg",
+		WEBSITE: "https://www.sys-bio.org/",
+		ROLE: "University of Washington Department of Bioengineering",
+		FILTER: "PIs",
+		YPOS: 0.01
+	},
+	{
+		NAME: "Dr. Liangcai Gu",
+		BIO: "Dr. Gu's lab use quantitative protein interaction profiling to understand molecular recognition and guide computational protein design. They develop protein interaction sequencing technologies by coupling ‘protein barcoding’ techniques—e.g., molecular attachment of proteins to barcoding DNAs, display of proteins on phage or cell surfaces, and indirect barcoding of unlabeled proteins by using DNA barcoded affinity reagents such as antibodies—to massively parallel 'in situ DNA sequencing' to quantitate protein interactions at a single-molecule or single-cell level. One example of protein interaction sequencing is a single-molecular-interaction sequencing (SMI-seq) technology (Gu, et al., Nature, 2014) for large-scale molecular counting of proteins and complexes. Our current research interests include (1) engineering of ligand-responsive protein assemblies, (2) human protein interactome profiling and drug screening, and (3) functional profiling of B-cell and T-cell receptors.",
+		PICTURE: "https://2019.igem.org/wiki/images/a/ad/T--Washington--LiangcaiGu.jpg",
+		WEBSITE: "https://depts.washington.edu/biowww/pages/faculty-Gu.shtml",
+		ROLE: "University of Washington Department of Biochemistry",
+		FILTER: "PIs"
 	}
 ];
 

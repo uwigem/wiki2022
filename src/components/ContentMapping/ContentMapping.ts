@@ -22,8 +22,9 @@ import { WYSIWYGEditor } from '../ContentWidgets/WYSIWYG/WYSIWYGEditor';
 import { WYSIWYGWidget } from '../ContentWidgets/WYSIWYG/WYSIWYGWidget';
 import { Accordion } from '../ContentWidgets/Accordion/Accordion';
 import { AccordionEditor } from '../ContentWidgets/Accordion/AccordionEditor';
-import { TeamPage } from '../ContentWidgets/TeamPage/TeamPage';
-import { TeamPageEditor } from '../ContentWidgets/TeamPage/TeamPageEditor';
+import { ExampleImage } from '../ContentWidgets/ExampleImage/ExampleImage';
+import { ExampleImageEditor } from '../ContentWidgets/ExampleImage/ExampleImageEditor';
+
 
 export type WidgetEditorProps = {
 	originalContent: ContentSingularData,
@@ -135,5 +136,11 @@ export const ContentMapping: ContentMappingType = {
 		editor: HeaderEditor,
 		displayName: "Header",
 		widgetCategory: WidgetCategories.Text
+	},
+	IMAGE: {
+		widget: memo(ExampleImage),
+		editor: ExampleImageEditor,
+		displayName: "Image",
+		widgetCategory: WidgetCategories.Media
 	}
 }

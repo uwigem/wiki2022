@@ -5,6 +5,10 @@ import equal from 'deep-equal';
 import './ContentView.css';
 import { SideBar } from '../ContentWidgets/SideBar/SideBar';
 
+// @ts-ignore
+import Fade from 'react-reveal/Fade';
+import { FailureWidget } from '../ContentEditor/WidgetEditor/FailureWidget/FailureWidget';
+
 
 export type ContentViewProps = {
 	contentData: ContentData,
@@ -40,6 +44,10 @@ export const ContentView: React.FC<ContentViewProps> = ({ contentData, pageTitle
 			contentData[pageString].content![contentData[pageString].contentOrder![0]]!.type === "BANNER") {
 			let firstID = contentData[pageString].contentOrder![0]
 			let content = contentData[pageString].content![firstID];
+
+			if (!ContentMapping[content!.type]) {
+				return <div className="failure">Widget failed to render. Please hard reload/clear cache to see this module.</div>
+			}
 			let ContentWidget = ContentMapping[content!.type].widget;
 			return <ContentWidget {...content} />
 		} else {
@@ -60,12 +68,17 @@ export const ContentView: React.FC<ContentViewProps> = ({ contentData, pageTitle
 					contentData[pageString].content &&
 					contentData[pageString].contentOrder!.map((contentHash, index) => {
 						let content = contentData[pageString].content![contentHash];
-						console.log(ContentMapping);
-						let ContentWidget = ContentMapping[content!.type].widget;
 
-						return content!.type === "BANNER" ? null : <div id={contentHash} key={contentHash}>
+						let ContentWidget;
+						if (!ContentMapping[content!.type]) {
+							ContentWidget = FailureWidget;
+						} else {
+							ContentWidget = ContentMapping[content!.type].widget;
+						}
+
+						return content!.type === "BANNER" ? null : <Fade><div id={contentHash} key={contentHash}>
 							<ContentWidget {...content} />
-						</div>
+						</div></Fade>
 					})
 				}
 			</div>

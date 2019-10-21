@@ -26,7 +26,7 @@ export class Team extends Component {
 			"Wetlab",
 			"Outreach",
 			"Design",
-			"Human Practices",
+			"Integrated Human Practices",
 			"Web Dev",
 			"Adviser",
 			"Leadership",
@@ -102,6 +102,9 @@ export class Team extends Component {
 			imageLoad.src = d.PICTURE;
 			imageLoad.onload = () => this.setLoaded(i);
 		})
+
+		// let a = this.props.data.map(d => `"${d.PICTURE}"`).join(",");
+		// console.log(a);
 
 		if ((window.innerWidth < this.minminThres || (window.innerWidth <= this.maxThres && window.innerWidth > this.minThres))) {
 			this.setState({ smallerCardBody: true, cardBody: this.minBody });

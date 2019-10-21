@@ -18,13 +18,9 @@
 }
 
 .hcmp-titlewrapper {
-	padding: 5%;
 	background-color: var(--gray-10);
-}
-
-.hcmp-titlewrapper .container {
-	margin-left: 0px;
-	margin-right: 0px;
+	padding-top: 5%;
+	padding-bottom: 5%;
 }
 
 .hcmp-titlename {
@@ -54,6 +50,11 @@
 	width: 70px;
 	margin-top: 5px;
 	margin-bottom: 10px;
+}
+
+.hcmp-learn-more-wrapper {
+	padding-top: 5%;
+	padding-bottom: 5%;
 }
 
 @media (max-width: 480px) {

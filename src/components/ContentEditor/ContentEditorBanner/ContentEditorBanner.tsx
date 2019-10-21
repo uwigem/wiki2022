@@ -5,7 +5,7 @@ import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
-import { ContentData } from '../../_data/Data';
+import { ContentData, VERSION } from '../../_data/Data';
 import './ContentEditorBanner.css';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -43,6 +43,14 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 		return <></>
 	}
 
+	// DO_NOT_CLICK is currently my quick method of making sure people are on the latest version
+	const version = (contentData && contentData.DO_NOT_CLICK && contentData.DO_NOT_CLICK["MISC"]) || VERSION;
+	const [major, minor, bug] = version.split(".");
+	const [cMajor, cMinor, cBug] = VERSION.split(".");
+	if (minor !== cMinor) {
+		alert("Please update your editor version by clearing cache/cookies and refreshing");
+	}
+
 	return <div className="content-editor-banner">
 		<Grid>
 			<Row>
@@ -58,6 +66,11 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 						>
 							Print Data
 						</Button>
+					</Row>
+					<Row>
+						{version === VERSION ?
+							<div>Your editor is up to date</div> :
+							<div>Your editor is not up to date. Please hard refresh (shift command r)</div>}
 					</Row>
 				</Col>
 				<Col md={4}>

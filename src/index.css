@@ -22,7 +22,7 @@
 	--success-secondary: #d0eeda;
 	--failure-primary: #af2323;
 	--failure-secondary: #f3dada;
-	--default-font: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto;
+	--default-font: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto !important;
 	--content-padding-left: 5%;
 	--content-padding-right: 5%;
 	--content-margin-top: 10px;
@@ -217,25 +217,25 @@ a:hover {
 /** regular typography (it is important for this to be before the media tag) */
 
 .wi-title {
-	font-weight: 600;
-	font-size: 48px;
+	font-weight: 600 !important;
+	font-size: 48px !important;
 	/* letter-spacing: 0.3em; */
 }
 
 h1 {
-	font-weight: 500;
-	font-size: 36px;
+	font-weight: 500 !important;
+	font-size: 36px !important;
 }
 
 h2 {
-	font-weight: 500;
-	font-size: 24px;
+	font-weight: 500 !important;
+	font-size: 24px !important;
 }
 
 h3 {
-	font-weight: 500;
-	font-size: 18px;
-	text-transform: uppercase;
+	font-weight: 500 !important;
+	font-size: 18px !important;
+	text-transform: uppercase !important;
 }
 
 p {
@@ -246,44 +246,44 @@ p {
 }
 
 .wi-large-body {
-	font-size: 20px;
+	font-size: 20px !important;
 }
 
 .wi-caption-1 {
-	font-weight: 500;
-	font-size: 14px;
+	font-weight: 500 !important;
+	font-size: 14px !important;
 }
 
 .wi-caption-2 {
-	font-weight: 400;
-	font-size: 12px;
+	font-weight: 400 !important;
+	font-size: 12px !important;
 }
 
 .wi-label {
-	font-weight: 500;
-	font-size: 14px;
-	text-transform: uppercase;
+	font-weight: 500 !important;
+	font-size: 14px !important;
+	text-transform: uppercase !important;
 }
 
 /** mobile typography */
 
 @media (max-width: 480px) {
 	.wi-title {
-		font-weight: 600;
-		font-size: 28pt;
+		font-weight: 600 !important;
+		font-size: 28pt !important;
 	}
 	h1 {
-		font-weight: 500;
-		font-size: 24pt;
+		font-weight: 500 !important;
+		font-size: 24pt !important;
 	}
 	h2 {
-		font-weight: 500;
-		font-size: 18pt;
+		font-weight: 500 !important;
+		font-size: 18pt !important;
 	}
 	h3 {
-		font-weight: 500;
-		font-size: 14pt;
-		text-transform: uppercase;
+		font-weight: 500 !important;
+		font-size: 14pt !important;
+		text-transform: uppercase !important;
 	}
 	p {
 		font-weight: 400;
@@ -292,19 +292,34 @@ p {
 		margin-bottom: 6px;
 	}
 	.wi-large-body {
-		font-size: 20pt;
+		font-size: 20pt !important;
 	}
 	.wi-caption-1 {
-		font-weight: 500;
-		font-size: 13pt;
+		font-weight: 500 !important;
+		font-size: 13pt !important;
 	}
 	.wi-caption-2 {
-		font-weight: 400;
-		font-size: 12pt;
+		font-weight: 400 !important;
+		font-size: 12pt !important;
 	}
 	.wi-label {
-		font-weight: 500;
-		font-size: 13pt;
-		text-transform: uppercase;
+		font-weight: 500 !important;
+		font-size: 13pt !important;
+		text-transform: uppercase !important;
 	}
+}
+
+.header-sep {
+	background-color: var(--purple-primary);
+	height: 4px;
+	width: 70px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.failure {
+	background-color: var(--failure-secondary);
+	border-radius: 10px;
+	color: var(--main-color);
+	padding: 5%;
 }

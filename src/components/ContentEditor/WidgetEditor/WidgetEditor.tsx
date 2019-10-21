@@ -6,6 +6,7 @@ import './WidgetEditor.css';
 import equal from 'deep-equal';
 import { EnvironmentContext } from '../../../contexts/EnvironmentContext/EnvironmentContext';
 import { WidgetLiveEdit } from '../WidgetLiveEdit/WidgetLiveEdit';
+import { FailureWidget, FailureEditWidget } from './FailureWidget/FailureWidget';
 
 type WidgetEditorProps = {
 	content: ContentSingularData | undefined,
@@ -48,8 +49,17 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 		return <></>;
 	}
 
-	let ContentWidget = ContentMapping[editedContent.type].widget;
-	let ContentEditingWidget = ContentMapping[editedContent.type].editor;
+	let ContentWidget;
+	let ContentEditingWidget;
+
+	if (!ContentMapping[content!.type]) {
+		ContentWidget = FailureWidget
+		ContentEditingWidget = FailureEditWidget
+	} else {
+		ContentWidget = ContentMapping[editedContent.type].widget;
+		ContentEditingWidget = ContentMapping[editedContent.type].editor;
+	}
+
 	return <div className="widget-editor">
 		{!editing && <>
 			<ContentWidget {...editedContent} />

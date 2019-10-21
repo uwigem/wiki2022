@@ -5,6 +5,7 @@ import App from './App';
 import { detect } from 'detect-browser';
 import { ContentEditor } from './components/ContentEditor/ContentEditor';
 
+
 /**
  * Index handles configuration as well as being the main injection point for the application
  * 
@@ -23,14 +24,15 @@ import 'firebase/app'
 import 'firebase/messaging';
 import 'firebase/database';
 import 'firebase/auth';
+
 const firebaseConfig = {
-    apiKey: "AIzaSyBkr6jirFdzkMofucO2z_KzN13hMDeWkVI",
-    authDomain: "uwigem-wikis.firebaseapp.com",
-    databaseURL: "https://uwigem-wikis.firebaseio.com",
-    projectId: "uwigem-wikis",
-    storageBucket: "uwigem-wikis.appspot.com",
-    messagingSenderId: "131891776719",
-    appId: "1:131891776719:web:0bf2382aec94dcdf"
+	apiKey: "AIzaSyBkr6jirFdzkMofucO2z_KzN13hMDeWkVI",
+	authDomain: "uwigem-wikis.firebaseapp.com",
+	databaseURL: "https://uwigem-wikis.firebaseio.com",
+	projectId: "uwigem-wikis",
+	storageBucket: "uwigem-wikis.appspot.com",
+	messagingSenderId: "131891776719",
+	appId: "1:131891776719:web:0bf2382aec94dcdf"
 };
 firebase.initializeApp(firebaseConfig);
 // let firebase = null;
@@ -53,27 +55,27 @@ document.title = "Washington iGEM";
  */
 const browser = detect();
 const notSupportedMessage = (browser: string) => {
-    alert(`${browser.toUpperCase()} is not entirely supported by Team Washington's Team Wiki. For best performance please use Firefox or Google Chrome! 
+	alert(`${browser.toUpperCase()} is not entirely supported by Team Washington's Team Wiki. For best performance please use Firefox or Google Chrome! 
     
     You may continue to use the site, but please note that there will be bugs and poor performance. Sorry for any inconvenience, and thank you!`)
 }
 let IEOREDGE = false;
 switch (browser && browser.name) {
-    case 'edge':
-        IEOREDGE = true;
-        if (browser && browser.name) {
-            notSupportedMessage(browser.name);
-        }
-        break;
-    case 'ie':
-        IEOREDGE = true;
-        if (browser && browser.name) {
-            notSupportedMessage(browser.name);
-        };
-        break;
-    default:
-        IEOREDGE = false;
-        break;
+	case 'edge':
+		IEOREDGE = true;
+		if (browser && browser.name) {
+			notSupportedMessage(browser.name);
+		}
+		break;
+	case 'ie':
+		IEOREDGE = true;
+		if (browser && browser.name) {
+			notSupportedMessage(browser.name);
+		};
+		break;
+	default:
+		IEOREDGE = false;
+		break;
 }
 
 /**
@@ -83,13 +85,13 @@ const currAccessDate = Date.now();
 
 // Ensure that people are at the correct year. 
 if (currAccessDate > correctYearUnixEpochMS) {
-    let yearAsDate = new Date(currAccessDate);
-    let year = yearAsDate.getFullYear();
+	let yearAsDate = new Date(currAccessDate);
+	let year = yearAsDate.getFullYear();
 
-    if (Number(year) <= currYear) {
-        year = currYear + 1;
-    }
-    alert(`You are currently viewing our ${year - 1} project.
+	if (Number(year) <= currYear) {
+		year = currYear + 1;
+	}
+	alert(`You are currently viewing our ${year - 1} project.
     
 Check out our ${year} project over at the link below!
 
