@@ -22,6 +22,10 @@ import { WYSIWYGEditor } from '../ContentWidgets/WYSIWYG/WYSIWYGEditor';
 import { WYSIWYGWidget } from '../ContentWidgets/WYSIWYG/WYSIWYGWidget';
 import { Accordion } from '../ContentWidgets/Accordion/Accordion';
 import { AccordionEditor } from '../ContentWidgets/Accordion/AccordionEditor';
+import { TeamPage } from '../ContentWidgets/TeamPage/TeamPage';
+import { TeamPageEditor } from '../ContentWidgets/TeamPage/TeamPageEditor';
+import { ImageCarousel } from '../ContentWidgets/ImageCarousel.tsx/ImageCarousel';
+import { ImageCarouselEditor } from '../ContentWidgets/ImageCarousel.tsx/ImageCarouselEditor';
 import { ExampleImage } from '../ContentWidgets/ExampleImage/ExampleImage';
 import { ExampleImageEditor } from '../ContentWidgets/ExampleImage/ExampleImageEditor';
 
@@ -61,7 +65,8 @@ export enum WidgetTypes {
 	BANNER = "BANNER",
 	ACCORDION = "ACCORDION",
 	TEAMPAGE = "TEAMPAGE",
-	HEADER = "HEADER"
+	HEADER = "HEADER",
+	IMAGE_CAROUSEL = "IMAGE_CAROUSEL",
 }
 
 export const ContentMapping: ContentMappingType = {
@@ -136,6 +141,12 @@ export const ContentMapping: ContentMappingType = {
 		editor: HeaderEditor,
 		displayName: "Header",
 		widgetCategory: WidgetCategories.Text
+	},
+	CAROUSEL: {
+		widget: memo(ImageCarousel),
+		editor: ImageCarouselEditor,
+		displayName: "Image Carousel",
+		widgetCategory: WidgetCategories.Media
 	},
 	IMAGE: {
 		widget: memo(ExampleImage),

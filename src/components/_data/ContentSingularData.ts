@@ -3,6 +3,7 @@ import { Tab } from '../ContentWidgets/TabView/TabView';
 import { ImgRowItem } from '../ContentWidgets/ImagesInRow/ImagesInRow';
 import { AccordionPageProps } from '../ContentWidgets/Accordion/Accordion';
 import { Person } from '../ContentWidgets/TeamPage/TeamPage';
+import { CarouselImagesContent, CarouselSettings } from '../ContentWidgets/ImageCarousel.tsx/ImageCarousel';
 
 export type ContentSingularData = {
 	[idx: string]: any
@@ -25,4 +26,6 @@ export type ContentSingularData = {
 	teamPage_content?: Person[]
 	teamPage_personToEdit?: Person
 	gallery_content?: string[]
+	carousel_settings?: CarouselSettings
+	carousel_imagesContents?: CarouselImagesContent[]
 }

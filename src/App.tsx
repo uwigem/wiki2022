@@ -28,7 +28,7 @@ type AppProps = {
 	firebase?: any,
 	ContentEditor: React.FC<ContentEditorProps>
 }
-const debugURL = "/niteshTestCarousel";
+const debugURL = "/Editor";
 
 /**
  * App is the main application that handles all the route logic and rendering.
