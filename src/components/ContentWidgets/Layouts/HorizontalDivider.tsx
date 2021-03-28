@@ -2,11 +2,9 @@ import React from 'react'
 import { ContentSingularData } from "../../_data/ContentSingularData";
 import { ContentMapping, ExampleWidget, WidgetTypes } from '../../ContentMapping/ContentMapping'
 import Box from '@material-ui/core/Box/Box';
+import { Widget } from './types';
 
-export type Widget = {
-    type: WidgetTypes
-    content: ContentSingularData
-}
+
 
 export type HorizontalDividerProps = {
     left: Widget

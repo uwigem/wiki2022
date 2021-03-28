@@ -38,7 +38,7 @@ export type WidgetEditorProps = {
 	setEditedContentOnChange: (keyToChange: string, valueToChange: any) => void
 }
 
-type ContentMappingType = {
+export type ContentMappingType = {
 	[idx: string]: {
 		widget: React.FC<ContentSingularData>,
 		editor: React.FC<WidgetEditorProps>

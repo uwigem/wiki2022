@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { ExampleWidget, WidgetEditorProps } from "../../ContentMapping/ContentMapping";
-import { HorizontalDivider, Widget } from "./HorizontalDivider";
+import { HorizontalDivider } from "./HorizontalDivider";
 import { ContentMapping } from '../../ContentMapping/ContentMapping'
 import { ContentSingularData } from "../../_data/ContentSingularData";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
+import { Widget } from "./types";
+import Box from "@material-ui/core/Box/Box";
+import WidgetChooser from "./WidgetChooser";
+import { faOldRepublic } from "@fortawesome/free-brands-svg-icons";
 
 export const HorizontalDividerEditor: React.FC<WidgetEditorProps> = ({ originalContent, editedContent, setEditedContentOnChange }: WidgetEditorProps) => {
     
@@ -29,8 +33,24 @@ export const HorizontalDividerEditor: React.FC<WidgetEditorProps> = ({ originalC
         <>
             <HorizontalDivider {...editedContent} />
             <hr/>
-            <Typography gutterBottom>Left Section Width Percent {percent}%</Typography>
-            <TextField label={`Percent ${percent}%`} type={"number"} variant={"outlined"} onChange={e => setPercent(Number(e.target.value))}/>
+            <Box display="flex" flexDirection="row" justifyContent="space-around">
+                <div>
+                    <Typography gutterBottom>Left Widget</Typography>
+                    <WidgetChooser
+                        widgetType={leftWidget.type} 
+                        handleWidgetChange={widgetType => setLeftWidget(old => ({ type: widgetType, content: {}}))}/>
+                </div>
+                <div>
+                    <Typography gutterBottom>Right Widget</Typography>
+                    <WidgetChooser
+                        widgetType={rightWidget.type} 
+                        handleWidgetChange={widgetType => setRightWidget(old => ({ type: widgetType, content: {}}))}/>
+                </div>
+                <div>
+                    <Typography gutterBottom>Left Section Width Percent {percent}%</Typography>
+                    <TextField label={`Percent ${percent}%`} type={"number"} variant={"outlined"} onChange={e => setPercent(Number(e.target.value))}/>
+                </div>
+            </Box>
             {leftWidget && renderWidgetEditor(leftWidget, setLeftWidget)}
             {rightWidget && renderWidgetEditor(rightWidget, setRightWidget)}
         </>
