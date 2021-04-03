@@ -12,10 +12,10 @@ export default function WidgetChooser({ widgetType, handleWidgetChange }: Widget
         const categoryWidgets = Object.keys(ContentMapping).filter(widgetKey => ContentMapping[widgetKey].widgetCategory === category)
             categoryWidgets.sort();
             if (categoryWidgets.length > 0) {
-                return <optgroup label={category}>
+                return <optgroup label={category} key={category}>
                     {categoryWidgets.map((widgetKey) => {
                         //@ts-ignore
-                        return <option key={widgetKey} value={widgetKey} selected={WidgetTypes[widgetKey] === widgetType}>
+                        return <option key={widgetKey} value={widgetKey}> {/* selected={WidgetTypes[widgetKey] === widgetType} */}
                             {ContentMapping[widgetKey].displayName}
                         </option>
                     })}
@@ -26,8 +26,12 @@ export default function WidgetChooser({ widgetType, handleWidgetChange }: Widget
     })
 
     return (
-        //@ts-ignore
-        <Select native onChange={e => handleWidgetChange(WidgetTypes[e.target.value as string] as WidgetTypes)}>
+
+        <Select
+            native
+            // value={widgetType}
+            //@ts-ignore
+            onChange={e => handleWidgetChange(WidgetTypes[e.target.value as string] as WidgetTypes)}>
             {options}
         </Select>
     )
