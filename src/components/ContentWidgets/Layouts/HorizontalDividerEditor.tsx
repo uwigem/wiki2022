@@ -39,14 +39,6 @@ export const HorizontalDividerEditor: React.FC<WidgetEditorProps> = ({ originalC
         <>
             <HorizontalDivider {...editedContent} />
             <hr/>
-            <Accordion>
-                <AccordionSummary expandIcon={<ExpandMore />}>
-                    Example
-                </AccordionSummary>
-                <AccordionDetails>
-                    Details
-                </AccordionDetails>
-            </Accordion>
             <Typography gutterBottom>Left Section Width Percent {percent}%</Typography>
             <TextField label={`Percent ${percent}%`} type={"number"} variant={"outlined"} onChange={e => setPercent(Number(e.target.value))}/>
             {/* <Accordion onClick={e => console.log("accordion 1")}>
