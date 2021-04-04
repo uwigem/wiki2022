@@ -29,7 +29,7 @@ export default function WidgetChooser({ widgetType, handleWidgetChange }: Widget
 
         <Select
             native
-            // value={widgetType}
+            defaultValue={widgetType}
             //@ts-ignore
             onChange={e => handleWidgetChange(WidgetTypes[e.target.value as string] as WidgetTypes)}>
             {options}
