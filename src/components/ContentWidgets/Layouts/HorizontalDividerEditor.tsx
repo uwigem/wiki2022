@@ -21,7 +21,7 @@ export const HorizontalDividerEditor: React.FC<WidgetEditorProps> = ({ originalC
     let [leftWidget, setLeftWidget] = useState<Widget>(editedContent.horizontal_divider ? editedContent.horizontal_divider.left : ExampleWidget)
     let [rightWidget, setRightWidget] = useState<Widget>(editedContent.horizontal_divider ? editedContent.horizontal_divider.right : ExampleWidget)
     let [percent, setPercent] = useState<number>(editedContent.horizontal_divider ? editedContent.horizontal_divider.percent : 50)
-    let [expanded, setExpanded] = useState<string | false>(false)
+    let [expanded, setExpanded] = useState<string | false>("panel1")
     useEffect(() => {
         setEditedContentOnChange("horizontal_divider", {
             left: leftWidget,
@@ -39,39 +39,47 @@ export const HorizontalDividerEditor: React.FC<WidgetEditorProps> = ({ originalC
         <>
             <HorizontalDivider {...editedContent} />
             <hr/>
+            <Accordion>
+                <AccordionSummary expandIcon={<ExpandMore />}>
+                    Example
+                </AccordionSummary>
+                <AccordionDetails>
+                    Details
+                </AccordionDetails>
+            </Accordion>
             <Typography gutterBottom>Left Section Width Percent {percent}%</Typography>
             <TextField label={`Percent ${percent}%`} type={"number"} variant={"outlined"} onChange={e => setPercent(Number(e.target.value))}/>
-            <Accordion expanded={expanded === 'panel1'} onChange={handleAccordionChange('panel1')}>
+            {/* <Accordion onClick={e => console.log("accordion 1")}>
                 <AccordionSummary
-                    expandIcon={<ExpandMore />}
-                    aria-controls="panel1bh-content">
+                    expandIcon={<ExpandMore />}>
                     <Typography>Left Widget</Typography>
                     <Typography>{ContentMapping[leftWidget.type].displayName}</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails> */}
                     <WidgetChooser
                         widgetType={leftWidget.type}
                         handleWidgetChange={widgetType => setLeftWidget(old => ({ type: widgetType, content: {}}))}/>
                     {leftWidget && renderWidgetEditor(leftWidget, setLeftWidget)}
-                </AccordionDetails>
+                {/* </AccordionDetails>
             </Accordion>
-            <Accordion expanded={expanded === 'panel2'} onChange={handleAccordionChange('panel2')}>
+            <Accordion>
                 <AccordionSummary
-                    expandIcon={<ExpandMore />}
-                    aria-controls="panel2bh-content">
+                    expandIcon={<ExpandMore />}>
                     <Typography>Right Widget</Typography>
                     <Typography>{ContentMapping[rightWidget.type].displayName}</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails> */}
                     <WidgetChooser
                         widgetType={rightWidget.type}
                         handleWidgetChange={widgetType => setRightWidget(old => ({ type: widgetType, content: {}}))}/>
                     {rightWidget && renderWidgetEditor(rightWidget, setRightWidget)}
-                </AccordionDetails>
-            </Accordion>
+                {/* </AccordionDetails>
+            </Accordion> */}
         </>
     )
 }
+/* expanded={expanded === 'panel1'} onClick={handleAccordionChange('panel1')}> */
+/* expanded={expanded === 'panel2'} onChange={handleAccordionChange('panel2')}> */
 
 function renderWidgetEditor(
         widget: Widget,

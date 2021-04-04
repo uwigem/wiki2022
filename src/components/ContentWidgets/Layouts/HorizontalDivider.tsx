@@ -17,7 +17,7 @@ export const HorizontalDivider: React.FC<ContentSingularData>  = ({ horizontal_d
     let rightType: WidgetTypes = horizontal_divider ? horizontal_divider.right.type : ExampleWidget.type
     let LeftWidget: React.FC<ContentSingularData> = ContentMapping[leftType].widget
     let RightWidget: React.FC<ContentSingularData> = ContentMapping[rightType].widget
-    
+
     return (
         <Box display={"flex"} flexDirection={"row"}>
             <Box display={"flex"} flexDirection={"column"} style={{ width: `${horizontal_divider ? horizontal_divider.percent : 50}%` }}>
