@@ -6,6 +6,7 @@ import './WidgetEditor.css';
 import equal from 'deep-equal';
 import { EnvironmentContext } from '../../../contexts/EnvironmentContext/EnvironmentContext';
 import { WidgetLiveEdit } from '../WidgetLiveEdit/WidgetLiveEdit';
+import {WidgetLiveEditBanner} from '../WidgetLiveEdit/WidgetLiveEditBanner';
 import { FailureWidget, FailureEditWidget } from './FailureWidget/FailureWidget';
 
 type WidgetEditorProps = {
@@ -62,18 +63,31 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 
 	return <div className="widget-editor">
 		{!editing && <>
-			<ContentWidget {...editedContent} />
-			<div>
-				<WidgetLiveEdit
-					contentHash={contentHash}
-					currYear={currYear}
-					pageToEdit={pageToEdit}
-					user={user}
-					editing={false}
-					setEditing={setEditing}
-					editedContent={editedContent}
-					deleteWidget={deleteWidget} />
-			</div>
+            <div className="content-editbanner-container">
+                <div className="content-button-container">
+                    <ContentWidget {...editedContent} />
+                    <div>
+                        <WidgetLiveEdit
+                            contentHash={contentHash}
+                            currYear={currYear}
+                            pageToEdit={pageToEdit}
+                            user={user}
+                            editing={false}
+                            setEditing={setEditing}
+                            editedContent={editedContent}
+                            deleteWidget={deleteWidget} />
+                    </div>
+                </div>
+                <WidgetLiveEditBanner 
+                    contentHash={contentHash}
+                    currYear={currYear}
+                    pageToEdit={pageToEdit}
+                    user={user}
+                    editing={false}
+                    setEditing={setEditing}
+                    editedContent={editedContent}
+                    deleteWidget={deleteWidget} />
+            </div>
 		</>}
 
 		{editing && <>

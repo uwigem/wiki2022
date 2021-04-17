@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ContentSingularData } from '../../_data/ContentSingularData';
-import Button from '@material-ui/core/Button';
-import { HistoryTypes } from '../../_debug/EditorHistory';
 import firebase from 'firebase';
 import './WidgetLiveEdit.css';
 import {
@@ -34,7 +32,7 @@ enum EditingState {
  * being edited somewhere else.
  */
 
-export const WidgetLiveEdit: React.FC<WidgetLiveEditProps> = ({
+export const WidgetLiveEditBanner: React.FC<WidgetLiveEditProps> = ({
 	contentHash, currYear, pageToEdit, user, editing, setEditing, editedContent, deleteWidget
 }) => {
 
@@ -94,57 +92,12 @@ export const WidgetLiveEdit: React.FC<WidgetLiveEditProps> = ({
 	// determine banner style
 	let banner = <div
 		className={editingState === EditingState.UNSAFE ?
-			"widget-live-edit-bar-unsafe" : "widget-live-edit-bar-safe"} >
-		{message}
+			"widget-live-edit-bar-unsafe tooltip" : "widget-live-edit-bar-safe tooltip"} >
+            &nbsp;&nbsp;
+            <span className="tooltiptext">{message}</span>
 	</div>;
 
-	// determine which buttons to show
-	let button = editing ?
-		<Button variant="contained" color="primary"
-			onClick={async () => {
-				await firebase.database().ref(`${currYear}/ContentData/${pageToEdit}/content/${contentHash}`).set(editedContent);
-				await firebase.database().ref(`${currYear}/EditHistory/${pageToEdit}/${contentHash}`).push({
-					type: HistoryTypes.UPDATE,
-					timestamp: firebase.database.ServerValue.TIMESTAMP,
-					creator: (user && user.email) || "Unknown user",
-					content: editedContent
-				});
-				await widgetRef.update({
-					saved: true
-				});
-				setEditing(false);
-			}}>
-			Save
-		</Button> :
-		(editingState === EditingState.UNSAFE ?
-			<><Button variant="contained" color="primary"
-				onClick={() => {
-					setEditing(true);
-					updateOnce();
-				}} disabled>
-				Edit
-		</Button>
-				<Button variant="contained" color="primary"
-					onClick={() => {
-						setEditing(true);
-						updateOnce();
-					}}>
-					Edit Anyway
-		</Button></> :
-			<Button variant="contained" color="primary"
-				onClick={() => {
-					setEditing(true);
-					updateOnce();
-				}} >
-				Edit
-		</Button>
-		);
-
-	return <div className="widget-button-container">
-		{button}
-		<div className="widget-editor-padding-left">
-			<Button variant="contained" color="primary"
-				onClick={() => deleteWidget(contentHash)}>Delete</Button>
-		</div>
+	return <div>
+		{banner}
 	</div>
 }
