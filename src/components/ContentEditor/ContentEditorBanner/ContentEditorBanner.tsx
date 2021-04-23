@@ -25,8 +25,8 @@ type ContentEditorBannerProps = {
  * ContentEditorBanner is the editor banner that appears at the top of the editor page. It shows
  * the user what page is currently being edited, allows the user to select a different page to edit,
  * allows the user to select if the page has a sidebar or not, and also allows the user to create
- * new pages. 
- * 
+ * new pages.
+ *
  * Last Modified
  * William Kwok
  * July 17, 2019
@@ -92,6 +92,26 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 							})}
 						</Select>
 					</FormControl>
+          {pageToEdit &&
+          <Row>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => {
+                let deleteConfirmation: boolean = window.confirm("Deleting a page " +
+                  "irreversible. Are you sure you would like to delete " + pageToEdit + "?");
+                if (deleteConfirmation) {
+                  let pageToDelete: string = pageToEdit;
+                  setPageToEdit("");
+                  firebase.database()
+                    .ref(`${currYear}/ContentData/${pageToDelete}`)
+                    .remove();
+                }
+              }}
+            >
+              Delete {pageToEdit} Page
+            </Button>
+          </Row>}
 				</Col>
 				<Col md={4} className="content-editor-banner-separation">
 					<Row>
