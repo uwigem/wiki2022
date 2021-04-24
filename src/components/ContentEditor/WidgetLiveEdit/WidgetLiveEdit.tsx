@@ -6,9 +6,7 @@ import firebase from 'firebase';
 import './WidgetLiveEdit.css';
 import {
 	LIVE_EDIT_TIMETOUT,
-	LIVE_EDIT_REFRESH,
-	CURRENTLY_EDITED_BY_YOU_MESSAGE,
-	SAFE_MESSAGE
+	LIVE_EDIT_REFRESH
 } from '../../_data/Constants';
 
 type WidgetLiveEditProps = {
@@ -39,7 +37,6 @@ export const WidgetLiveEdit: React.FC<WidgetLiveEditProps> = ({
 }) => {
 
 	let [editingState, setEditingState] = useState<EditingState>(EditingState.SAFE);
-	let [message, setMessage] = useState<string>(SAFE_MESSAGE);
 
 	let widgetRef: firebase.database.Reference = firebase.database().ref(`${currYear}/LiveEditHistory/${pageToEdit}/${contentHash}`);
 
@@ -77,26 +74,16 @@ export const WidgetLiveEdit: React.FC<WidgetLiveEditProps> = ({
 					let editorName = record.editor;
 					if (user && editorName === user.email) {
 						setEditingState(EditingState.CURRENTUSER);
-						setMessage(CURRENTLY_EDITED_BY_YOU_MESSAGE);
 					} else {
 						setEditingState(EditingState.UNSAFE);
-						setMessage("currently edited by " + editorName);
 					}
 				} else {
 					// otherwise safe
 					setEditingState(EditingState.SAFE);
-					setMessage(SAFE_MESSAGE);
 				}
 			}
 		});
 	});
-
-	// determine banner style
-	let banner = <div
-		className={editingState === EditingState.UNSAFE ?
-			"widget-live-edit-bar-unsafe" : "widget-live-edit-bar-safe"} >
-		{message}
-	</div>;
 
 	// determine which buttons to show
 	let button = editing ?

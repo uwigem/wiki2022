@@ -6,7 +6,7 @@ import './WidgetEditor.css';
 import equal from 'deep-equal';
 import { EnvironmentContext } from '../../../contexts/EnvironmentContext/EnvironmentContext';
 import { WidgetLiveEdit } from '../WidgetLiveEdit/WidgetLiveEdit';
-import {WidgetLiveEditBanner} from '../WidgetLiveEdit/WidgetLiveEditBanner';
+import {WidgetLiveEditBar} from '../WidgetLiveEdit/WidgetLiveEditBar';
 import { FailureWidget, FailureEditWidget } from './FailureWidget/FailureWidget';
 
 type WidgetEditorProps = {
@@ -78,15 +78,12 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
                             deleteWidget={deleteWidget} />
                     </div>
                 </div>
-                <WidgetLiveEditBanner 
+                <WidgetLiveEditBar 
                     contentHash={contentHash}
                     currYear={currYear}
                     pageToEdit={pageToEdit}
                     user={user}
-                    editing={false}
-                    setEditing={setEditing}
-                    editedContent={editedContent}
-                    deleteWidget={deleteWidget} />
+                    editing={false} />
             </div>
 		</>}
 
