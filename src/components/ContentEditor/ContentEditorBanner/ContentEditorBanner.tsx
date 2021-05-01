@@ -28,8 +28,8 @@ type ContentEditorBannerProps = {
  * new pages.
  *
  * Last Modified
- * William Kwok
- * July 17, 2019
+ * Jaden Stetler
+ * April 30, 2021
  */
 export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 	pageToEdit,
@@ -50,6 +50,11 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 	if (minor !== cMinor) {
 		alert("Please update your editor version by clearing cache/cookies and refreshing");
 	}
+
+  if (pageToEdit && !contentData[pageToEdit]) {
+    alert(pageToEdit + " page may have been deleted");
+    setPageToEdit("");
+  }
 
 	return <div className="content-editor-banner">
 		<Grid>
@@ -141,6 +146,7 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 							</Row>
 							<Row>
 								{pageToEdit &&
+                contentData[pageToEdit] &&
 									<FormControlLabel
 										control={
 											<Checkbox checked={contentData[pageToEdit].hasSidebar}
