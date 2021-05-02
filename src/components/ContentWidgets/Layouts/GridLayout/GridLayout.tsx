@@ -1,8 +1,8 @@
 import { ContentSingularData } from "../../../_data/ContentSingularData";
 import { Widget } from '../types';
-import { ContentMapping } from '../../../ContentMapping/ContentMapping'
+import { ContentMapping, ExampleWidget } from '../../../ContentMapping/ContentMapping'
 export type GridLayoutProps = {
-    children: Widget[]
+    widgets: Widget[]
     gridLayout: number[][]
     columnSizes?: string[] | string
     rowSizes?: string[] | string
@@ -28,7 +28,7 @@ export const GridLayout: React.FC<ContentSingularData> = ({ grid_layout }: Conte
     }
     return (
         <div style={styles}>
-            {grid_layout && grid_layout.children.map((widget, i) => {
+            {grid_layout && grid_layout.widgets.map((widget, i) => {
                 let Widget = ContentMapping[widget.type].widget
                 return (
                     <Widget {...widget.content} key={i} style={{ gridArea: i }}/>
@@ -49,6 +49,11 @@ function formatRowsOrColumns(data: string[] | string) {
 function formatArea(data: number[][]) {
     let temp: string[] = data.map(row => `'${row.join(" ")}'`)
     return temp.join(" ")
+}
+
+export const EMPTY_GRID_LAYOUT_SETTINGS: GridLayoutProps = {
+    widgets: [ExampleWidget],
+    gridLayout: [[0]]
 }
 
 export default GridLayout

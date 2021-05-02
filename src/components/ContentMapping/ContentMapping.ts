@@ -30,6 +30,8 @@ import { ExampleImage } from '../ContentWidgets/ExampleImage/ExampleImage';
 import { ExampleImageEditor } from '../ContentWidgets/ExampleImage/ExampleImageEditor';
 import { HorizontalDivider } from '../ContentWidgets/Layouts/HorizontalDivider';
 import { HorizontalDividerEditor } from '../ContentWidgets/Layouts/HorizontalDividerEditor';
+import GridLayout from '../ContentWidgets/Layouts/GridLayout/GridLayout';
+import GridLayoutEditor from '../ContentWidgets/Layouts/GridLayout/GridLayoutEditor';
 
 
 export type WidgetEditorProps = {
@@ -71,7 +73,8 @@ export enum WidgetTypes {
 	HEADER = "HEADER",
 	IMAGE_CAROUSEL = "IMAGE_CAROUSEL",
     HORIZONTAL_DIVIDER = "HORIZONTAL_DIVIDER",
-    IMAGE = "IMAGE"
+    IMAGE = "IMAGE",
+    GRID_LAYOUT = "GRID_LAYOUT"
 }
 
 export const ContentMapping: ContentMappingType = {
@@ -163,6 +166,12 @@ export const ContentMapping: ContentMappingType = {
         widget: memo(HorizontalDivider),
         editor: HorizontalDividerEditor,
         displayName: "Horizontal Divider",
+        widgetCategory: WidgetCategories.Layout
+    },
+    GRID_LAYOUT: {
+        widget: memo(GridLayout),
+        editor: GridLayoutEditor,
+        displayName: "Grid Layout",
         widgetCategory: WidgetCategories.Layout
     }
 }
