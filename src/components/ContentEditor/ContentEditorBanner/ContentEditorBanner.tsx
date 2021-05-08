@@ -78,7 +78,7 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 							<div>Your editor is not up to date. Please hard refresh (shift command r)</div>}
 					</Row>
 				</Col>
-				<Col md={4}>
+				<Col md={4} className="content-editor-banner-separation">
 					{pageToEdit && <p>You are editing the <span
 						className="content-editor-page-editing">/{pageToEdit === MAIN_PAGE ?
 							"" : pageToEdit}</span> page.</p>}
@@ -118,52 +118,50 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
             </Button>
           </Row>}
 				</Col>
-				<Col md={4} className="content-editor-banner-separation">
-					<Row>
-						<Col md={6}>
-							<p>Create a new page</p>
-							<FormControl>
-								<InputLabel>URL of new page</InputLabel>
-								<Input value={newPageInput} onChange={e =>
-									setNewPageInput(e.target.value)} />
-							</FormControl>
-						</Col>
-						<Col md={6} className="content-editor-banner-separation">
-							<Row>
-								<Button variant="contained" color="primary"
-									onClick={async () => {
-										let newPageInputRef = firebase.database()
-											.ref(`${currYear}/ContentData/${newPageInput}`);
-										let snap = await newPageInputRef.once('value');
-										if (!snap.val()) {
-											newPageInputRef.set({
-												hasSidebar: false
-											});
-											setPageToEdit(newPageInput);
-											setNewPageInput("");
-										}
-									}}>Submit</Button>
-							</Row>
-							<Row>
-								{pageToEdit &&
-                contentData[pageToEdit] &&
-									<FormControlLabel
-										control={
-											<Checkbox checked={contentData[pageToEdit].hasSidebar}
-												onChange={e => {
-													firebase.database()
-														.ref(`${currYear}/ContentData/${pageToEdit}/hasSidebar`)
-														.set(e.target.checked);
-												}} />
-										}
-										label="Has sidebar?"
-									/>
-								}
-							</Row>
-						</Col>
-					</Row>
-				</Col>
-			</Row>
+				<Col md={3} className="content-editor-banner-separation">
+          <Row>
+            <p>Create a new page</p>
+            <FormControl>
+              <InputLabel>URL of new page</InputLabel>
+              <Input value={newPageInput} onChange={e =>
+                setNewPageInput(e.target.value)} />
+            </FormControl>
+          </Row>
+        </Col>
+        <Col md={1} className="content-editor-banner-separation">
+          <Row>
+            <Button variant="contained" color="primary"
+              onClick={async () => {
+                let newPageInputRef = firebase.database()
+                  .ref(`${currYear}/ContentData/${newPageInput}`);
+                let snap = await newPageInputRef.once('value');
+                if (!snap.val()) {
+                  newPageInputRef.set({
+                    hasSidebar: false
+                  });
+                  setPageToEdit(newPageInput);
+                  setNewPageInput("");
+                }
+              }}>Submit</Button>
+          </Row>
+          <Row>
+            {pageToEdit &&
+            contentData[pageToEdit] &&
+              <FormControlLabel
+                control={
+                  <Checkbox checked={contentData[pageToEdit].hasSidebar}
+                    onChange={e => {
+                      firebase.database()
+                        .ref(`${currYear}/ContentData/${pageToEdit}/hasSidebar`)
+                        .set(e.target.checked);
+                    }} />
+                }
+                label="Has sidebar?"
+              />
+            }
+          </Row>
+        </Col>
+      </Row>
 		</Grid>
 	</div>
 }
