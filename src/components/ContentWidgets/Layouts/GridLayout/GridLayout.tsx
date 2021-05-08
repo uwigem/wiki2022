@@ -1,3 +1,4 @@
+import React from 'react'
 import { ContentSingularData } from "../../../_data/ContentSingularData";
 import { Widget } from '../types';
 import { ContentMapping, ExampleWidget } from '../../../ContentMapping/ContentMapping'
@@ -22,7 +23,7 @@ export const GridLayout: React.FC<ContentSingularData> = ({ grid_layout }: Conte
         display: "grid",
         gridTemplateColumns: grid_layout.columnSizes && formatRowsOrColumns(grid_layout.columnSizes),
         gridTemplateRows: grid_layout.rowSizes && formatRowsOrColumns(grid_layout.rowSizes),
-        gridTemplateArea: formatArea(grid_layout?.gridLayout),
+        gridTemplateArea: "0",//formatArea(grid_layout?.gridLayout || [[0]]),
         rowGap: grid_layout.rowGap,
         columnGap: grid_layout.columnGap,
     }

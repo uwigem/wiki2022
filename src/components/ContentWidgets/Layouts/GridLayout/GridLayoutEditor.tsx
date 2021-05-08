@@ -1,8 +1,9 @@
 import { ExampleWidget, WidgetEditorProps } from "../../../ContentMapping/ContentMapping";
 import GridLayout, { GridLayoutProps, EMPTY_GRID_LAYOUT_SETTINGS } from './GridLayout'
 import { Widget } from "../types";
+import React from 'react'
 
-export const GridLayoutEditor: React.FC<WidgetEditorProps> = ({ editedContent, setEditedContentOnChange }: WidgetEditorProps) => {
+const GridLayoutEditor: React.FC<WidgetEditorProps> = ({ editedContent, setEditedContentOnChange }: WidgetEditorProps) => {
     let content = editedContent.grid_layout || EMPTY_GRID_LAYOUT_SETTINGS
 
     let genhandleWidgetChange = (i: number) => {
@@ -45,10 +46,11 @@ export const GridLayoutEditor: React.FC<WidgetEditorProps> = ({ editedContent, s
             <GridLayout {...editedContent}/>
             <hr/>
             <h1>Editor goes here</h1>
-            {editedContent.grid_layout?.widgets.map((widget, i) => {
+            {/*editedContent.grid_layout?.widgets.map((widget, i) => {
                 return (<></>)
-            })}
+            })*/}
         </article>
     )
 }
 
+export default GridLayoutEditor
