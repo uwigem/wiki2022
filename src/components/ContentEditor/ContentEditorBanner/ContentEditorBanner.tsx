@@ -103,7 +103,7 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
               variant="contained"
               color="primary"
               onClick={() => {
-                let deleteConfirmation: boolean = window.confirm("Deleting a page " +
+                let deleteConfirmation: boolean = window.confirm("WARNING: Deleting a page is " +
                   "irreversible. Are you sure you would like to delete " + pageToEdit + "?");
                 if (deleteConfirmation) {
                   let pageToDelete: string = pageToEdit;
