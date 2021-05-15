@@ -12,7 +12,7 @@ export type GridLayoutProps = {
 }
 
 export const GridLayout: React.FC<ContentSingularData> = ({ grid_layout }: ContentSingularData) => {
-    if (!grid_layout) {
+    if (!grid_layout || !grid_layout.gridLayout) {
         return (
             <div>
                 <h1>No Data for Grid Layout!</h1>
@@ -23,7 +23,7 @@ export const GridLayout: React.FC<ContentSingularData> = ({ grid_layout }: Conte
         display: "grid",
         gridTemplateColumns: grid_layout.columnSizes && formatRowsOrColumns(grid_layout.columnSizes),
         gridTemplateRows: grid_layout.rowSizes && formatRowsOrColumns(grid_layout.rowSizes),
-        gridTemplateArea: "0",//formatArea(grid_layout?.gridLayout || [[0]]),
+        gridTemplateAreas: formatArea(grid_layout.gridLayout),
         rowGap: grid_layout.rowGap,
         columnGap: grid_layout.columnGap,
     }
@@ -32,7 +32,9 @@ export const GridLayout: React.FC<ContentSingularData> = ({ grid_layout }: Conte
             {grid_layout && grid_layout.widgets.map((widget, i) => {
                 let Widget = ContentMapping[widget.type].widget
                 return (
-                    <Widget {...widget.content} key={i} style={{ gridArea: i }}/>
+                    <div key={i} style={{ gridArea: translateNum(i) }} className="randomClass">
+                        <Widget {...widget.content} />
+                    </div>
                 )
             })}
         </div>
@@ -48,8 +50,16 @@ function formatRowsOrColumns(data: string[] | string) {
 }
 
 function formatArea(data: number[][]) {
-    let temp: string[] = data.map(row => `'${row.join(" ")}'`)
+    let temp: string[] = data.map(row => `'${row.map(elem => translateNum(elem)).join(" ")}'`)
     return temp.join(" ")
+}
+
+function translateNum(num: number): string {
+    if (num === -1) {
+        return "."
+    } else {
+        return (num + 10).toString(36)
+    }
 }
 
 
