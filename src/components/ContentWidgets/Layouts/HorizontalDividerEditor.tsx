@@ -7,10 +7,6 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import { Widget } from "./types";
 import WidgetChooser from "./WidgetChooser";
-import Accordion from '@material-ui/core/Accordion'
-import AccordionSummary from "@material-ui/core/AccordionSummary/AccordionSummary";
-import ExpandMore from "@material-ui/icons/ExpandMore"
-import AccordionDetails from "@material-ui/core/AccordionDetails";
 
 export const HorizontalDividerEditor: React.FC<WidgetEditorProps> = ({ originalContent, editedContent, setEditedContentOnChange }: WidgetEditorProps) => {
 

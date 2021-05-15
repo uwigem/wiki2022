@@ -1,10 +1,13 @@
 import { ExampleWidget, WidgetEditorProps } from "../../../ContentMapping/ContentMapping";
-import GridLayout, { GridLayoutProps, EMPTY_GRID_LAYOUT_SETTINGS } from './GridLayout'
+import GridLayout from './GridLayout'
 import { Widget } from "../types";
 import React from 'react'
 
 const GridLayoutEditor: React.FC<WidgetEditorProps> = ({ editedContent, setEditedContentOnChange }: WidgetEditorProps) => {
-    let content = editedContent.grid_layout || EMPTY_GRID_LAYOUT_SETTINGS
+    let content = editedContent.grid_layout || {
+        widgets: [ExampleWidget],
+        gridLayout: [[0]],
+    }
 
     let genhandleWidgetChange = (i: number) => {
         return (widget: Widget) => {

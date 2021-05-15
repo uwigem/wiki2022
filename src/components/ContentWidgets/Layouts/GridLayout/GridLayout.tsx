@@ -1,7 +1,7 @@
 import React from 'react'
 import { ContentSingularData } from "../../../_data/ContentSingularData";
 import { Widget } from '../types';
-import { ContentMapping, ExampleWidget } from '../../../ContentMapping/ContentMapping'
+import { ContentMapping } from '../../../ContentMapping/ContentMapping'
 export type GridLayoutProps = {
     widgets: Widget[]
     gridLayout: number[][]
@@ -52,9 +52,5 @@ function formatArea(data: number[][]) {
     return temp.join(" ")
 }
 
-export const EMPTY_GRID_LAYOUT_SETTINGS: GridLayoutProps = {
-    widgets: [ExampleWidget],
-    gridLayout: [[0]]
-}
 
 export default GridLayout
