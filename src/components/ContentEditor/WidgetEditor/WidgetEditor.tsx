@@ -93,18 +93,18 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 					<fieldset>
 						<legend>Select a Widget</legend>
 						<select
-							value={editedContent.type}
+							value={editedContent.type || ""}
 							onChange={(e) => {
 								setEditedContentOnChange("type", e.target.value as string, editedContent, setEditedContent);
 							}}>
-							<option value="" disabled selected>-- Select a Widget --</option>
+							<option value="" disabled>-- Select a Widget --</option>
 							{/* display Widget Categories and Widgets in dropdown, sorted alphabetically */}
 							{/* TODO: Optimize dropdown organizing for a better time complexity */}
 							{Object.keys(WidgetCategories).map((category) => {
 								const categoryWidgets = Object.keys(ContentMapping).filter(widgetKey => ContentMapping[widgetKey].widgetCategory === category)
 								categoryWidgets.sort();
 								if (categoryWidgets.length > 0) {
-									return <optgroup label={category}>
+									return <optgroup label={category} key={category}>
 										{categoryWidgets.map((widgetKey) => {
 											return <option key={widgetKey} value={widgetKey}>
 												{ContentMapping[widgetKey].displayName}

@@ -16,6 +16,7 @@ import { FONT_FAMILY } from './components/_data/Constants';
 import { HardCodedMainPage } from './components/HardcodedMainPage/HardCodedMainPage';
 import { Team } from './components/HardCodedTeamPage/LegacyHardCodedTeamPage';
 import { Sponsors } from './components/HardCodedSponsorsPage/LegacyHardCodedSponsorsPage';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // This line is to remove a bug that Firefox has
@@ -32,7 +33,7 @@ const debugURL = "/Editor";
 
 /**
  * App is the main application that handles all the route logic and rendering.
- * 
+ *
  * Last Modified
  * William Kwok
  * July 17, 2019
@@ -67,7 +68,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase, ContentEditor }
      * Upon component mount, this effect determines if it is currently on the live website or not.
      * It sets the `pageTitle` to be `debugURL` if not live, or the text after `"Team:Washington"`
      * in the URL.
-     * 
+     *
      * eg "2019.igem.org/Team:Washington/Design" -> "/Design"
      */
 	useEffect(() => {
@@ -124,14 +125,14 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase, ContentEditor }
     /**
      * Sets the loading state to true. This is used for in between pages. This function MUST be sent
      * down as a prop to ALL the pages, so the appropriate loading procedure takes place.
-     * 
+     *
      * @example `From now on, we will pass it down like this`
      *   <CustomView a={this.displayLoadingMessage} />
      *   // in CustomView:
      *   render() {
      *       let a = this.props.a;
      *       return (
-     *           <div>   
+     *           <div>
      *               <ChildView a={a} />
      *               <a href="_____" onClick={a} />
      *           </div>
