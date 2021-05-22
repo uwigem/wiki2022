@@ -3,6 +3,8 @@ import GridLayout, { GridLayoutProps } from './GridLayout'
 import { Widget } from "../types";
 import React from 'react'
 
+const N = -1 // none/no widget
+
 const GridLayoutEditor: React.FC<WidgetEditorProps> = ({ editedContent, setEditedContentOnChange }: WidgetEditorProps) => {
     let content: GridLayoutProps
     if (editedContent.grid_layout) {
@@ -11,8 +13,8 @@ const GridLayoutEditor: React.FC<WidgetEditorProps> = ({ editedContent, setEdite
         const EXAMPLE_GRID_PROPS = {
             widgets: [ExampleWidget, ExampleWidget],
             gridLayout: [
-                [0, 0, 0, -1],
-                [-1, 1, 1, 1],
+                [0, 0, 0, N],
+                [N, 1, 1, 1],
             ],
         }
         content = EXAMPLE_GRID_PROPS

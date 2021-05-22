@@ -4,7 +4,7 @@ import { ImgRowItem } from '../ContentWidgets/ImagesInRow/ImagesInRow';
 import { AccordionPageProps } from '../ContentWidgets/Accordion/Accordion';
 import { Person } from '../ContentWidgets/TeamPage/TeamPage';
 import { CarouselImagesContent, CarouselSettings } from '../ContentWidgets/ImageCarousel.tsx/ImageCarousel';
-import { HorizontalDividerProps } from '../ContentWidgets/Layouts/HorizontalDivider';
+import { HorizontalDividerProps } from '../ContentWidgets/Layouts/HorizontalDivider/HorizontalDivider';
 import { GridLayoutProps } from '../ContentWidgets/Layouts/GridLayout/GridLayout';
 
 export type ContentSingularData = {

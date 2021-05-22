@@ -28,8 +28,8 @@ import { ImageCarousel } from '../ContentWidgets/ImageCarousel.tsx/ImageCarousel
 import { ImageCarouselEditor } from '../ContentWidgets/ImageCarousel.tsx/ImageCarouselEditor';
 import { ExampleImage } from '../ContentWidgets/ExampleImage/ExampleImage';
 import { ExampleImageEditor } from '../ContentWidgets/ExampleImage/ExampleImageEditor';
-import { HorizontalDivider } from '../ContentWidgets/Layouts/HorizontalDivider';
-import { HorizontalDividerEditor } from '../ContentWidgets/Layouts/HorizontalDividerEditor';
+import { HorizontalDivider } from '../ContentWidgets/Layouts/HorizontalDivider/HorizontalDivider';
+import { HorizontalDividerEditor } from '../ContentWidgets/Layouts/HorizontalDivider/HorizontalDividerEditor';
 import GridLayout from '../ContentWidgets/Layouts/GridLayout/GridLayout';
 import GridLayoutEditor from '../ContentWidgets/Layouts/GridLayout/GridLayoutEditor';
 

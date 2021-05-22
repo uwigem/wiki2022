@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { ExampleWidget, WidgetEditorProps } from "../../ContentMapping/ContentMapping";
+import { ExampleWidget, WidgetEditorProps } from "../../../ContentMapping/ContentMapping";
 import { HorizontalDivider } from "./HorizontalDivider";
-import { ContentMapping } from '../../ContentMapping/ContentMapping'
-import { ContentSingularData } from "../../_data/ContentSingularData";
+import { ContentMapping } from '../../../ContentMapping/ContentMapping'
+import { ContentSingularData } from "../../../_data/ContentSingularData";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
-import { Widget } from "./types";
-import WidgetChooser from "./WidgetChooser";
+import { Widget } from "../types";
+import WidgetChooser from "../WidgetChooser";
+import Accordion from "react-bootstrap/Accordion";
+import Card from 'react-bootstrap/Card';
 
 export const HorizontalDividerEditor: React.FC<WidgetEditorProps> = ({ originalContent, editedContent, setEditedContentOnChange }: WidgetEditorProps) => {
 
@@ -37,37 +39,39 @@ export const HorizontalDividerEditor: React.FC<WidgetEditorProps> = ({ originalC
             <hr/>
             <Typography gutterBottom>Left Section Width Percent {percent}%</Typography>
             <TextField label={`Percent ${percent}%`} type={"number"} variant={"outlined"} onChange={e => setPercent(Number(e.target.value))}/>
-            {/* <Accordion onClick={e => console.log("accordion 1")}>
-                <AccordionSummary
-                    expandIcon={<ExpandMore />}>
-                    <Typography>Left Widget</Typography>
-                    <Typography>{ContentMapping[leftWidget.type].displayName}</Typography>
-                </AccordionSummary>
-                <AccordionDetails> */}
-                    <WidgetChooser
-                        widgetType={leftWidget.type}
-                        handleWidgetChange={widgetType => setLeftWidget(old => ({ type: widgetType, content: {}}))}/>
-                    {leftWidget && renderWidgetEditor(leftWidget, setLeftWidget)}
-                {/* </AccordionDetails>
+            <Accordion>
+                <Card>
+                    <Accordion.Toggle as={Card.Header} eventKey="0">
+                        Left Widget
+                    </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="0">
+                            <Card.Body>
+                                <WidgetChooser
+                                widgetType={leftWidget.type}
+                                handleWidgetChange={widgetType => setLeftWidget(old => ({ type: widgetType, content: {}}))}/>
+                            {leftWidget && renderWidgetEditor(leftWidget, setLeftWidget)}
+                            </Card.Body>
+                        </Accordion.Collapse>
+                </Card>
             </Accordion>
             <Accordion>
-                <AccordionSummary
-                    expandIcon={<ExpandMore />}>
-                    <Typography>Right Widget</Typography>
-                    <Typography>{ContentMapping[rightWidget.type].displayName}</Typography>
-                </AccordionSummary>
-                <AccordionDetails> */}
-                    <WidgetChooser
-                        widgetType={rightWidget.type}
-                        handleWidgetChange={widgetType => setRightWidget(old => ({ type: widgetType, content: {}}))}/>
-                    {rightWidget && renderWidgetEditor(rightWidget, setRightWidget)}
-                {/* </AccordionDetails>
-            </Accordion> */}
+                <Card>
+                    <Accordion.Toggle as={Card.Header} eventKey="1">
+                        Right Widget
+                    </Accordion.Toggle>
+                    <Accordion.Collapse eventKey="1">
+                        <Card.Body>
+                            <WidgetChooser
+                            widgetType={rightWidget.type}
+                            handleWidgetChange={widgetType => setRightWidget(old => ({ type: widgetType, content: {}}))}/>
+                            {rightWidget && renderWidgetEditor(rightWidget, setRightWidget)}
+                        </Card.Body>
+                    </Accordion.Collapse>
+                </Card>
+            </Accordion>
         </>
     )
 }
-/* expanded={expanded === 'panel1'} onClick={handleAccordionChange('panel1')}> */
-/* expanded={expanded === 'panel2'} onChange={handleAccordionChange('panel2')}> */
 
 function renderWidgetEditor(
         widget: Widget,

@@ -1,8 +1,8 @@
 import React from 'react'
-import { ContentSingularData } from "../../_data/ContentSingularData";
-import { ContentMapping, ExampleWidget, WidgetTypes } from '../../ContentMapping/ContentMapping'
+import { ContentSingularData } from "../../../_data/ContentSingularData";
+import { ContentMapping, ExampleWidget, WidgetTypes } from '../../../ContentMapping/ContentMapping'
 import Box from '@material-ui/core/Box/Box';
-import { Widget } from './types';
+import { Widget } from '../types';
 
 
 
