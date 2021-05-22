@@ -1,15 +1,10 @@
-.widget-live-edit-bar-safe {
-	color: white;
-	background-color: green;
-	text-align: center;
-}
-
-.widget-live-edit-bar-unsafe {
-	color: white;
-	background-color: orange;
-	text-align: center;
-}
-
 .widget-editor-padding-left {
-	margin-left: 5px;
+  margin-left: 20px;
+}
+
+.widget-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px;
+  margin-right: 20px;
 }
