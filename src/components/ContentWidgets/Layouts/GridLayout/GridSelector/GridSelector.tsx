@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import Card from "react-bootstrap/Card"
 import { N } from '../GridLayout'
 import GridSquare from './GridSquare'
@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form'
 type GridSelectorType = {
     rows: number
     cols: number
-    widgetNames: []
+    widgetNames: string[]
     onGridChange: (grid: number[][]) => void
     initialGrid?: number[][]
 }
@@ -28,8 +28,8 @@ export default function GridSelector({ rows, cols, widgetNames, onGridChange, in
             <Card.Body>
                 <Card.Title>{rows} by {cols} Grid</Card.Title>
                 <Form.Control as="select" onChange={e => setSelectVal(parseInt(e.target.value))}>
-                    <option key={N} disabled selected value={N}>Select a Component</option>
-                    {widgetNames.map((name, i) => <option value={i}>{name}</option>)}
+                    <option key={N} disabled selected>Select a Component</option>
+                    {widgetNames.map((name, i) => <option key={i} value={i}>{i}: {name}</option>)}
                 </Form.Control>
                 <div className={styles.grid}>{genGridElements(grid, genClickFunc)}</div>
             </Card.Body>
@@ -56,8 +56,8 @@ function genGridElements(
 
     return grid.map((row, rowNum) => {
         return (
-            <div>
-                {row.map((val, colNum) => <GridSquare onClick={clickFunc(rowNum, colNum)} text={val} />)}
+            <div key={rowNum} className={styles.row}>
+                {row.map((val, colNum) => <GridSquare key={colNum} onClick={clickFunc(rowNum, colNum)} text={val} />)}
             </div>
         )
     })
@@ -90,8 +90,8 @@ function handleClick(
 function validSelection(startPoint: point, endPoint: point, grid: number[][]): boolean {
     const rowIncr = endPoint[0] > startPoint[0] ? 1 : -1
     const colIncr = endPoint[1] > startPoint[1] ? 1 : -1
-    for (let row = startPoint[0]; row !== endPoint[0]; row += rowIncr) {
-        for (let col = startPoint[1]; col !== endPoint[1]; col += colIncr) {
+    for (let row = startPoint[0]; row !== endPoint[0] + rowIncr; row += rowIncr) {
+        for (let col = startPoint[1]; col !== endPoint[1] + colIncr; col += colIncr) {
             if (grid[row][col] !== N) {
                 return false
             }
@@ -104,8 +104,8 @@ function addSelection(startPoint: point, endPoint: point, value: number, grid: n
     const newGrid = replaceSelection(value, grid)
     const rowIncr = endPoint[0] > startPoint[0] ? 1 : -1
     const colIncr = endPoint[1] > startPoint[1] ? 1 : -1
-    for (let row = startPoint[0]; row !== endPoint[0]; row += rowIncr) {
-        for (let col = startPoint[1]; col !== endPoint[1]; col += colIncr) {
+    for (let row = startPoint[0]; row !== endPoint[0] + rowIncr; row += rowIncr) {
+        for (let col = startPoint[1]; col !== endPoint[1] + colIncr; col += colIncr) {
             newGrid[row][col] = value
         }
     }
