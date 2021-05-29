@@ -11,6 +11,8 @@ export type GridLayoutProps = {
     columnGap?: string
 }
 
+export const N = -1 // none/no widget
+
 export const GridLayout: React.FC<ContentSingularData> = ({ grid_layout }: ContentSingularData) => {
     if (!grid_layout || !grid_layout.gridLayout) {
         return (
@@ -55,12 +57,11 @@ function formatArea(data: number[][]) {
 }
 
 function translateNum(num: number): string {
-    if (num === -1) {
+    if (num === N) {
         return "."
     } else {
         return (num + 10).toString(36)
     }
 }
-
 
 export default GridLayout

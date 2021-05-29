@@ -1,9 +1,7 @@
 import { ExampleWidget, WidgetEditorProps } from "../../../ContentMapping/ContentMapping";
-import GridLayout, { GridLayoutProps } from './GridLayout'
+import GridLayout, { GridLayoutProps, N } from './GridLayout'
 import { Widget } from "../types";
 import React from 'react'
-
-const N = -1 // none/no widget
 
 const GridLayoutEditor: React.FC<WidgetEditorProps> = ({ editedContent, setEditedContentOnChange }: WidgetEditorProps) => {
     let content: GridLayoutProps
