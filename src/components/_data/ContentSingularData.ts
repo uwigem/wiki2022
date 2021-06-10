@@ -4,6 +4,8 @@ import { ImgRowItem } from '../ContentWidgets/ImagesInRow/ImagesInRow';
 import { AccordionPageProps } from '../ContentWidgets/Accordion/Accordion';
 import { Person } from '../ContentWidgets/TeamPage/TeamPage';
 import { CarouselImagesContent, CarouselSettings } from '../ContentWidgets/ImageCarousel.tsx/ImageCarousel';
+import { HorizontalDividerProps } from '../ContentWidgets/Layouts/HorizontalDivider/HorizontalDivider';
+import { GridLayoutProps } from '../ContentWidgets/Layouts/GridLayout/GridLayout';
 
 export type ContentSingularData = {
 	[idx: string]: any
@@ -28,4 +30,6 @@ export type ContentSingularData = {
 	gallery_content?: string[]
 	carousel_settings?: CarouselSettings
 	carousel_imagesContents?: CarouselImagesContent[]
+    horizontal_divider?: HorizontalDividerProps
+    grid_layout?: GridLayoutProps
 }

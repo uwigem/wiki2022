@@ -72,7 +72,8 @@ const imgs: string[] = [
 	"https://2019.igem.org/wiki/images/e/e2/T--Washington--HannahCheung.jpg",
 	"https://2019.igem.org/wiki/images/4/43/T--Washington--MaxZhou.jpg",
 	"https://2019.igem.org/wiki/images/d/d8/T--Washington--BrianHong.jpg",
-	"https://2019.igem.org/wiki/images/5/51/T--Washington--LauraFreeman.jpg"
+	"https://2019.igem.org/wiki/images/5/51/T--Washington--LauraFreeman.jpg",
+    "https://2019.igem.org/wiki/images/9/92/T--Washington--Wetlab_and_Simulations.png"
 ];
 
 export type ContentHashMapping = {

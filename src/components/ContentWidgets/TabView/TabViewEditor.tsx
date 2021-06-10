@@ -14,7 +14,7 @@ export const TabViewEditor: React.FC<WidgetEditorProps> = ({
 	const [renderView, setRenderView] = useState(false);
 
 	let copyTabViewContent: Tab[] = [];
-	if (editedContent.tabView_content) {
+	if (editedContent && editedContent.tabView_content) {
 		copyTabViewContent = [...editedContent.tabView_content!!];
 	}
 

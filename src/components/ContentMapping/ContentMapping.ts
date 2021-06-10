@@ -28,6 +28,10 @@ import { ImageCarousel } from '../ContentWidgets/ImageCarousel.tsx/ImageCarousel
 import { ImageCarouselEditor } from '../ContentWidgets/ImageCarousel.tsx/ImageCarouselEditor';
 import { ExampleImage } from '../ContentWidgets/ExampleImage/ExampleImage';
 import { ExampleImageEditor } from '../ContentWidgets/ExampleImage/ExampleImageEditor';
+import { HorizontalDivider } from '../ContentWidgets/Layouts/HorizontalDivider/HorizontalDivider';
+import { HorizontalDividerEditor } from '../ContentWidgets/Layouts/HorizontalDivider/HorizontalDividerEditor';
+import GridLayout from '../ContentWidgets/Layouts/GridLayout/GridLayout';
+import GridLayoutEditor from '../ContentWidgets/Layouts/GridLayout/GridLayoutEditor';
 
 
 export type WidgetEditorProps = {
@@ -36,7 +40,7 @@ export type WidgetEditorProps = {
 	setEditedContentOnChange: (keyToChange: string, valueToChange: any) => void
 }
 
-type ContentMappingType = {
+export type ContentMappingType = {
 	[idx: string]: {
 		widget: React.FC<ContentSingularData>,
 		editor: React.FC<WidgetEditorProps>
@@ -48,7 +52,8 @@ type ContentMappingType = {
 export enum WidgetCategories {
 	Display = "Display",
 	Media = "Media",
-	Text = "Text"
+	Text = "Text",
+    Layout = "Layout"
 }
 
 export enum WidgetTypes {
@@ -67,6 +72,9 @@ export enum WidgetTypes {
 	TEAMPAGE = "TEAMPAGE",
 	HEADER = "HEADER",
 	IMAGE_CAROUSEL = "IMAGE_CAROUSEL",
+    HORIZONTAL_DIVIDER = "HORIZONTAL_DIVIDER",
+    IMAGE = "IMAGE",
+    GRID_LAYOUT = "GRID_LAYOUT"
 }
 
 export const ContentMapping: ContentMappingType = {
@@ -153,5 +161,26 @@ export const ContentMapping: ContentMappingType = {
 		editor: ExampleImageEditor,
 		displayName: "Image",
 		widgetCategory: WidgetCategories.Media
-	}
+	},
+    HORIZONTAL_DIVIDER: {
+        widget: memo(HorizontalDivider),
+        editor: HorizontalDividerEditor,
+        displayName: "Horizontal Divider",
+        widgetCategory: WidgetCategories.Layout
+    },
+    GRID_LAYOUT: {
+        widget: memo(GridLayout),
+        editor: GridLayoutEditor,
+        displayName: "Grid Layout",
+        widgetCategory: WidgetCategories.Layout
+    }
+}
+
+export const ExampleWidget = {
+    type: WidgetTypes.IMAGE,
+    content: {
+        exampleImage_imageLink: "https://2019.igem.org/wiki/images/9/92/T--Washington--Wetlab_and_Simulations.png",
+        exampleImage_percentageSize: 100,
+        exampleImage_subtitle: "Example Widget"
+    }
 }
