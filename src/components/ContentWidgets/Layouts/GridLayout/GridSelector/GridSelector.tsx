@@ -6,6 +6,7 @@ import styles from './GridSelector.module.css'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
+import InputGroup from 'react-bootstrap/InputGroup'
 
 type GridSelectorType = {
     rows: number
@@ -24,6 +25,7 @@ export default function GridSelector({ rows, cols, widgetNames, onGridChange, gr
     }
     const [startedSelection, setStartSelection] = useState<point | undefined>()
     const [selectVal, setSelectVal] = useState<number>(N)
+    const [widgetNum, setWidgetNum] = useState<number>(N)
     const genClickFunc = (row: number, col: number) => {
         return () => handleClick([row, col], selectVal, setStartSelection, grid, onGridChange)
     }
@@ -32,23 +34,30 @@ export default function GridSelector({ rows, cols, widgetNames, onGridChange, gr
         <Card>
             <Card.Body>
                 <Card.Title>{rows} by {cols} Grid</Card.Title>
-                <Form.Control as="select" onChange={e => setSelectVal(parseInt(e.target.value))}>
-                    <option key={N} disabled selected>Select a Component</option>
-                    {widgetNames.map((name, i) => <option key={i} value={i}>{i}: {name}</option>)}
-                </Form.Control>
-                <Button onClick={() => onGridChange(genEmptyGrid(rows, cols))}>Clear Grid</Button>
+                <InputGroup>
+                    <Form.Control as="select" onChange={e => {
+                            let num = parseInt(e.target.value) || N
+                            setSelectVal(num)
+                            setWidgetNum(num)
+                        }}>
+                        {/* <option key={N} disabled selected>Select a Component</option> */}
+                        {widgetNames.map((name, i) => <option key={i} value={i}>{i}: {name}</option>)}
+                    </Form.Control>
+                    <InputGroup.Append>
+                        <Button variant="outline-secondary" onClick={() => onGridChange(replaceSelection(widgetNum, grid, N))}>Clear Current</Button>
+                        <Button variant="outline-secondary" onClick={() => onGridChange(genEmptyGrid(rows, cols))}>Clear Grid</Button>
+                    </InputGroup.Append>
+                </InputGroup>
                 <div className={styles.grid}>{genGridElements(grid, genClickFunc)}</div>
                 <p>{startedSelection ? "Started Selection" : "Not started selection"}</p>
-                <Row>
+                <div className={styles.colRowEditor}>
                     <p>Columns</p>
-                    <Button onClick={() => onGridChange(changeCols(cols - 1, grid))}>-</Button>
-                    <Button onClick={() => onGridChange(changeCols(cols + 1, grid))}>+</Button>
-                </Row>
-                <Row>
+                    <Button variant="outline-danger" onClick={() => onGridChange(changeCols(cols - 1, grid))}>-</Button>
+                    <Button variant="outline-success" onClick={() => onGridChange(changeCols(cols + 1, grid))}>+</Button>
                     <p>Rows</p>
-                    <Button onClick={() => onGridChange(changeRows(rows - 1, grid))}>-</Button>
-                    <Button onClick={() => onGridChange(changeRows(rows + 1, grid))}>+</Button>
-                </Row>
+                    <Button variant="outline-danger" onClick={() => onGridChange(changeRows(rows - 1, grid))}>-</Button>
+                    <Button variant="outline-success" onClick={() => onGridChange(changeRows(rows + 1, grid))}>+</Button>
+                </div>
             </Card.Body>
         </Card>
     )

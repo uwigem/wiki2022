@@ -23,8 +23,8 @@ export const GridLayout: React.FC<ContentSingularData> = ({ grid_layout }: Conte
     }
     const styles = {
         display: "grid",
-        gridTemplateColumns: formatRowsOrColumns(grid_layout.columnSizes || `repeat(${grid_layout.gridLayout[0].length || 0}, 1fr)`),
-        gridTemplateRows: grid_layout.rowSizes && formatRowsOrColumns(grid_layout.rowSizes),
+        gridTemplateColumns: formatRowsOrColumns(grid_layout.columnSizes || '1fr', grid_layout.gridLayout[0].length),
+        gridTemplateRows: formatRowsOrColumns(grid_layout.rowSizes || '1fr', grid_layout.gridLayout.length),
         gridTemplateAreas: formatArea(grid_layout.gridLayout),
         rowGap: grid_layout.rowGap,
         columnGap: grid_layout.columnGap,
@@ -43,9 +43,9 @@ export const GridLayout: React.FC<ContentSingularData> = ({ grid_layout }: Conte
     )
 }
 
-function formatRowsOrColumns(data: string[] | string) {
+function formatRowsOrColumns(data: string[] | string, num: number) {
     if (typeof(data) === "string") {
-        return data
+        return `repeat(${num}, ${data})`
     } else {
         return data.join(" ")
     }
