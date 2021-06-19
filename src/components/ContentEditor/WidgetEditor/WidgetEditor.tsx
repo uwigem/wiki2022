@@ -43,6 +43,7 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 		if (!equal(content, editedContent)) {
 			setEditedContent({ ...content } as ContentSingularData);
 		}
+        //@ts-ignore
 	}, [content /** WHATEVER THE YELLOW ERROR SAYS, DO NOT ADD `editedContent` HERE. It makes the editor not work */])
 
 
@@ -78,7 +79,7 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
                             deleteWidget={deleteWidget} />
                     </div>
                 </div>
-                <WidgetLiveEditBar 
+                <WidgetLiveEditBar
                     contentHash={contentHash}
                     currYear={currYear}
                     pageToEdit={pageToEdit}
