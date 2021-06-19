@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import Card from "react-bootstrap/Card"
 import { N } from '../GridLayout'
 import GridSquare from './GridSquare'

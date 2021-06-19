@@ -1,8 +1,10 @@
-import { ContentMapping, ExampleWidget, WidgetEditorProps } from "../../../ContentMapping/ContentMapping";
+import { ContentMapping, ExampleWidget, WidgetEditorProps, WidgetTypes } from "../../../ContentMapping/ContentMapping";
 import GridLayout, { GridLayoutProps, N } from './GridLayout'
 import { Widget } from "../types";
 import React from 'react'
 import GridSelector from "./GridSelector/GridSelector";
+import WidgetChooser from "../WidgetChooser";
+import WidgetEditor from "../WidgetEditor";
 
 const GridLayoutEditor: React.FC<WidgetEditorProps> = ({ editedContent, setEditedContentOnChange }: WidgetEditorProps) => {
     let content: GridLayoutProps
@@ -67,6 +69,9 @@ const GridLayoutEditor: React.FC<WidgetEditorProps> = ({ editedContent, setEdite
                 onGridChange={handleLayoutChange}
                 widgetNames={content.widgets.map(widget => ContentMapping[widget.type].displayName)}
                 />
+            {content.widgets.map((widget, i) => {
+                return <WidgetEditor widget={widget} onWidgetChange={genhandleWidgetChange(i)} />
+            })}
         </article>
     )
 }
