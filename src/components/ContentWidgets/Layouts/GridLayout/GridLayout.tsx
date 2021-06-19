@@ -23,7 +23,7 @@ export const GridLayout: React.FC<ContentSingularData> = ({ grid_layout }: Conte
     }
     const styles = {
         display: "grid",
-        gridTemplateColumns: grid_layout.columnSizes && formatRowsOrColumns(grid_layout.columnSizes),
+        gridTemplateColumns: formatRowsOrColumns(grid_layout.columnSizes || `repeat(${grid_layout.gridLayout[0].length || 0}, 1fr)`),
         gridTemplateRows: grid_layout.rowSizes && formatRowsOrColumns(grid_layout.rowSizes),
         gridTemplateAreas: formatArea(grid_layout.gridLayout),
         rowGap: grid_layout.rowGap,

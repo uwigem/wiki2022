@@ -1,28 +1,33 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Card from "react-bootstrap/Card"
 import { N } from '../GridLayout'
 import GridSquare from './GridSquare'
 import styles from './GridSelector.module.css'
 import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row'
 
 type GridSelectorType = {
     rows: number
     cols: number
     widgetNames: string[]
     onGridChange: (grid: number[][]) => void
-    initialGrid?: number[][]
+    grid: number[][]
 }
 
 type point = [number, number] // [row, col]
 
-export default function GridSelector({ rows, cols, widgetNames, onGridChange, initialGrid = [[]] }: GridSelectorType) {
-    const hasInitialGrid: boolean = initialGrid.length === rows && initialGrid[0].length === cols
-    const [grid, setGrid] = useState<number[][]>(hasInitialGrid ? initialGrid : genEmptyGrid(rows, cols))
+export default function GridSelector({ rows, cols, widgetNames, onGridChange, grid = [[]] }: GridSelectorType) {
+    const hasInitialGrid: boolean = grid.length === rows && grid[0].length === cols
+    if (!hasInitialGrid) {
+        onGridChange(genEmptyGrid(rows, cols))
+    }
     const [startedSelection, setStartSelection] = useState<point | undefined>()
     const [selectVal, setSelectVal] = useState<number>(N)
     const genClickFunc = (row: number, col: number) => {
-        return () => handleClick([row, col], selectVal, setStartSelection, setGrid)
+        return () => handleClick([row, col], selectVal, setStartSelection, grid, onGridChange)
     }
+
     return (
         <Card>
             <Card.Body>
@@ -31,7 +36,19 @@ export default function GridSelector({ rows, cols, widgetNames, onGridChange, in
                     <option key={N} disabled selected>Select a Component</option>
                     {widgetNames.map((name, i) => <option key={i} value={i}>{i}: {name}</option>)}
                 </Form.Control>
+                <Button onClick={() => onGridChange(genEmptyGrid(rows, cols))}>Clear Grid</Button>
                 <div className={styles.grid}>{genGridElements(grid, genClickFunc)}</div>
+                <p>{startedSelection ? "Started Selection" : "Not started selection"}</p>
+                <Row>
+                    <p>Columns</p>
+                    <Button onClick={() => onGridChange(changeCols(cols - 1, grid))}>-</Button>
+                    <Button onClick={() => onGridChange(changeCols(cols + 1, grid))}>+</Button>
+                </Row>
+                <Row>
+                    <p>Rows</p>
+                    <Button onClick={() => onGridChange(changeRows(rows - 1, grid))}>-</Button>
+                    <Button onClick={() => onGridChange(changeRows(rows + 1, grid))}>+</Button>
+                </Row>
             </Card.Body>
         </Card>
     )
@@ -67,17 +84,14 @@ function handleClick(
     clickPoint: point,
     value: number,
     setStartSelection: (old: (startPoint: point | undefined) => (point | undefined)) => void,
-    setGrid: (old: (grid: number[][]) => number[][]) => void) {
+    grid: number[][],
+    onGridChange: (grid: number[][]) => void) {
 
     setStartSelection(startPoint => {
         if (startPoint) {
-            setGrid(oldGrid => {
-                if (validSelection(startPoint, clickPoint, oldGrid)) {
-                    return addSelection(startPoint, clickPoint, value, oldGrid)
-                } else {
-                    return oldGrid
-                }
-            })
+            if (validSelection(startPoint, clickPoint, grid)) {
+                onGridChange(addSelection(startPoint, clickPoint, value, grid))
+            }
             return undefined
         } else {
             return clickPoint
@@ -121,5 +135,40 @@ function replaceSelection(selectVal: number, grid: number[][], replaceVal: numbe
         }
         newGrid.push(newRow)
     }
+    return newGrid
+}
+
+function copyGrid(grid: number[][]) {
+    return replaceSelection(N, grid, N)
+}
+
+function changeRows(rows: number, grid: number[][]) {
+    let newGrid = copyGrid(grid)
+    while (newGrid.length > rows) {
+        newGrid.pop()
+    }
+
+    while (newGrid.length < rows) {
+        newGrid.push(grid[0].map(e => N))
+    }
+
+    return newGrid
+}
+
+function changeCols(cols: number, grid: number[][]) {
+    console.log("Change Cols to", cols)
+    let newGrid = copyGrid(grid)
+    newGrid.forEach(row => {
+        while (row.length > cols) {
+            row.pop()
+        }
+
+        while (row.length < cols) {
+            row.push(N)
+        }
+    })
+
+    console.log("changed Cols")
+    console.log(newGrid)
     return newGrid
 }

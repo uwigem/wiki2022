@@ -63,13 +63,10 @@ const GridLayoutEditor: React.FC<WidgetEditorProps> = ({ editedContent, setEdite
             <GridSelector
                 rows={content.gridLayout.length}
                 cols={content.gridLayout[0].length}
-                initialGrid={content.gridLayout}
+                grid={content.gridLayout}
                 onGridChange={handleLayoutChange}
                 widgetNames={content.widgets.map(widget => ContentMapping[widget.type].displayName)}
                 />
-            {/*editedContent.grid_layout?.widgets.map((widget, i) => {
-                return (<></>)
-            })*/}
         </article>
     )
 }
