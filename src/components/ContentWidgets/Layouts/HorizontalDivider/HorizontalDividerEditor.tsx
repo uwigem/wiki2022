@@ -19,7 +19,6 @@ export const HorizontalDividerEditor: React.FC<WidgetEditorProps> = ({ originalC
     let [leftWidget, setLeftWidget] = useState<Widget>(editedContent.horizontal_divider ? editedContent.horizontal_divider.left : ExampleWidget)
     let [rightWidget, setRightWidget] = useState<Widget>(editedContent.horizontal_divider ? editedContent.horizontal_divider.right : ExampleWidget)
     let [percent, setPercent] = useState<number>(editedContent.horizontal_divider ? editedContent.horizontal_divider.percent : 50)
-    let [expanded, setExpanded] = useState<string | false>("panel1")
     useEffect(() => {
         setEditedContentOnChange("horizontal_divider", {
             left: leftWidget,
@@ -27,11 +26,6 @@ export const HorizontalDividerEditor: React.FC<WidgetEditorProps> = ({ originalC
             percent: percent
         })
     }, [leftWidget, rightWidget, percent])
-
-    const handleAccordionChange = (panel: string) => (event: React.ChangeEvent<{}>, isExpanded: boolean) => {
-        console.log(`Accordion: ${panel}`);
-        setExpanded(isExpanded ? panel : false)
-    }
 
     return (
         <>
@@ -49,7 +43,7 @@ export const HorizontalDividerEditor: React.FC<WidgetEditorProps> = ({ originalC
                                 <WidgetChooser
                                 widgetType={leftWidget.type}
                                 handleWidgetChange={widgetType => setLeftWidget(old => ({ type: widgetType, content: {}}))}/>
-                            {leftWidget && renderWidgetEditor(leftWidget, setLeftWidget)}
+                                {leftWidget && renderWidgetEditor(leftWidget, setLeftWidget)}
                             </Card.Body>
                         </Accordion.Collapse>
                 </Card>
@@ -62,8 +56,8 @@ export const HorizontalDividerEditor: React.FC<WidgetEditorProps> = ({ originalC
                     <Accordion.Collapse eventKey="1">
                         <Card.Body>
                             <WidgetChooser
-                            widgetType={rightWidget.type}
-                            handleWidgetChange={widgetType => setRightWidget(old => ({ type: widgetType, content: {}}))}/>
+                                widgetType={rightWidget.type}
+                                handleWidgetChange={widgetType => setRightWidget(old => ({ type: widgetType, content: {}}))}/>
                             {rightWidget && renderWidgetEditor(rightWidget, setRightWidget)}
                         </Card.Body>
                     </Accordion.Collapse>
