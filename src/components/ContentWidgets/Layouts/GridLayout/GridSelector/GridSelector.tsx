@@ -5,7 +5,6 @@ import GridSquare from './GridSquare'
 import styles from './GridSelector.module.css'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import Row from 'react-bootstrap/Row'
 import InputGroup from 'react-bootstrap/InputGroup'
 
 type GridSelectorType = {
@@ -25,7 +24,6 @@ export default function GridSelector({ rows, cols, widgetNames, onGridChange, gr
     }
     const [startedSelection, setStartSelection] = useState<point | undefined>()
     const [selectVal, setSelectVal] = useState<number>(N)
-    const [widgetNum, setWidgetNum] = useState<number>(N)
     const genClickFunc = (row: number, col: number) => {
         return () => handleClick([row, col], selectVal, setStartSelection, grid, onGridChange)
     }
@@ -35,16 +33,11 @@ export default function GridSelector({ rows, cols, widgetNames, onGridChange, gr
             <Card.Body>
                 <Card.Title>{rows} by {cols} Grid</Card.Title>
                 <InputGroup>
-                    <Form.Control as="select" onChange={e => {
-                            let num = parseInt(e.target.value) || N
-                            setSelectVal(num)
-                            setWidgetNum(num)
-                        }}>
-                        {/* <option key={N} disabled selected>Select a Component</option> */}
+                    <Form.Control as="select" onChange={e => { setSelectVal(parseInt(e.target.value) || N) }}>
                         {widgetNames.map((name, i) => <option key={i} value={i}>{i}: {name}</option>)}
                     </Form.Control>
                     <InputGroup.Append>
-                        <Button variant="outline-secondary" onClick={() => onGridChange(replaceSelection(widgetNum, grid, N))}>Clear Current</Button>
+                        <Button variant="outline-secondary" onClick={() => onGridChange(replaceSelection(selectVal, grid, N))}>Clear Current</Button>
                         <Button variant="outline-secondary" onClick={() => onGridChange(genEmptyGrid(rows, cols))}>Clear Grid</Button>
                     </InputGroup.Append>
                 </InputGroup>
