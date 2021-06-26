@@ -2,9 +2,18 @@
   text-decoration: underline;
 }
 
+#check {
+  color: #85E883;
+  font-size: 4rem;
+}
+
 #caution-symbol {
   color: #F6D93E;
   margin: 5px;
+}
+
+#delete-warning {
+  margin-bottom: 50px;
 }
 
 #deletion-modal {
@@ -21,7 +30,7 @@
 #deletion-modal-content {
   background: white;
   margin: 15% auto;
-  width: 40%;
+  width: 45%;
   min-width: 500px;
   border: 1px solid #ccc;
   box-shadow: -2rem 2rem 2rem rgba(black, 0.2);
@@ -37,10 +46,7 @@
   border: 2px solid #C2C2C2;
   background-color: #F1EEEE;
   width: 100%;
-}
-
-#deletion-modal-body > p, #deletion-modal-body > input {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 #deletion-modal-header {
@@ -61,7 +67,7 @@
   justify-content: flex-end;
   background: #eee;
   padding: 5px;
-  margin-top: 40px;
+  margin-top: 80px;
 }
 
 #deletion-modal-footer > button {
@@ -108,11 +114,7 @@
   margin: 3rem;
 }
 
-.red {
+#deletion-modal-body .error-message {
   color: red;
-}
-
-#check {
-  color: #85E883;
-  font-size: 4rem;
+  margin-bottom: 30px;
 }

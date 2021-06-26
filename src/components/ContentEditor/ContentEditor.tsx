@@ -9,6 +9,7 @@ import { WidgetTypes } from '../ContentMapping/ContentMapping';
 import { ContentSingularData } from '../_data/ContentSingularData';
 import { HistoryTypes } from '../_debug/EditorHistory';
 import { EnvironmentContext } from '../../contexts/EnvironmentContext/EnvironmentContext';
+import { DeletionModal } from './DeletionModal/DeletionModal';
 
 export type ContentEditorProps = {
 	contentData: ContentData,
@@ -21,8 +22,8 @@ export type ContentEditorProps = {
  * for updating the data on firebase as well as the buttons to generate the new components.
  *
  * Last Modified
- * William Kwok
- * July 17, 2019
+ * Jaden Stetler
+ * June 26, 2021
  *
  * TODO:
  *  - Make "select a page to modify" message more prominent
@@ -34,6 +35,7 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
 	const [pageToEdit, setPageToEdit] = useState<string | null>(null);
 	const { firebase } = useContext(EnvironmentContext);
 	const user = useAuth(firebase, setUserLoading);
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
 
 	if (!firebase) {
 		return <></>
@@ -68,10 +70,16 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
     }
 
 		return <>
+      <DeletionModal pageToEdit={pageToEdit}
+        setPageToEdit={setPageToEdit}
+        isDeleting={isDeleting}
+        setIsDeleting={setIsDeleting}
+        currYear={currYear} />
 			<ContentEditorBanner contentData={contentData}
 				pageToEdit={pageToEdit}
 				setPageToEdit={setPageToEdit}
-				currYear={currYear} />
+				currYear={currYear}
+        setIsDeleting={setIsDeleting} />
 			{(contentData &&
 				pageToEdit &&
 				contentData[pageToEdit]) ?
