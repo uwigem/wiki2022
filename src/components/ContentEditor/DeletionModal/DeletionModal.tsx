@@ -117,7 +117,13 @@ type DeletionModalProps = {
             Once you confirm, all of the data for this page will be <strong>permanently </strong>
             deleted.
           </p>
-          <label>Type {pageToEdit} to confirm the page that you are going to delete:</label>
+          <label>
+            Type
+            <strong>
+                {" " + pageToEdit + " "}
+            </strong>
+            to confirm the page that you are going to delete:
+          </label>
           {pageInput}
           <label>
             Type DELETE to double confirm that you are&nbsp;
