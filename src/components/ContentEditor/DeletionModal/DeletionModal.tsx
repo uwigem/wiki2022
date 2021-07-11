@@ -5,8 +5,8 @@ import { EnvironmentContext } from '../../../contexts/EnvironmentContext/Environ
 type DeletionModalProps = {
 	pageToEdit: string | null,
 	setPageToEdit: React.Dispatch<React.SetStateAction<string | null>>,
-	isDeleting: boolean,
-  setIsDeleting: React.Dispatch<React.SetStateAction<boolean>>,
+	isDeletingPage: boolean,
+  setisDeletingPage: React.Dispatch<React.SetStateAction<boolean>>,
   currYear: number
 }
 
@@ -23,8 +23,8 @@ type DeletionModalProps = {
  export const DeletionModal: React.FC<DeletionModalProps> = ({
 	pageToEdit,
 	setPageToEdit,
-	isDeleting,
-	setIsDeleting,
+	isDeletingPage,
+	setisDeletingPage,
   currYear}) => {
   const { firebase } = useContext(EnvironmentContext);
   const [pageToDelete, setPageToDelete] = useState<string>('');
@@ -36,7 +36,7 @@ type DeletionModalProps = {
     setHasAttemptedDelete(false);
     setIsConfirmedPage(false);
     setIsConfirmedDelete(false);
-    setIsDeleting(false);
+    setisDeletingPage(false);
     setPageToDelete('');
     setDeleteConfirmation('');
   }
@@ -64,7 +64,7 @@ type DeletionModalProps = {
         </section>
       </article>
     </div>
-  } else if (isDeleting) {
+  } else if (isDeletingPage) {
     // Page is currently being deleted and delete modal should be displayed
     // Set input for page to delete confirmation with error message as necessary
     let pageInput: object;

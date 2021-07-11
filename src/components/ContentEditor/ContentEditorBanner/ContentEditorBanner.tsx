@@ -18,7 +18,7 @@ type ContentEditorBannerProps = {
 	pageToEdit: string | null,
 	setPageToEdit: React.Dispatch<React.SetStateAction<string | null>>,
 	contentData: ContentData,
-  setIsDeleting: React.Dispatch<React.SetStateAction<boolean>>,
+  setisDeletingPage: React.Dispatch<React.SetStateAction<boolean>>,
 	currYear: number
 }
 
@@ -36,7 +36,7 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 	pageToEdit,
 	setPageToEdit,
 	contentData,
-  setIsDeleting,
+  setisDeletingPage,
 	currYear }) => {
 	const { firebase } = useContext(EnvironmentContext);
 	const [newPageInput, setNewPageInput] = useState<string>("");
@@ -99,7 +99,7 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
               disabled={pageToEdit === null}
               variant="contained"
               color="primary"
-              onClick={() => setIsDeleting(true)}
+              onClick={() => setisDeletingPage(true)}
             >
               Delete Page
             </Button>
