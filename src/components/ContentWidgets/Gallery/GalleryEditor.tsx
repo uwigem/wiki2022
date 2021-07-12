@@ -1,48 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { WidgetEditorProps } from '../../ContentMapping/ContentMapping';
+import { Gallery } from './Gallery';
 import './Gallery.css';
+import ImageLink from './ImageLink';
 
 export const GalleryEditor: React.FC<WidgetEditorProps> = ({
 	editedContent,
 	setEditedContentOnChange
 }) => {
-	const galleryContent = editedContent.gallery_content || [];
-
-	const updateGallery = (link: string, index: number) => {
-		const newContent = galleryContent.slice(0);
-		newContent[index] = link;
-		setEditedContentOnChange("gallery_content", newContent);
+    const content = editedContent.gallery_content || []
+	const addImage = (link: string) => {
+        const newImages = [...content]
+        newImages.push(link)
+        setEditedContentOnChange("gallery_content", newImages)
 	}
 
-	const deleteContent = (index: number) => {
-		const newContent = galleryContent.slice(0);
-		newContent.splice(index, 1);
-		setEditedContentOnChange("gallery_content", newContent);
+    const updateImage = (oldLink: string, newLink: string) => {
+        const newImages = [...content]
+        newImages[newImages.indexOf(oldLink)] = newLink
+        setEditedContentOnChange("gallery_content", newImages)
+    }
+
+	const removeImage = (link: string) => {
+        const newImages = [...content]
+        newImages.splice(newImages.indexOf(link), 1)
+        setEditedContentOnChange("gallery_content", newImages)
 	}
 
-	return <div className="gallery-editor">
-		{galleryContent.map((link, index) => {
+	return (
+    <>
+    {console.log(content)}
+    <Gallery gallery_content={editedContent.gallery_content || []}/>
+    <div className="gallery-editor">
+		{content.map((link) => {
 			return <div key={link}>
-				<input
-					type="text"
-					onChange={(e) => updateGallery(e.target.value, index)}
-					value={link}
-				></input>
+                <ImageLink value={link} onUpdate={(val) => updateImage(link, val)} />
 				<button
 					className="gallery-delete-button"
-					onClick={() => deleteContent(index)}
+					onClick={() => removeImage(link)}
 				>Delete</button>
 			</div>
 		})}
 		<div>
 			<button
 				className="gallery-add-button"
-				onClick={() => {
-					const newContent = galleryContent.slice(0);
-					newContent.push("");
-					setEditedContentOnChange("gallery_content", newContent);
-				}}
+				onClick={() => addImage("")}
 			>Add</button>
 		</div>
 	</div>
+    </>
+    )
 }
