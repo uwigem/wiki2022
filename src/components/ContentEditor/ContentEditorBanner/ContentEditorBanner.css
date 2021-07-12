@@ -11,6 +11,10 @@
 	margin: 0px;
 }
 
+.content-editor-banner .content-editor-formcontrol + .row button {
+  margin: 2%;
+}
+
 .content-editor-page-editing {
 	color: var(--purple-primary);
 	font-weight: bold;
