@@ -4,7 +4,7 @@ import { ContentSingularData } from '../../_data/ContentSingularData';
 import './Accordion.css';
 
 /**
- * Accordion is a collapsible list of titles and cooresponding content
+ * Accordion is a collapsible list of titles and corresponding content
  * 
  * Last Modified
  * Jennifer Tao
