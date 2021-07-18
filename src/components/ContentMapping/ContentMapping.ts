@@ -41,12 +41,15 @@ export type WidgetEditorProps = {
 }
 
 export type ContentMappingType = {
-	[idx: string]: {
-		widget: React.FC<ContentSingularData>,
-		editor: React.FC<WidgetEditorProps>
-		displayName: string,
-		widgetCategory: WidgetCategories
-	}
+	[idx: string]: ContentMappingElementType
+}
+
+export type ContentMappingElementType = {
+	widget: React.FC<ContentSingularData>,
+	editor: React.FC<WidgetEditorProps>
+	displayName: string,
+	widgetCategory: WidgetCategories
+	imgPreview?: string
 }
 
 export enum WidgetCategories {
