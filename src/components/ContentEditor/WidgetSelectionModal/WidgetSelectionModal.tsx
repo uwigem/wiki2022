@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import { ContentMapping, WidgetTypes } from '../../ContentMapping/ContentMapping'
-import WidgetElement from './WidgetElement'
 import styles from './WidgetSelectionModal.module.css'
 import WidgetCategory from './WidgetCategory'
 
@@ -26,28 +25,32 @@ export default function WidgetSelectionModule({ startingState, onClose }: Widget
     return (
         <Modal
             contentClassName={styles.modal}
-            size="lg"
+            size="xl"
             centered
             show={showSelectWidget}
             scrollable
             backdrop={"static"}
+            backdropClassName={styles.backdrop} // z-index needs to be higher than navbar
+            style={{ zIndex: 1400 }} // has to be bigger than navbar (z-index=1100)
         >
-            <Modal.Header translate>
-                <Modal.Title>Widget Selection</Modal.Title>
+            <Modal.Header closeButton className={styles.darker} onHide={() => setShowSelectWidget(false)}>
+                <Modal.Title>Select a New Widget</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                {Object.entries(sortWidgets()).map(entry => {
-                    return (
-                        <WidgetCategory
-                            key={entry[0]}
-                            title={entry[0]}
-                            selectedWidget={selectedWidget}
-                            onWidgetSelect={setSelectedWidget}
-                            widgetTypes={entry[1]}/>
-                    )
-                })}
+                <div className={styles.body}>
+                    {Object.entries(sortWidgets()).map(entry => {
+                        return (
+                            <WidgetCategory
+                                key={entry[0]}
+                                title={entry[0]}
+                                selectedWidget={selectedWidget}
+                                onWidgetSelect={setSelectedWidget}
+                                widgetTypes={entry[1]}/>
+                        )
+                    })}
+                </div>
             </Modal.Body>
-            <Modal.Footer>
+            <Modal.Footer className={styles.darker}>
                 <Button
                     variant="secondary"
                     onClick={() => setShowSelectWidget(false)}

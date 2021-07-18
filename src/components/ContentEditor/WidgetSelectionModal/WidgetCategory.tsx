@@ -11,7 +11,10 @@ export type WidgetCategoryProps = {
 export default function WidgetCategory({ title, widgetTypes, selectedWidget, onWidgetSelect }: WidgetCategoryProps) {
     return (
         <section>
-            <h6>{title}</h6>
+            <header className={styles.header}>
+                <h6>{title}</h6>
+                <hr />
+            </header>
             <div className={styles.widgets}>
                 {widgetTypes.map(widgetType => {
                     return (

@@ -1,5 +1,4 @@
 .figure {
-    /* width: clamp(300px, 25%, 30vw); */
     align-self: stretch;
     border: 5px solid rgba(0,0,0,0);
     display: flex;
@@ -14,6 +13,8 @@
 .figure > img {
     height: 70%;
     object-fit: contain;
+    margin-bottom: 10px;
+    font-size: 1rem;
 }
 
 .figure > figcaption {
