@@ -8,6 +8,7 @@ export const ExampleImageEditor: React.FC<WidgetEditorProps> = ({
 	let imgLink = editedContent.exampleImage_imageLink || "";
 	let imgSize = editedContent.exampleImage_percentageSize || 0;
 	let imgSubtitle = editedContent.exampleImage_subtitle || "";
+  let imgAltTag = editedContent.exampleImage_altTag || "";
 	return <>
 		<h3>Image link</h3>
 		<input type="text" value={imgLink} onChange={(e) => setEditedContentOnChange("exampleImage_imageLink", e.target.value)} />
@@ -15,9 +16,11 @@ export const ExampleImageEditor: React.FC<WidgetEditorProps> = ({
 		<input type="text" value={imgSize} onChange={(e) => setEditedContentOnChange("exampleImage_percentageSize", Number(e.target.value))} />
 		<h3>Image subtitle</h3>
 		<input type="text" value={imgSubtitle} onChange={(e) => setEditedContentOnChange("exampleImage_subtitle", e.target.value)} />
+    <h3>Image Alternate Text</h3>
+    <input type="text" value={imgAltTag} onChange={(e) => setEditedContentOnChange("exampleImage_altTag", e.target.value)} />
 		<br />
 		<div className="centered">
-			<img src={imgLink} style={{ width: `${imgSize}%`, height: `auto` }} />
+			<img src={imgLink} alt={imgAltTag} style={{ width: `${imgSize}%`, height: `auto` }} />
 			<p>{imgSubtitle}</p>
 		</div>
 	</>
