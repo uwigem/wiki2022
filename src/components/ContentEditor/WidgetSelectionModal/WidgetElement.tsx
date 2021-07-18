@@ -21,7 +21,7 @@ const DEFAULT_IMAGE = "https://2019.igem.org/wiki/images/9/92/T--Washington--Wet
 export default function WidgetElement({ widget, selected, onClick }: WidgetElementProps) {
     return (
         <figure
-            className={styles.figure + " "  + selected ? styles.selected: ""}
+            className={`${styles.figure} ${selected && styles.selected}`}
             onClick={onClick}>
             <img src={widget.imgPreview || DEFAULT_IMAGE} alt={widget.displayName}/>
             <figcaption>{widget.displayName}</figcaption>

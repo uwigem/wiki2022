@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-import { ContentMapping, WidgetCategories, WidgetTypes } from '../../ContentMapping/ContentMapping'
+import { ContentMapping, WidgetTypes } from '../../ContentMapping/ContentMapping'
 import WidgetElement from './WidgetElement'
 import styles from './WidgetSelectionModal.module.css'
+import WidgetCategory from './WidgetCategory'
 
 export type WidgetSelectionModuleProps = {
     startingState: boolean
-    onClose: (selectedWidget: string) => void
+    onClose: (selectedWidget: WidgetTypes) => void
 }
 
 
@@ -21,21 +22,28 @@ export type WidgetSelectionModuleProps = {
  */
 export default function WidgetSelectionModule({ startingState, onClose }: WidgetSelectionModuleProps) {
     const [showSelectWidget, setShowSelectWidget] = useState(startingState);
-    const [selectedWidget, setSelectedWidget] = useState<undefined | string>()
+    const [selectedWidget, setSelectedWidget] = useState<undefined | WidgetTypes>()
     return (
-        <Modal contentClassName={styles.modal} size="xl" centered show={showSelectWidget} onHide={onClose} scrollable>
-            <Modal.Header translate closeButton>
+        <Modal
+            contentClassName={styles.modal}
+            size="lg"
+            centered
+            show={showSelectWidget}
+            scrollable
+            backdrop={"static"}
+        >
+            <Modal.Header translate>
                 <Modal.Title>Widget Selection</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                {Object.entries(ContentMapping).map(widgetEntry => {
-                    const [widgetKey, widget] = widgetEntry
+                {Object.entries(sortWidgets()).map(entry => {
                     return (
-                        <WidgetElement
-                            key={widgetKey}
-                            widget={widget}
-                            selected={widgetKey === selectedWidget}
-                            onClick={() => setSelectedWidget(widgetKey)}/>
+                        <WidgetCategory
+                            key={entry[0]}
+                            title={entry[0]}
+                            selectedWidget={selectedWidget}
+                            onWidgetSelect={setSelectedWidget}
+                            widgetTypes={entry[1]}/>
                     )
                 })}
             </Modal.Body>
@@ -48,7 +56,10 @@ export default function WidgetSelectionModule({ startingState, onClose }: Widget
                 </Button>
                 <Button
                     disabled={!selectedWidget}
-                    onClick={() => setShowSelectWidget(false)}
+                    onClick={() => {
+                        selectedWidget && onClose(selectedWidget)
+                        setShowSelectWidget(false)
+                    }}
                 >
                     Select
                 </Button>
@@ -57,13 +68,13 @@ export default function WidgetSelectionModule({ startingState, onClose }: Widget
     )
 }
 
-function sortWidgets() {
-    const widgetCategories: { [key: string]: string[] } = {}
+function sortWidgets(): { [key: string]: WidgetTypes[] } {
+    const widgetCategories: { [key: string]: WidgetTypes[] } = {}
     for (const [key, widget] of Object.entries(ContentMapping)) {
         if (!widgetCategories[widget.widgetCategory]) {
             widgetCategories[widget.widgetCategory] = []
         }
-        widgetCategories[widget.widgetCategory].push(key)
+        widgetCategories[widget.widgetCategory].push(key as WidgetTypes)
     }
     return widgetCategories
 }

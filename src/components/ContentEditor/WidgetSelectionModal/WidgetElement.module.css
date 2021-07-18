@@ -1,4 +1,11 @@
-.figure {}
+.figure {
+    /* width: clamp(300px, 25%, 30vw); */
+    align-self: stretch;
+    border: 5px solid rgba(0,0,0,0);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
 
 .figure > * {
     width: 95%;
@@ -6,6 +13,7 @@
 
 .figure > img {
     height: 70%;
+    object-fit: contain;
 }
 
 .figure > figcaption {
@@ -15,5 +23,5 @@
 
 
 .selected {
-    border: 5px solid blue;
+    border-color: blue;
 }
