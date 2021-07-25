@@ -16,6 +16,7 @@ export type ContentSingularData = {
 	exampleImage_percentageSize?: number
 	exampleImage_subtitle?: string
   exampleImage_altTag?: string
+  exampleImage_externalLink?: string
 	pdfViewer_pdfLink?: string
 	pdfViewer_pdfWidthPercentage?: number
 	pdfViewer_pdfHeightPixel?: number
