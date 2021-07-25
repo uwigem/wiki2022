@@ -51,7 +51,7 @@ document.title = "Washington iGEM";
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * The code below will detect the browser and notify the user if they are on an unsupported browser
+ * The code below will detect the browser and notif y the user if they are on an unsupported browser
  */
 const browser = detect();
 const notSupportedMessage = (browser: string) => {

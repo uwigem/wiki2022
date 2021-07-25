@@ -17,6 +17,7 @@ type ContentEditorBannerProps = {
 	pageToEdit: string | null,
 	setPageToEdit: React.Dispatch<React.SetStateAction<string | null>>,
 	contentData: ContentData,
+  setisDeletingPage: React.Dispatch<React.SetStateAction<boolean>>,
 	currYear: number
 }
 
@@ -24,20 +25,22 @@ type ContentEditorBannerProps = {
  * ContentEditorBanner is the editor banner that appears at the top of the editor page. It shows
  * the user what page is currently being edited, allows the user to select a different page to edit,
  * allows the user to select if the page has a sidebar or not, and also allows the user to create
- * new pages. 
- * 
+ * new pages.
+ *
  * Last Modified
- * William Kwok
- * July 17, 2019
+ * Jaden Stetler
+ * June 26, 2021
  */
 export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 	pageToEdit,
 	setPageToEdit,
 	contentData,
+  setisDeletingPage,
 	currYear }) => {
 	const { firebase } = useContext(EnvironmentContext);
 	const [newPageInput, setNewPageInput] = useState<string>("")
 	const [modal, setModal] = useState(false);
+
 
 	if (!firebase) {
 		return <></>
@@ -52,15 +55,16 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 	}
 
 	const submitCallback = async (s: boolean, name: string) => {
+		
 		let newPageInputRef = firebase.database()
-			.ref(`${currYear}/ContentData/${newPageInput}`);
+			.ref(`${currYear}/ContentData/${name}`);
 		let snap = await newPageInputRef.once('value');
+		console.log(snap);
 		if (!snap.val()) {
 			newPageInputRef.set({
 				hasSidebar: s
 			});
-			setNewPageInput(name);
-			setPageToEdit(newPageInput);
+			setPageToEdit(name);
 			setNewPageInput("");
 			firebase.database()
 				.ref(`${currYear}/ContentData/${pageToEdit}/hasSidebar`)
@@ -79,7 +83,7 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 					<Row><h2>Washington iGEM Web Editor</h2></Row>
 					<Row><p>Boosts your efficiency and efforts on creating Wikis</p></Row>
 				</Col>
-				<Col xsOffset={3} md={2}>
+				<Col mdOffset={3} md={2}>
 					<Button
 						className="content-editor-button"
 						variant="contained"
@@ -97,38 +101,19 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 					{!pageToEdit && <p className="content-editor-label">Please select a page to edit</p>}
 				</Col>
 				<Col md={2}>
-					<Row>
-						<FormControl className="content-editor-formcontrol">
-							<Select
-								value={pageToEdit || ""}
-								onChange={(e) => {
-									setPageToEdit(e.target.value as string);
-								}}>
-								{Object.keys(contentData).map(contentDataKey => {
-									return <MenuItem key={contentDataKey} value={contentDataKey}>
-										{contentDataKey === MAIN_PAGE ? "Main page" : contentDataKey}
-									</MenuItem>
-								})}
-							</Select>
-						</FormControl>
-					</Row>
-					<Row>
-						{pageToEdit &&
-							<FormControlLabel className="content-editor-checkbox"
-								control={
-									<Checkbox 
-										checked={contentData[pageToEdit].hasSidebar}
-										color="default"
-										onChange={e => {
-											firebase.database()
-												.ref(`${currYear}/ContentData/${pageToEdit}/hasSidebar`)
-												.set(e.target.checked);
-										}} />
-								}
-								label="Sidebar"
-							/>
-						}
-					</Row>
+					<FormControl className="content-editor-formcontrol">
+						<Select
+							value={pageToEdit || ""}
+							onChange={(e) => {
+								setPageToEdit(e.target.value as string);
+							}}>
+							{Object.keys(contentData).map(contentDataKey => {
+								return <MenuItem key={contentDataKey} value={contentDataKey}>
+									{contentDataKey === MAIN_PAGE ? "Main page" : contentDataKey}
+								</MenuItem>
+							})}
+						</Select>
+					</FormControl>
 				</Col>
 				<Col md={1}>
 					{pageToEdit &&
@@ -147,7 +132,7 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 							/>
 						}
 				</Col>
-				<Col md={2}>
+				<Col mdOffset={2} md={2}>
 					<Button
 						color="primary"
 						variant="contained"
@@ -161,11 +146,10 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 				</Col>
 				<Col md={2}>
 					<Button
-						variant="contained"
 						className="content-editor-button"
-						onClick={() => {
-							printContent(contentData);
-						}}
+						disabled={pageToEdit === null}
+						variant="contained"
+						onClick={() => setisDeletingPage(true)}
 					>
 						Delete Page
 					</Button>

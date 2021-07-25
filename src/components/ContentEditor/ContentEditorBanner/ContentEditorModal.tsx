@@ -30,6 +30,9 @@ export const NewPageModal = (props: NewPageModalProps) => {
 			onHide={handleClose}
 			size="xl"
 			>
+				<Modal.Header closeButton>
+					<Modal.Title>Add New Page</Modal.Title>
+				</Modal.Header>
 				<Modal.Body>
 					<section className="page-name-section">
 						<h3>Page Name</h3>

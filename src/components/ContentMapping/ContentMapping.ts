@@ -41,12 +41,15 @@ export type WidgetEditorProps = {
 }
 
 export type ContentMappingType = {
-	[idx: string]: {
-		widget: React.FC<ContentSingularData>,
-		editor: React.FC<WidgetEditorProps>
-		displayName: string,
-		widgetCategory: WidgetCategories
-	}
+	[idx: string]: ContentMappingElementType
+}
+
+export type ContentMappingElementType = {
+	widget: React.FC<ContentSingularData>,
+	editor: React.FC<WidgetEditorProps>
+	displayName: string,
+	widgetCategory: WidgetCategories
+	imgPreview?: string
 }
 
 export enum WidgetCategories {
@@ -71,7 +74,7 @@ export enum WidgetTypes {
 	ACCORDION = "ACCORDION",
 	TEAMPAGE = "TEAMPAGE",
 	HEADER = "HEADER",
-	IMAGE_CAROUSEL = "IMAGE_CAROUSEL",
+	CAROUSEL = "CAROUSEL",
     HORIZONTAL_DIVIDER = "HORIZONTAL_DIVIDER",
     IMAGE = "IMAGE",
     GRID_LAYOUT = "GRID_LAYOUT"

@@ -32,25 +32,35 @@
 	top: 50%;
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
-	margin-left: 5px;
+	float: right;
 }
 
 .content-editor-page-editing {
 	background-color: #F5F5F5;
-	padding: 5px;
+	padding: 5px 0;
 }
 
 .content-editor-label {
-	text-align: right;
-	width: 100%;
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
 
 .content-editor-formcontrol {
-	width: 80%;
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	width: 8rem;
 	background-color: #E0E0E0;
-	margin: 0;
+	
 }
 
 .content-editor-checkbox {
-	margin: 0;
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	padding-left: 5px;
 }
