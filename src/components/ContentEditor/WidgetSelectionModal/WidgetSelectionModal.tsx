@@ -7,7 +7,7 @@ import WidgetCategory from './WidgetCategory'
 
 export type WidgetSelectionModuleProps = {
     startingState: boolean
-    onClose: (selectedWidget: WidgetTypes) => void
+    onSubmit: (selectedWidget: WidgetTypes) => void
 }
 
 
@@ -16,10 +16,10 @@ export type WidgetSelectionModuleProps = {
  * the editor to render.
  *
  * Last Modified
- * Victor SHan
+ * Victor Shan
  * July 17
  */
-export default function WidgetSelectionModule({ startingState, onClose }: WidgetSelectionModuleProps) {
+export default function WidgetSelectionModal({ startingState, onSubmit }: WidgetSelectionModuleProps) {
     const [showSelectWidget, setShowSelectWidget] = useState(startingState);
     const [selectedWidget, setSelectedWidget] = useState<undefined | WidgetTypes>()
     return (
@@ -60,7 +60,7 @@ export default function WidgetSelectionModule({ startingState, onClose }: Widget
                 <Button
                     disabled={!selectedWidget}
                     onClick={() => {
-                        selectedWidget && onClose(selectedWidget)
+                        selectedWidget && onSubmit(selectedWidget)
                         setShowSelectWidget(false)
                     }}
                 >

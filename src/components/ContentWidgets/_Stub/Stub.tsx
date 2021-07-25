@@ -1,5 +1,4 @@
 import React from 'react';
-import WidgetSelectionModule from '../../ContentEditor/WidgetSelectionModal/WidgetSelectionModal';
 import { WidgetEditorProps } from '../../ContentMapping/ContentMapping';
 
 export type StubData = {
@@ -15,7 +14,6 @@ export type StubData = {
 export const Stub: React.FC<StubData> = () => {
     return <>
         Please select a widget type above.
-        <WidgetSelectionModule startingState={true} onClose={(selectedWidget: string) => console.log(selectedWidget)}/>
     </>
 }
 
