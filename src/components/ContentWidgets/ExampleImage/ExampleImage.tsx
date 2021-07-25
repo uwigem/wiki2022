@@ -12,19 +12,25 @@ export const ExampleImage: React.FC<ContentSingularData> = ({
 	exampleImage_imageLink,
   exampleImage_percentageSize,
   exampleImage_subtitle,
-  exampleImage_altTag
+  exampleImage_altTag,
+  exampleImage_externalLink
 }) => {
 	if (!exampleImage_imageLink || !exampleImage_percentageSize) {
 		return <></>
 	}
-	return <div className="centered">
-		<img
-    src={exampleImage_imageLink}
-    alt={exampleImage_altTag}
-    style={{
-			width: `${exampleImage_percentageSize}%`,
-			height: `auto`
-		}} />
-		<p>{exampleImage_subtitle}</p>
-	</div>
+
+  return <div className="centered">
+    <a href={exampleImage_externalLink ? exampleImage_externalLink : exampleImage_imageLink}>
+      <img
+      src={exampleImage_imageLink}
+      alt={exampleImage_altTag}
+      style={{
+        width: `${exampleImage_percentageSize}%`,
+        height: `auto`
+      }} />
+    </a>
+    <p>
+      {exampleImage_subtitle}
+    </p>
+  </div>
 }
