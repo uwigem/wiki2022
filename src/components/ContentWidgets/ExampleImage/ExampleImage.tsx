@@ -5,8 +5,8 @@ import { ContentSingularData } from '../../_data/ContentSingularData';
  * Example image shows an image
  *
  * Last Modified
- * William Kwok
- * June 23, 2019
+ * Jaden Stetler
+ * July 25, 2021
  */
 export const ExampleImage: React.FC<ContentSingularData> = ({
 	exampleImage_imageLink,
