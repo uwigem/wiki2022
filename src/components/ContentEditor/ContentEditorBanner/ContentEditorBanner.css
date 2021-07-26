@@ -26,7 +26,7 @@
 	top: 50%;
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
-	margin: 0;
+	margin-left: 20%;
 }
 .content-editor-button {
 	top: 50%;
@@ -37,7 +37,7 @@
 
 .content-editor-page-editing {
 	background-color: #F5F5F5;
-	padding: 5px 0;
+	padding: 10px 0;
 }
 
 .content-editor-label {
@@ -45,6 +45,7 @@
 	top: 50%;
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
+	padding-left: 30%;
 }
 
 .content-editor-formcontrol {
