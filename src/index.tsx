@@ -39,11 +39,11 @@ firebase.initializeApp(firebaseConfig);
 // firebase.auth().signInWithPopup(provider);
 
 // ENTER THE CURRENT iGEM SEASON YEAR AS IN THE iGEM WIKI LINK (eg 2019.igem.org)
-let currYear = 2019;
+let currYear = 2021;
 
 // ENTER THE UNIX EPOCH MILLISECOND TIMESTAMP FOR JUNE 14 OF THE YEAR AFTER `currYear`
 // AS ON https://www.epochconverter.com/
-let correctYearUnixEpochMS = 1592092800000;
+let correctYearUnixEpochMS = 1655166250000;
 
 // SET THE PAGE TITLE IF YOU WANT TO CHANGE IT
 document.title = "Washington iGEM";
