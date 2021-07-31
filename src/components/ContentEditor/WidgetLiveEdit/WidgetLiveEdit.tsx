@@ -63,7 +63,7 @@ export const WidgetLiveEdit: React.FC<WidgetLiveEditProps> = ({
 
 	useEffect(() => {
 		// set up listener to firebase, re-render when updated
-		widgetRef.on('value', (snapshot) => {
+		const onChange = widgetRef.on('value', (snapshot) => {
 			let record = snapshot.val();
 			if (record) {
 				let diff: number = (Date.now() - record.timestamp) / 1000;
@@ -83,6 +83,7 @@ export const WidgetLiveEdit: React.FC<WidgetLiveEditProps> = ({
 				}
 			}
 		});
+        return () => widgetRef.off('value', onChange);
 	});
 
 	// determine which buttons to show
