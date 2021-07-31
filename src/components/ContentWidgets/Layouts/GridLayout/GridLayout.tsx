@@ -28,13 +28,15 @@ export const GridLayout: React.FC<ContentSingularData> = ({ grid_layout }: Conte
         gridTemplateAreas: formatArea(grid_layout.gridLayout),
         rowGap: grid_layout.rowGap,
         columnGap: grid_layout.columnGap,
+        justifyItems: "center",
+        alignItems: "center"
     }
     return (
         <div style={styles}>
             {grid_layout && grid_layout.widgets.map((widget, i) => {
                 let Widget = ContentMapping[widget.type].widget
                 return (
-                    <div key={i} style={{ gridArea: translateNum(i) }} className="randomClass">
+                    <div key={i} style={{ gridArea: translateNum(i) }}>
                         <Widget {...widget.content} />
                     </div>
                 )
