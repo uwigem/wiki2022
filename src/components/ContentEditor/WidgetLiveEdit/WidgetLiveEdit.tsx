@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { ContentSingularData } from '../../_data/ContentSingularData';
 import Button from '@material-ui/core/Button';
 import { HistoryTypes } from '../../_debug/EditorHistory';
-import firebase from 'firebase';
+import * as firebase from 'firebase/app';
+import 'firebase/database';
 import './WidgetLiveEdit.css';
 import {
 	LIVE_EDIT_TIMETOUT,

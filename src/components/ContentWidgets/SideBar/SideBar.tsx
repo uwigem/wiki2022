@@ -66,7 +66,7 @@ export const SideBar: React.FC<SideBarProps> = ({
 		if (!currentActiveSection) {
 			setCurrentActiveSection(sections[0]);
 		}
-	}, []);
+	}, [contentData, currentActiveSection, pageTitle, sections]);
 
 	if (!contentData && !pageTitle) {
 		return <></>;
