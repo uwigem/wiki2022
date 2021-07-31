@@ -19,8 +19,10 @@ export const ExampleImageEditor: React.FC<WidgetEditorProps> = ({
 		<input type="text" value={imgSubtitle} onChange={(e) => setEditedContentOnChange("exampleImage_subtitle", e.target.value)} />
     <h3>Image Alternate Text</h3>
     <input type="text" value={imgAltTag} onChange={(e) => setEditedContentOnChange("exampleImage_altTag", e.target.value)} />
+		<p>Describes image for vision-impaired users (defaults to caption)</p>
     <h3>External Link</h3>
     <input type="text" value={imgExternalLink} onChange={(e) => setEditedContentOnChange("exampleImage_externalLink", e.target.value)} />
+		<p>Link when clicked (defaults to image link)</p>
 		<br />
 		<div className="centered">
       <a href={imgExternalLink ? imgExternalLink : imgLink}>

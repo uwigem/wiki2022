@@ -6,7 +6,7 @@ import { ContentSingularData } from '../../_data/ContentSingularData';
  *
  * Last Modified
  * Jaden Stetler
- * July 25, 2021
+ * July 31, 2021
  */
 export const ExampleImage: React.FC<ContentSingularData> = ({
 	exampleImage_imageLink,
@@ -23,7 +23,7 @@ export const ExampleImage: React.FC<ContentSingularData> = ({
     <a href={exampleImage_externalLink ? exampleImage_externalLink : exampleImage_imageLink}>
       <img
       src={exampleImage_imageLink}
-      alt={exampleImage_altTag}
+      alt={exampleImage_altTag ? exampleImage_altTag : exampleImage_subtitle}
       style={{
         width: `${exampleImage_percentageSize}%`,
         height: `auto`
