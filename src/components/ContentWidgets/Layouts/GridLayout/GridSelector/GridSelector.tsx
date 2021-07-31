@@ -23,7 +23,7 @@ export default function GridSelector({ rows, cols, widgetNames, onGridChange, gr
         onGridChange(genEmptyGrid(rows, cols))
     }
     const [startedSelection, setStartSelection] = useState<point | undefined>()
-    const [selectVal, setSelectVal] = useState<number>(N)
+    const [selectVal, setSelectVal] = useState<number>(0)
     const genClickFunc = (row: number, col: number) => {
         return () => handleClick([row, col], selectVal, setStartSelection, grid, onGridChange)
     }
@@ -33,7 +33,10 @@ export default function GridSelector({ rows, cols, widgetNames, onGridChange, gr
             <Card.Body>
                 <Card.Title>{rows} by {cols} Grid</Card.Title>
                 <InputGroup>
-                    <Form.Control as="select" onChange={e => { setSelectVal(parseInt(e.target.value) || N) }}>
+                    <Form.Control as="select" onChange={e => {
+                        const num = parseInt(e.target.value)
+                        setSelectVal(num === 0 || num ? num : N)
+                    }}>
                         {widgetNames.map((name, i) => <option key={i} value={i}>{i}: {name}</option>)}
                     </Form.Control>
                     <InputGroup.Append>
