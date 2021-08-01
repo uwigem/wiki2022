@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { ContentSingularData } from '../../_data/ContentSingularData';
 import Button from '@material-ui/core/Button';
 import { HistoryTypes } from '../../_debug/EditorHistory';
-import firebase from 'firebase';
+import * as firebase from 'firebase/app';
+import 'firebase/database';
 import './WidgetLiveEdit.css';
 import {
 	LIVE_EDIT_TIMETOUT,
@@ -63,7 +64,7 @@ export const WidgetLiveEdit: React.FC<WidgetLiveEditProps> = ({
 
 	useEffect(() => {
 		// set up listener to firebase, re-render when updated
-		widgetRef.on('value', (snapshot) => {
+		const onChange = widgetRef.on('value', (snapshot) => {
 			let record = snapshot.val();
 			if (record) {
 				let diff: number = (Date.now() - record.timestamp) / 1000;
@@ -83,6 +84,7 @@ export const WidgetLiveEdit: React.FC<WidgetLiveEditProps> = ({
 				}
 			}
 		});
+        return () => widgetRef.off('value', onChange);
 	});
 
 	// determine which buttons to show
