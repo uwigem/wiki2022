@@ -41,9 +41,8 @@ firebase.initializeApp(firebaseConfig);
 // ENTER THE CURRENT iGEM SEASON YEAR AS IN THE iGEM WIKI LINK (eg 2019.igem.org)
 let currYear = 2021;
 
-// ENTER THE UNIX EPOCH MILLISECOND TIMESTAMP FOR JUNE 14 OF THE YEAR AFTER `currYear`
-// AS ON https://www.epochconverter.com/
-let correctYearUnixEpochMS = 1655166250000;
+// the date of JUNE 14 of the year after `currYear`
+const endOfSeasonDate = new Date(currYear+1, 6, 14);
 
 // SET THE PAGE TITLE IF YOU WANT TO CHANGE IT
 document.title = "Washington iGEM";
@@ -81,17 +80,16 @@ switch (browser && browser.name) {
 /**
  * The code below will ensure the user is at the correct year.
  */
-const currAccessDate = Date.now();
+const currAccessDate = new Date();
 
 // Ensure that people are at the correct year. 
-if (currAccessDate > correctYearUnixEpochMS) {
-	let yearAsDate = new Date(currAccessDate);
-	let year = yearAsDate.getFullYear();
+if (currAccessDate > endOfSeasonDate) {
+	let year = currAccessDate.getFullYear();
 
 	if (Number(year) <= currYear) {
 		year = currYear + 1;
 	}
-	alert(`You are currently viewing our ${year - 1} project.
+	alert(`You are currently viewing our ${currYear} project.
     
 Check out our ${year} project over at the link below!
 
