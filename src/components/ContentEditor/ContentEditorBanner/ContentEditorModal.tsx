@@ -44,15 +44,17 @@ export const NewPageModal = (props: NewPageModalProps) => {
 					</section>
 					<section className="page-setting-section">
 						<h3>Page Setting</h3>
-						<FormControlLabel
-								control={
-									<Checkbox checked={sidebar}
-										onChange={e => {
-											setSidbar(e.target.checked)
-										}} />
-								}
-								label="Has Sidebar"
-							/>
+						<FormControlLabel 
+							control={
+								<Checkbox 
+									color="default"
+									checked={sidebar}
+									onChange={e => {
+										setSidbar(e.target.checked)
+									}} />
+							}
+							label="Has Sidebar"
+						/>
 					</section>
 				</Modal.Body>
 				<Modal.Footer>

@@ -28,8 +28,8 @@ type ContentEditorBannerProps = {
  * new pages.
  *
  * Last Modified
- * Jaden Stetler
- * June 26, 2021
+ * Jennifer Tao
+ * August 7, 2021
  */
 export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 	pageToEdit,
@@ -132,26 +132,25 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 							/>
 						}
 				</Col>
-				<Col mdOffset={2} md={2}>
-					<Button
-						color="primary"
-						variant="contained"
-						className="content-editor-button"
-						onClick={() => {
-							setModal(true);
-						}}
-					>
-						Add New Page
-					</Button>
-				</Col>
-				<Col md={2}>
+				<Col mdOffset={2} md={4}>
 					<Button
 						className="content-editor-button"
+						style={{ marginLeft: '1rem'}}
 						disabled={pageToEdit === null}
 						variant="contained"
 						onClick={() => setisDeletingPage(true)}
 					>
 						Delete Page
+					</Button>
+					<Button
+						className="content-editor-button"
+						color="primary"
+						variant="contained"
+						onClick={() => {
+							setModal(true);
+						}}
+					>
+						Add New Page
 					</Button>
 				</Col>
 			</Row>
