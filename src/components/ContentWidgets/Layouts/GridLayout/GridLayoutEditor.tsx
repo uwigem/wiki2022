@@ -1,4 +1,4 @@
-import { ContentMapping, ExampleWidget, WidgetEditorProps, WidgetTypes } from "../../../ContentMapping/ContentMapping";
+import { ContentMapping, ExampleWidget, WidgetEditorProps } from "../../../ContentMapping/ContentMapping";
 import GridLayout, { GridLayoutProps, N } from './GridLayout'
 import { Widget } from "../types";
 import React from 'react'
