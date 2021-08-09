@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { ContentSingularData } from '../../_data/ContentSingularData';
 import './WidgetEditor.css';
 import { WidgetCategories, ContentMapping } from '../../ContentMapping/ContentMapping';
 import './WidgetEditor.css';
-import equal from 'deep-equal';
 import { EnvironmentContext } from '../../../contexts/EnvironmentContext/EnvironmentContext';
 import { WidgetLiveEdit } from '../WidgetLiveEdit/WidgetLiveEdit';
 import {WidgetLiveEditBar} from '../WidgetLiveEdit/WidgetLiveEditBar';
@@ -38,13 +37,6 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 	const [editing, setEditing] = useState<boolean>(false);
 	const [editedContent, setEditedContent] = useState<ContentSingularData>({ ...content } as ContentSingularData);
 	const { firebase } = useContext(EnvironmentContext);
-
-	useEffect(() => {
-		if (!equal(content, editedContent)) {
-			setEditedContent({ ...content } as ContentSingularData);
-		}
-        //@ts-ignore
-	}, [content /** WHATEVER THE YELLOW ERROR SAYS, DO NOT ADD `editedContent` HERE. It makes the editor not work */])
 
 
 	if (!content || !firebase) {

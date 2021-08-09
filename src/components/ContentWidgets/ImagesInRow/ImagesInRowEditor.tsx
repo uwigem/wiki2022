@@ -154,7 +154,7 @@ export const ImagesInRowEditor: React.FC<WidgetEditorProps> = ({
         {/** external link text field on opened on image or caption click*/}<TextField
             fullWidth
             label="External Link"
-            helperText="defaults to image link"
+            helperText="Link when clicked (defaults to image link)"
             className="text-field"
             value={externalLink}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

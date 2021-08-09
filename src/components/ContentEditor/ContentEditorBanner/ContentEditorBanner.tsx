@@ -22,6 +22,12 @@ type ContentEditorBannerProps = {
 	currYear: number
 }
 
+enum VersionAttr {
+    major = 0,
+    minor = 1,
+    bug = 2
+}
+
 /**
  * ContentEditorBanner is the editor banner that appears at the top of the editor page. It shows
  * the user what page is currently being edited, allows the user to select a different page to edit,
@@ -47,8 +53,9 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 
 	// DO_NOT_CLICK is currently my quick method of making sure people are on the latest version
 	const version = (contentData && contentData.DO_NOT_CLICK && contentData.DO_NOT_CLICK["MISC"]) || VERSION;
-	const [major, minor, bug] = version.split(".");
-	const [cMajor, cMinor, cBug] = VERSION.split(".");
+    // version -> [major, minor, bug]
+	const minor = version.split(".")[VersionAttr.minor];
+	const cMinor = VERSION.split(".")[VersionAttr.minor];
 	if (minor !== cMinor) {
 		alert("Please update your editor version by clearing cache/cookies and refreshing");
 	}

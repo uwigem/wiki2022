@@ -25,7 +25,7 @@ export const HorizontalDividerEditor: React.FC<WidgetEditorProps> = ({ originalC
             right: rightWidget,
             percent: percent
         })
-    }, [leftWidget, rightWidget, percent])
+    }, [leftWidget, rightWidget, percent, setEditedContentOnChange])
 
     return (
         <>
