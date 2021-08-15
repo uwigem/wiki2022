@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { WidgetEditorProps } from '../../ContentMapping/ContentMapping';
 import { Gallery } from './Gallery';
 import './Gallery.css';
