@@ -82,27 +82,15 @@ switch (browser && browser.name) {
  */
 const currAccessDate = new Date();
 
-<<<<<<< HEAD
 // Ensure that people are at the correct year. 
 if (currAccessDate > endOfSeasonDate) {
 	let year = currAccessDate.getFullYear();
-=======
-// Ensure that people are at the correct year.
-if (currAccessDate > correctYearUnixEpochMS) {
-	let yearAsDate = new Date(currAccessDate);
-	let year = yearAsDate.getFullYear();
->>>>>>> master
 
 	if (Number(year) <= currYear) {
 		year = currYear + 1;
 	}
-<<<<<<< HEAD
 	alert(`You are currently viewing our ${currYear} project.
     
-=======
-	alert(`You are currently viewing our ${year - 1} project.
-
->>>>>>> master
 Check out our ${year} project over at the link below!
 
 http://${year}.igem.org/Team:Washington.`)
