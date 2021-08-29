@@ -20,6 +20,7 @@ const GalleryCol: React.FC<GalleryColProps> = ({
 			className="gallery-image"
 			key={images[i]}
 			src={images[i]}
+			alt={images[i]}
 			onClick={() => {
 				setCurrentIndex(i);
 				setDisplayState(true);
@@ -78,7 +79,7 @@ const GalleryImages: React.FC<GalleryImagesProps> = ({
 					className="gallery-lightbox-close"
 					onClick={() => setDisplayState(false)}
 				>&times;</span>
-				<img src={images[currentIndex]}></img>
+				<img src={images[currentIndex]} alt={images[currentIndex]}></img>
 			</div>
 			<span
 				className="gallery-lightbox-next"
@@ -93,7 +94,7 @@ const GalleryImages: React.FC<GalleryImagesProps> = ({
 
 /**
  * Gallery shows images in random order
- * 
+ *
  * Last Modified
  * Jennifer Tao
  * September 27, 2019
@@ -105,7 +106,7 @@ export const Gallery: React.FC<ContentSingularData> = ({
 	if (!gallery_content) {
 		return <></>
 	}
-    /** shuffle code using the Fisher-Yates algorithm by Jeff on stackoverflow  
+    /** shuffle code using the Fisher-Yates algorithm by Jeff on stackoverflow
      *  https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
     */
 	const shuffle = (a: string[]) => {

@@ -8,7 +8,7 @@ import { ContentEditor } from './components/ContentEditor/ContentEditor';
 
 /**
  * Index handles configuration as well as being the main injection point for the application
- * 
+ *
  * Last Modified
  * William Kwok
  * July 17, 2019
@@ -19,7 +19,7 @@ import { ContentEditor } from './components/ContentEditor/ContentEditor';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // COMMENT/UNCOMMENT BELOW TO ENABLE OR DISABLE FIREBASE TO THE PROJECT
-import firebase from 'firebase';
+import * as firebase from 'firebase/app';
 import 'firebase/app'
 import 'firebase/messaging';
 import 'firebase/database';
@@ -54,8 +54,8 @@ document.title = "Washington iGEM";
  */
 const browser = detect();
 const notSupportedMessage = (browser: string) => {
-	alert(`${browser.toUpperCase()} is not entirely supported by Team Washington's Team Wiki. For best performance please use Firefox or Google Chrome! 
-    
+	alert(`${browser.toUpperCase()} is not entirely supported by Team Washington's Team Wiki. For best performance please use Firefox or Google Chrome!
+
     You may continue to use the site, but please note that there will be bugs and poor performance. Sorry for any inconvenience, and thank you!`)
 }
 let IEOREDGE = false;
@@ -82,15 +82,27 @@ switch (browser && browser.name) {
  */
 const currAccessDate = new Date();
 
+<<<<<<< HEAD
 // Ensure that people are at the correct year. 
 if (currAccessDate > endOfSeasonDate) {
 	let year = currAccessDate.getFullYear();
+=======
+// Ensure that people are at the correct year.
+if (currAccessDate > correctYearUnixEpochMS) {
+	let yearAsDate = new Date(currAccessDate);
+	let year = yearAsDate.getFullYear();
+>>>>>>> master
 
 	if (Number(year) <= currYear) {
 		year = currYear + 1;
 	}
+<<<<<<< HEAD
 	alert(`You are currently viewing our ${currYear} project.
     
+=======
+	alert(`You are currently viewing our ${year - 1} project.
+
+>>>>>>> master
 Check out our ${year} project over at the link below!
 
 http://${year}.igem.org/Team:Washington.`)
