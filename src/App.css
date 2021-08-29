@@ -1,6 +1,7 @@
 .app-content-dev {
 	min-height: 100vh;
 	margin-top: 44px;
+	background-color: white;
 }
 
 .app-content-real {

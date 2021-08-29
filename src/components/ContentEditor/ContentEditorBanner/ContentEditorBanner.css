@@ -1,30 +1,67 @@
 .content-editor-banner {
-	background-color: #ffcccb;
+	background-color: white;
 	min-height: 5em;
-	box-shadow: 2px 2px 5px gray;
 	width: 100%;
-	padding: 10px;
+	padding: 10px 10px 0px;
 }
 
-.content-editor-banner h3 {
-	padding: 0px;
-	margin: 0px;
+.content-editor-container {
+	padding: 0;
+	max-width: 100%;
 }
 
-.content-editor-banner .content-editor-formcontrol + .row button {
-  margin: 2%;
+.content-editor-title {
+	position: relative;
+}
+
+.content-editor-icon {
+	background-image: url('http://placekitten.com/200/200');
+	border-radius: 50%;
+	width: 50px;
+  	height: 50px;
+	background-position: center center;
+	background-size: cover;
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	margin-left: 20%;
+}
+.content-editor-button {
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	float: right;
 }
 
 .content-editor-page-editing {
-	color: var(--purple-primary);
-	font-weight: bold;
+	background-color: #F5F5F5;
+	padding: 10px 0;
+}
+
+.content-editor-label {
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	padding-left: 30%;
 }
 
 .content-editor-formcontrol {
-	width: 200px;
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	width: 8rem;
+	background-color: #E0E0E0;
+	
 }
 
-.content-editor-banner-separation {
-	border-left: 1px solid black;
-	padding-left: 20px;
+.content-editor-checkbox {
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	padding-left: 5px;
 }
