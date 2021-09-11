@@ -181,7 +181,7 @@ export const ContentMapping: ContentMappingType = {
         editor: HorizontalDividerEditor,
         displayName: "Horizontal Divider",
         widgetCategory: WidgetCategories.Layout,
-		imgPreview: "/widget-menu-svg/separator-vertical.svg"
+		imgPreview: "/widget-menu-svg/images-in-row.svg"
     },
     GRID_LAYOUT: {
         widget: memo(GridLayout),
