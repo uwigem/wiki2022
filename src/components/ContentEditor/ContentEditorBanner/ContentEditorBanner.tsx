@@ -1,18 +1,17 @@
 import React, { useState, useContext } from 'react';
 import { Grid, Col, Row } from 'react-flexbox-grid';
 import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import InputLabel from '@material-ui/core/InputLabel';
 import { ContentData, VERSION } from '../../_data/Data';
-import './ContentEditorBanner.css';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { MAIN_PAGE } from '../../_data/Constants';
 import { EnvironmentContext } from '../../../contexts/EnvironmentContext/EnvironmentContext';
 import { printContent } from '../ContentPrinter/ContentPrinter';
+import {NewPageModal} from './ContentEditorModal';
+import './ContentEditorBanner.css';
 
 type ContentEditorBannerProps = {
 	pageToEdit: string | null,
@@ -35,8 +34,8 @@ enum VersionAttr {
  * new pages.
  *
  * Last Modified
- * Jaden Stetler
- * June 26, 2021
+ * Jennifer Tao
+ * August 7, 2021
  */
 export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 	pageToEdit,
@@ -45,7 +44,9 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
   setisDeletingPage,
 	currYear }) => {
 	const { firebase } = useContext(EnvironmentContext);
-	const [newPageInput, setNewPageInput] = useState<string>("");
+	const [newPageInput, setNewPageInput] = useState<string>("")
+	const [modal, setModal] = useState(false);
+
 
 	if (!firebase) {
 		return <></>
@@ -60,102 +61,117 @@ export const ContentEditorBanner: React.FC<ContentEditorBannerProps> = ({
 		alert("Please update your editor version by clearing cache/cookies and refreshing");
 	}
 
+	const submitCallback = async (s: boolean, name: string) => {
+		
+		let newPageInputRef = firebase.database()
+			.ref(`${currYear}/ContentData/${name}`);
+		let snap = await newPageInputRef.once('value');
+		console.log(snap);
+		if (!snap.val()) {
+			newPageInputRef.set({
+				hasSidebar: s
+			});
+			setPageToEdit(name);
+			setNewPageInput("");
+			firebase.database()
+				.ref(`${currYear}/ContentData/${pageToEdit}/hasSidebar`)
+				.set(s);
+			setModal(false);
+		}
+	}
+
 	return <div className="content-editor-banner">
-    <Grid>
-      <Row>
-        <Col md={4}>
-          <Row><h3>Washington iGEM Editor</h3></Row>
-          <Row>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => {
-                printContent(contentData);
-              }}
-            >
-              Print Data
-            </Button>
-          </Row>
-          <Row>
-            {version === VERSION ?
-              <div>Your editor is up to date</div> :
-              <div>Your editor is not up to date. Please hard refresh (shift command r)</div>}
-          </Row>
-        </Col>
-        <Col md={4} className="content-editor-banner-separation">
-          {pageToEdit && <p>You are editing the <span
-            className="content-editor-page-editing">/{pageToEdit === MAIN_PAGE ?
-              "" : pageToEdit}</span> page.</p>}
-          {!pageToEdit && <p>Please select a page to edit</p>}
-          <FormControl className="content-editor-formcontrol">
-            <InputLabel>Select a page to edit</InputLabel>
-            <Select
-              value={pageToEdit || ""}
-              onChange={(e) => {
-                setPageToEdit(e.target.value as string);
-              }}>
-              {Object.keys(contentData).map(contentDataKey => {
-                return <MenuItem key={contentDataKey} value={contentDataKey}>
-                  {contentDataKey === MAIN_PAGE ? "Main page" : contentDataKey}
-                </MenuItem>
-              })}
-            </Select>
-          </FormControl>
-          <Row>
-            <Button
-              disabled={pageToEdit === null}
-              variant="contained"
-              color="primary"
-              onClick={() => setisDeletingPage(true)}
-            >
-              Delete Page
-            </Button>
-          </Row>
-        </Col>
-        <Col md={3} className="content-editor-banner-separation">
-          <Row>
-            <p>Create a new page</p>
-            <FormControl>
-              <InputLabel>URL of new page</InputLabel>
-              <Input value={newPageInput} onChange={e =>
-                setNewPageInput(e.target.value)} />
-            </FormControl>
-          </Row>
-        </Col>
-        <Col md={1} className="content-editor-banner-separation">
-          <Row>
-            <Button variant="contained" color="primary"
-              onClick={async () => {
-                let newPageInputRef = firebase.database()
-                  .ref(`${currYear}/ContentData/${newPageInput}`);
-                let snap = await newPageInputRef.once('value');
-                if (!snap.val()) {
-                  newPageInputRef.set({
-                    hasSidebar: false
-                  });
-                  setPageToEdit(newPageInput);
-                  setNewPageInput("");
-                }
-              }}>Submit</Button>
-          </Row>
-          <Row>
-            {pageToEdit &&
-            contentData[pageToEdit] &&
-              <FormControlLabel
-                control={
-                  <Checkbox checked={contentData[pageToEdit].hasSidebar}
-                    onChange={e => {
-                      firebase.database()
-                        .ref(`${currYear}/ContentData/${pageToEdit}/hasSidebar`)
-                        .set(e.target.checked);
-                    }} />
-                }
-                label="Has sidebar?"
-              />
-            }
-          </Row>
-        </Col>
-      </Row>
-    </Grid>
-  </div>
+		<Grid className="content-editor-container">
+			<Row className="content-editor-title">
+				<Col md={1}>
+					<div className="content-editor-icon"></div>
+				</Col>
+				<Col md={6}>
+					<Row><h2>Washington iGEM Web Editor</h2></Row>
+					<Row><p>Boosts your efficiency and efforts on creating Wikis</p></Row>
+				</Col>
+				<Col mdOffset={3} md={2}>
+					<Button
+						className="content-editor-button"
+						variant="contained"
+						onClick={() => {
+							printContent(contentData);
+						}}
+					>
+						Debug
+					</Button>
+				</Col>
+			</Row>
+			<Row className="content-editor-page-editing">
+				<Col md={3}>
+					{pageToEdit && <p className="content-editor-label">You are currently editing page </p>}
+					{!pageToEdit && <p className="content-editor-label">Please select a page to edit</p>}
+				</Col>
+				<Col md={2}>
+					<FormControl className="content-editor-formcontrol">
+						<Select
+							value={pageToEdit || ""}
+							onChange={(e) => {
+								setPageToEdit(e.target.value as string);
+							}}>
+							{Object.keys(contentData).map(contentDataKey => {
+								return <MenuItem key={contentDataKey} value={contentDataKey}>
+									{contentDataKey === MAIN_PAGE ? "Main page" : contentDataKey}
+								</MenuItem>
+							})}
+						</Select>
+					</FormControl>
+				</Col>
+				<Col md={1}>
+					{pageToEdit &&
+							<FormControlLabel className="content-editor-checkbox"
+								control={
+									<Checkbox 
+										checked={contentData[pageToEdit].hasSidebar}
+										color="default"
+										onChange={e => {
+											firebase.database()
+												.ref(`${currYear}/ContentData/${pageToEdit}/hasSidebar`)
+												.set(e.target.checked);
+										}} />
+								}
+								label="Sidebar"
+							/>
+						}
+				</Col>
+				<Col mdOffset={2} md={4}>
+					<Button
+						className="content-editor-button"
+						style={{ marginLeft: '1rem'}}
+						disabled={pageToEdit === null}
+						variant="contained"
+						onClick={() => setisDeletingPage(true)}
+					>
+						Delete Page
+					</Button>
+					<Button
+						className="content-editor-button"
+						color="primary"
+						variant="contained"
+						onClick={() => {
+							setModal(true);
+						}}
+					>
+						Add New Page
+					</Button>
+				</Col>
+			</Row>
+		</Grid>
+		{
+            // if there is something being displayed, show the project modal
+            modal ?
+                <NewPageModal 
+					show={true}
+                    callback={submitCallback}
+					close={() => {setModal(false)}}
+                />
+                :
+                null
+        }
+	</div>
 }
