@@ -11,7 +11,7 @@ export function addWidget(
         currYear: number,
         user: firebase.User | null) {
     // spread operation to CLONE the array rather than directly modify.
-    let contentOrderToAdd: string[] = [...contentData[pageToEdit].contentOrder!];
+    let contentOrderToAdd: string[] = [...(contentData[pageToEdit].contentOrder || [])];
     let newKey = generateHash();
     contentOrderToAdd.splice(index, 0, newKey);
     return (widgetType: WidgetTypes) => {

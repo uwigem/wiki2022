@@ -1,12 +1,15 @@
 import React, { useState, useContext } from 'react';
 import { ContentSingularData } from '../../_data/ContentSingularData';
+import Button from 'react-bootstrap/Button'
 import './WidgetEditor.css';
-import { WidgetCategories, ContentMapping } from '../../ContentMapping/ContentMapping';
+import { WidgetCategories, ContentMapping, WidgetTypes } from '../../ContentMapping/ContentMapping';
 import './WidgetEditor.css';
 import { EnvironmentContext } from '../../../contexts/EnvironmentContext/EnvironmentContext';
 import { WidgetLiveEdit } from '../WidgetLiveEdit/WidgetLiveEdit';
 import {WidgetLiveEditBar} from '../WidgetLiveEdit/WidgetLiveEditBar';
 import { FailureWidget, FailureEditWidget } from './FailureWidget/FailureWidget';
+import WidgetSelectionModal from '../WidgetSelectionModal/WidgetSelectionModal'
+import { JsxElement } from 'typescript';
 
 type WidgetEditorProps = {
 	content: ContentSingularData | undefined,
@@ -22,8 +25,8 @@ type WidgetEditorProps = {
  * updating it, and rendering it.
  *
  * Last Modified
- * September 27, 2019
- * Nitesh Chetry
+ * September 11, 2021
+ * Victor Shan
  *
  * TODO:
  *  - Update the selector to be more user friendly (make a thing popup?)
@@ -35,6 +38,7 @@ type WidgetEditorProps = {
 export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash, currYear,
 	pageToEdit, user, deleteWidget }) => {
 	const [editing, setEditing] = useState<boolean>(false);
+	const [showWidgetSelector, setShowWidgetSelector] = useState<boolean>(false);
 	const [editedContent, setEditedContent] = useState<ContentSingularData>({ ...content } as ContentSingularData);
 	const { firebase } = useContext(EnvironmentContext);
 
@@ -53,6 +57,10 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 		ContentWidget = ContentMapping[editedContent.type].widget;
 		ContentEditingWidget = ContentMapping[editedContent.type].editor;
 	}
+
+	const handleWidgetTypeChange = (widgetType: WidgetTypes) => {
+		setEditedContentOnChange("type", widgetType as string, editedContent, setEditedContent);
+	};
 
 	return <div className="widget-editor">
 		{!editing && <>
@@ -83,33 +91,10 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 		{editing && <>
 			<div className="widget-picker">
 				<form>
-					<fieldset>
-						<legend>Select a Widget</legend>
-						<select
-							value={editedContent.type || ""}
-							onChange={(e) => {
-								setEditedContentOnChange("type", e.target.value as string, editedContent, setEditedContent);
-							}}>
-							<option value="" disabled>-- Select a Widget --</option>
-							{/* display Widget Categories and Widgets in dropdown, sorted alphabetically */}
-							{/* TODO: Optimize dropdown organizing for a better time complexity */}
-							{Object.keys(WidgetCategories).map((category) => {
-								const categoryWidgets = Object.keys(ContentMapping).filter(widgetKey => ContentMapping[widgetKey].widgetCategory === category)
-								categoryWidgets.sort();
-								if (categoryWidgets.length > 0) {
-									return <optgroup label={category} key={category}>
-										{categoryWidgets.map((widgetKey) => {
-											return <option key={widgetKey} value={widgetKey}>
-												{ContentMapping[widgetKey].displayName}
-											</option>
-										})}
-									</optgroup>
-								} else {
-									return <></>
-								}
-							})}
-						</select>
-					</fieldset>
+					<Button onClick={() => {
+						setShowWidgetSelector(true);
+						console.log("Changing widget")
+					}}>Change Widget</Button>
 				</form>
 			</div>
 			<ContentEditingWidget editedContent={editedContent}
@@ -128,6 +113,10 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 					editedContent={editedContent}
 					deleteWidget={deleteWidget} />
 			</div>
+			<WidgetSelectionModal startingState={showWidgetSelector} onSubmit={(widgetType: WidgetTypes) => {
+				handleWidgetTypeChange(widgetType);
+				setShowWidgetSelector(false);
+			}} />
 		</>}
 	</div>
 }

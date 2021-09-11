@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import { ContentMapping, WidgetTypes } from '../../ContentMapping/ContentMapping'
@@ -17,11 +17,16 @@ export type WidgetSelectionModuleProps = {
  *
  * Last Modified
  * Victor Shan
- * July 17
+ * Sept 11, 2021
  */
 export default function WidgetSelectionModal({ startingState, onSubmit }: WidgetSelectionModuleProps) {
     const [showSelectWidget, setShowSelectWidget] = useState(startingState);
     const [selectedWidget, setSelectedWidget] = useState<undefined | WidgetTypes>()
+
+    useEffect(() => {
+        setShowSelectWidget(startingState);
+    }, [startingState]);
+
     return (
         <Modal
             contentClassName={styles.modal}

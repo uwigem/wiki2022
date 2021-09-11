@@ -24,8 +24,8 @@ export type ContentEditorProps = {
  * for updating the data on firebase as well as the buttons to generate the new components.
  *
  * Last Modified
- * Jaden Stetler
- * June 26, 2021
+ * Victor Shan
+ * Sept 11, 2021
  *
  * TODO:
  *  - Make "select a page to modify" message more prominent
@@ -87,20 +87,20 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
 				pageToEdit &&
 				contentData[pageToEdit]) ?
 				<>
+					<AddNewWidgetButton onClick={async () => {
+						const selectWidget = addWidget(contentData, pageToEdit, 0, currYear, user);
+						const handleSubmit = (selectedWidget: WidgetTypes) => {
+							selectWidget(selectedWidget);
+							setWidgetModal(null);
+						}
+						setWidgetModal(<WidgetSelectionModal startingState={true} onSubmit={handleSubmit}/>)
+					}} />
 					{/** Force TS to not throw errors, because we check if it is defined */}
 					{contentData[pageToEdit].contentOrder &&
 						contentData[pageToEdit].content &&
 						contentData[pageToEdit].contentOrder!.map((contentHash, index) => {
 							let content = contentData[pageToEdit].content![contentHash];
 							return <React.Fragment key={contentHash}>
-								<AddNewWidgetButton onClick={async () => {
-									const selectWidget = addWidget(contentData, pageToEdit, index, currYear, user);
-									const handleSubmit = (selectedWidget: WidgetTypes) => {
-										selectWidget(selectedWidget);
-										setWidgetModal(null);
-									}
-									setWidgetModal(<WidgetSelectionModal startingState={true} onSubmit={handleSubmit}/>)
-								}} />
 								<WidgetEditor
 									user={user}
 									content={content}
@@ -108,29 +108,16 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
 									currYear={currYear}
 									pageToEdit={pageToEdit}
 									deleteWidget={deleteWidget} />
+								<AddNewWidgetButton onClick={async () => {
+									const selectWidget = addWidget(contentData, pageToEdit, index + 1, currYear, user);
+									const handleSubmit = (selectedWidget: WidgetTypes) => {
+										selectWidget(selectedWidget);
+										setWidgetModal(null);
+									}
+									setWidgetModal(<WidgetSelectionModal startingState={true} onSubmit={handleSubmit}/>)
+								}} />
 							</React.Fragment>
 						})}
-					<AddNewWidgetButton onClick={async () => {
-						let contentOrderToAdd: string[] = (contentData[pageToEdit].contentOrder && [...contentData[pageToEdit].contentOrder!]) || [];
-						let newKey = generateHash();
-						contentOrderToAdd.push(newKey);
-						let contentOnFirebase: ContentSingularData = {
-							type: WidgetTypes.STUB
-						}
-						try {
-							// Set the content first, then the order. If it fails to add the
-							// content then it won't add it to the order.
-							await firebase.database().ref(`${currYear}/ContentData/${pageToEdit}/content/${newKey}`).set(contentOnFirebase);
-							await firebase.database().ref(`${currYear}/ContentData/${pageToEdit}/contentOrder`).set(contentOrderToAdd);
-							await firebase.database().ref(`${currYear}/EditHistory/${pageToEdit}/${newKey}`).push({
-								type: HistoryTypes.CREATION,
-								timestamp: firebase.database.ServerValue.TIMESTAMP,
-								creator: (user && user.email) || "Unknown user"
-							});
-						} catch (e) {
-							console.log(e);
-						}
-					}} />
 					{widgetModal}
 				</> :
 				<>
