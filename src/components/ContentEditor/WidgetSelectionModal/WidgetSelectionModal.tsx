@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import { ContentMapping, WidgetTypes } from '../../ContentMapping/ContentMapping'
@@ -7,7 +7,7 @@ import WidgetCategory from './WidgetCategory'
 
 export type WidgetSelectionModuleProps = {
     startingState: boolean
-    onClose: (selectedWidget: WidgetTypes) => void
+    onSubmit: (selectedWidget: WidgetTypes) => void
 }
 
 
@@ -16,12 +16,17 @@ export type WidgetSelectionModuleProps = {
  * the editor to render.
  *
  * Last Modified
- * Victor SHan
- * July 17
+ * Victor Shan
+ * Sept 11, 2021
  */
-export default function WidgetSelectionModule({ startingState, onClose }: WidgetSelectionModuleProps) {
+export default function WidgetSelectionModal({ startingState, onSubmit }: WidgetSelectionModuleProps) {
     const [showSelectWidget, setShowSelectWidget] = useState(startingState);
     const [selectedWidget, setSelectedWidget] = useState<undefined | WidgetTypes>()
+
+    useEffect(() => {
+        setShowSelectWidget(startingState);
+    }, [startingState]);
+
     return (
         <Modal
             contentClassName={styles.modal}
@@ -60,7 +65,7 @@ export default function WidgetSelectionModule({ startingState, onClose }: Widget
                 <Button
                     disabled={!selectedWidget}
                     onClick={() => {
-                        selectedWidget && onClose(selectedWidget)
+                        selectedWidget && onSubmit(selectedWidget)
                         setShowSelectWidget(false)
                     }}
                 >

@@ -89,91 +89,106 @@ export const ContentMapping: ContentMappingType = {
 		widget: memo(Stub),
 		editor: StubEditor,
 		displayName: "Stub",
-		widgetCategory: WidgetCategories.Display
+		widgetCategory: WidgetCategories.Display,
+		imgPreview: "/widget-menu-svg/stub.svg"
 	},
 	TAB_VIEW: {
 		widget: memo(TabView),
 		editor: TabViewEditor,
 		displayName: "Tab View",
-		widgetCategory: WidgetCategories.Display
+		widgetCategory: WidgetCategories.Display,
+		imgPreview: "/widget-menu-svg/tab.svg"
 	},
 	IMAGES_IN_ROW: {
 		widget: memo(ImagesInRow),
 		editor: ImagesInRowEditor,
 		displayName: "Images in Row",
-		widgetCategory: WidgetCategories.Media
+		widgetCategory: WidgetCategories.Media,
+		imgPreview: "/widget-menu-svg/images-in-row.svg"
 	},
 	SEPARATOR: {
 		widget: memo(Separator),
 		editor: SeparatorEditor,
 		displayName: "Seperator",
-		widgetCategory: WidgetCategories.Display
+		widgetCategory: WidgetCategories.Display,
+		imgPreview: "/widget-menu-svg/separator-vertical.svg"
 	},
 	PDF_VIEWER: {
 		widget: memo(PdfViewer),
 		editor: PdfViewerEditor,
 		displayName: "PDF Viewer",
-		widgetCategory: WidgetCategories.Media
+		widgetCategory: WidgetCategories.Media,
+		imgPreview: "/widget-menu-svg/pdf-reader.svg"
 	},
 	VIDEO: {
 		widget: memo(Video),
 		editor: VideoEditor,
 		displayName: "Video",
-		widgetCategory: WidgetCategories.Media
+		widgetCategory: WidgetCategories.Media,
+		imgPreview: "/widget-menu-svg/video.svg"
 	},
 	GALLERY: {
 		widget: memo(Gallery),
 		editor: GalleryEditor,
 		displayName: "Gallery",
-		widgetCategory: WidgetCategories.Media
+		widgetCategory: WidgetCategories.Media,
+		imgPreview: "/widget-menu-svg/gallery.svg"
 	},
 	WYSIWYG_EDITOR: {
 		widget: memo(WYSIWYGWidget),
 		editor: WYSIWYGEditor,
 		displayName: "Rich Text Editor",
-		widgetCategory: WidgetCategories.Text
+		widgetCategory: WidgetCategories.Text,
+		imgPreview: "/widget-menu-svg/rich-text-editor.svg"
 	},
 	BANNER: {
 		widget: memo(Banner),
 		editor: BannerEditor,
 		displayName: "Banner",
-		widgetCategory: WidgetCategories.Display
+		widgetCategory: WidgetCategories.Display,
+		imgPreview: "/widget-menu-svg/banner.svg"
 	},
 	ACCORDION: {
 		widget: memo(Accordion),
 		editor: AccordionEditor,
 		displayName: "Accordion",
-		widgetCategory: WidgetCategories.Display
+		widgetCategory: WidgetCategories.Display,
+		imgPreview: "/widget-menu-svg/accordion.svg"
 	},
 	HEADER: {
 		widget: memo(Header),
 		editor: HeaderEditor,
 		displayName: "Header",
-		widgetCategory: WidgetCategories.Text
+		widgetCategory: WidgetCategories.Text,
+		imgPreview: "/widget-menu-svg/header.svg"
 	},
 	CAROUSEL: {
 		widget: memo(ImageCarousel),
 		editor: ImageCarouselEditor,
 		displayName: "Image Carousel",
-		widgetCategory: WidgetCategories.Media
+		widgetCategory: WidgetCategories.Media,
+		imgPreview: "/widget-menu-svg/image-carousel.svg"
 	},
 	IMAGE: {
 		widget: memo(ExampleImage),
 		editor: ExampleImageEditor,
 		displayName: "Image",
-		widgetCategory: WidgetCategories.Media
+		widgetCategory: WidgetCategories.Media,
+		imgPreview: "/widget-menu-svg/image.svg"
 	},
     HORIZONTAL_DIVIDER: {
         widget: memo(HorizontalDivider),
         editor: HorizontalDividerEditor,
         displayName: "Horizontal Divider",
-        widgetCategory: WidgetCategories.Layout
+        widgetCategory: WidgetCategories.Layout,
+		imgPreview: "/widget-menu-svg/images-in-row.svg"
     },
     GRID_LAYOUT: {
         widget: memo(GridLayout),
         editor: GridLayoutEditor,
         displayName: "Grid Layout",
-        widgetCategory: WidgetCategories.Layout
+        widgetCategory: WidgetCategories.Layout,
+		imgPreview: "/widget-menu-svg/grid.svg"
     }
 }
 
