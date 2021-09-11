@@ -139,7 +139,7 @@ export const ContentMapping: ContentMappingType = {
 		editor: WYSIWYGEditor,
 		displayName: "Rich Text Editor",
 		widgetCategory: WidgetCategories.Text,
-		// Need Image preview
+		imgPreview: "/widget-menu-svg/rich-text-editor.svg"
 	},
 	BANNER: {
 		widget: memo(Banner),
@@ -166,8 +166,8 @@ export const ContentMapping: ContentMappingType = {
 		widget: memo(ImageCarousel),
 		editor: ImageCarouselEditor,
 		displayName: "Image Carousel",
-		widgetCategory: WidgetCategories.Media
-		// Need preview
+		widgetCategory: WidgetCategories.Media,
+		imgPreview: "/widget-menu-svg/image-carousel.svg"
 	},
 	IMAGE: {
 		widget: memo(ExampleImage),
