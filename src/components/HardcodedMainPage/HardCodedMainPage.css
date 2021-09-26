@@ -57,6 +57,12 @@
 	padding-bottom: 5%;
 }
 
+.hcmp-factory {
+	height: 350px;
+	width: 100px;
+	color: green;
+}
+
 @media (max-width: 480px) {
 	.hcmp-abstractwrapper p {
 		column-count: 1;
