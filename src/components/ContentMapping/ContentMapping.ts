@@ -30,26 +30,7 @@ import { HorizontalDivider } from '../ContentWidgets/Layouts/HorizontalDivider/H
 import { HorizontalDividerEditor } from '../ContentWidgets/Layouts/HorizontalDivider/HorizontalDividerEditor';
 import GridLayout from '../ContentWidgets/Layouts/GridLayout/GridLayout';
 import GridLayoutEditor from '../ContentWidgets/Layouts/GridLayout/GridLayoutEditor';
-
-/**
- * From igem-cli
- */
-const imageUrls = {
-	"accordion.svg":"https://2021.igem.org/wiki/images/4/4e/T--Washington--accordion.svg",
-	"banner.svg":"https://2021.igem.org/wiki/images/a/a5/T--Washington--banner.svg",
-	"gallery.svg":"https://2021.igem.org/wiki/images/a/a8/T--Washington--gallery.svg",
-	"grid.svg":"https://2021.igem.org/wiki/images/0/00/T--Washington--grid.svg",
-	"header.svg":"https://2021.igem.org/wiki/images/3/36/T--Washington--header.svg",
-	"image-carousel.svg":"https://2021.igem.org/wiki/images/d/d9/T--Washington--image-carousel.svg",
-	"image.svg":"https://2021.igem.org/wiki/images/b/b8/T--Washington--image.svg",
-	"images-in-row.svg":"https://2021.igem.org/wiki/images/3/39/T--Washington--images-in-row.svg",
-	"pdf-reader.svg":"https://2021.igem.org/wiki/images/a/a6/T--Washington--pdf-reader.svg",
-	"rich-text-editor.svg":"https://2021.igem.org/wiki/images/1/18/T--Washington--rich-text-editor.svg",
-	"separator-vertical.svg":"https://2021.igem.org/wiki/images/0/07/T--Washington--separator-vertical.svg",
-	"stub.svg":"https://2021.igem.org/wiki/images/0/0c/T--Washington--stub.svg",
-	"tab.svg":"https://2021.igem.org/wiki/images/9/9e/T--Washington--tab.svg",
-	"video.svg":"https://2021.igem.org/wiki/images/6/65/T--Washington--video.svg"
-}
+import { IMAGE_URLS } from '../_data/Constants';
 
 
 export type WidgetEditorProps = {
@@ -110,105 +91,105 @@ export const ContentMapping: ContentMappingType = {
 		editor: StubEditor,
 		displayName: "Stub",
 		widgetCategory: WidgetCategories.Display,
-		imgPreview: imageUrls["stub.svg"],
+		imgPreview: IMAGE_URLS["stub.svg"],
 	},
 	TAB_VIEW: {
 		widget: memo(TabView),
 		editor: TabViewEditor,
 		displayName: "Tab View",
 		widgetCategory: WidgetCategories.Display,
-		imgPreview: imageUrls["tab.svg"],
+		imgPreview: IMAGE_URLS["tab.svg"],
 	},
 	IMAGES_IN_ROW: {
 		widget: memo(ImagesInRow),
 		editor: ImagesInRowEditor,
 		displayName: "Images in Row",
 		widgetCategory: WidgetCategories.Media,
-		imgPreview: imageUrls["images-in-row.svg"],
+		imgPreview: IMAGE_URLS["images-in-row.svg"],
 	},
 	SEPARATOR: {
 		widget: memo(Separator),
 		editor: SeparatorEditor,
 		displayName: "Seperator",
 		widgetCategory: WidgetCategories.Display,
-		imgPreview: imageUrls["separator-vertical.svg"],
+		imgPreview: IMAGE_URLS["separator-vertical.svg"],
 	},
 	PDF_VIEWER: {
 		widget: memo(PdfViewer),
 		editor: PdfViewerEditor,
 		displayName: "PDF Viewer",
 		widgetCategory: WidgetCategories.Media,
-		imgPreview: imageUrls["pdf-reader.svg"],
+		imgPreview: IMAGE_URLS["pdf-reader.svg"],
 	},
 	VIDEO: {
 		widget: memo(Video),
 		editor: VideoEditor,
 		displayName: "Video",
 		widgetCategory: WidgetCategories.Media,
-		imgPreview: imageUrls["video.svg"],
+		imgPreview: IMAGE_URLS["video.svg"],
 	},
 	GALLERY: {
 		widget: memo(Gallery),
 		editor: GalleryEditor,
 		displayName: "Gallery",
 		widgetCategory: WidgetCategories.Media,
-		imgPreview: imageUrls["gallery.svg"],
+		imgPreview: IMAGE_URLS["gallery.svg"],
 	},
 	WYSIWYG_EDITOR: {
 		widget: memo(WYSIWYGWidget),
 		editor: WYSIWYGEditor,
 		displayName: "Rich Text Editor",
 		widgetCategory: WidgetCategories.Text,
-		imgPreview: imageUrls["rich-text-editor.svg"],
+		imgPreview: IMAGE_URLS["rich-text-editor.svg"],
 	},
 	BANNER: {
 		widget: memo(Banner),
 		editor: BannerEditor,
 		displayName: "Banner",
 		widgetCategory: WidgetCategories.Display,
-		imgPreview: imageUrls["banner.svg"],
+		imgPreview: IMAGE_URLS["banner.svg"],
 	},
 	ACCORDION: {
 		widget: memo(Accordion),
 		editor: AccordionEditor,
 		displayName: "Accordion",
 		widgetCategory: WidgetCategories.Display,
-		imgPreview: imageUrls["accordion.svg"],
+		imgPreview: IMAGE_URLS["accordion.svg"],
 	},
 	HEADER: {
 		widget: memo(Header),
 		editor: HeaderEditor,
 		displayName: "Header",
 		widgetCategory: WidgetCategories.Text,
-		imgPreview: imageUrls["header.svg"],
+		imgPreview: IMAGE_URLS["header.svg"],
 	},
 	CAROUSEL: {
 		widget: memo(ImageCarousel),
 		editor: ImageCarouselEditor,
 		displayName: "Image Carousel",
 		widgetCategory: WidgetCategories.Media,
-		imgPreview: imageUrls["image-carousel.svg"],
+		imgPreview: IMAGE_URLS["image-carousel.svg"],
 	},
 	IMAGE: {
 		widget: memo(ExampleImage),
 		editor: ExampleImageEditor,
 		displayName: "Image",
 		widgetCategory: WidgetCategories.Media,
-		imgPreview: imageUrls["image.svg"],
+		imgPreview: IMAGE_URLS["image.svg"],
 	},
     HORIZONTAL_DIVIDER: {
         widget: memo(HorizontalDivider),
         editor: HorizontalDividerEditor,
         displayName: "Horizontal Divider",
         widgetCategory: WidgetCategories.Layout,
-		imgPreview: imageUrls["images-in-row.svg"],
+		imgPreview: IMAGE_URLS["images-in-row.svg"],
     },
     GRID_LAYOUT: {
         widget: memo(GridLayout),
         editor: GridLayoutEditor,
         displayName: "Grid Layout",
         widgetCategory: WidgetCategories.Layout,
-		imgPreview: imageUrls["grid.svg"],
+		imgPreview: IMAGE_URLS["grid.svg"],
     }
 }
 
