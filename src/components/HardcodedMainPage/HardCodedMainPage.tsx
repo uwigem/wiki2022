@@ -66,8 +66,10 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 					</Row>
 				</Grid>
 			</div>
-			<Parallax strength={400} bgImage="https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_coco_16x9_9ccd7110.jpeg">
-				<div className="hcmp-factory"></div>
+			<Parallax strength={500} bgImage="https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_coco_16x9_9ccd7110.jpeg">
+				<div className="hcmp-factory">
+					<h2>SOME BIG TEXT HERE</h2>
+				</div>
 			</Parallax>
 			<div className="hcmp-learn-more-wrapper">
 				<Grid>
