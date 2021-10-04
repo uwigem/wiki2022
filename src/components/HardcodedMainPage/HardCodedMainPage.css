@@ -58,9 +58,20 @@
 }
 
 .hcmp-factory {
+	width: 100%;
 	height: 350px;
-	width: 100px;
-	color: green;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	/* width: 100px; */
+}
+
+.hcmp-factory h2 {
+	color: white;
+	font-size: 5rem !important;
+	background-color: rgba(0,0,0,0.5);
+	padding: 10px 20px;
 }
 
 @media (max-width: 480px) {
