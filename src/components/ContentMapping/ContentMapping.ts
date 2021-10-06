@@ -30,6 +30,7 @@ import { HorizontalDivider } from '../ContentWidgets/Layouts/HorizontalDivider/H
 import { HorizontalDividerEditor } from '../ContentWidgets/Layouts/HorizontalDivider/HorizontalDividerEditor';
 import GridLayout from '../ContentWidgets/Layouts/GridLayout/GridLayout';
 import GridLayoutEditor from '../ContentWidgets/Layouts/GridLayout/GridLayoutEditor';
+import { IMAGE_URLS } from '../_data/Constants';
 
 
 export type WidgetEditorProps = {
@@ -89,91 +90,106 @@ export const ContentMapping: ContentMappingType = {
 		widget: memo(Stub),
 		editor: StubEditor,
 		displayName: "Stub",
-		widgetCategory: WidgetCategories.Display
+		widgetCategory: WidgetCategories.Display,
+		imgPreview: IMAGE_URLS["stub.svg"],
 	},
 	TAB_VIEW: {
 		widget: memo(TabView),
 		editor: TabViewEditor,
 		displayName: "Tab View",
-		widgetCategory: WidgetCategories.Display
+		widgetCategory: WidgetCategories.Display,
+		imgPreview: IMAGE_URLS["tab.svg"],
 	},
 	IMAGES_IN_ROW: {
 		widget: memo(ImagesInRow),
 		editor: ImagesInRowEditor,
 		displayName: "Images in Row",
-		widgetCategory: WidgetCategories.Media
+		widgetCategory: WidgetCategories.Media,
+		imgPreview: IMAGE_URLS["images-in-row.svg"],
 	},
 	SEPARATOR: {
 		widget: memo(Separator),
 		editor: SeparatorEditor,
 		displayName: "Seperator",
-		widgetCategory: WidgetCategories.Display
+		widgetCategory: WidgetCategories.Display,
+		imgPreview: IMAGE_URLS["separator-vertical.svg"],
 	},
 	PDF_VIEWER: {
 		widget: memo(PdfViewer),
 		editor: PdfViewerEditor,
 		displayName: "PDF Viewer",
-		widgetCategory: WidgetCategories.Media
+		widgetCategory: WidgetCategories.Media,
+		imgPreview: IMAGE_URLS["pdf-reader.svg"],
 	},
 	VIDEO: {
 		widget: memo(Video),
 		editor: VideoEditor,
 		displayName: "Video",
-		widgetCategory: WidgetCategories.Media
+		widgetCategory: WidgetCategories.Media,
+		imgPreview: IMAGE_URLS["video.svg"],
 	},
 	GALLERY: {
 		widget: memo(Gallery),
 		editor: GalleryEditor,
 		displayName: "Gallery",
-		widgetCategory: WidgetCategories.Media
+		widgetCategory: WidgetCategories.Media,
+		imgPreview: IMAGE_URLS["gallery.svg"],
 	},
 	WYSIWYG_EDITOR: {
 		widget: memo(WYSIWYGWidget),
 		editor: WYSIWYGEditor,
 		displayName: "Rich Text Editor",
-		widgetCategory: WidgetCategories.Text
+		widgetCategory: WidgetCategories.Text,
+		imgPreview: IMAGE_URLS["rich-text-editor.svg"],
 	},
 	BANNER: {
 		widget: memo(Banner),
 		editor: BannerEditor,
 		displayName: "Banner",
-		widgetCategory: WidgetCategories.Display
+		widgetCategory: WidgetCategories.Display,
+		imgPreview: IMAGE_URLS["banner.svg"],
 	},
 	ACCORDION: {
 		widget: memo(Accordion),
 		editor: AccordionEditor,
 		displayName: "Accordion",
-		widgetCategory: WidgetCategories.Display
+		widgetCategory: WidgetCategories.Display,
+		imgPreview: IMAGE_URLS["accordion.svg"],
 	},
 	HEADER: {
 		widget: memo(Header),
 		editor: HeaderEditor,
 		displayName: "Header",
-		widgetCategory: WidgetCategories.Text
+		widgetCategory: WidgetCategories.Text,
+		imgPreview: IMAGE_URLS["header.svg"],
 	},
 	CAROUSEL: {
 		widget: memo(ImageCarousel),
 		editor: ImageCarouselEditor,
 		displayName: "Image Carousel",
-		widgetCategory: WidgetCategories.Media
+		widgetCategory: WidgetCategories.Media,
+		imgPreview: IMAGE_URLS["image-carousel.svg"],
 	},
 	IMAGE: {
 		widget: memo(ExampleImage),
 		editor: ExampleImageEditor,
 		displayName: "Image",
-		widgetCategory: WidgetCategories.Media
+		widgetCategory: WidgetCategories.Media,
+		imgPreview: IMAGE_URLS["image.svg"],
 	},
     HORIZONTAL_DIVIDER: {
         widget: memo(HorizontalDivider),
         editor: HorizontalDividerEditor,
         displayName: "Horizontal Divider",
-        widgetCategory: WidgetCategories.Layout
+        widgetCategory: WidgetCategories.Layout,
+		imgPreview: IMAGE_URLS["images-in-row.svg"],
     },
     GRID_LAYOUT: {
         widget: memo(GridLayout),
         editor: GridLayoutEditor,
         displayName: "Grid Layout",
-        widgetCategory: WidgetCategories.Layout
+        widgetCategory: WidgetCategories.Layout,
+		imgPreview: IMAGE_URLS["grid.svg"],
     }
 }
 
