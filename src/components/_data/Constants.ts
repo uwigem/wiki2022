@@ -33,7 +33,7 @@ export const COLORS = {
 };
 
 export const LOGO = {
-	IMAGE_LINK: "https://2019.igem.org/wiki/images/3/32/T--Washington--HLogo2.png",
+	IMAGE_LINK: "https://2021.igem.org/wiki/images/2/2e/T--Washington--RizoMetLogo.png",
 	HEIGHT: 50,
 	MIN_HEIGHT: 40
 }
