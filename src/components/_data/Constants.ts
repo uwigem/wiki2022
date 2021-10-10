@@ -34,11 +34,13 @@ export const COLORS = {
 
 export const LOGO = {
 	IMAGE_LINK: "https://2021.igem.org/wiki/images/2/2e/T--Washington--RizoMetLogo.png",
-	HEIGHT: 50,
+	HEIGHT: 60,
 	MIN_HEIGHT: 40
 }
 
 export const NAVBAR_MIN_WIDTH = 768;
+
+export const NAVBAR_MIN_HEIGHT = 70;
 
 export const GALLERY_COL_COUNT = 3;
 

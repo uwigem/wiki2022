@@ -6,7 +6,7 @@ import { EnvironmentContext } from '../../contexts/EnvironmentContext/Environmen
 import { AppBarLogo } from './AppBarLogo/AppBarLogo';
 import { AppBarDropdowns } from './AppBarDropdowns/AppBarDropdowns';
 import { AppBarSideDrawer } from './AppBarSideDrawer/AppBarSideDrawer';
-import { NAVBAR_MIN_WIDTH } from '../_data/Constants';
+import { NAVBAR_MIN_WIDTH, NAVBAR_MIN_HEIGHT } from '../_data/Constants';
 
 type CustomAppBarProps = {
 	name: string,
@@ -16,9 +16,9 @@ type CustomAppBarProps = {
 
 /**
  * CustomAppBar is the application bar that (currently) uses MaterialUI
- * 
+ *
  * Last Modified
- * William Kwok
+ * Jaden Stetler
  * July 17, 2019
  */
 export const CustomAppBar: React.FC<CustomAppBarProps> = ({ name, pageTitle, a }) => {
@@ -27,8 +27,8 @@ export const CustomAppBar: React.FC<CustomAppBarProps> = ({ name, pageTitle, a }
 
 	return <>
 		<div className={"appbar"}>
-			<AppBar className={"mui-appbar"} color="secondary">
-				<Toolbar>
+			<AppBar className={"mui-appbar"} style={{ minHeight: NAVBAR_MIN_HEIGHT }} color="secondary">
+				<Toolbar style={{ minHeight: NAVBAR_MIN_HEIGHT }}>
 					<AppBarLogo />
 					{!minimized && <AppBarDropdowns name={name} pageTitle={pageTitle} a={a} />}
 					{minimized && <AppBarSideDrawer
