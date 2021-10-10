@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavbarData, { NavbarType } from '../../_data/NavbarData/NavbarData';
 import { AppBarDropdown } from './AppBarDropdown/AppBarDropdown';
 type AppBarDropdownProps = {
@@ -10,12 +10,14 @@ type AppBarDropdownProps = {
 /**
  * AppBarDropdowns are the dropdown items in the navigation bar. It grabs the list of categories
  * from the NavbarData class and renders them
- * 
+ *
  * Last Modified
- * William Kwok
- * June 16, 2019
+ * Jaden Stetler
+ * October 10, 2021
  */
 export const AppBarDropdowns: React.FC<AppBarDropdownProps> = ({ name, pageTitle, a }) => {
+    const [currAnchor, setCurrAnchor] = useState<HTMLElement | null>(null);
+
     return <>
         {NavbarData.getData().map((navbarItem: NavbarType) => {
             return <AppBarDropdown
@@ -24,6 +26,8 @@ export const AppBarDropdowns: React.FC<AppBarDropdownProps> = ({ name, pageTitle
                 name={name}
                 pageTitle={pageTitle}
                 navbarItem={navbarItem}
+                currAnchor={currAnchor}
+                setCurrAnchor={setCurrAnchor}
             />
         })}
     </>
