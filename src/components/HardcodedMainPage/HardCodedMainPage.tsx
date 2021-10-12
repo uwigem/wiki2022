@@ -4,6 +4,8 @@ import Fade from 'react-reveal/Fade';
 import './HardCodedMainPage.css';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { HomepageCard } from './HomepageCard/HomepageCard';
+import PlantCube from './PlantCube';
+import styles from './HardCodedMainPage.module.css';
 import { Parallax } from 'react-parallax';
 
 type HardCodedMainPageProps = {
@@ -49,6 +51,7 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 						</Col>
 						<Col md={6}>
 							{/** SIDE IMAGE GOES HERE */}
+							<PlantCube className={styles.plantCube}/>
 						</Col>
 					</Row>
 				</Grid>
