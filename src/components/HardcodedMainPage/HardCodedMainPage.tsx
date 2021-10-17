@@ -4,6 +4,7 @@ import Fade from 'react-reveal/Fade';
 import './HardCodedMainPage.css';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { HomepageCard } from './HomepageCard/HomepageCard';
+import { HomepageImpact } from './HomepageImpact/HomepageImpact';
 
 type HardCodedMainPageProps = {
 	a: () => void
@@ -37,6 +38,17 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 			</div>
 			<div className="hcmp-titlewrapper">
 				<Grid>
+          <HomepageImpact
+            card1Img="https://placekitten.com/200/200"
+            card1Text="A short quote/explanation"
+            card1Title="Scalablity"
+            card2Img="https://placekitten.com/200/200"
+            card2Text="A short quote/explanation"
+            card2Title="Sustainability"
+            card3Img="https://placekitten.com/200/200"
+            card3Text="A short quote/explanation"
+            card3Title="Feasibility"
+          ></HomepageImpact>
 					<Row>
 						<Col md={6}>
 							<p>Detecting small molecules using a chemically-induced dimerization system.</p>
