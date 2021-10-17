@@ -1,6 +1,6 @@
 .app-content-dev {
 	min-height: 100vh;
-	margin-top: 44px;
+	margin-top: 62px;
 	background-color: white;
 }
 
@@ -10,11 +10,11 @@
 }
 
 .app-content-real.mobile {
-	margin-top: 73px;
+	margin-top: 80px;
 }
 
 .app-content-dev.mobile {
-	margin-top: 37px;
+	margin-top: 62px;
 }
 
 .main-temporary {

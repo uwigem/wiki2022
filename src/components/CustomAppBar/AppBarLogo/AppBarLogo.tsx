@@ -7,10 +7,10 @@ import { EnvironmentContext } from '../../../contexts/EnvironmentContext/Environ
 
 /**
  * AppBarLogo is (currently) the W logo on the top left for the App Bar
- * 
+ *
  * Last Modified
- * William Kwok
- * June 16, 2019
+ * Jaden Stetler
+ * October 17, 2021
  */
 export const AppBarLogo: React.FC = () => {
 	const { windowWidth } = useContext(EnvironmentContext);

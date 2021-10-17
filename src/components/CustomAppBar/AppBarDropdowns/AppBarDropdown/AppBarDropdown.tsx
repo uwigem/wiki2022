@@ -19,7 +19,7 @@ type AppBarDropdownProps = {
  *
  * Last Modified
  * Jaden Stetler
- * October 10, 2021
+ * October 17, 2021
  */
 export const AppBarDropdown: React.FC<AppBarDropdownProps> = ({
     name,
@@ -58,7 +58,7 @@ export const AppBarDropdown: React.FC<AppBarDropdownProps> = ({
             keepMounted
             onClose={() => { updateAnchorEl(null) }}
             anchorOrigin={{
-                vertical: 45,
+                vertical: 58,
                 horizontal: "left"
             }}
             transformOrigin={{
