@@ -71,7 +71,5 @@
 		]
 	},
 	"config-overrides-path": "node_modules/react-app-rewire-disable-chunks",
-	"devDependencies": {
-		"@types/three": "^0.131.0"
-	}
+	"devDependencies": {}
 }
