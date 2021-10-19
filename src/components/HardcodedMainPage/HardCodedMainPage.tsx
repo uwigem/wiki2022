@@ -6,7 +6,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styles from './HardCodedMainPage.module.css';
 import { Parallax } from 'react-parallax';
-import { HomepageCard } from './HomepageCard/HomepageCard';
 import { HomepageImpact } from './HomepageImpact/HomepageImpact';
 
 type HardCodedMainPageProps = {
