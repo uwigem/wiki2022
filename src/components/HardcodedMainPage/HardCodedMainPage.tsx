@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styles from './HardCodedMainPage.module.css';
 import { Parallax } from 'react-parallax';
+import { HomepageImpact } from './HomepageImpact/HomepageImpact';
 
 type HardCodedMainPageProps = {
 	a: () => void
@@ -142,6 +143,21 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 					</p>
 				</Container>
 			</section>
+      <section>
+        <Container>
+          <HomepageImpact
+                card1Img="https://placekitten.com/200/200"
+                card1Text="A short quote/explanation"
+                card1Title="Scalablity"
+                card2Img="https://placekitten.com/200/200"
+                card2Text="A short quote/explanation"
+                card2Title="Sustainability"
+                card3Img="https://placekitten.com/200/200"
+                card3Text="A short quote/explanation"
+                card3Title="Feasibility"
+              ></HomepageImpact>
+          </Container>
+      </section>
 		{/* </Fade> */}
 	</>
 }
