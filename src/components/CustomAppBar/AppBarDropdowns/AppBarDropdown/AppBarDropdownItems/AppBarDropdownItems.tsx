@@ -12,14 +12,14 @@ type AppBarDropdownItemsProps = {
     name: string,
 }
 
-/** 
+/**
  * Doing various pieces of wizardry in this file. See these two links to understand what I'm doing.
  * It's very difficult to explain but basically material ui screws up with using custom components
  * for `MenuItems`, which is what I do when I set the `component` prop to `a`. It can be remedied
  * by messing with the `innerRef` props, but I can only do that if I forward the `ref` with React's
- * `forwardRef` function. In order to get the props easily, I have the prop types `extend`ing the 
- * props from earlier to make an addition. 
- *   
+ * `forwardRef` function. In order to get the props easily, I have the prop types `extend`ing the
+ * props from earlier to make an addition.
+ *
  * https://github.com/mui-org/material-ui/issues/15903
  * https://stackoverflow.com/questions/41385059/possible-to-extend-types-in-typescript
  */
@@ -33,7 +33,7 @@ export const AppBarDropdownItemsForwardRefs = forwardRef((props: AppBarDropdownI
 
 /**
  * AppBarDropdownItems is the individual menu item when the dropdown is clicked on
- * 
+ *
  * Last Modified
  * William Kwok
  * June 16, 2019
@@ -43,11 +43,11 @@ export const AppBarDropdownItems: React.FC<AppBarDropdownItemsPropsWithRef> = ({
 }) => {
     /**
      * Gets the link of the matching name for the menu item. Special case for "home"
-     * @param index index of the matching link from name 
+     * @param index index of the matching link from name
      */
     const getLink: (index: number) => string = (index: number) => {
         let link = `${name}${navbarItem.links[index]}`;
-        if (navbarItem.key === "home") {
+        if (navbarItem.key === "archive") {
             link = navbarItem.links[index];
         }
         return link;

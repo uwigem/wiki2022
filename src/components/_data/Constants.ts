@@ -34,7 +34,7 @@ export const COLORS = {
 
 export const LOGO = {
 	IMAGE_LINK: "https://2021.igem.org/wiki/images/d/db/T--Washington--RizoMetTransparentBackground.svg",
-	HEIGHT: 72,
+	HEIGHT: 60,
 	MIN_HEIGHT: 60
 }
 
