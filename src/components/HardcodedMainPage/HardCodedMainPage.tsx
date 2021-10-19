@@ -58,10 +58,15 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 			<section className={styles.problemContext}>
 				<Container>
 					<h1>Problem Context</h1>
-					<Parallax strength={500} bgImage="https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_coco_16x9_9ccd7110.jpeg">
+					<Parallax
+						strength={100}
+						bgImage="https://2021.igem.org/wiki/images/8/85/T--Washington--HomepageParallaxFactory.svg"
+						bgImageStyle={{ width: '100%', height: '110%' }}
+					>
 						<div className={styles.problemContextFactory}>
-							<h2>SOME BIG TEXT HERE</h2>
+
 						</div>
+						<img src="https://2021.igem.org/wiki/images/5/59/T--Washington--HomepageParallaxHeavyMetal.svg" alt="soil with heavy metals" />
 					</Parallax>
 					<p>
 						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
