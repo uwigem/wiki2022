@@ -42,7 +42,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase, ContentEditor }
 	const [loading, setLoading] = useState<boolean>(true);
 	const [contentData, setContentData] = useState<ContentData>(Data.getContentData());
 	// TODO: Change arg back to just debug URL
-	const [pageTitle, setPageTitle] = useState<string>("debugURL"); //(debugURL)
+	const [pageTitle, setPageTitle] = useState<string>(debugURL); //(debugURL)
 	const [debugMode, setDebugMode] = useState<boolean>(true);
 	const windowWidth = useWindowWidth();
 
