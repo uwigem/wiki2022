@@ -4,6 +4,10 @@
     margin-bottom: -20px;
 }
 
+.appbar-logo-img {
+    border-radius: 50%;
+}
+
 .appbar-logo-bounding {
     color: white;
 }

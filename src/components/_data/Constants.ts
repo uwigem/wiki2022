@@ -33,12 +33,14 @@ export const COLORS = {
 };
 
 export const LOGO = {
-	IMAGE_LINK: "https://2019.igem.org/wiki/images/3/32/T--Washington--HLogo2.png",
-	HEIGHT: 50,
-	MIN_HEIGHT: 40
+	IMAGE_LINK: "https://2021.igem.org/wiki/images/d/db/T--Washington--RizoMetTransparentBackground.svg",
+	HEIGHT: 72,
+	MIN_HEIGHT: 60
 }
 
 export const NAVBAR_MIN_WIDTH = 768;
+
+export const NAVBAR_MIN_HEIGHT = 84;
 
 export const GALLERY_COL_COUNT = 3;
 
