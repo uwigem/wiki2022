@@ -1,8 +1,11 @@
 import React from 'react';
 //@ts-ignore
-import Fade from 'react-reveal/Fade';
-import './HardCodedMainPage.css';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+// import Fade from 'react-reveal/Fade';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import styles from './HardCodedMainPage.module.css';
+import { Parallax } from 'react-parallax';
 import { HomepageCard } from './HomepageCard/HomepageCard';
 import { HomepageImpact } from './HomepageImpact/HomepageImpact';
 
@@ -10,89 +13,147 @@ type HardCodedMainPageProps = {
 	a: () => void
 }
 
-type HeaderCard = {
-	header: string,
-	image: string,
-	blurb: string,
-	link: string,
-	x?: number,
-	y?: number
-}
+// type HeaderCard = {
+// 	header: string,
+// 	image: string,
+// 	blurb: string,
+// 	link: string,
+// 	x?: number,
+// 	y?: number
+// }
 
-const headerCards: HeaderCard[] = [
-	{
-		header: "Lorem Ipsum",
-		image: "https://2019.igem.org/wiki/images/a/a9/T--Washington--Octet_Sensor_Setup.png",
-		blurb: "Lorem ipsum",
-		link: ""
-	}
-]
+// const headerCards: HeaderCard[] = [
+// 	{
+// 		header: "Lorem Ipsum",
+// 		image: "https://2019.igem.org/wiki/images/a/a9/T--Washington--Octet_Sensor_Setup.png",
+// 		blurb: "Lorem ipsum",
+// 		link: ""
+// 	}
+// ]
 
 export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 	a
 }) => {
 	return <>
-		<Fade>
-			<div className="hcmp-bgdiv">
+		{/* <Fade> */}
+			{/* <div className="hcmp-bgdiv">
 				<div className="hcmp-innerbgdiv"></div>
-			</div>
-			<div className="hcmp-titlewrapper">
-				<Grid>
-          <HomepageImpact
-            card1Img="https://placekitten.com/200/200"
-            card1Text="A short quote/explanation"
-            card1Title="Scalablity"
-            card2Img="https://placekitten.com/200/200"
-            card2Text="A short quote/explanation"
-            card2Title="Sustainability"
-            card3Img="https://placekitten.com/200/200"
-            card3Text="A short quote/explanation"
-            card3Title="Feasibility"
-          ></HomepageImpact>
+			</div> */}
+			<section className={styles.heroContainer}>
+				<Container className={styles.hero}>
 					<Row>
-						<Col md={6}>
-							<p>Detecting small molecules using a chemically-induced dimerization system.</p>
-							<div className="wi-title">Welcome to</div>
-							<div className="wi-title hcmp-titlename">Immunosense</div>
-							<div className="wi-caption-2 hcmp-desclink">
-								<a onClick={a} href={`https://2019.igem.org/Team:Washington/Description`}>Project Description &gt;</a>
-							</div>
+						<Col md={5}>
+							<h1>Arcenic Purification</h1>
+							<p>Utilizes engineered rhizobacteria in plant roots to selectively accumulate heavy metals</p>
 						</Col>
-						<Col md={6}>
+						<Col md={7}>
 							{/** SIDE IMAGE GOES HERE */}
+							<iframe className={styles.plantCube} src="https://2021.igem.org/Team:Washington/PlantCube" frameBorder="0"></iframe>
 						</Col>
 					</Row>
-				</Grid>
-			</div>
-			<div className="hcmp-abstractwrapper">
-				<Grid>
-					<Row>
-						<Col>
-							<h1>Abstract</h1>
-							<div className="hcmp-sep"></div>
-							<p>
-								Although biosensors are commonly used to detect many different molecules of interest, they cannot effectively detect small hydrophobic molecules in biological systems. We propose combining chemically induced dimerization (CID), in which two proteins dimerize only in the presence of a ligand, with a traditional luciferase assay to create a biosensor that luminesces when the desired molecule is introduced. Using molecule-specific nanobodies, we can design the two CID binders to attach to a wide variety of small molecules, even those that are challenging for conventional biosensors to detect. Through its specificity and ability to bind to small or hydrophobic molecules, the CID system overcomes problems that other biosensors face. As a proof-of-concept, we implemented an in vivo CID biosensor to detect the presence of cannabidiol. With the nanobody CID system, we hope to introduce a novel biosensor that can detect a variety of important small molecules across research, biotechnology, and medicine.
-							</p>
-						</Col>
-					</Row>
-				</Grid>
-			</div>
-			<div className="hcmp-learn-more-wrapper">
-				<Grid>
-					<Row>
-						{headerCards.map(headerCard => {
-							return <Col md={6}>
-								<Fade>
-									<HomepageCard
-										{...headerCard}
-										a={a}
-									/>
-								</Fade>
+				</Container>
+				<div className={styles.scrollDown}>
+					<p>Scroll down for more info</p>
+					<p>VVV</p>
+				</div>
+			</section>
+			<section className={styles.problemContext}>
+				<Container>
+					<h1>Problem Context</h1>
+					<Parallax strength={500} bgImage="https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_coco_16x9_9ccd7110.jpeg">
+						<div className={styles.problemContextFactory}>
+							<h2>SOME BIG TEXT HERE</h2>
+						</div>
+					</Parallax>
+					<p>
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+					</p>
+					<Container className={styles.problemContextStatistics}>
+						<Row className={"gx-5"}>
+							<Col md={3}>
+								<div>
+									Statistics 1
+								</div>
 							</Col>
-						})}
-					</Row>
-				</Grid>
-			</div>
-		</Fade>
+							<Col md={6}>
+								<div>
+									Heavy Metal Accumulation Cubes in the Ground
+								</div>
+							</Col>
+							<Col md={3}>
+								<div>
+									Statistics 2
+								</div>
+							</Col>
+						</Row>
+					</Container>
+					<p>
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+					</p>
+				</Container>
+			</section>
+			<section className={styles.ourSolution}>
+				<Container>
+					<h1>Our Solution</h1>
+					<Container className={styles.ourSolutionGrid}>
+						<Row className={"gx-5"}>
+							<Col md={6}><p>IMAGE 1</p></Col>
+							<Col md={6}><p>IMAGE 2</p></Col>
+						</Row>
+					</Container>
+					<p>
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+					</p>
+				</Container>
+			</section>
+      <section>
+        <Container>
+          <HomepageImpact
+                card1Img="https://placekitten.com/200/200"
+                card1Text="A short quote/explanation"
+                card1Title="Scalablity"
+                card2Img="https://placekitten.com/200/200"
+                card2Text="A short quote/explanation"
+                card2Title="Sustainability"
+                card3Img="https://placekitten.com/200/200"
+                card3Text="A short quote/explanation"
+                card3Title="Feasibility"
+              ></HomepageImpact>
+          </Container>
+      </section>
+		{/* </Fade> */}
 	</>
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import './HomepageImpact.css';
 import { HomepageImpactCard } from './HomepageImpactCard';
-import { Row, Col } from 'react-flexbox-grid';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export type HomepageImpactProps = {
   card1Img: string,
@@ -27,7 +28,7 @@ export const HomepageImpact: React.FC<HomepageImpactProps> = ({
   card3Title,
 }) => {
   return <div className="homepage-impact">
-    <Row center="md">
+    <Row className="justify-content-md-center">
       <Col md={4}>
         <HomepageImpactCard image={card1Img} text={card1Text} title={card1Title}></HomepageImpactCard>
       </Col>

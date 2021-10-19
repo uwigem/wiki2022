@@ -1,0 +1,92 @@
+.plantCube {
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid black; */
+}
+
+.heroContainer {
+    background-color: rgb(50,50,50);
+}
+
+.hero {
+    /* padding: 3rem; */
+
+    color: white;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    min-height: min(100vh, 700px);
+}
+
+.hero h1 {
+    font-size: 5rem !important;
+    color: white;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.scrollDown {
+    margin-top: auto;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.problemContext {
+    padding: 3rem 0;
+}
+
+.problemContext p{
+    margin: 1rem 0;
+}
+
+.problemContextFactory {
+	width: 100%;
+	height: 350px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	/* width: 100px; */
+}
+
+.problemContextFactory h2 {
+	color: white;
+	font-size: 5rem !important;
+	background-color: rgba(0,0,0,0.5);
+	padding: 10px 20px;
+}
+
+.problemContextStatistics {
+    background-color: lightgray;
+    padding: 2rem;
+    text-align: center;
+    height: 350px;
+}
+
+.problemContextStatistics * > * > * {
+    background-color: gray;
+}
+
+.problemContextStatistics * {
+    height: 100%;
+}
+
+.problemContextStatistics > * > div:nth-child(1),
+.problemContextStatistics > * > div:nth-child(3) {
+    height: 50%;
+    margin-top: auto;
+}
+
+.ourSolutionGrid {
+    text-align: center;
+}
+
+.ourSolutionGrid > * > * > p {
+    height: 300px;
+    background-color: gray;
+    vertical-align: middle;
+}
