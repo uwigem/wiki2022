@@ -38,14 +38,14 @@ let navbarData: NavbarType[] = [
 	},
 	{
 		title: "Project",
-		names: ["Project Description", "Design", "Experiments", "Notebook", "Model", "Results", "Parts"],
-		links: ["/Description", "/Design", "/Experiments", "/Notebook", "/Model", "/Results", "/Parts"],
+		names: ["Project Description", "Engineering", "Contribution", "Implementation", "Experiments", "Notebook", "Model", "Results", "Parts"],
+		links: ["/Description", "/Engineering", "/Contribution", "/Implementation", "/Experiments", "/Notebook", "/Model", "/Results", "/Parts"],
 		key: "project"
 	},
 	{
 		title: "Human Practices",
-		names: ["Overview", "Integrated HP", "Collaborations", "Education & Engagement"],
-		links: ["/Human_Practices", "/Integrated_Human_Practices", "/Collaborations", "/Public_Engagement"],
+		names: ["Overview", "Implementation", "Collaborations", "Partnership", "Education & Communication", "Sustainable Development"],
+		links: ["/Human_Practices", "/Implementation", "/Collaborations", "/Partnership", "/Communication", "/Sustainable"],
 		key: "human_practices"
 	},
 	{

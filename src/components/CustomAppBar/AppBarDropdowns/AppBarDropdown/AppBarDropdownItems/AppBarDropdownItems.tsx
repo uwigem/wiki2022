@@ -42,7 +42,7 @@ export const AppBarDropdownItems: React.FC<AppBarDropdownItemsPropsWithRef> = ({
     pageTitle, navbarItem, setAnchorEl, dropdownItemNames, a, name, innerRef
 }) => {
     /**
-     * Gets the link of the matching name for the menu item. Special case for "home"
+     * Gets the link of the matching name for the menu item. Special case for "archive"
      * @param index index of the matching link from name
      */
     const getLink: (index: number) => string = (index: number) => {
