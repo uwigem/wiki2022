@@ -22,7 +22,7 @@ export class Sponsors extends Component {
 		this.minminThres = 380;
 		this.mainColor = COLORS.PURPLE.PRIMARY;
 
-		this.sections = ["Diamond", "Gold", "Silver", "Bronze"];
+		this.sections = ["Eukaryote", "Prokaryote"];
 		this.minBody = 70;
 		this.maxBody = 75;
 	}
@@ -132,17 +132,11 @@ export class Sponsors extends Component {
 							{data && data.map((d, i) => {
 								let filter;
 								switch (sect) {
-									case "Diamond":
-										filter = d.FILTER && d.FILTER.indexOf("Diamond") === -1;
+									case "Eukaryote":
+										filter = d.FILTER && d.FILTER.indexOf("Eukaryote") === -1;
 										break;
-									case "Gold":
-										filter = d.FILTER && d.FILTER.indexOf("Gold") === -1;
-										break;
-									case "Silver":
-										filter = d.FILTER && d.FILTER.indexOf("Silver") === -1;
-										break;
-									case "Bronze":
-										filter = d.FILTER && d.FILTER.indexOf("Bronze") === -1;
+									case "Prokaryote":
+										filter = d.FILTER && d.FILTER.indexOf("Prokaryote") === -1;
 										break;
 									default:
 										filter = d.FILTER

@@ -136,93 +136,85 @@ export type SponsorsData = {
 
 const sponsorsData: SponsorsData = [
 	{
-		NAME: "UW Paul G. Allen School of Computer Science and Engineering",
-		PICTURE: "https://2019.igem.org/wiki/images/1/1c/T--Washington--CSELogo.png",
-		FILTER: "Diamond",
-		LINK: "https://www.cs.washington.edu/",
-		BIO: "",
-		SUBTEXT: ""
-	},
-	{
 		NAME: "UW Department of Biochemistry",
-		PICTURE: "https://2019.igem.org/wiki/images/8/88/T--Washington--BioChemLogo.png",
-		FILTER: "Diamond",
+		PICTURE: "https://2021.igem.org/wiki/images/8/88/T--Washington--BioChemLogo.png",
+		FILTER: "Eukaryote",
 		LINK: "https://depts.washington.edu/biowww/",
 		BIO: "",
 		SUBTEXT: ""
 	},
 	{
+		NAME: "UW Paul G. Allen School of Computer Science and Engineering",
+		PICTURE: "https://2021.igem.org/wiki/images/1/1c/T--Washington--CSELogo.png",
+		FILTER: "Eukaryote",
+		LINK: "https://www.cs.washington.edu/",
+		BIO: "",
+		SUBTEXT: ""
+	},
+	{
 		NAME: "Institute for Protein Design",
-		PICTURE: "https://2019.igem.org/wiki/images/c/c7/T--Washington--IPDLogo.png",
-		FILTER: "Gold",
+		PICTURE: "https://2021.igem.org/wiki/images/c/c7/T--Washington--IPDLogo.png",
+		FILTER: "Eukaryote",
 		LINK: "https://www.ipd.uw.edu/",
 		BIO: "",
 		SUBTEXT: ""
 	},
 	{
-		NAME: "UW College of Engineering",
-		PICTURE: "https://2019.igem.org/wiki/images/c/c7/T--Washington--COELogo.png",
-		FILTER: "Gold",
-		LINK: "https://www.engr.washington.edu/",
-		BIO: "",
-		SUBTEXT: ""
-	},
-	{
-		NAME: "PVP Biologics",
-		PICTURE: "https://2019.igem.org/wiki/images/5/50/T--Washington--MSELogo.png",
-		FILTER: "Gold",
-		LINK: "https://www.pvpbio.com/",
-		BIO: "",
-		SUBTEXT: ""
-	},
-	{
-		NAME: "UW Department of Biology",
-		PICTURE: "https://2019.igem.org/wiki/images/5/54/T--Washington--BioLogo.png",
-		FILTER: "Silver",
-		LINK: "https://www.biology.washington.edu/",
-		BIO: "",
-		SUBTEXT: ""
-	},
-	{
-		NAME: "UW Department of Chemistry",
-		PICTURE: "https://2019.igem.org/wiki/images/5/58/T--Washington--ChemLogo.png",
-		FILTER: "Silver",
-		LINK: "http://depts.washington.edu/chem/",
-		BIO: "",
-		SUBTEXT: ""
-	},
-	{
-		NAME: "UW Department of Bioengineering",
-		PICTURE: "https://2019.igem.org/wiki/images/f/f4/T--Washington--BioELogo.png",
-		FILTER: "Silver",
-		LINK: "https://bioe.uw.edu/",
-		BIO: "",
-		SUBTEXT: ""
-	},
-	{
-		NAME: "UW Department of Microbiology",
-		PICTURE: "https://2019.igem.org/wiki/images/0/02/T--Washington--MicroBioLogo.png",
-		FILTER: "Bronze",
-		LINK: "https://microbiology.washington.edu/",
-		BIO: "",
-		SUBTEXT: ""
-	},
-	{
 		NAME: "UW Department of Applied Math",
-		PICTURE: "https://2019.igem.org/wiki/images/4/41/T--Washington--AppliedMathLogo.png",
-		FILTER: "Bronze",
+		PICTURE: "https://2021.igem.org/wiki/images/2/2c/T--Washington--amathlogo.png",
+		FILTER: "Prokaryote",
 		LINK: "https://amath.washington.edu/",
 		BIO: "",
 		SUBTEXT: ""
 	},
 	{
-		NAME: "Promega",
-		PICTURE: "https://2019.igem.org/wiki/images/8/84/T--Washington--Promega.png",
-		FILTER: "Bronze",
-		LINK: "https://www.promega.com",
+		NAME: "UW Department of Microbiology",
+		PICTURE: "https://2021.igem.org/wiki/images/6/6a/T--Washington--Microbio.png",
+		FILTER: "Prokaryote",
+		LINK: "https://microbiology.washington.edu/",
 		BIO: "",
 		SUBTEXT: ""
-	}
+	},
+	{
+		NAME: "Zulip",
+		PICTURE: "https://2021.igem.org/wiki/images/0/00/T--Washington--Zuliplogo.png",
+		FILTER: "Prokaryote",
+		LINK: "https://zulipchat.com/",
+		BIO: "",
+		SUBTEXT: ""
+	},
+	{
+		NAME: "IDT",
+		PICTURE: "https://2021.igem.org/wiki/images/9/9e/T--Washington--IDTlogo.png",
+		FILTER: "Prokaryote",
+		LINK: "https://www.idtdna.com/",
+		BIO: "",
+		SUBTEXT: ""
+	},
+	{
+		NAME: "Chipotle",
+		PICTURE: "https://2021.igem.org/wiki/images/b/be/T--Washington--Chipotle.png",
+		FILTER: "Prokaryote",
+		LINK: "https://www.chipotle.com/",
+		BIO: "",
+		SUBTEXT: ""
+	},
+	{
+		NAME: "Benchling",
+		PICTURE: "https://2021.igem.org/wiki/images/8/82/T--Washington--Benchling.png",
+		FILTER: "Prokaryote",
+		LINK: "https://www.benchling.com/",
+		BIO: "",
+		SUBTEXT: ""
+	},
+	{
+		NAME: "iGEM (iGEM Impact Grant)",
+		PICTURE: "https://2021.igem.org/wiki/images/8/8b/HQ_page_logo.jpg",
+		FILTER: "Prokaryote",
+		LINK: "https://2021.igem.org/Teams/Grants/Impact",
+		BIO: "",
+		SUBTEXT: ""
+	},
 ];
 
 const teamData: TeamData = [
