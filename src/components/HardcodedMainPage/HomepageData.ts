@@ -6,23 +6,23 @@ export type HowItWorksItem = {
 }
 export const homepageHowItWorksData: HowItWorksItem[] = [
 	{
-		title: 'item 1',
-		caption: 'sample item caption',
-		image: 'https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg'
+		title: 'Step 1',
+		caption: 'We will express our modified MT protein within bacteria which will be used as whole cell remediators to sequester arsenic from polluted environments.',
+		image: 'https://2021.igem.org/wiki/images/6/68/T--Washington--homepageHowItWorks1.png'
 	},
 	{
-		title: 'item 2',
-		caption: 'sample item caption',
-		image: 'https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2020/07/solar_orbiter_s_first_views_of_the_sun5/22136942-2-eng-GB/Solar_Orbiter_s_first_views_of_the_Sun_pillars.gif'
+		title: 'Step 2',
+		caption: 'The concentration of arsenic taken up by whole cell remediators is often a limiting factor on the efficiency of sequestration. Thus we coexpressed the MTIA gene with glpf, a protein that transports arsenic into E.coli.',
+		image: 'https://2021.igem.org/wiki/images/1/13/T--Washington--homepageHowItWorks2.png'
 	},
 	{
-		title: 'item 3',
-		caption: 'sample item caption',
-		image: 'https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__480.jpg'
+		title: 'Step 3',
+		caption: 'We want to regulate the expression of the MTIA and glpF genes to improve E.coli fitness. As a result, we designed our operon so that the expression of MT and glpF will be controlled by the transcription factor arsR, which represses transcription when there is no arsenic in the cell. Our drylab modelled the potential operon designs to determine their feasibility and efficiency in silico.',
+		image: 'https://2021.igem.org/wiki/images/5/51/T--Washington--homepageHowItWorks3.png'
 	},
 	{
-		title: 'item 4',
-		caption: 'sample item caption',
-		image: 'https://images.pexels.com/photos/206359/pexels-photo-206359.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+		title: 'Step 4',
+		caption: "In our proposed solution, we plan to inoculate the root microbiome of the native plant lomatium triternatum with bacteria transformed to express our custom modified metallothionein. By expressing our system in this plant's roots, we will be able to sequester toxic arsenic from the soil in the roots of the modified plants, remediating the surrounding soil.",
+		image: 'https://2021.igem.org/wiki/images/1/17/T--Washington--homepageHowItWorks4.png'
 	}
 ]

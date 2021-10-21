@@ -69,51 +69,27 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 						<img src="https://2021.igem.org/wiki/images/5/59/T--Washington--HomepageParallaxHeavyMetal.svg" alt="soil with heavy metals" />
 					</Parallax>
 					<p>
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						To keep up with consumer and industrial demand, metal smelteries around the world release slag and emission byproducts that are harmful to people and the environment.
 					</p>
 					<Container className={styles.problemContextStatistics}>
 						<Row className={"gx-5"}>
-							<Col md={3}>
-								<div>
-									Statistics 1
-								</div>
+							<Col md={4}>
+								<p>
+									In the past year alone, over 30,000 metric tons of arsenic and 11 million metric tons of lead were produced worldwide.
+								</p>
 							</Col>
-							<Col md={6}>
-								<div>
-									Heavy Metal Accumulation Cubes in the Ground
-								</div>
+							<Col md={4}>
+								<img className={styles.problemContextBeaker} src="https://2021.igem.org/wiki/images/thumb/e/ee/T--Washington--homepageBeaker.png/289px-T--Washington--homepageBeaker.png" alt="Beaker with metals" />
 							</Col>
-							<Col md={3}>
-								<div>
-									Statistics 2
-								</div>
+							<Col md={4}>
+								<p>
+									The prevalence for Ulcerative Colitis, an inflammatory bowel disease, is 10-15x higher than expected.
+								</p>
 							</Col>
 						</Row>
 					</Container>
 					<p>
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						Heavy metal contamination by arsenic is a serious health and environmental concern worldwide.Heavy metal contamination by arsenic is a serious health and environmental concern worldwide.Heavy metal contamination by arsenic is a serious health and environmental concern.
 					</p>
 				</Container>
 			</section>
@@ -123,22 +99,11 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 					<Container className={styles.ourSolutionGrid}>
 						<Row className={"gx-5"}>
 							<Col md={6}><img src="https://2021.igem.org/wiki/images/6/69/T--Washington--rhizomet.svg" alt="Rhizomet text in orange blob"/></Col>
-							<Col md={6}><img src="https://2021.igem.org/wiki/images/4/44/T--Washington--homepageBacteria.svg" alt="bacteria" /></Col>
+							<Col md={6}><img src="https://2021.igem.org/wiki/images/thumb/4/44/T--Washington--homepageBacteria.svg/300px-T--Washington--homepageBacteria.svg.png" alt="bacteria" /></Col>
 						</Row>
 					</Container>
 					<p>
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
-						LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE. LOTS OF TEXT HERE.
+						We modified the human metallothionein IA protein to have all its 7 binding sites be specific to arsenic. The modified protein can be expressed within bacteria to remediate arsenic from the environment.
 					</p>
 				</Container>
 			</section>
@@ -159,7 +124,7 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 										</Col>
 										<Col md={4}>
 											<h3>{slideData.title}</h3>
-											<p>{slideData.caption}</p>
+											<p className={styles.howItWorksCaption}>{slideData.caption}</p>
 										</Col>
 									</Row>
 								</Container>
@@ -172,9 +137,11 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 				<Container>
 					<h1>Modeling</h1>
 					<div className={styles.modelingProteinContainer}>
-						<img src="https://2021.igem.org/wiki/images/3/3f/T--Washington--homepageProteinModel.svg" alt="protein model" />
+						<img src="https://2021.igem.org/wiki/images/6/64/T--Washington--MT_protein_blue.png" alt="protein model" />
 					</div>
-					<p>Explanation text goes here.Explanation text goes here.Explanation text goes here.Explanation text goes here.Explanation text goes here.</p>
+					<p>
+						We modified Metallothionein to bind more specifically to As by using a program called Rosetta to change the Cd and Zn binding sites to As binding sites. The result is a custom design for a Metallothionein protein that sequesters 7 As III ions. We also developed mathematical models of the kinetics of As within an Ecoli cell in order to test the feasibility and efficacy of our proposed system of remediating As.
+					</p>
 				</Container>
 			</section>
 			<section>
