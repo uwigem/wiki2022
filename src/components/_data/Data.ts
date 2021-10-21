@@ -209,7 +209,7 @@ const sponsorsData: SponsorsData = [
 	},
 	{
 		NAME: "iGEM (iGEM Impact Grant)",
-		PICTURE: "https://2021.igem.org/wiki/images/8/8b/HQ_page_logo.jpg",
+		PICTURE: "https://2021.igem.org/wiki/images/f/ff/T--Washington--igem_icon.svg",
 		FILTER: "Prokaryote",
 		LINK: "https://2021.igem.org/Teams/Grants/Impact",
 		BIO: "",
