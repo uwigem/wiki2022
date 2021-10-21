@@ -54,6 +54,31 @@ export const SideBar: React.FC<SideBarProps> = ({
 	let sections: sectionInfo[] = [];
 
 	useEffect(() => {
+		const onResize = () => {
+			calculateSectionArea(sections);
+		};
+		const onScroll = () => {
+			for (let i = 0; i < sections.length; i++) {
+				let section = sections[i];
+				if (window.scrollY >= section.top && window.scrollY <= section.bottom) {
+					if (section.sectionID !== currentActiveSection.sectionID) {
+						setCurrentActiveSection(section);
+						break;
+					}
+				}
+			}
+		};
+
+		window.addEventListener('resize', onResize);
+		window.addEventListener('scroll', onScroll);
+
+		return () => {
+			window.removeEventListener('resize', onResize);
+			window.removeEventListener('scroll', onScroll);
+		}
+	}, []);
+
+	useEffect(() => {
 		contentData[pageTitle].contentOrder!.forEach((id, index) => {
 			let content = contentData[pageTitle].content![id];
 			if (content && content.type === "HEADER") {
@@ -77,21 +102,21 @@ export const SideBar: React.FC<SideBarProps> = ({
 		return <></>;
 	}
 
-	window.addEventListener("resize", (val) => {
-		calculateSectionArea(sections);
-	});
+	// window.addEventListener("resize", (val) => {
+	// 	calculateSectionArea(sections);
+	// });
 
-	window.addEventListener("scroll", () => {
-		for (let i = 0; i < sections.length; i++) {
-			let section = sections[i];
-			if (window.scrollY >= section.top && window.scrollY <= section.bottom) {
-				if (section.sectionID !== currentActiveSection.sectionID) {
-					setCurrentActiveSection(section);
-					break;
-				}
-			}
-		}
-	});
+	// window.addEventListener("scroll", () => {
+	// 	for (let i = 0; i < sections.length; i++) {
+	// 		let section = sections[i];
+	// 		if (window.scrollY >= section.top && window.scrollY <= section.bottom) {
+	// 			if (section.sectionID !== currentActiveSection.sectionID) {
+	// 				setCurrentActiveSection(section);
+	// 				break;
+	// 			}
+	// 		}
+	// 	}
+	// });
 
 	let generateSectionLinks = contentData[pageTitle].contentOrder!!.map((content) => {
 		let widgetInfo = contentData[pageTitle].content![content]
