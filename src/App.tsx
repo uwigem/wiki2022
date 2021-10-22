@@ -42,7 +42,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase, ContentEditor }
 	const [loading, setLoading] = useState<boolean>(true);
 	const [contentData, setContentData] = useState<ContentData>(Data.getContentData());
 	// TODO: Change arg back to just debug URL
-	const [pageTitle, setPageTitle] = useState<string>("/Team"); //(debugURL)
+	const [pageTitle, setPageTitle] = useState<string>(debugURL); //(debugURL)
 	const [debugMode, setDebugMode] = useState<boolean>(true);
 	const windowWidth = useWindowWidth();
 
@@ -166,7 +166,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase, ContentEditor }
 								currYear={currYear}
 							/>}
 						{/******HARDCODED DESCRIPTION PAGE**********/}
-						{pageTitle !== "/Editor"
+						{/* {pageTitle !== "/Editor"
 							&& (pageTitle === "/Description") &&
 							<div className="main-temporary">
 								{pageTitle !== '/Description' &&
@@ -193,7 +193,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase, ContentEditor }
 								<p>
 									This project was inspired by work in the Gu Lab at the University of Washington and their work dealing with the creation of a CID system. We wanted to take what we learned from last year, build upon it, and package everything in a consumer friendly device to detect CBD. Furthermore, since our team has had experience with CID devices from our 2018 project that dealt with detecting anchor binders for cholecalciferol and artemisinin.
                                 </p>
-							</div>}
+							</div>} */}
 
 						{/*********HARDCODED MAIN PAGE*********** */}
 						{pageTitle !== "/Editor"
