@@ -49,21 +49,9 @@ let navbarData: NavbarType[] = [
 		key: "human_practices"
 	},
 	{
-		title: "Safety",
-		names: ["Safety"],
-		links: ["/Safety"],
-		key: "safety"
-	},
-	{
 		title: "People",
-		names: ["Team", "Attributions", "Sponsors", "Gallery"],
-		links: ["/Team", "/Attributions", "/Sponsors", "/Gallery"],
+		names: ["Team", "Attributions", "Sponsors"],
+		links: ["/Team", "/Attributions", "/Sponsors"],
 		key: "people"
-	},
-	{
-		title: "Judging",
-		names: ["Medal Requirements"],
-		links: ["/Medal_Requirements"],
-		key: "judging"
-	},
+	}
 ];
