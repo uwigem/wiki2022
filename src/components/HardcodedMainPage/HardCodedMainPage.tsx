@@ -79,7 +79,7 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 								</p>
 							</Col>
 							<Col md={4}>
-								<img className={styles.problemContextBeaker} src="https://2021.igem.org/wiki/images/thumb/e/ee/T--Washington--homepageBeaker.png/289px-T--Washington--homepageBeaker.png" alt="Beaker with metals" />
+								<img className={styles.problemContextBeaker} src="https://2021.igem.org/wiki/images/e/ee/T--Washington--homepageBeaker.png" alt="Beaker with metals" />
 							</Col>
 							<Col md={4}>
 								<p>
@@ -142,22 +142,6 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 					<p>
 						We modified Metallothionein to bind more specifically to As by using a program called Rosetta to change the Cd and Zn binding sites to As binding sites. The result is a custom design for a Metallothionein protein that sequesters 7 As III ions. We also developed mathematical models of the kinetics of As within an Ecoli cell in order to test the feasibility and efficacy of our proposed system of remediating As.
 					</p>
-				</Container>
-			</section>
-			<section>
-				<Container>
-					<h1>Impact</h1>
-					<HomepageImpact
-						card1Img="https://placekitten.com/200/200"
-						card1Text="A short quote/explanation"
-						card1Title="Scalablity"
-						card2Img="https://placekitten.com/200/200"
-						card2Text="A short quote/explanation"
-						card2Title="Sustainability"
-						card3Img="https://placekitten.com/200/200"
-						card3Text="A short quote/explanation"
-						card3Title="Feasibility"
-					></HomepageImpact>
 				</Container>
 			</section>
 		</article>
