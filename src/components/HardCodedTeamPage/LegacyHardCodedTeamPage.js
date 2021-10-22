@@ -21,18 +21,17 @@ export class Team extends Component {
 			cardBody: 80
 		}
 
-		this.filteredCategories = ["All",
-			"Simulations",
-			"Wetlab",
-			"Outreach",
-			"Design",
-			"Integrated Human Practices",
-			"Web Dev",
-			"Adviser",
-			"Leadership",
-			"Collaborations",
-			"Presenters",
-			"PIs"];
+		this.filteredCategories = [
+      "All",
+      "Adviser",
+      "Mentors",
+      "Design",
+      "Drylab",
+      "Fundraising",
+			"Human Practices",
+      "Outreach",
+			"Web Development",
+			"Wetlab"];
 
 		window.addEventListener("resize", this.updateDim);
 		this.maxThres = 1400;
@@ -40,7 +39,7 @@ export class Team extends Component {
 		this.minminThres = 380;
 		this.mainColor = COLORS.PURPLE.PRIMARY;
 
-		this.sections = ["Leadership", "Members", "Advisers", "PIs"];
+		this.sections = ["Members", "Advisers", "Mentors"];
 		this.minBody = 70;
 		this.maxBody = 75;
 	}
@@ -142,7 +141,7 @@ export class Team extends Component {
 		return <div>
 			<Banner banner_content={{
 				textSize: 8,
-				imageLink: "https://2019.igem.org/wiki/images/f/f8/T--Washington--PhotoCollage.jpg",
+				imageLink: "https://2021.igem.org/wiki/images/2/25/T--Washington--PhotoCollage.jpeg",
 				imageTopX: 0,
 				imageTopY: 50,
 				imageZoom: 100,
@@ -175,20 +174,14 @@ export class Team extends Component {
 							{data && data.map((d, i) => {
 								let filter;
 								switch (sect) {
-									case "Leadership":
-										filter = d.FILTER && d.FILTER.indexOf(sect) === -1;
-										break;
 									case "Members":
-										filter = d.FILTER && (d.FILTER.indexOf('Adviser') !== -1 || d.FILTER.indexOf('Leadership') !== -1 || d.FILTER.indexOf('PIs') !== -1)
+										filter = d.FILTER && (d.FILTER.indexOf('Adviser') !== -1 || d.FILTER.indexOf('Mentors') !== -1)
 										break;
 									case "Advisers":
 										filter = d.FILTER && d.FILTER.indexOf('Adviser') === -1;
 										break;
-									case "PIs":
-										filter = d.FILTER && d.FILTER.indexOf('PIs') === -1;
-										break;
-									default:
-										filter = d.FILTER && (d.FILTER.indexOf('Adviser') !== -1 || d.FILTER.indexOf('Leadership') !== -1)
+									case "Mentors":
+										filter = d.FILTER && d.FILTER.indexOf('Mentors') === -1;
 										break;
 								}
 								if (filter) {
@@ -208,8 +201,8 @@ export class Team extends Component {
 									maxWidth: 380,
 									minWidth: 280,
 									height: 'auto',
-									minHeight: 380,
-									backgroundColor: d.PICTURE === "https://2019.igem.org/wiki/images/d/d9/T--Washington--HLogo1.png" && this.state.loaded[i] ? 'lightgray' : 'white',
+									minHeight: 400,
+									backgroundColor: d.PICTURE === "https://2021.igem.org/wiki/images/d/d9/T--Washington--HLogo1.png" && this.state.loaded[i] ? 'lightgray' : 'white',
 									margin: 'auto',
 									borderRadius: 20,
 									overflow: 'hidden',
