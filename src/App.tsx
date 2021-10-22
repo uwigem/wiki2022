@@ -26,8 +26,7 @@ window.addEventListener("unload", function () { });
 type AppProps = {
 	IEOREDGE: boolean,
 	currYear: number,
-	firebase?: any,
-	ContentEditor: React.FC<ContentEditorProps>
+	firebase?: any
 }
 const debugURL = "/Editor";
 
@@ -38,7 +37,7 @@ const debugURL = "/Editor";
  * William Kwok
  * July 17, 2019
  */
-const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase, ContentEditor }) => {
+const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase }) => {
 	const [loading, setLoading] = useState<boolean>(true);
 	const [contentData, setContentData] = useState<ContentData>(Data.getContentData());
 	// TODO: Change arg back to just debug URL
@@ -160,11 +159,11 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase, ContentEditor }
 					<div className={`${debugMode ? "app-content-dev" : "app-content-real"}
                         ${windowWidth < 600 ? "mobile" : ""}`}>
 						{/** Comment out this in final build */}
-						{pageTitle === "/Editor" &&
+						{/* {pageTitle === "/Editor" &&
 							<ContentEditor
 								contentData={contentData}
 								currYear={currYear}
-							/>}
+							/>} */}
 						{/******HARDCODED DESCRIPTION PAGE**********/}
 						{/* {pageTitle !== "/Editor"
 							&& (pageTitle === "/Description") &&

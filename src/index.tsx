@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { detect } from 'detect-browser';
-import { ContentEditor } from './components/ContentEditor/ContentEditor';
+// import { ContentEditor } from './components/ContentEditor/ContentEditor';
 
 
 /**
@@ -19,23 +19,23 @@ import { ContentEditor } from './components/ContentEditor/ContentEditor';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // COMMENT/UNCOMMENT BELOW TO ENABLE OR DISABLE FIREBASE TO THE PROJECT
-import * as firebase from 'firebase/app';
-import 'firebase/app'
-import 'firebase/messaging';
-import 'firebase/database';
-import 'firebase/auth';
+// import * as firebase from 'firebase/app';
+// import 'firebase/app'
+// import 'firebase/messaging';
+// import 'firebase/database';
+// import 'firebase/auth';
 
-const firebaseConfig = {
-	apiKey: "AIzaSyBkr6jirFdzkMofucO2z_KzN13hMDeWkVI",
-	authDomain: "uwigem-wikis.firebaseapp.com",
-	databaseURL: "https://uwigem-wikis.firebaseio.com",
-	projectId: "uwigem-wikis",
-	storageBucket: "uwigem-wikis.appspot.com",
-	messagingSenderId: "131891776719",
-	appId: "1:131891776719:web:0bf2382aec94dcdf"
-};
-firebase.initializeApp(firebaseConfig);
-// let firebase = null;
+// const firebaseConfig = {
+// 	apiKey: "AIzaSyBkr6jirFdzkMofucO2z_KzN13hMDeWkVI",
+// 	authDomain: "uwigem-wikis.firebaseapp.com",
+// 	databaseURL: "https://uwigem-wikis.firebaseio.com",
+// 	projectId: "uwigem-wikis",
+// 	storageBucket: "uwigem-wikis.appspot.com",
+// 	messagingSenderId: "131891776719",
+// 	appId: "1:131891776719:web:0bf2382aec94dcdf"
+// };
+// firebase.initializeApp(firebaseConfig);
+let firebase = null;
 // firebase.auth().signInWithPopup(provider);
 
 // ENTER THE CURRENT iGEM SEASON YEAR AS IN THE iGEM WIKI LINK (eg 2019.igem.org)
@@ -82,7 +82,7 @@ switch (browser && browser.name) {
  */
 const currAccessDate = new Date();
 
-// Ensure that people are at the correct year. 
+// Ensure that people are at the correct year.
 if (currAccessDate > endOfSeasonDate) {
 	let year = currAccessDate.getFullYear();
 
@@ -90,7 +90,7 @@ if (currAccessDate > endOfSeasonDate) {
 		year = currYear + 1;
 	}
 	alert(`You are currently viewing our ${currYear} project.
-    
+
 Check out our ${year} project over at the link below!
 
 http://${year}.igem.org/Team:Washington.`)
@@ -101,4 +101,4 @@ http://${year}.igem.org/Team:Washington.`)
  * In the future, you may want to change this prop to the browser name instead, or extend it to
  * work with browsers that are behind, such as Safari.
  */
-ReactDOM.render(<App IEOREDGE={IEOREDGE} currYear={currYear} firebase={firebase} ContentEditor={ContentEditor} />, document.getElementById('root'));
+ReactDOM.render(<App IEOREDGE={IEOREDGE} currYear={currYear} firebase={firebase} />, document.getElementById('root'));
