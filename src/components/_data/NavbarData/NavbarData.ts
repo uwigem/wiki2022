@@ -44,8 +44,8 @@ let navbarData: NavbarType[] = [
 	},
 	{
 		title: "Human Practices",
-		names: ["Overview", "Implementation", "Collaborations", "Partnership", "Education & Communication", "Sustainable Development"],
-		links: ["/Human_Practices", "/Implementation", "/Collaborations", "/Partnership", "/Communication", "/Sustainable"],
+		names: ["Overview", "Implementation", "Collaborations", "Education & Communication"],
+		links: ["/Human_Practices", "/Implementation", "/Collaborations", "/Communication"],
 		key: "human_practices"
 	},
 	{
