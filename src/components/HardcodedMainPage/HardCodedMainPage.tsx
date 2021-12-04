@@ -41,7 +41,7 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 				<Container className={styles.hero}>
 					<Row>
 						<Col md={5}>
-							<h1>Arcenic Purification</h1>
+							<h1>Arsenic Purification</h1>
 							<p>Utilizes engineered rhizobacteria in plant roots to selectively accumulate heavy metals</p>
 						</Col>
 						<Col md={7}>
