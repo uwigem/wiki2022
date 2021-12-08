@@ -51,7 +51,7 @@ body {
 	overflow-y: scroll !important;
 	height: 100%;
 	padding: 0 !important;
-	background-color: var(--background-color);
+	/* background-color: var(--background-color); */
 	overflow-x: hidden;
 }
 
