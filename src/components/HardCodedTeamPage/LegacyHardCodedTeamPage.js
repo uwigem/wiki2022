@@ -23,8 +23,8 @@ export class Team extends Component {
 
 		this.filteredCategories = [
       "All",
-      "Adviser",
-      "Mentors",
+    //   "Adviser",
+    //   "Mentors",
       "Design",
       "Drylab",
       "Fundraising",
