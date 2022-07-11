@@ -28,7 +28,7 @@
 		"draftjs-to-html": "~0.8.4",
 		"enzyme": "~3.10.0",
 		"enzyme-adapter-react-16": "~1.14.0",
-		"firebase": "~6.1.0",
+		"firebase": "^6.6.2",
 		"firebase-mock": "~2.2.10",
 		"fontfaceobserver": "~2.1.0",
 		"react": "~16.8.6",
@@ -40,7 +40,7 @@
 		"react-markdown": "~4.1.0",
 		"react-parallax": "^3.3.0",
 		"react-reveal": "~1.2.2",
-		"react-scripts": "3.0.1",
+		"react-scripts": "^3.4.4",
 		"rewire": "~4.0.1",
 		"typescript": "3.5.1"
 	},
