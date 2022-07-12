@@ -4,6 +4,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { DebugHeader } from './components/_debug/DebugHeader/DebugHeader';
 import { Footbar } from './components/Footbar/Footbar';
 import { ContentEditorProps } from './components/ContentEditor/ContentEditor';
+import { ContentEditor } from './components/ContentEditor/ContentEditor';
 import { EnvironmentContext } from './contexts/EnvironmentContext/EnvironmentContext';
 import { useWindowWidth } from './hooks/useWindowWidth';
 import { LoadingScreen } from './components/LoadingScreen/LoadingScreen';
@@ -159,11 +160,11 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase }) => {
 					<div className={`${debugMode ? "app-content-dev" : "app-content-real"}
                         ${windowWidth < 600 ? "mobile" : ""}`}>
 						{/** Comment out this in final build */}
-						{/* {pageTitle === "/Editor" &&
+						{pageTitle === "/Editor" &&
 							<ContentEditor
 								contentData={contentData}
 								currYear={currYear}
-							/>} */}
+							/>}
 						{/******HARDCODED DESCRIPTION PAGE**********/}
 						{/* {pageTitle !== "/Editor"
 							&& (pageTitle === "/Description") &&

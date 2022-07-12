@@ -40,10 +40,10 @@ const provider = new firebase.auth.GoogleAuthProvider();
 firebase.auth().signInWithPopup(provider);
 
 // ENTER THE CURRENT iGEM SEASON YEAR AS IN THE iGEM WIKI LINK (eg 2019.igem.org)
-let currYear = 2021;
+let currYear = 2022;
 
 // the date of JUNE 14 of the year after `currYear`
-const endOfSeasonDate = new Date(currYear+1, 6, 14);
+const endOfSeasonDate = new Date(currYear, 10, 12);
 
 // SET THE PAGE TITLE IF YOU WANT TO CHANGE IT
 document.title = "Washington iGEM";
