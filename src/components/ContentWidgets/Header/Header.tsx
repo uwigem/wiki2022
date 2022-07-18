@@ -26,6 +26,6 @@ export const Header: React.FC<ContentSingularData> = ({ header_content, header_p
 
 	return <div className="wi-content-wrapper">
 		{header}
-		<div className="header-sep"></div>
+		{/* <div className="header-sep"></div> */}
 	</div>
 }

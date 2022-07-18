@@ -3,6 +3,7 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import App from './App';
+import { ContentEditor } from './components/ContentEditor/ContentEditor';
 
 // configure enzyme to work with React version 16
 Enzyme.configure({ adapter: new Adapter() });
@@ -12,7 +13,8 @@ describe("App component", () => {
         mount(<App IEOREDGE={true}
             currYear={2019}
             firebase={null}
-            ContentEditor={() => <></>} />);
+            // ContentEditor={() => <></>}
+            />);
     });
 
     /** 
@@ -23,7 +25,8 @@ describe("App component", () => {
         const wrapper = mount(<App IEOREDGE={true}
             currYear={2019}
             firebase={null}
-            ContentEditor={() => <></>} />);
+            // ContentEditor={() => <></>}
+            />);
         expect(wrapper.find("DebugHeader").length).toEqual(1);
     });
 

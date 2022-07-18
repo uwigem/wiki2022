@@ -22,7 +22,7 @@
 	--success-secondary: #d0eeda;
 	--failure-primary: #af2323;
 	--failure-secondary: #f3dada;
-	--default-font: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto !important;
+	--default-font: 'Inter', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto !important;
 	--content-padding-left: 5%;
 	--content-padding-right: 5%;
 	--content-margin-top: 10px;
