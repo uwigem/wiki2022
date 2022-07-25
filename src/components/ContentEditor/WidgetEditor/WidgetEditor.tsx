@@ -62,46 +62,54 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 		setEditedContentOnChange("type", widgetType as string, editedContent, setEditedContent);
 	};
 
-	return <div className="widget-editor">
-		{!editing && <>
-            <div className="content-editbanner-container">
-                <div className="content-button-container">
-                    <ContentWidget {...editedContent} />
-					{/* <div>
-						<WidgetLiveEdit
-							contentHash={contentHash}
-							currYear={currYear}
-							pageToEdit={pageToEdit}
-							user={user}
-							editing={false}
-							setEditing={setEditing}
-							editedContent={editedContent}
-							deleteWidget={deleteWidget} />
-					</div> */}
-                </div>
-                <WidgetLiveEditBar
-                    contentHash={contentHash}
-                    currYear={currYear}
-                    pageToEdit={pageToEdit}
-                    user={user}
-                    editing={false} />
-            </div>
-		</>}
-
-		{editing && <>
-			<div className="widget-picker">
-				<form>
-					<Button onClick={() => {
-						setShowWidgetSelector(true);
-						console.log("Changing widget")
-					}}>Change Widget</Button>
-				</form>
+	return <>
+		{!editing && <div className="complete-widget-editor">
+			<div className="widget-editor">
+				<div className="content-editbanner-container">
+					<div className="content-button-container">
+						<ContentWidget {...editedContent} />
+					</div>
+					<WidgetLiveEditBar
+						contentHash={contentHash}
+						currYear={currYear}
+						pageToEdit={pageToEdit}
+						user={user}
+						editing={false} />
+				</div>
 			</div>
-			<ContentEditingWidget editedContent={editedContent}
-				originalContent={content}
-				setEditedContentOnChange={(keyToChange: string, valueToChange: string) => {
-					setEditedContentOnChange(keyToChange, valueToChange, editedContent, setEditedContent);
+			<div>
+				<WidgetLiveEdit
+					contentHash={contentHash}
+					currYear={currYear}
+					pageToEdit={pageToEdit}
+					user={user}
+					editing={false}
+					setEditing={setEditing}
+					editedContent={editedContent}
+					deleteWidget={deleteWidget} />
+			</div>
+		</div>}
+
+		{editing && <div className="complete-widget-editor">
+			<div className="widget-editor">
+				<div className="widget-picker">
+					<form>
+						<Button onClick={() => {
+							setShowWidgetSelector(true);
+							console.log("Changing widget")
+						}}>Change Widget</Button>
+					</form>
+				</div>
+				<ContentEditingWidget editedContent={editedContent}
+					originalContent={content}
+					setEditedContentOnChange={(keyToChange: string, valueToChange: string) => {
+						setEditedContentOnChange(keyToChange, valueToChange, editedContent, setEditedContent);
+					}} />
+				<WidgetSelectionModal startingState={showWidgetSelector} onSubmit={(widgetType: WidgetTypes) => {
+					handleWidgetTypeChange(widgetType);
+					setShowWidgetSelector(false);
 				}} />
+			</div>
 			<div>
 				<WidgetLiveEdit
 					contentHash={contentHash}
@@ -113,12 +121,8 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
 					editedContent={editedContent}
 					deleteWidget={deleteWidget} />
 			</div>
-			<WidgetSelectionModal startingState={showWidgetSelector} onSubmit={(widgetType: WidgetTypes) => {
-				handleWidgetTypeChange(widgetType);
-				setShowWidgetSelector(false);
-			}} />
-		</>}
-	</div>
+		</div>}
+	</>
 }
 
 
