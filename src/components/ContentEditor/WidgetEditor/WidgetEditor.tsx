@@ -67,17 +67,17 @@ export const WidgetEditor: React.FC<WidgetEditorProps> = ({ content, contentHash
             <div className="content-editbanner-container">
                 <div className="content-button-container">
                     <ContentWidget {...editedContent} />
-                    <div>
-                        <WidgetLiveEdit
-                            contentHash={contentHash}
-                            currYear={currYear}
-                            pageToEdit={pageToEdit}
-                            user={user}
-                            editing={false}
-                            setEditing={setEditing}
-                            editedContent={editedContent}
-                            deleteWidget={deleteWidget} />
-                    </div>
+					{/* <div>
+						<WidgetLiveEdit
+							contentHash={contentHash}
+							currYear={currYear}
+							pageToEdit={pageToEdit}
+							user={user}
+							editing={false}
+							setEditing={setEditing}
+							editedContent={editedContent}
+							deleteWidget={deleteWidget} />
+					</div> */}
                 </div>
                 <WidgetLiveEditBar
                     contentHash={contentHash}

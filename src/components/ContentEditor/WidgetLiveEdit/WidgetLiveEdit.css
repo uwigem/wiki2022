@@ -3,6 +3,7 @@
 }
 
 .widget-button-container {
+  border: solid blue 1px;
   display: flex;
   justify-content: flex-end;
   margin: 10px;
