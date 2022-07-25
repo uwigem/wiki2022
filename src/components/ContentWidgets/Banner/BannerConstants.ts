@@ -6,7 +6,7 @@ export enum Color {
 export const EMPTY_BANNER = {
     bannerText: "",
     textSize: 10,
-    textColor: Color.WHITE,
+    textColor: Color.BLACK,
     imageLink: "",
     imageBlur: 0,
     imageZoom: 100,
