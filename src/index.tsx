@@ -36,8 +36,8 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 // let firebase = null;
-const provider = new firebase.auth.GoogleAuthProvider();
-firebase.auth().signInWithPopup(provider);
+// const provider = new firebase.auth.GoogleAuthProvider();
+// firebase.auth().signInWithPopup(provider);
 
 // ENTER THE CURRENT iGEM SEASON YEAR AS IN THE iGEM WIKI LINK (eg 2019.igem.org)
 let currYear = 2022;
