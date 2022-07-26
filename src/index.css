@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 :root {
 	/** These colors should be deprecated ASAP */
 	--header-tag-color: black;
@@ -22,7 +24,7 @@
 	--success-secondary: #d0eeda;
 	--failure-primary: #af2323;
 	--failure-secondary: #f3dada;
-	--default-font: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto !important;
+	--default-font: "Inter", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto !important;
 	--content-padding-left: 5%;
 	--content-padding-right: 5%;
 	--content-margin-top: 10px;

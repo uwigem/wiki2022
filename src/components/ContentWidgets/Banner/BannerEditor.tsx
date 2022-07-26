@@ -112,6 +112,19 @@ export const BannerEditor: React.FC<WidgetEditorProps> = ({
                     </input>
                     <p>%</p>
                 </div>
+                <div>
+                    <p>Opacity</p> 
+                    <input 
+                        type="number"
+                        min="0"
+                        max="100"
+                        value={bannerContent.opacity}
+                        onChange={(e) => {
+                            bannerContent.opacity = Number(e.target.value);
+                            setEditedContentOnChange("banner_content", bannerContent)}}>
+                    </input>
+                    <p>%</p>
+                </div>
             </div>  
         </div>
         <div className="banner-preview">
