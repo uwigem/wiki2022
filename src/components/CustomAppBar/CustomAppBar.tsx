@@ -43,9 +43,6 @@ export const CustomAppBar: React.FC<CustomAppBarProps> = ({ name, pageTitle, a }
 	
 	document.addEventListener('scroll', handleScroll);
 
-	const scrollBehaviour = {
-	}
-
 	return <>
 		<div className={"appbar"}
 			style={{
@@ -54,10 +51,7 @@ export const CustomAppBar: React.FC<CustomAppBarProps> = ({ name, pageTitle, a }
 			}}
 			>
 			<AppBar className={"mui-appbar"}
-				style={{ 
-					minHeight: NAVBAR_MIN_HEIGHT,
-					marginTop: (scrollUp) ? '0px' : '-85px'
-				}}
+				style={{ minHeight: NAVBAR_MIN_HEIGHT }}
 				color="secondary">
 				<Toolbar style={{ minHeight: NAVBAR_MIN_HEIGHT }}>
 					<AppBarLogo />
