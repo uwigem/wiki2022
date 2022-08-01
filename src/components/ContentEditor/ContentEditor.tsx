@@ -12,6 +12,7 @@ import { EnvironmentContext } from '../../contexts/EnvironmentContext/Environmen
 import { DeletionModal } from './DeletionModal/DeletionModal';
 import WidgetSelectionModal from './WidgetSelectionModal/WidgetSelectionModal';
 import { addWidget } from './widgetFirebase';
+import './ContentEditor.css'
 
 export type ContentEditorProps = {
 	contentData: ContentData,
@@ -73,16 +74,16 @@ export const ContentEditor: React.FC<ContentEditorProps> = ({ contentData, currY
     }
 
 		return <>
-      <DeletionModal pageToEdit={pageToEdit}
-        setPageToEdit={setPageToEdit}
-        isDeletingPage={isDeletingPage}
-        setisDeletingPage={setisDeletingPage}
-        currYear={currYear} />
+			<DeletionModal pageToEdit={pageToEdit}
+				setPageToEdit={setPageToEdit}
+				isDeletingPage={isDeletingPage}
+				setisDeletingPage={setisDeletingPage}
+				currYear={currYear} />
 			<ContentEditorBanner contentData={contentData}
 				pageToEdit={pageToEdit}
 				setPageToEdit={setPageToEdit}
 				currYear={currYear}
-        setisDeletingPage={setisDeletingPage} />
+				setisDeletingPage={setisDeletingPage} />
 			{(contentData &&
 				pageToEdit &&
 				contentData[pageToEdit]) ?
