@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Carousel from 'react-bootstrap/Carousel';
+import { ArrowDown, ArrowBarDown } from 'react-bootstrap-icons'
 import styles from './HardCodedMainPage.module.css';
 import { Parallax } from 'react-parallax';
 import { HomepageImpact } from './HomepageImpact/HomepageImpact';
@@ -38,11 +39,13 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 }) => {
 	return <>
 		<article className={styles.homepage}>
+			<div className={styles.heroScreen} />
+			<div className={styles.heroImage} />
 			<section className={styles.heroContainer}>
 				<Container className={styles.hero}>
 					<Row>
 						<Col md={5}>
-							<h1>Arsenic Purification</h1>
+							<h1>ARSENIC PURIFICATION</h1>
 							<p>Utilizes engineered rhizobacteria in plant roots to selectively accumulate heavy metals</p>
 						</Col>
 						<Col md={7}>
@@ -52,8 +55,8 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 					</Row>
 				</Container>
 				<div className={styles.scrollDown}>
-					<p>Scroll down for more info</p>
-					<p>VVV</p>
+					<p>scroll down for more info</p>
+					<ArrowDown size={24} />
 				</div>
 			</section>
 			<section className={styles.problemContext}>

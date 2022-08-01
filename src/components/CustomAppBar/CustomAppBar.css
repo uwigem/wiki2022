@@ -1,10 +1,13 @@
 .appbar {
 	flex-grow: 1;
-	transition: visibility 0.25s, opacity 0.25s;
+	transition: visibility 0.25s, opacity 0.25s !important;
+
+	position: absolute;
+	z-index: 9999;
 }
 
 .mui-appbar {
-	/* background-color: var(--purple-secondary) !important; */
 	background-color: rgba(218, 207, 239, 0.5) !important;
-	box-shadow: none;
+	box-shadow: none !important;
+	/* margin-top: -85px !important; */
 }

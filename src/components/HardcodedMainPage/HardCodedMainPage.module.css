@@ -1,3 +1,8 @@
+:root {
+    --hero-height: 120vh;
+    --hero-width: 100vw;
+}
+
 .homepage > section {
     padding: 30px 0;
 }
@@ -18,12 +23,32 @@
 }
 
 .heroContainer {
-    background-color: rgb(50,50,50);
-    background-image: url('https://2021.igem.org/wiki/images/1/1d/T--Washington--homepageHeroBackground.png');
+    height: var(--hero-height);
+    position: relative;
+
+    z-index: 2;
+}
+
+.heroImage {
+    background-image: url('https://media.gettyimages.com/photos/close-up-of-digital-data-picture-id1217903400?s=612x612');
     background-repeat: no-repeat;
-    /* background-attachment: fixed; */
-    background-position: right;
-    background-size: 55% auto;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: var(--hero-height);
+    width: var(--hero-width);
+    position: absolute;
+
+    z-index: 0;
+}
+
+.heroScreen {
+    background-color: rgba(112, 109, 180, 0.5);
+    height: var(--hero-height);
+    width: var(--hero-width);
+    position: absolute;
+
+    z-index: 2;
 }
 
 .hero {
