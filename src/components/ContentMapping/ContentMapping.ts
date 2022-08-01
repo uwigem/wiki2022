@@ -18,6 +18,8 @@ import { SeparatorEditor } from '../ContentWidgets/Separator/SeparatorEditor';
 import { Gallery } from '../ContentWidgets/Gallery/Gallery';
 import { GalleryEditor } from '../ContentWidgets/Gallery/GalleryEditor';
 
+import { TextSeparator } from '../ContentWidgets/TextSeparator/TextSeparator';
+import { TextSeparatorEditor } from '../ContentWidgets/TextSeparator/TextSeparatorEditor';
 import { WYSIWYGEditor } from '../ContentWidgets/WYSIWYG/WYSIWYGEditor';
 import { WYSIWYGWidget } from '../ContentWidgets/WYSIWYG/WYSIWYGWidget';
 import { Accordion } from '../ContentWidgets/Accordion/Accordion';
@@ -76,7 +78,8 @@ export enum WidgetTypes {
 	CAROUSEL = "CAROUSEL",
     HORIZONTAL_DIVIDER = "HORIZONTAL_DIVIDER",
     IMAGE = "IMAGE",
-    GRID_LAYOUT = "GRID_LAYOUT"
+    GRID_LAYOUT = "GRID_LAYOUT",
+	TEXT_SEPARATOR = "TEXT_SEPARATOR"
 }
 
 export const ContentMapping: ContentMappingType = {
@@ -190,7 +193,14 @@ export const ContentMapping: ContentMappingType = {
         displayName: "Grid Layout",
         widgetCategory: WidgetCategories.Layout,
 		imgPreview: IMAGE_URLS["grid.svg"],
-    }
+    },
+	TEXT_SEPARATOR: {
+		widget: memo(TextSeparator),
+		editor: TextSeparatorEditor,
+		displayName: "Text Separator",
+		widgetCategory: WidgetCategories.Layout,
+		imgPreview: IMAGE_URLS["separator-vertical.svg"]
+	}
 }
 
 export const ExampleWidget = {
