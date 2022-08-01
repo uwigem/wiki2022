@@ -8,11 +8,12 @@
 	padding: 15px;
 	width: 100%;
 	text-align: left;
-	font-size: 16px;
+	font-size: 20px;
+	border: none;
 }
 
 .accordion-title:hover, .active-accordion .accordion-title {
-	background-color: var(--gray-30);
+	background-color: var(--primary-color, #e3daf7);
 }
 
 .active-accordion .accordion-panel {
@@ -24,14 +25,15 @@
 	padding: 15px 20px;
 	display: none;
 	overflow-x: scroll;
+	color: var(--primary-color-text, #545355);
 }
 
 .active-accordion .accordion-title::after {
-	content: '\2796';
+	content: '\025B2';
 }
 
 .accordion-title::after {
-	content: '\02795';
+	content: '\025BC';
 	float: right;
 	margin-left: 5px;
 }

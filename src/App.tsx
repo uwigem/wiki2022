@@ -17,6 +17,8 @@ import { HardCodedMainPage } from './components/HardcodedMainPage/HardCodedMainP
 import { Team } from './components/HardCodedTeamPage/LegacyHardCodedTeamPage';
 import { Sponsors } from './components/HardCodedSponsorsPage/LegacyHardCodedSponsorsPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ContentEditor } from './components/ContentEditor/ContentEditor';
+
 
 
 // This line is to remove a bug that Firefox has
@@ -109,7 +111,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase }) => {
 			if (dataRef) {
 				dataRef.on("value", (snap) => {
 					setContentData(snap.val() as ContentData);
-				});
+				}) ;
 			}
 
 			return () => {
@@ -159,11 +161,11 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase }) => {
 					<div className={`${debugMode ? "app-content-dev" : "app-content-real"}
                         ${windowWidth < 600 ? "mobile" : ""}`}>
 						{/** Comment out this in final build */}
-						{/* {pageTitle === "/Editor" &&
+						{pageTitle === "/Editor" &&
 							<ContentEditor
 								contentData={contentData}
 								currYear={currYear}
-							/>} */}
+							/>}
 						{/******HARDCODED DESCRIPTION PAGE**********/}
 						{/* {pageTitle !== "/Editor"
 							&& (pageTitle === "/Description") &&
