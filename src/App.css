@@ -1,12 +1,12 @@
 .app-content-dev {
 	min-height: 100vh;
-	margin-top: 62px;
+	/* margin-top: 62px; */
 	background-color: white;
 }
 
 .app-content-real {
 	min-height: 100vh;
-	margin-top: 80px;
+	/* margin-top: 80px; */
 }
 
 .app-content-real.mobile {

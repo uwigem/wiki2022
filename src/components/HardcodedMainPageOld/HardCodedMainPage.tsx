@@ -9,7 +9,6 @@ import styles from './HardCodedMainPage.module.css';
 import { Parallax } from 'react-parallax';
 import { HomepageImpact } from './HomepageImpact/HomepageImpact';
 import { homepageHowItWorksData, HowItWorksItem } from './HomepageData';
-import { HomepageCard } from './HomepageCard/HomepageCard';
 
 type HardCodedMainPageProps = {
 	a: () => void
