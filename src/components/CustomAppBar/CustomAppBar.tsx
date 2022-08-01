@@ -18,8 +18,8 @@ type CustomAppBarProps = {
  * CustomAppBar is the application bar that (currently) uses MaterialUI
  *
  * Last Modified
- * Jaden Stetler
- * July 17, 2019
+ * Michael Tsien
+ * August 1, 2022
  */
 export const CustomAppBar: React.FC<CustomAppBarProps> = ({ name, pageTitle, a }) => {
 	const { windowWidth } = useContext(EnvironmentContext);
@@ -43,13 +43,21 @@ export const CustomAppBar: React.FC<CustomAppBarProps> = ({ name, pageTitle, a }
 	
 	document.addEventListener('scroll', handleScroll);
 
+	const scrollBehaviour = {
+	}
+
 	return <>
 		<div className={"appbar"}
-			style={{visibility: (scrollUp) ? 'visible' : 'hidden',
-					opacity: (scrollUp) ? 1 : 0}}
+			style={{
+				visibility: (scrollUp) ? 'visible' : 'hidden',
+				opacity: (scrollUp) ? 1 : 0
+			}}
 			>
 			<AppBar className={"mui-appbar"}
-				style={{ minHeight: NAVBAR_MIN_HEIGHT}}
+				style={{ 
+					minHeight: NAVBAR_MIN_HEIGHT,
+					marginTop: (scrollUp) ? '0px' : '-85px'
+				}}
 				color="secondary">
 				<Toolbar style={{ minHeight: NAVBAR_MIN_HEIGHT }}>
 					<AppBarLogo />
