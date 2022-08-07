@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { detect } from 'detect-browser';
- import { ContentEditor } from './components/ContentEditor/ContentEditor';
+import { ContentEditor } from './components/ContentEditor/ContentEditor';
 
 
 /**
@@ -25,29 +25,25 @@ import 'firebase/messaging';
 import 'firebase/database';
 import 'firebase/auth';
 
-
 const firebaseConfig = {
 	apiKey: "AIzaSyBkr6jirFdzkMofucO2z_KzN13hMDeWkVI",
- 	authDomain: "uwigem-wikis.firebaseapp.com",
- 	databaseURL: "https://uwigem-wikis.firebaseio.com",
- 	projectId: "uwigem-wikis",
- 	storageBucket: "uwigem-wikis.appspot.com",
- 	messagingSenderId: "131891776719",
- 	appId: "1:131891776719:web:0bf2382aec94dcdf"
- };
-
-
- 
- firebase.initializeApp(firebaseConfig);
- const provider = new firebase.auth.GoogleAuthProvider();
+	authDomain: "uwigem-wikis.firebaseapp.com",
+	databaseURL: "https://uwigem-wikis.firebaseio.com",
+	projectId: "uwigem-wikis",
+	storageBucket: "uwigem-wikis.appspot.com",
+	messagingSenderId: "131891776719",
+	appId: "1:131891776719:web:0bf2382aec94dcdf"
+};
+firebase.initializeApp(firebaseConfig);
 // let firebase = null;
- firebase.auth().signInWithPopup(provider);
+// const provider = new firebase.auth.GoogleAuthProvider();
+// firebase.auth().signInWithPopup(provider);
 
 // ENTER THE CURRENT iGEM SEASON YEAR AS IN THE iGEM WIKI LINK (eg 2019.igem.org)
 let currYear = 2022;
 
 // the date of JUNE 14 of the year after `currYear`
-const endOfSeasonDate = new Date(currYear+1, 6, 14);
+const endOfSeasonDate = new Date(currYear, 10, 12);
 
 // SET THE PAGE TITLE IF YOU WANT TO CHANGE IT
 document.title = "Washington iGEM";

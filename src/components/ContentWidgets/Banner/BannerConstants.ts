@@ -11,5 +11,7 @@ export const EMPTY_BANNER = {
     imageBlur: 0,
     imageZoom: 100,
     imageTopX: 0,
-    imageTopY: 0
+    imageTopY: 0,
+
+    opacity: 50
 }

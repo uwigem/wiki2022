@@ -10,15 +10,17 @@ export type BannerContent = {
 	imageBlur: number,
 	imageZoom: number,
 	imageTopX: number,
-	imageTopY: number
+	imageTopY: number,
+
+	opacity: number; // opacitiy of screen NOT IMAGE
 }
 
 /**
  * Banner component shows text on top of an image
  * 
  * Last Modified
- * Jennifer Tao
- * September 20, 2019
+ * Michael Tsien
+ * July 25, 2022
  */
 export const Banner: React.FC<ContentSingularData> = ({ banner_content }) => {
 	if (!banner_content) {
@@ -30,18 +32,23 @@ export const Banner: React.FC<ContentSingularData> = ({ banner_content }) => {
 		backgroundImage: 'url("' + banner_content.imageLink + '")',
 		backgroundPosition: banner_content.imageTopX + '% ' + banner_content.imageTopY + '%',
 		backgroundSize: banner_content.imageZoom + '%',
-		filter: 'blur(' + banner_content.imageBlur + 'px)'
+		filter: 'blur(' + banner_content.imageBlur + 'px)',
 	}
 
 	const textStyle = {
-		fontSize: banner_content.textSize + 'vw',
+		fontSize: 0.5625 * banner_content.textSize + 'vw',
 		color: banner_content.textColor
+	}
+
+	const screenStyle = {
+		opacity: 100 - banner_content.opacity + '%'
 	}
 
 	return <div style={textStyle} className="banner" >
 		<div className="banner-text" >
 			{banner_content.bannerText}
 		</div>
+		<div className="banner-screen" style={screenStyle}/>
 		<div className="banner-background" style={imgStyle}>
 			<div style={textStyle} className="banner-hidden">{banner_content.bannerText}</div>
 		</div>

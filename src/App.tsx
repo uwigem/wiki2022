@@ -3,7 +3,7 @@ import Data, { ContentData } from './components/_data/Data';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { DebugHeader } from './components/_debug/DebugHeader/DebugHeader';
 import { Footbar } from './components/Footbar/Footbar';
-import { ContentEditorProps } from './components/ContentEditor/ContentEditor';
+import { ContentEditor, ContentEditorProps } from './components/ContentEditor/ContentEditor';
 import { EnvironmentContext } from './contexts/EnvironmentContext/EnvironmentContext';
 import { useWindowWidth } from './hooks/useWindowWidth';
 import { LoadingScreen } from './components/LoadingScreen/LoadingScreen';

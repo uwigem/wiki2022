@@ -1,5 +1,5 @@
 .wysiwyg-wrapper {
-	padding: 10px;
+	/* padding: 10px; */
 }
 
 .wysiwyg-wrapper img {
@@ -16,6 +16,7 @@
 
 .wysiwyg-wrapper ul {
 	margin-left: 2rem !important;
+	margin-top: -8px !important;
 }
 
 .wysiwyg-editor {
