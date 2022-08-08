@@ -9,8 +9,9 @@ import { ArrowDown, ArrowBarDown } from 'react-bootstrap-icons'
 import styles from './HardCodedMainPage.module.css';
 import { Parallax } from 'react-parallax';
 import { HomepageImpact } from './HomepageImpact/HomepageImpact';
-import { homepageHowItWorksData, HowItWorksItem } from './HomepageData';
+import { homepageHowItWorksData, HowItWorksItem, menuItems, MenuItems} from './HomepageData';
 import { HomepageCard } from './HomepageCard/HomepageCard';
+import { MenuCard } from './MenuCard/MenuCard'
 
 type HardCodedMainPageProps = {
 	a: () => void
@@ -147,6 +148,26 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 						We modified Metallothionein to bind more specifically to As by using a program called Rosetta to change the Cd and Zn binding sites to As binding sites. The result is a custom design for a Metallothionein protein that sequesters 7 As III ions. We also developed mathematical models of the kinetics of As within an Ecoli cell in order to test the feasibility and efficacy of our proposed system of remediating As.
 					</p>
 				</Container>
+			</section>
+			<section className={styles.menu}>
+					{
+						[0,1,2].map(i => {
+							return (
+								<Row key={'row-' + i} className={styles.row}>
+									{
+										[0,1].map(j => {
+											return (
+												<MenuCard key={'card-' + (i*2 + j)}
+														section={menuItems[i*2 + j].section}
+														image={menuItems[i*2 + j].image}
+														y={menuItems[i*2 + j].y}/>
+											)
+										})
+									}
+								</Row>
+							)
+						})
+					}
 			</section>
 		</article>
 	</>

@@ -163,3 +163,20 @@
 .modelingProteinContainer img {
     width: 100%;
 }
+
+.menu {
+    background-color: var(--purple-secondary);
+    width: auto;
+    height: 100vh;
+    padding: 0 !important;
+
+    display: grid !important;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.row {
+    width: 100%;
+    display: grid !important;
+    grid-template-columns: 50% 50%;
+    justify-self: center;
+}
