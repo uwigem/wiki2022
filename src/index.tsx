@@ -19,25 +19,25 @@ import { ContentEditor } from './components/ContentEditor/ContentEditor';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // COMMENT/UNCOMMENT BELOW TO ENABLE OR DISABLE FIREBASE TO THE PROJECT
-import * as firebase from 'firebase/app';
-import 'firebase/app'
-import 'firebase/messaging';
-import 'firebase/database';
-import 'firebase/auth';
+ import * as firebase from 'firebase/app';
+ import 'firebase/app'
+ import 'firebase/messaging';
+ import 'firebase/database';
+ import 'firebase/auth';
 
-const firebaseConfig = {
-	apiKey: "AIzaSyBkr6jirFdzkMofucO2z_KzN13hMDeWkVI",
-	authDomain: "uwigem-wikis.firebaseapp.com",
-	databaseURL: "https://uwigem-wikis.firebaseio.com",
-	projectId: "uwigem-wikis",
-	storageBucket: "uwigem-wikis.appspot.com",
-	messagingSenderId: "131891776719",
-	appId: "1:131891776719:web:0bf2382aec94dcdf"
-};
-firebase.initializeApp(firebaseConfig);
+ const firebaseConfig = {
+ 	apiKey: "AIzaSyBkr6jirFdzkMofucO2z_KzN13hMDeWkVI",
+ 	authDomain: "uwigem-wikis.firebaseapp.com",
+ 	databaseURL: "https://uwigem-wikis.firebaseio.com",
+ 	projectId: "uwigem-wikis",
+ 	storageBucket: "uwigem-wikis.appspot.com",
+ 	messagingSenderId: "131891776719",
+ 	appId: "1:131891776719:web:0bf2382aec94dcdf"
+ };
+ firebase.initializeApp(firebaseConfig);
 // let firebase = null;
-// const provider = new firebase.auth.GoogleAuthProvider();
-// firebase.auth().signInWithPopup(provider);
+const provider = new firebase.auth.GoogleAuthProvider();
+firebase.auth().signInWithPopup(provider);
 
 // ENTER THE CURRENT iGEM SEASON YEAR AS IN THE iGEM WIKI LINK (eg 2019.igem.org)
 let currYear = 2022;
