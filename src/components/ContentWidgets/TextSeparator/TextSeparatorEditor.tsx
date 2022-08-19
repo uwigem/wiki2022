@@ -4,11 +4,11 @@ import { TextSeparator } from './TextSeparator';
 import { DEFAULT_SIZE, DEFAULT_COLOR, Color } from './TextSeparatorConstants';
 
 /**
- * SeparatorEditor edits the width, text and color of a separator widget
+ * TextSeparatorEditor edits the width, text and color of a text separator widget
  *
  * Last Modified
- * Jennifer Tao
- * July 14, 2019
+ * Diandre Sabale
+ * August 18, 2022
  */
  export const TextSeparatorEditor: React.FC<WidgetEditorProps> = ({
     editedContent,

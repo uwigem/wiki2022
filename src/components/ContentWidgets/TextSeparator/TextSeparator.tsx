@@ -11,7 +11,7 @@ import { DEFAULT_COLOR, DEFAULT_SIZE } from './TextSeparatorConstants';
  *
  * Last Modified
  * Diandre Sabale
- * July 26, 2022
+ * August 18, 2022
  */
 export const TextSeparator: React.FC<ContentSingularData> = ({
 	plainText_content,
