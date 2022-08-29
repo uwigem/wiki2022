@@ -183,11 +183,16 @@
     box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.25);
     width: 15em;
     margin: auto;
-    padding: 25px;
+    padding: 25px 35px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.factBox p, .factBox h2 {
+    padding: 0 !important;
+    margin: 0 !important
 }
 
 #facts {
@@ -254,9 +259,11 @@
     position: relative;
     z-index: 0;
 
-    padding: 0 !important;
+    padding: 0 0 7.5vh 0 !important;
 
-    /* border: white solid; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #solutionScreen {
@@ -269,17 +276,37 @@
     position: absolute;
 }
 
-#solutionContainer {
+#solutionWhole {
     position: relative;
     z-index: 2;
 
+    margin-top: 5vh;
+}
+
+#containerTop {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+
+    width: 86%;
+    margin: 0 auto -22px
+}
+
+.topBar {
+    align-self: center;
+    height: 6px;
+    width: 100%;
+    background-color: var(--purple-primary);
+}
+
+#solutionContainer {
     border: solid var(--purple-primary) 6px;
     border-top: hidden;
 
-    width: auto;
+    width: 86% !important;
+    max-width: 100% !important;
 
     margin: 0 7% 0 7%;
-    padding: 0 !important;
+    padding: 3vh 3vw 1vh;
 
     color: var(--purple-primary)
 }
@@ -288,7 +315,7 @@
     position: relative;
     z-index: 2 !important;
 
-    margin: 0 !important;
+    margin: 0 20px !important;
     padding: 0 !important;
 
     text-align: center;

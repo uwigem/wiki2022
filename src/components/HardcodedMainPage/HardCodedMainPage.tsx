@@ -86,24 +86,26 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 									gridColumn: 1,
 									gridRow: 1
 								}}>
-								<h2>Fact #1</h2>
-								<p>Tidbit</p>
+								<p style={{alignSelf: 'start'}}>a form of</p>
+								<h2 style={{alignSelf: 'end'}}>Skin Cancer</h2>
 							</div>
 							<div className={styles.factBox}
 								style={{
 									gridColumn: 2,
 									gridRow: 2
 								}}>
-								<h2>Fact #2</h2>
-								<p>Tidbit</p>
+								<p style={{alignSelf: 'start'}}>cause of</p>
+								<h2>7650 deaths</h2>
+								<p style={{alignSelf: 'end'}}>annually</p>
 							</div>
 							<div className={styles.factBox}
 								style={{
 									gridColumn: 3,
 									gridRow: 3
 								}}>
-								<h2>Fact #3</h2>
-								<p>Tidbit</p>
+								<p style={{alignSelf: 'start'}}>caused by</p>
+								<h2>UV Radiation</h2>
+								<p style={{alignSelf: 'end'}}>exposure</p>
 							</div>
 						</div>
 					</Container>
@@ -117,18 +119,24 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 			</section>
 			<section className={styles.ourSolution}>
 				<div id={styles.solutionScreen} />
-				<h1>Our Solution</h1>
-				<Container id={styles.solutionContainer}>
-					{/* <Container className={styles.ourSolutionGrid}>
-						<Row className={"gx-5"}>
-							<Col md={6}><img src="https://2021.igem.org/wiki/images/6/69/T--Washington--rhizomet.svg" alt="Rhizomet text in orange blob"/></Col>
-							<Col md={6}><img src="https://2021.igem.org/wiki/images/thumb/4/44/T--Washington--homepageBacteria.svg/300px-T--Washington--homepageBacteria.svg.png" alt="bacteria" /></Col>
-						</Row>
-					</Container> */}
-					<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Purus faucibus ornare suspendisse sed nisi. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Viverra maecenas accumsan lacus vel facilisis. Rhoncus aenean vel elit scelerisque mauris pellentesque. Eget dolor morbi non arcu risus quis. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Cras sed felis eget velit. Risus pretium quam vulputate dignissim. Sem nulla pharetra diam sit amet nisl suscipit. Ullamcorper malesuada proin libero nunc consequat interdum varius sit amet. Faucibus interdum posuere lorem ipsum. Turpis egestas sed tempus urna et pharetra pharetra massa. Ut tortor pretium viverra suspendisse potenti nullam. Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Facilisi etiam dignissim diam quis enim lobortis. In eu mi bibendum neque egestas congue.   
-					</p>
-				</Container>
+				<div id={styles.solutionWhole}>
+					<div id={styles.containerTop}>
+						<div className={styles.topBar} style={{gridColumn: 1}} />
+						<h1 style={{gridColumn: 2}}>Our Solution</h1>
+						<div className={styles.topBar} style={{gridColumn: 3}} />
+					</div>
+					<div id={styles.solutionContainer}>
+						<p>
+							&emsp; &ensp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Purus faucibus ornare suspendisse sed nisi. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Viverra maecenas accumsan lacus vel facilisis. Rhoncus aenean vel elit scelerisque mauris pellentesque. Eget dolor morbi non arcu risus quis. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Cras sed felis eget velit. Risus pretium quam vulputate dignissim. Sem nulla pharetra diam sit amet nisl suscipit. Ullamcorper malesuada proin libero nunc consequat interdum varius sit amet. Faucibus interdum posuere lorem ipsum. Turpis egestas sed tempus urna et pharetra pharetra massa. Ut tortor pretium viverra suspendisse potenti nullam. Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Facilisi etiam dignissim diam quis enim lobortis. In eu mi bibendum neque egestas congue.
+						</p>
+						<p>
+							&emsp; &ensp; Arcu bibendum at varius vel pharetra. Sapien eget mi proin sed. Adipiscing diam donec adipiscing tristique risus nec feugiat in. Pretium fusce id velit ut tortor pretium viverra. Orci nulla pellentesque dignissim enim sit amet venenatis urna cursus. Nunc lobortis mattis aliquam faucibus purus in. Congue mauris rhoncus aenean vel elit scelerisque mauris. Dui sapien eget mi proin sed. Nunc id cursus metus aliquam eleifend mi. Quisque id diam vel quam elementum pulvinar.
+						</p>
+						<p>
+							&emsp; &ensp; Elit pellentesque habitant morbi tristique senectus et netus. In mollis nunc sed id semper risus in. Ullamcorper a lacus vestibulum sed arcu non odio euismod. Risus ultricies tristique nulla aliquet enim tortor at auctor urna. Odio facilisis mauris sit amet massa vitae tortor condimentum. Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Enim praesent elementum facilisis leo vel fringilla est ullamcorper. Elit sed vulputate mi sit amet mauris commodo quis imperdiet.
+						</p>
+					</div>
+				</div>
 			</section>
 			<section className={styles.howItWorks}>
 				<Container>
