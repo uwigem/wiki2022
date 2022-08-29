@@ -4,13 +4,15 @@
 	/** These colors should be deprecated ASAP */
 	--header-tag-color: black;
 	--main-color: black;
-	--debug-header-color: gray;
+	/* --debug-header-color: gray; */
+	--debug-header-color: orange;
 	--background-color: #ffffff;
 	--error-message-color: red;
 	/**********************************/
 	/** Design guideline colors */
-	--purple-primary: #4d2393;
-	--purple-secondary: #dcd5e7;
+	/* --purple-primary: #4d2393; */
+	--purple-primary: #4B2E83;
+	--purple-secondary: #DACFEF;
 	--gold-primary: #ffbd12;
 	--gold-secondary: #f8e6b9;
 	--white: #FFF;
@@ -43,9 +45,9 @@ a {
 }
 
 .debug-header {
-	height: 18px;
+	height: 1px;
 	background-color: var(--debug-header-color);
-	margin-top: 28px;
+	/* margin-top: 28px; */
 }
 body {
 	margin: 0;
@@ -62,7 +64,7 @@ header {
 
 .App, #root {
 	margin: 0px;
-	margin-top: -18px;
+	/* margin-top: -18px; */
 	padding: 0;
 	height: 100vh;
 	font-family: var(--default-font);
@@ -73,7 +75,7 @@ header {
 }
 
 #root {
-	top: 8px;
+	/* top: 8px; */
 	width: 100%;
 	position: absolute;
 	background-color: var(--background-color);
@@ -326,7 +328,7 @@ p {
 	height: 4px;
 	width: 70px;
 	margin-top: 5px;
-	margin-bottom: 10px;
+	/* margin-bottom: 10px; */
 }
 
 .failure {

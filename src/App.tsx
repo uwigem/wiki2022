@@ -42,6 +42,8 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase }) => {
 	const [contentData, setContentData] = useState<ContentData>(Data.getContentData());
 	// TODO: Change arg back to just debug URL
 	const [pageTitle, setPageTitle] = useState<string>(debugURL); //(debugURL)
+	// const [pageTitle, setPageTitle] = useState<string>(""); //(debugURL)
+	// !!!Change this back to debugURL once done coding main page
 	const [debugMode, setDebugMode] = useState<boolean>(true);
 	const windowWidth = useWindowWidth();
 
@@ -145,6 +147,7 @@ const App: React.FC<AppProps> = ({ IEOREDGE, currYear, firebase }) => {
 			setLoading(false);
 		}, 3000);
 	}
+
 
 	return <div className="App">
 		<EnvironmentContext.Provider value={{ windowWidth, firebase }}>
