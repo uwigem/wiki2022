@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Carousel from 'react-bootstrap/Carousel';
-import { ArrowDown, ArrowBarDown } from 'react-bootstrap-icons'
+import { ArrowDown, ArrowBarDown, ArrowRightCircle } from 'react-bootstrap-icons'
 import styles from './HardCodedMainPage.module.css';
 import { Parallax } from 'react-parallax';
 import { HomepageImpact } from './HomepageImpact/HomepageImpact';
@@ -51,64 +51,82 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 						</Col>
 						<Col md={7}>
 							{/** SIDE IMAGE GOES HERE */}
-							<iframe className={styles.plantCube} src="https://2021.igem.org/Team:Washington/PlantCube" frameBorder="0"></iframe>
+							{/* <iframe className={styles.plantCube} src="https://2021.igem.org/Team:Washington/PlantCube" frameBorder="0"></iframe> */}
 						</Col>
 					</Row>
 				</Container>
 				<div className={styles.scrollDown}>
-					<p>scroll down for more info</p>
+					<p>scroll down for more information</p>
 					<ArrowDown size={24} />
 				</div>
 			</section>
 			<section className={styles.problemContext}>
-				<Container>
-					<h1>Problem Context</h1>
-					<Parallax
-						strength={100}
-						bgImage="https://2021.igem.org/wiki/images/8/85/T--Washington--HomepageParallaxFactory.svg"
-						bgImageStyle={{ width: '100%', height: '110%' }}
-					>
-						<div className={styles.problemContextFactory}>
-
+				<div id={styles.problemScreen} />
+				<div id={styles.problemContent}>
+					<Container id={styles.factsContainer}>
+						<div id={styles.problemHead}>
+							<h1>MELANOMA</h1>
+							<h2>what is it?</h2>
 						</div>
-						<img src="https://2021.igem.org/wiki/images/5/59/T--Washington--HomepageParallaxHeavyMetal.svg" alt="soil with heavy metals" />
-					</Parallax>
-					<p>
-						To keep up with consumer and industrial demand, metal smelteries around the world release slag and emission byproducts that are harmful to people and the environment.
-					</p>
-					<Container className={styles.problemContextStatistics}>
-						<Row className={"gx-5"}>
-							<Col md={4}>
-								<p>
-									In the past year alone, over 30,000 metric tons of arsenic and 11 million metric tons of lead were produced worldwide.
-								</p>
-							</Col>
-							<Col md={4}>
-								<img className={styles.problemContextBeaker} src="https://2021.igem.org/wiki/images/e/ee/T--Washington--homepageBeaker.png" alt="Beaker with metals" />
-							</Col>
-							<Col md={4}>
-								<p>
-									The prevalence for Ulcerative Colitis, an inflammatory bowel disease, is 10-15x higher than expected.
-								</p>
-							</Col>
-						</Row>
+						<div id={styles.melanomaImgs}>
+							<img src={'https://static.vecteezy.com/system/resources/previews/005/020/205/original/melanoma-is-a-dangerous-birthmark-diagnostics-observation-and-inspection-image-for-skin-cancer-prevention-campaign-malignant-or-benign-tumor-illustration-flat-vector.jpg'}
+								style={{
+									gridRow: "2 / end",
+									gridColumn: 1
+								}}/>
+							<img src={'https://i.pinimg.com/originals/9d/ab/89/9dab89bfe2d732e10a0ab8f488af7d86.gif'}
+								style={{
+									gridRow: "1 / 3",
+									gridColumn: 2
+								}}/>
+						</div>
+						<div id={styles.facts}>
+							<div className={styles.factBox}
+								style={{
+									gridColumn: 1,
+									gridRow: 1
+								}}>
+								<h2>Fact #1</h2>
+								<p>Tidbit</p>
+							</div>
+							<div className={styles.factBox}
+								style={{
+									gridColumn: 2,
+									gridRow: 2
+								}}>
+								<h2>Fact #2</h2>
+								<p>Tidbit</p>
+							</div>
+							<div className={styles.factBox}
+								style={{
+									gridColumn: 3,
+									gridRow: 3
+								}}>
+								<h2>Fact #3</h2>
+								<p>Tidbit</p>
+							</div>
+						</div>
 					</Container>
-					<p>
-						Heavy metal contamination by arsenic is a serious health and environmental concern worldwide.Heavy metal contamination by arsenic is a serious health and environmental concern worldwide.Heavy metal contamination by arsenic is a serious health and environmental concern.
-					</p>
-				</Container>
+					<a href='#' target={"_blank"}>
+						<div id={styles.moreFacts}>
+							<p>More Information</p>
+							<ArrowRightCircle size={24}/>
+						</div>
+					</a>
+				</div>
 			</section>
 			<section className={styles.ourSolution}>
-				<Container>
-					<h1>Our Solution</h1>
-					<Container className={styles.ourSolutionGrid}>
+				<div id={styles.solutionScreen} />
+				<h1>Our Solution</h1>
+				<Container id={styles.solutionContainer}>
+					{/* <Container className={styles.ourSolutionGrid}>
 						<Row className={"gx-5"}>
 							<Col md={6}><img src="https://2021.igem.org/wiki/images/6/69/T--Washington--rhizomet.svg" alt="Rhizomet text in orange blob"/></Col>
 							<Col md={6}><img src="https://2021.igem.org/wiki/images/thumb/4/44/T--Washington--homepageBacteria.svg/300px-T--Washington--homepageBacteria.svg.png" alt="bacteria" /></Col>
 						</Row>
-					</Container>
+					</Container> */}
 					<p>
-						We modified the human metallothionein IA protein to have all its 7 binding sites be specific to arsenic. The modified protein can be expressed within bacteria to remediate arsenic from the environment.
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Purus faucibus ornare suspendisse sed nisi. Facilisi etiam dignissim diam quis enim lobortis scelerisque. Viverra maecenas accumsan lacus vel facilisis. Rhoncus aenean vel elit scelerisque mauris pellentesque. Eget dolor morbi non arcu risus quis. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Cras sed felis eget velit. Risus pretium quam vulputate dignissim. Sem nulla pharetra diam sit amet nisl suscipit. Ullamcorper malesuada proin libero nunc consequat interdum varius sit amet. Faucibus interdum posuere lorem ipsum. Turpis egestas sed tempus urna et pharetra pharetra massa. Ut tortor pretium viverra suspendisse potenti nullam. Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Facilisi etiam dignissim diam quis enim lobortis. In eu mi bibendum neque egestas congue.   
 					</p>
 				</Container>
 			</section>
@@ -138,7 +156,7 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 					</Carousel>
 				</Container>
 			</section>
-			<section className={styles.modeling}>
+			{/* <section className={styles.modeling}>
 				<Container>
 					<h1>Modeling</h1>
 					<div className={styles.modelingProteinContainer}>
@@ -148,7 +166,7 @@ export const HardCodedMainPage: React.FC<HardCodedMainPageProps> = ({
 						We modified Metallothionein to bind more specifically to As by using a program called Rosetta to change the Cd and Zn binding sites to As binding sites. The result is a custom design for a Metallothionein protein that sequesters 7 As III ions. We also developed mathematical models of the kinetics of As within an Ecoli cell in order to test the feasibility and efficacy of our proposed system of remediating As.
 					</p>
 				</Container>
-			</section>
+			</section> */}
 			<section className={styles.menu}>
 					{
 						[0,1,2].map(i => {

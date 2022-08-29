@@ -10,7 +10,8 @@
 	--error-message-color: red;
 	/**********************************/
 	/** Design guideline colors */
-	--purple-primary: #4d2393;
+	/* --purple-primary: #4d2393; */
+	--purple-primary: #4B2E83;
 	--purple-secondary: #DACFEF;
 	--gold-primary: #ffbd12;
 	--gold-secondary: #f8e6b9;
