@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/igem-wiki2022-editor/static/css/main.css",
+    "main.js": "/igem-wiki2022-editor/static/js/main.js",
+    "main.js.map": "/igem-wiki2022-editor/static/js/main.js.map",
+    "index.html": "/igem-wiki2022-editor/index.html",
+    "precache-manifest.83cd191b8592d314463b8796a4ebcabe.js": "/igem-wiki2022-editor/precache-manifest.83cd191b8592d314463b8796a4ebcabe.js",
+    "service-worker.js": "/igem-wiki2022-editor/service-worker.js",
+    "static/css/main.css.map": "/igem-wiki2022-editor/static/css/main.css.map",
+    "static/js/main.js.LICENSE.txt": "/igem-wiki2022-editor/static/js/main.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/css/main.css",
+    "static/js/main.js"
+  ]
+}
