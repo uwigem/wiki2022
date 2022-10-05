@@ -6,6 +6,8 @@ import { Person } from '../ContentWidgets/TeamPage/TeamPage';
 import { CarouselImagesContent, CarouselSettings } from '../ContentWidgets/ImageCarousel.tsx/ImageCarousel';
 import { HorizontalDividerProps } from '../ContentWidgets/Layouts/HorizontalDivider/HorizontalDivider';
 import { GridLayoutProps } from '../ContentWidgets/Layouts/GridLayout/GridLayout';
+import { StepsProps } from '../ContentWidgets/Steps/Steps';
+
 
 export type ContentSingularData = {
 	[idx: string]: any
@@ -34,4 +36,5 @@ export type ContentSingularData = {
 	carousel_imagesContents?: CarouselImagesContent[]
     horizontal_divider?: HorizontalDividerProps
     grid_layout?: GridLayoutProps
+	steps_props?: StepsProps[]
 }

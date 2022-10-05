@@ -61,6 +61,7 @@ export const IMAGE_URLS = {
 	"rich-text-editor.svg":"https://2021.igem.org/wiki/images/1/18/T--Washington--rich-text-editor.svg",
 	"separator-vertical.svg":"https://2021.igem.org/wiki/images/0/07/T--Washington--separator-vertical.svg",
 	"stub.svg":"https://2021.igem.org/wiki/images/0/0c/T--Washington--stub.svg",
+	"steps.svg": "https://static.igem.wiki/teams/4441/wiki/steps.svg",
 	"tab.svg":"https://2021.igem.org/wiki/images/9/9e/T--Washington--tab.svg",
 	"video.svg":"https://2021.igem.org/wiki/images/6/65/T--Washington--video.svg"
 }

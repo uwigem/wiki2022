@@ -31,7 +31,8 @@ import { HorizontalDividerEditor } from '../ContentWidgets/Layouts/HorizontalDiv
 import GridLayout from '../ContentWidgets/Layouts/GridLayout/GridLayout';
 import GridLayoutEditor from '../ContentWidgets/Layouts/GridLayout/GridLayoutEditor';
 import { IMAGE_URLS } from '../_data/Constants';
-
+import { Steps } from '../ContentWidgets/Steps/Steps';
+import { StepsEditor } from '../ContentWidgets/Steps/StepsEditor';
 
 export type WidgetEditorProps = {
 	originalContent: ContentSingularData,
@@ -76,7 +77,8 @@ export enum WidgetTypes {
 	CAROUSEL = "CAROUSEL",
     HORIZONTAL_DIVIDER = "HORIZONTAL_DIVIDER",
     IMAGE = "IMAGE",
-    GRID_LAYOUT = "GRID_LAYOUT"
+    GRID_LAYOUT = "GRID_LAYOUT",
+	STEPS = "STEPS"
 }
 
 export const ContentMapping: ContentMappingType = {
@@ -190,7 +192,14 @@ export const ContentMapping: ContentMappingType = {
         displayName: "Grid Layout",
         widgetCategory: WidgetCategories.Layout,
 		imgPreview: IMAGE_URLS["grid.svg"],
-    }
+    },
+	STEPS: {
+        widget: memo(Steps),
+        editor: StepsEditor,
+        displayName: "Steps",
+        widgetCategory: WidgetCategories.Display,
+		imgPreview: IMAGE_URLS["steps.svg"],
+    },
 }
 
 export const ExampleWidget = {

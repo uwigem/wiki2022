@@ -1,0 +1,40 @@
+.error-message {
+	color: var(--errorMessageColor);
+}
+
+.steps {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0px 30px;
+	justify-content: center;
+	
+}
+
+.step {
+	margin: 10px 0px 0px;
+	padding: 0px 8px;
+}
+
+.step-caption {
+	width: 200px;
+	color: black;
+	
+	padding: 5px;
+	word-wrap: break-word;
+}
+
+.step-button {
+	border-radius: 	50%;
+	width: 100px;
+	height: 100px;
+	background-color: var(--gray-10);
+	border: none;
+	font-size: 30px;
+	color: rgb(87, 86, 86);
+	
+}
+
+.step-button:hover {
+	background-color: #dcd5e7;
+	cursor:default;
+}
